@@ -34,8 +34,7 @@
             {{ $currentPage := . }}
             {{ range .Site.Menus.main }}
             <li class="rounded-md p-2 hover:bg-green-light/20 transition-colors">
-                <a href="{{.URL}}">
-                    {{ .Pre }}
+                <a href="{{.URL | absURL }}">
                     <span>{{ .Name }}</span>
                 </a>
             </li>

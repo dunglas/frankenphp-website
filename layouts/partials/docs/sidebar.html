@@ -7,7 +7,7 @@
                     {{ with .links }}
                         {{ range . }}
                         <li>
-            <a {{ if hasPrefix .url "http" }} target="_blank" {{ end }} class="{{ if eq $mainPermalink .url  }}text-green-dark bg-green-light/20 relative font-bold before:top-1/2 before:-translate-y-1/2 {{ end }} py-2 px-2 block" href="{{ .url }}">{{ .title }}</a>
+            <a {{ if hasPrefix .url "http" }} target="_blank" {{ end }} class="{{ if hasSuffix $mainPermalink .url }}text-green-dark bg-green-light/20 relative font-bold before:top-1/2 before:-translate-y-1/2 {{ end }} py-2 px-2 block" href="{{ .url }}">{{ .title }}</a>
         </li>
                         {{ end }}
                     {{ end }}
