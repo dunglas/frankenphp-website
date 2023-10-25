@@ -1,0 +1,20 @@
+title: "Native support for"
+content:
+  - image: "drupal.png"
+    title: "Drupal"
+    url: https://github.com/dunglas/frankenphp-drupal
+  - image: "sulu.png"
+    title: "Sulu"
+    url: https://sulu.io/blog/running-sulu-with-frankenphp
+  - image: "wordpress.png"
+    title: "Wordpress"
+    url: https://github.com/dunglas/frankenphp-wordpress
+  - image: "laravel.png"
+    title: "Laravel"
+    url: https://github.com/dunglas/frankenphp/blob/main/docs/laravel.md
+  - image: "symfony.png"
+    title: "Symfony"
+    url: https://github.com/dunglas/symfony-docker
+  - image: "api-platform.png"
+    title: "API Platform"
+    url: https://api-platform.com/docs/distribution/

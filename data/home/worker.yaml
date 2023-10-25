@@ -1,0 +1,27 @@
+title: "Zoom on the <strong class='text-green'>worker mode</strong>!"
+overtitle: "Worker mode"
+content:
+  - title: "Extensible"
+    content: |
+      Boot your application once and **keep it in memory**!
+  - title: "Seamless"
+    content: |
+      Process incoming requests **without having to boot your app again**
+  - title: "Compatibility"
+    content: |
+      Compatible with API Platform and Symfony thanks to **Symfony Runtime**
+  - title: "Efficiency"
+    content: |
+      Written in **C** and **Go** (awesome concurrency engine)
+  - title: "Speed"
+    content: |
+      According to our benchmarks, **3.5x faster than FPM** with API Platform
+  - title: "Flexibility"
+    content: |
+      Entirely **optional** (unlike alternatives like RoadRunner and Swoole)
+  - title: "Integration"
+    content: |
+      Runs in process: **no network calls**
+  - title: "Simplicity"
+    content: | 
+      Uses plain old superglobals: **no need for PSR-7 etc**

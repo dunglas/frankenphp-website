@@ -1,0 +1,17 @@
+{{ $mainPermalink := .RelPermalink }}
+{{ with .Site.Data.nav }}
+<div
+    class="hidden z-20 text-gray-700 sticky border-r border-r-gray-300 text-sm top-0 h-screen pt-16 transition-all duration-300 | md:block w-72">
+    <nav class="relative w-72 h-full p-8 overflow-y-auto transition-all duration-300">
+            <ul class="flex flex-col gap-2">
+                    {{ with .links }}
+                        {{ range . }}
+                        <li>
+            <a {{ if hasPrefix .url "http" }} target="_blank" {{ end }} class="{{ if eq $mainPermalink .url  }}text-green-dark bg-green-light/20 relative font-bold before:top-1/2 before:-translate-y-1/2 {{ end }} py-2 px-2 block" href="{{ .url }}">{{ .title }}</a>
+        </li>
+                        {{ end }}
+                    {{ end }}
+                </ul>
+    </nav>
+</div>
+{{ end }}
