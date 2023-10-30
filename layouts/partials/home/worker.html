@@ -1,35 +1,67 @@
 {{ with .Site.Data.home.worker }}
-<section id="worker" class="mb-24 pt-12 px-4">
+  <section id="worker" class="py-12 md:py-24 px-4">
     <div class="container relative ">
-        <div class="absolute w-full -translate-y-52 scale-y-75 opacity-40 from-green-light via-transparent to-transparent bg-gradient-to-b aspect-square rounded-full left-1/2 top-0 -translate-x-1/2"></div>
-        <div class="relative text-lg uppercase mb-2 text-purple-light text-center md:text-center">{{ .overtitle }}</div>
-        <h2 class="relative text-5xl font-bold mb-8 text-purple leading-tight text-center md:text-center">{{ .title | safeHTML }}</h2>
-        <div class="flex flex-col-reverse gap-4 items-center justify-center lg:flex-row relative">
-            <div class="md:block relative w-full max-w-sm md:max-w-none h-full md:w-1/2 pointer-events-none mt-4">
-                <img src="/img/worker2.svg" class=" md:-translate-x-20 transition-all duration-500 relative z-10 translate-y-0" alt="" />
-            </div>
-            <div class="flex-1 relative z-10">
-                <ul class="text-base font-light grid grid-cols-2 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 sm:gap-6 ">
-                    {{ with .content }}
-                        {{ range . }}
-                        <li class="group [perspective:1000px] h-full flex flex-col gap-2 justify-center">
-                            <div class="relative h-full w-full rounded-xl transition-all duration-500 lg:[transform-style:preserve-3d] lg:group-hover:[transform:rotateX(180deg)]">
-                                <div class="relative h-full lg:absolute flex flex-col p-4 text-center items-center justify-center inset-0 bg-white shadow-xl rounded-2xl">
-                                    <div class="font-bold text-xl uppercase text-purple">{{ .title }}</div>
-                                    <p class="font-medium text-gray-500 text-sm lg:hidden">{{ .content | markdownify }}</p>
-                                </div>
-                                <div class="hidden lg:flex relative p-6 inset-0 h-full w-full [transform:rotateX(180deg)] [backface-visibility:hidden] shadow-xl bg-purple rounded-2xl items-center justify-center text-center">
-                                    <p class="font-normal text-white text-sm">{{ .content | markdownify }}</p>
-                                </div>
-                            </div>
-                            
-                        </li>
-                        {{ end }}
-                    {{ end }}
-                </ul>
-            </div>
+      <div
+        class="absolute w-full -translate-y-36 md:-translate-y-52 scale-y-75 opacity-40 from-green-light via-transparent to-transparent bg-gradient-to-b aspect-square rounded-full left-1/2 top-0 -translate-x-1/2"
+      ></div>
+      <div
+        class="relative text-lg uppercase mb-2 text-purple-light text-center md:text-center"
+      >
+        {{ .overtitle }}
+      </div>
+      <h2
+        class="relative text-5xl font-bold mb-8 text-purple leading-tight text-center md:text-center"
+      >
+        {{ .title | safeHTML }}
+      </h2>
+      <div
+        class="flex flex-col-reverse gap-4 items-center justify-center lg:flex-row relative"
+      >
+        <div
+          class="md:block relative w-full max-w-sm md:max-w-none h-full md:w-1/2 pointer-events-none mt-4"
+        >
+          <img
+            src="/img/worker2.svg"
+            class=" lg:-translate-x-20 transition-all duration-500 relative z-10 translate-y-0"
+            alt=""
+          />
         </div>
+        <div class="flex-1 relative z-10">
+          <ul
+            class="text-base font-light grid grid-cols-2 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 sm:gap-6 "
+          >
+            {{ with .content }}
+              {{ range . }}
+                <li
+                  class="group [perspective:1000px] h-full flex flex-col gap-2 justify-center"
+                >
+                  <div
+                    class="relative h-full w-full rounded-xl transition-all duration-500 lg:[transform-style:preserve-3d] lg:group-hover:[transform:rotateX(180deg)]"
+                  >
+                    <div
+                      class="relative h-full lg:absolute flex flex-col p-4 text-center items-center justify-center inset-0 bg-white shadow-xl rounded-2xl"
+                    >
+                      <div class="font-bold text-xl uppercase text-purple">
+                        {{ .title }}
+                      </div>
+                      <p class="font-medium text-gray-500 text-sm lg:hidden">
+                        {{ .content | markdownify }}
+                      </p>
+                    </div>
+                    <div
+                      class="hidden lg:flex relative p-6 inset-0 h-full w-full [transform:rotateX(180deg)] [backface-visibility:hidden] shadow-xl bg-purple rounded-2xl items-center justify-center text-center"
+                    >
+                      <p class="font-normal text-white text-sm">
+                        {{ .content | markdownify }}
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              {{ end }}
+            {{ end }}
+          </ul>
+        </div>
+      </div>
     </div>
-
-</section>
+  </section>
 {{ end }}

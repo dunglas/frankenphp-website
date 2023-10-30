@@ -1,17 +1,25 @@
 {{ with .Site.Data.home.features }}
-<div class="container text-center relative max-w-6xl px-12">
-    <div id="lightning" class="absolute w-64 -top-56 hidden lg:block left-full opacity-25">
-    <img src="/img/lightning.svg" class="-translate-x-1/2" alt="" />
+  <div class="container text-center relative max-w-6xl px-12">
+    <div
+      id="lightning"
+      class="absolute w-64 -top-56 hidden lg:block left-0 opacity-25"
+    >
+      <img src="/img/lightning.svg" class="-translate-x-1/2" alt="" />
     </div>
     <div class="text-lg uppercase text-purple-light">{{ .overtitle }}</div>
-    <h2 class="text-5xl font-bold pb-2 mb-20 text-purple leading-tight relative after:w-20 after:rounded-full after:absolute after:bg-green after:h-1 after:left-1/2 after:-translate-x-1/2 after:top-full">{{ .title | safeHTML }}</h2>
+    <h2
+      class="text-5xl font-bold pb-2 mb-20 text-purple leading-tight relative after:w-20 after:rounded-full after:absolute after:bg-green after:h-1 after:left-1/2 after:-translate-x-1/2 after:top-full"
+    >
+      {{ .title | safeHTML }}
+    </h2>
     <div class="grid grid-cols-1 gap-20 | sm:grid-cols-2 | lg:grid-cols-3">
-        {{ with .content }}
+      {{ with .content }}
         {{ range $index, $element := . }}
-        {{ partial "home/feature.html" (dict "image" $element.image "title" $element.title "content" $element.content
-        "id" $index ) }}
+          {{ partial "home/feature.html" (dict "image" $element.image "title" $element.title "content" $element.content
+            "id" $index )
+          }}
         {{ end }}
-        {{ end }}
+      {{ end }}
     </div>
-</div>
+  </div>
 {{ end }}

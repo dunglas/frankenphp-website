@@ -1,21 +1,32 @@
 {{ with .Site.Data.home.hero }}
-<section id="hero" class="bg-purple-dark relative overflow-x-hidden">
+  <section id="hero" class="bg-purple-dark relative overflow-x-hidden">
     <div
-        class="container min-h-screen flex flex-col items-center justify-between relative z-10 pt-24 | md:pt-0 md:landscape:flex-row ">
-
-        <div id="hero-text"
-            class="flex-1 flex justify-center items-center flex-col py-4 | sm:py-12 | md:items-start md:my-0 md:landscape:w-1/2 |">
-            <img src="/img/logo_darkbg.svg" alt="Logo FrankenPHP" />
-            <h1 class="text-white text-3xl mt-8 font-extrabold text-center | sm:text-4xl | md:text-left">
-                {{ .title | safeHTML }}
-            </h1>
-            <a {{ if hasPrefix .link.url "http" }} target="_blank" {{ end }} href="{{ .link.url }}"
-            class="relative text-purple text-lg py-2 px-4 mt-8 font-bold transition-all duration-300 before:pointer-events-none before:transition-all before:duration-300 before:z-0 before:bg-green before:w-full before:h-full before:absolute-center after:z-0 after:absolute-center after:w-full after:h-full after:pointer-events-none after:border-2 after:border-green/0 after:scale-150 after:transition-all after:duration-300 hover:before:scale-50 hover:before:bg-green/0 hover:after:border-green hover:after:scale-100 hover:text-green">
-                <span class="relative">{{ .link.text }}</span>
-            </a>
-        </div>
-        <img id="hero-img" class="self-end max-w-xs mb-4 | sm:max-w-md | md:max-w-lg md:w-1/2 "
-            src="/img/elephant_cover.svg" alt="" />
+      class="container min-h-screen flex flex-col items-center justify-between relative z-10 pt-24 | md:pt-0 md:landscape:flex-row "
+    >
+      <div
+        id="hero-text"
+        class="flex-1 flex justify-center items-center flex-col py-4 | sm:py-12 | md:items-start md:my-0 md:landscape:w-1/2 |"
+      >
+        <img src="/img/logo_darkbg.svg" alt="Logo FrankenPHP" />
+        <h1
+          class="text-white text-3xl mt-8 font-extrabold text-center | sm:text-4xl | md:text-left"
+        >
+          {{ .title | safeHTML }}
+        </h1>
+        <a
+          {{ if hasPrefix .link.url "http" }}target="_blank"{{ end }}
+          href="{{ .link.url }}"
+          class="relative text-purple text-lg py-2 px-4 mt-8 font-bold transition-all duration-300 before:pointer-events-none before:transition-all before:duration-300 before:z-0 before:bg-green before:w-full before:h-full before:absolute-center after:z-0 after:absolute-center after:w-full after:h-full after:pointer-events-none after:border-2 after:border-green/0 after:scale-150 after:transition-all after:duration-300 hover:before:scale-50 hover:before:bg-green/0 hover:after:border-green hover:after:scale-100 hover:text-green"
+        >
+          <span class="relative">{{ .link.text }}</span>
+        </a>
+      </div>
+      <img
+        id="hero-img"
+        class="self-end max-w-xs mb-4 | sm:max-w-md | md:max-w-lg md:w-1/2 "
+        src="/img/elephant_cover.svg"
+        alt=""
+      />
     </div>
-</section>
+  </section>
 {{ end }}

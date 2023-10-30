@@ -121,11 +121,14 @@ function fixLinks($content)
 function addFrontmatter($content)
 {
     if (preg_match('/#\s+([^\n]+)/', $content, $matches)) {
-        $title = "FrankenPHP | " . $matches[1];
+        $navtitle = $matches[1];
+        if (str_starts_with(strtolower($matches[1]), 'frankenphp')) $title = $matches[1];
+        else $title = "FrankenPHP | " . $matches[1];
     } else {
+        $navtitle = "";
         $title = "FrankenPHP";
     }
-    $content = "---\nlayout: docs\ntitle: \"$title\"\n---\n$content";
+    $content = "---\nlayout: docs\ntitle: \"$title\"\nnav: \"$navtitle\"\n---\n$content";
     return $content;
 }
 

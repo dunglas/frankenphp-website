@@ -1,80 +1,156 @@
-{{define "head"}}
-<script>
+{{ define "head" }}
+  <script>
     // Set things up
     window.addEventListener(
-        "load",
-        (event) => {
-            const options = {
-                root: null, // La fenêtre du navigateur sera la zone d'intersection
-                rootMargin: '0px 0px 0px 0px', // Marges en haut, à droite, en bas et à gauche
-                threshold: 0.3, // Le seuil d'intersection (à personnaliser)
-            };
-            const observer = new IntersectionObserver(callback, options);
+      "load",
+      (event) => {
+        const options = {
+          root: null, // La fenêtre du navigateur sera la zone d'intersection
+          rootMargin: "0px 0px 0px 0px", // Marges en haut, à droite, en bas et à gauche
+          threshold: 0.3, // Le seuil d'intersection (à personnaliser)
+        };
+        const observer = new IntersectionObserver(callback, options);
 
-            observer.observe(document.getElementById("dab"));
-            for (i = 0; i<12; i++) {
-                observer.observe(document.getElementById(`bloc-${i}`));
-            }
-            observer.observe(document.getElementById("code"));
-            observer.observe(document.getElementById("getting-started"));
-            parallax(document.getElementById("hero"), document.getElementById("hero-text"), -0.6, "Y");
-        },
-        false,
+        observer.observe(document.getElementById("dab"));
+        for (i = 0; i < 12; i++) {
+          observer.observe(document.getElementById(`bloc-${i}`));
+        }
+        observer.observe(document.getElementById("code"));
+        observer.observe(document.getElementById("getting-started"));
+        parallax(
+          document.getElementById("hero"),
+          document.getElementById("hero-text"),
+          -0.6,
+          "Y",
+        );
+      },
+      false,
     );
 
     function displayEntry(entry) {
-        const idEntry = entry.target.id;
-        if (/^bloc-\d+$/.test(idEntry)) {
-            replaceClass(entry.target, "opacity-100", "opacity-0", entry.isIntersecting);
+      const idEntry = entry.target.id;
+      if (/^bloc-\d+$/.test(idEntry)) {
+        replaceClass(
+          entry.target,
+          "opacity-100",
+          "opacity-0",
+          entry.isIntersecting,
+        );
+      } else
+        switch (idEntry) {
+          case "dab":
+            replaceClass(
+              entry.target,
+              "scale-100",
+              "scale-75",
+              entry.isIntersecting,
+            );
+            replaceClass(
+              entry.target,
+              "translate-x-0",
+              "translate-x-[30%]",
+              entry.isIntersecting,
+            );
+            replaceClass(
+              document.getElementById("shape"),
+              "rotate-0",
+              "rotate-45",
+              entry.isIntersecting,
+            );
+            break;
+          case "code":
+            replaceClass(
+              document.getElementById("code-legend"),
+              "opacity-100",
+              "opacity-0",
+              entry.isIntersecting,
+            );
+            replaceClass(
+              document.getElementById("code-block"),
+              "opacity-100",
+              "opacity-0",
+              entry.isIntersecting,
+            );
+            replaceClass(
+              document.getElementById("code-legend"),
+              "-translate-x-0",
+              "-translate-x-1/2",
+              entry.isIntersecting,
+            );
+            replaceClass(
+              document.getElementById("code-block"),
+              "translate-x-0",
+              "translate-x-1/2",
+              entry.isIntersecting,
+            );
+            replaceClass(
+              document.getElementById("lightning2"),
+              "scale-100",
+              "scale-0",
+              entry.isIntersecting,
+            );
+          case "getting-started":
+            replaceClass(
+              document.getElementById("getting-started-code"),
+              "opacity-100",
+              "opacity-50",
+              entry.isIntersecting,
+            );
+            replaceClass(
+              document.getElementById("getting-started-legend"),
+              "opacity-100",
+              "opacity-50",
+              entry.isIntersecting,
+            );
+            replaceClass(
+              document.getElementById("getting-started-code"),
+              "-translate-x-0",
+              "-translate-x-1/2",
+              entry.isIntersecting,
+            );
+            replaceClass(
+              document.getElementById("getting-started-legend"),
+              "translate-x-0",
+              "translate-x-1/2",
+              entry.isIntersecting,
+            );
+            break;
         }
-        else switch (idEntry) {
-            case "dab":
-                replaceClass(entry.target, "scale-100", "scale-75", entry.isIntersecting);
-                replaceClass(entry.target, "translate-x-0", "translate-x-[30%]", entry.isIntersecting);
-                replaceClass(document.getElementById("shape"), "rotate-0", "rotate-45", entry.isIntersecting);
-                break;
-            case "code":
-                replaceClass(document.getElementById("code-legend"), "opacity-100", "opacity-0", entry.isIntersecting);
-                replaceClass(document.getElementById("code-block"), "opacity-100", "opacity-0", entry.isIntersecting);
-                replaceClass(document.getElementById("code-legend"), "-translate-x-0", "-translate-x-1/2", entry.isIntersecting);
-                replaceClass(document.getElementById("code-block"), "translate-x-0", "translate-x-1/2", entry.isIntersecting);
-                replaceClass(document.getElementById("lightning2"), "scale-100", "scale-0", entry.isIntersecting);
-            case "getting-started":
-                replaceClass(document.getElementById("getting-started-code"), "opacity-100", "opacity-50", entry.isIntersecting);
-                replaceClass(document.getElementById("getting-started-legend"), "opacity-100", "opacity-50", entry.isIntersecting);
-                replaceClass(document.getElementById("getting-started-code"), "-translate-x-0", "-translate-x-1/2", entry.isIntersecting);
-                replaceClass(document.getElementById("getting-started-legend"), "translate-x-0", "translate-x-1/2", entry.isIntersecting);
-                break;
-        }
-        let entryText = document.querySelector(".entry");
-        console.log(`Intersecting: ${entry.isIntersecting} ${entry.target.id}`);
+      let entryText = document.querySelector(".entry");
+      console.log(`Intersecting: ${entry.isIntersecting} ${entry.target.id}`);
     }
 
     let callback = function (entries, observer) {
-        entries.forEach(entry => {
-            displayEntry(entry);
-        });
+      entries.forEach((entry) => {
+        displayEntry(entry);
+      });
     };
 
     function replaceClass(el, classToAdd, classToRemove, condition) {
-        if (condition) {
-            if (!el.classList.contains(classToAdd)) el.classList.add(classToAdd);
-            if (el.classList.contains(classToRemove)) el.classList.remove(classToRemove);
-        } else {
-            if (el.classList.contains(classToAdd)) el.classList.remove(classToAdd);
-            if (!el.classList.contains(classToRemove)) el.classList.add(classToRemove);
-        }
+      if (condition) {
+        if (!el.classList.contains(classToAdd)) el.classList.add(classToAdd);
+        if (el.classList.contains(classToRemove))
+          el.classList.remove(classToRemove);
+      } else {
+        if (el.classList.contains(classToAdd)) el.classList.remove(classToAdd);
+        if (!el.classList.contains(classToRemove))
+          el.classList.add(classToRemove);
+      }
     }
-</script>
-{{end}}
-{{define "main"}}
-{{ partial "home/hero.html" . }}
-{{ partial "home/getting_started.html" . }}
-<section id="features" aria-labelledby="features-heading" class="py-12 relative">
+  </script>
+{{ end }}
+{{ define "main" }}
+  {{ partial "home/hero.html" . }}
+  {{ partial "home/getting_started.html" . }}
+  {{ partial "home/modern.html" . }}
+  {{ partial "home/technos.html" . }}
+  {{ partial "home/worker.html" . }}
+  {{ partial "home/install_code.html" . }}
+  <section
+    id="features"
+    aria-labelledby="features-heading"
+    class="pt-12 pb-40 relative"
+  >
     {{ partial "home/features.html" . }}
-</section>
-{{ partial "home/modern.html" . }}
-{{ partial "home/technos.html" . }}
-{{ partial "home/worker.html" . }}
-{{ partial "home/install_code.html" . }}
-{{end}}
+  </section>
+{{ end }}

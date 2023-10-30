@@ -1,36 +1,64 @@
 {{ with .Site.Data.home.technos }}
-<section id="technos" class="w-full my-8 relative">
-    <div class="absolute z-20 h-full w-[10vw] bg-gradient-to-r from-white to-transparent left-0 top-0"></div>
-    <div class="absolute z-20 h-full w-[10vw] bg-gradient-to-l from-white to-transparent right-0 top-0"></div>
+  <section id="technos" class="w-full relative">
+    <div
+      class="absolute z-20 h-full w-[10vw] bg-gradient-to-r from-white to-transparent left-0 top-0"
+    ></div>
+    <div
+      class="absolute z-20 h-full w-[10vw] bg-gradient-to-l from-white to-transparent right-0 top-0"
+    ></div>
     <div class="container text-center relative">
-        <h2 class="text-5xl text-purple font-bold mb-8 leading-tight ">{{ .title }}</h2>
-        <div class="relative w-full h-32 xl:h-40">
-            <div class="flex flex-row gap-8 absolute w-[700%] sm:w-[500%] md:w-[500%] lg:w-[350%] animate-defile">
-                {{ with .content }}
-                {{ range $index, $element := . }}
-                <a target="_blank" href="{{ .url }}" class="w-full grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img class="object-contain w-full h-full mb-2" src="/img/technos/{{ .image }}" alt={{ .title }} />
-                </a>
-                {{ end }}
-                {{ end }}
-                {{ with .content }}
-                {{ range $index, $element := . }}
-                <a target="_blank" href="{{ .url }}"
-                    class="w-full grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img class="object-contain w-full h-full mb-2" src="/img/technos/{{ .image }}" alt={{ .title }} />
-                </a>
-                {{ end }}
-                {{ end }}
-                {{ with .content }}
-                {{ range $index, $element := . }}
-                <a target="_blank" href="{{ .url }}"
-                    class="w-full grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img class="object-contain w-full h-full mb-2" src="/img/technos/{{ .image }}" alt={{ .title }} />
-                </a>
-                {{ end }}
-                {{ end }}
-            </div>
+      <h2 class="text-5xl text-purple font-bold mb-8 leading-tight ">
+        {{ .title }}
+      </h2>
+      <div class="relative w-full h-32">
+        <div class="flex flex-row gap-8 absolute animate-defile">
+          {{ with .content }}
+            {{ range $index, $element := . }}
+              <a
+                target="_blank"
+                href="{{ .url }}"
+                class="w-36 lg:w-52 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+              >
+                <img
+                  class="object-contain w-full h-full mb-2"
+                  src="/img/technos/{{ .image }}"
+                  alt="{{ .title }}"
+                />
+              </a>
+            {{ end }}
+          {{ end }}
+          {{ with .content }}
+            {{ range $index, $element := . }}
+              <a
+                target="_blank"
+                href="{{ .url }}"
+                class="w-36 lg:w-52 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+              >
+                <img
+                  class="object-contain w-full h-full mb-2"
+                  src="/img/technos/{{ .image }}"
+                  alt="{{ .title }}"
+                />
+              </a>
+            {{ end }}
+          {{ end }}
+          {{ with .content }}
+            {{ range $index, $element := . }}
+              <a
+                target="_blank"
+                href="{{ .url }}"
+                class="w-36 lg:w-52 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+              >
+                <img
+                  class="object-contain w-full h-full mb-2"
+                  src="/img/technos/{{ .image }}"
+                  alt="{{ .title }}"
+                />
+              </a>
+            {{ end }}
+          {{ end }}
         </div>
+      </div>
     </div>
-</section>
+  </section>
 {{ end }}

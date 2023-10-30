@@ -9,7 +9,7 @@ docker: |
 standard: |
   ```bash
   # Command line
-  Frankenphp php-server
+  frankenphp php-server
   ```
 content: |
   Get a production-grade PHP server up and running in just one command!
