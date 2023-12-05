@@ -1,11 +1,10 @@
-title: "It's so <strong class='text-green'>easy</strong> to configure!"
+title: So <strong class="text-green">easy</strong> to configure!
 overtitle: "Fast as lightning"
 code: |
     ```caddyfile
     {
         # Enable FrankenPHP
         frankenphp
-        # Configure when the directive must be executed
         order php_server before file_server
     }
 
@@ -17,4 +16,4 @@ code: |
     }
     ```
 content: |
-  Less than five lines of code: it's now all you need to start a production-grade PHP server (automatic HTTPS, HTTP/3, Zstandard compression...), powered by Caddy.
+  Five lines of config: it's now all you need to start a production-grade PHP server (automatic HTTPS, HTTP/3, Zstandard compression...), powered by Caddy.

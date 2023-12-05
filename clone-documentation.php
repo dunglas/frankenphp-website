@@ -1,6 +1,6 @@
 <?php
 // Variables
-$githubKey = getenv("GITHUB_KEY");
+$githubKey = $_SERVER["GITHUB_KEY"];
 if ($githubKey === false) {
     echo "The GITHUB_KEY environment variable is not defined.";
     $githubKey = "XXX";

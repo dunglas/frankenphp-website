@@ -2,14 +2,15 @@ title: "Get <strong class='text-green'>started</strong>!"
 layout: partials/home/getting_started
 overtitle: "One command to run them all"
 docker: |
-  ```docker
+  ```bash
   # Docker
-  docker -v $PWD:/app/public -p 443:443 dunglas/frankenphp
+  docker -v $PWD:/app/public -p 443:443 \
+    run dunglas/frankenphp
   ```
 standard: |
   ```bash
-  # Command line
-  frankenphp php-server
+  # Static binary
+  ./frankenphp php-server
   ```
 content: |
   Get a production-grade PHP server up and running in just one command!

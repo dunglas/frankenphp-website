@@ -4,15 +4,7 @@ content:
   - image: "/img/box.svg"
     title: "Extensible"
     content: |
-      Compatible with most PHP extensions and Caddy modules. PHP 8.2, compatible with most PHP extensions
-  - image: "/img/reload.svg"
-    title: "Graceful reload"
-    content: |
-      Update applications, ensuring uninterrupted service and minimal downtime with graceful reloads.
-  - image: "/img/worker.svg"
-    title: "Worker mode"
-    content: |
-      Boot your application once and keep it in memory! It is ready to handle incoming requests in a few milliseconds. FrankenPHP relies on Go's iconic feature: goroutines!
+      Compatible with PHP 8.2+, most PHP extensions and all Caddy modules.
   - image: "/img/one.svg"
     title: "Only one service"
     content: |
@@ -20,7 +12,11 @@ content:
   - image: "/img/rocket.svg"
     title: "Easy deploy"
     content: |
-      FrankenPHP is a Cloud Native application shipped as a ready-to-use single Docker image. It is compatible with Kubernetes and all modern cloud platforms. If you don't want to use Docker, it's also supported.
+      FrankenPHP is a Cloud Native application shipped as a ready-to-use single Docker image. It is compatible with Kubernetes and all modern cloud platforms. If you don't want to use Docker, a static binary is also available.
+  - image: "/img/worker.svg"
+    title: "Worker mode"
+    content: |
+      Boot your application once and keep it in memory! It is ready to handle incoming requests in a few milliseconds.
   - image: "/img/bulb.svg"
     title: "103 Early Hints"
     content: |
@@ -32,7 +28,7 @@ content:
   - image: "/img/zip.svg"
     title: "Zstandard and Gzip compression"
     content: |
-      Enhance Your Data Compression Capabilities
+      Modern compression formats are supported out-of-the-box.
   - image: "/img/log.svg"
     title: "Structured logging"
     content: |
@@ -40,13 +36,16 @@ content:
   - image: "/img/metrics.svg"
     title: "Prometheus metrics and tracing"
     content: |
-      Thanks to Caddy, various Prometheus metrics are exposed!
+      Built-in Prometheus support!
   - image: "/img/http.svg"
     title: "HTTP/2 & HTTP/3"
     content: |
-      Native support for HTTPS, HTTP/2 and even **HTTP/3**
+      Native support for HTTPS, HTTP/2 and **HTTP/3**.
   - image: "/img/https.svg"
     title: "HTTPS Automation"
     content: |
-      Automatic HTTPS certificate generation, renewal and revocation
-      
+      Automatic HTTPS certificate generation, renewal and revocation.
+  - image: "/img/reload.svg"
+    title: "Graceful reload"
+    content: |
+      Deploy your apps with zero downtime thanks to graceful reloads.
