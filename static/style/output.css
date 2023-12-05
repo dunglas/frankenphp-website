@@ -1988,10 +1988,6 @@ pre {
   font-weight: 500;
 }
 
-.font-normal {
-  font-weight: 400;
-}
-
 .font-semibold {
   font-weight: 600;
 }
@@ -2166,18 +2162,6 @@ pre {
 
 section {
   overflow-x: clip;
-}
-
-.\[backface-visibility\:hidden\] {
-  backface-visibility: hidden;
-}
-
-.\[perspective\:1000px\] {
-  perspective: 1000px;
-}
-
-.\[transform\:rotateX\(180deg\)\] {
-  transform: rotateX(180deg);
 }
 
 .before\:pointer-events-none::before {
@@ -2741,6 +2725,14 @@ section {
     width: 50%;
   }
 
+  .md\:w-1\/3 {
+    width: 33.333333%;
+  }
+
+  .md\:w-\[40\%\] {
+    width: 40%;
+  }
+
   .md\:max-w-lg {
     max-width: 32rem;
   }
@@ -2802,10 +2794,6 @@ section {
 }
 
 @media (min-width: 1024px) {
-  .lg\:absolute {
-    position: absolute;
-  }
-
   .lg\:-top-5 {
     top: -1.25rem;
   }
@@ -2946,17 +2934,9 @@ section {
     color: currentColor;
   }
 
-  .lg\:\[transform-style\:preserve-3d\] {
-    transform-style: preserve-3d;
-  }
-
   .lg\:before\:h-24::before {
     content: var(--tw-content);
     height: 6rem;
-  }
-
-  .group:hover .lg\:group-hover\:\[transform\:rotateX\(180deg\)\] {
-    transform: rotateX(180deg);
   }
 
   .lg\:prose-img\:max-w-xl :is(:where(img):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
