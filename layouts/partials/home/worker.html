@@ -33,25 +33,18 @@
             {{ with .content }}
               {{ range . }}
                 <li
-                  class="group [perspective:1000px] h-full flex flex-col gap-2 justify-center"
+                  class="group h-full flex flex-col gap-2 justify-center"
                 >
                   <div
-                    class="relative h-full w-full rounded-xl transition-all duration-500 lg:[transform-style:preserve-3d] lg:group-hover:[transform:rotateX(180deg)]"
+                    class="relative h-full w-full rounded-xl"
                   >
                     <div
-                      class="relative h-full lg:absolute flex flex-col p-4 text-center items-center justify-center inset-0 bg-white shadow-xl rounded-2xl"
+                      class="relative h-full flex flex-col p-4 text-center items-center justify-center inset-0 bg-white shadow-xl rounded-2xl"
                     >
                       <div class="font-bold text-xl uppercase text-purple">
                         {{ .title }}
                       </div>
-                      <p class="font-medium text-gray-500 text-sm lg:hidden">
-                        {{ .content | markdownify }}
-                      </p>
-                    </div>
-                    <div
-                      class="hidden lg:flex relative p-6 inset-0 h-full w-full [transform:rotateX(180deg)] [backface-visibility:hidden] shadow-xl bg-purple rounded-2xl items-center justify-center text-center"
-                    >
-                      <p class="font-normal text-white text-sm">
+                      <p class="font-medium text-gray-500 text-sm">
                         {{ .content | markdownify }}
                       </p>
                     </div>
