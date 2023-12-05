@@ -1,0 +1,80 @@
+<script>
+  function handleChange(checkbox) {
+    if (checkbox.checked == true) {
+      document.body.classList.add("overflow-y-hidden");
+    } else {
+      document.body.classList.remove("overflow-y-hidden");
+    }
+  }
+</script>
+
+<input
+  class="invisible absolute pointer-events-none peer"
+  type="checkbox"
+  name="hamburger-toggle"
+  id="hamburger-toggle"
+  aria-label="Toggle Navigation"
+  onchange="handleChange(this);"
+/>
+<header
+  class="{{ if .IsHome }}
+    absolute text-white
+  {{ else }}
+    bg-white/75 fixed top-0 backdrop-blur-sm text-purple shadow-header border-b
+    border-gray-300
+  {{ end }} left-0 z-30 w-full top-0 group"
+>
+  <div
+    class="h-16 p-4 mx-auto flex flex-row items-center justify-end max-w-8xl"
+  >
+    <a href="/" class="block h-6 mr-auto" aria-label="Home">
+      {{ partial "logo.html" . }}
+    </a>
+    <div class="hidden lg:flex flex-row items-center gap-4">
+      {{ partial "menu.html" . }}
+    </div>
+    <div>
+      <div class="w-7 h-5"></div>
+      <!-- hamburger button space-->
+    </div>
+  </div>
+  <!-- sidebar menu end-->
+</header>
+<label
+  for="hamburger-toggle"
+  class="fixed inset-0 backdrop-blur-sm z-30 bg-purple-dark/60 transition-all duration-500 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto"
+></label>
+<div
+  class="
+            fixed z-50 inset-y-0 transition-all duration-500 left-full top-0 w-5/6 max-w-md bg-white shadow-md text-purple flex flex-col
+            peer-checked:-translate-x-full peer-checked:shadow-xl
+            lg:hidden
+            "
+>
+  {{ partial "menu.html" . }}
+</div>
+<div class="fixed top-5 right-5 z-50 group">
+  <label
+    for="hamburger-toggle"
+    class="{{ if .IsHome }}
+      before:bg-purple-dark/50 before:w-10 before:h-10 before:z-0
+      before:rounded-full before:absolute
+      peer-checked:group-[]:before:bg-transparent
+    {{ end }} 
+        group w-7 h-5 flex relative items-center justify-center z-50 cursor-pointer lg:hidden"
+  >
+    <div
+      class="{{ if .IsHome }}
+        bg-white after:bg-white before:bg-white peer-checked:group-[]:bg-purple
+        peer-checked:group-[]:after:bg-purple
+        peer-checked:group-[]:before:bg-purple
+      {{ else }}
+        bg-purple before:bg-purple after:bg-purple
+      {{ end }} 
+        z-50 h-0.75 transition-all w-8
+        after:absolute after:w-full after:left-1/2 after:h-0.75 after:-translate-x-1/2 after:transition-all after:bottom-0
+        before:absolute before:w-full before:h-0.75 before:left-1/2 before:-translate-x-1/2 before:transition-all before:top-0
+        peer-checked:group-[]:w-0 peer-checked:group-[]:transition-none peer-checked:group-[]:before:top-1/2 peer-checked:group-[]:after:top-1/2 peer-checked:group-[]:before:-rotate-45 peer-checked:group-[]:before:-translate-y-1/2 peer-checked:group-[]:after:rotate-45 peer-checked:group-[]:after:-translate-y-1/2"
+    ></div>
+  </label>
+</div>

@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <div class="max-w-8xl mx-auto overflow-x-clip pb-40">
+    <div class="flex flex-row items-start justify-start">
+      {{ partial "docs/sidebar.html" . }}
+      <div
+        class="px-10 pb-6 pt-32 md:pt-24 prose flex-1 overflow-x-hidden prose-img:max-w-full max-w-none lg:prose-img:max-w-xl"
+      >
+        {{ .Content | markdownify | safeHTML }}
+      </div>
+    </div>
+  </div>
+{{ end }}

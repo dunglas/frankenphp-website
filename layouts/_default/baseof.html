@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Modern application server for PHP." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@dunglas" />
+    <meta name="twitter:creator" content="@dunglas" />
+    <meta
+      name="twitter:title"
+      content="FrankenPHP: the modern PHP app server"
+    />
+    <meta
+      name="twitter:description"
+      content="FrankenPHP is a new app server for PHP apps (built on top of Caddy) and a library to embed the PHP interpreter in Go web servers."
+    />
+    <meta name="twitter:image" content="https://frankenphp.dev/card.png" />
+    <meta name="og:image" content="https://frankenphp.dev/card.png" />
+    <meta name="og:title" content="FrankenPHP: the modern PHP app server" />
+    <meta
+      name="og:description"
+      content="FrankenPHP is a new app server for PHP apps (built on top of Caddy) and a library to embed the PHP interpreter in Go web servers."
+    />
+    <title>{{ .Title }}</title>
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- 180×180 -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="/style/output.css" />
+    <link rel="stylesheet" href="/style/syntax.css" />
+    <script src="/js/parallax.js"></script>
+    {{ block "head" . }}{{ end }}
+  </head>
+  <body class="min-h-[100vh] overflow-x-hidden">
+    <div>
+      {{ partial "nav.html" . }}
+      {{ block "main" . }}{{ end }}
+    </div>
+    <footer
+      class="relative bg-purple-dark min-h-[72px] pt-8 pb-12 text-purple text-center before:bg-purple-dark before:clip-path-flag before:w-full before:h-12 before:absolute before:top-px before:transform before:-translate-y-full before:left-0 | lg:before:h-24"
+    >
+      <img
+        src="/img/elephant_footer.svg"
+        alt=""
+        class="h-20 w-20 absolute bottom-full left-1/2 transform translate-y-[0.5px] -translate-x-1/2"
+      />
+      <p class="text-sm text-white mb-1">
+        Brought to you by
+        <a
+          class="footer-link"
+          href="https://dunglas.dev/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Kévin Dunglas
+        </a>
+        , creator of
+        <a
+          href="https://api-platform.com"
+          class="footer-link"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          API Platform
+        </a>
+        and
+        <a
+          href="https://symfony.com"
+          target="_blank"
+          rel="noreferrer noopener"
+          class="footer-link"
+        >
+          Symfony
+        </a>
+        Core Team member.
+      </p>
+      <p class="text-sm text-white mb-1">
+        Design by
+        <a
+          class="footer-link"
+          href="https://github.com/ginifizz"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Laury Sorriaux
+        </a>
+        .
+      </p>
+      <p class="text-xs text-white">
+        Sponsored by
+        <a
+          class="footer-link"
+          href="https://les-tilleuls.coop/en"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Les-Tilleuls.coop
+        </a>
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+{{ with .Site.Data.home.install_code }}
+  <section id="code" class="bg-white py-12 md:py-24 relative">
+    <div
+      id="lightning2"
+      class="transition-all duration-500 absolute w-24 top-5 lg:-top-5 left-0 lg:left-auto lg:right-1/2 opacity-25"
+    >
+      <img
+        src="/img/lightning.svg"
+        class="-rotate-45 lg:-translate-x-1/3"
+        alt=""
+      />
+    </div>
+    <div class="container flex flex-col lg:flex-row gap-12 lg:gap-24">
+      <div id="code-legend" class="flex-1 transition-all duration-700">
+        <div
+          class="text-lg uppercase text-purple-light text-center lg:text-left"
+        >
+          {{ .overtitle }}
+        </div>
+        <h2
+          class="text-5xl font-bold mb-6 text-purple leading-tight text-center lg:text-left"
+        >
+          {{ .title | safeHTML }}
+        </h2>
+        <div
+          class="text-gray-800 text-lg leading-relaxed text-center lg:text-left"
+        >
+          {{ .content }}
+        </div>
+      </div>
+      <div
+        id="code-block"
+        class="transition-all duration-500 relative w-full max-w-xl mx-auto lg:w-1/2 before:w-full before:h-full before:absolute before:z-10 before:rotate-6 before:bg-green before:rounded-xl before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 after:bg-green-light after:-rotate-3 after:scale-x-110 after:w-full after:h-full after:rounded-xl after:absolute after:z-10 after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2"
+      >
+        <div class="relative z-20 bg-purple-dark p-10 rounded-xl">
+          <pre><code>{{ .code | markdownify | safeHTML }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}

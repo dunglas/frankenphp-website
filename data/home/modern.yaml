@@ -1,0 +1,16 @@
+title: "<strong class='text-green'>Moderner</strong> PHP Than Ever!"
+overtitle: "Ready for the future?"
+link:
+  text: "Try it"
+  url: "/docs/"
+content:
+  - > 
+    The official PHP executor is embedded in a state-of-the-art web server: **[Caddy](https://caddyserver.com)**
+  - >
+    Native support for HTTP 1, 2 and **3**
+  - >
+    Automatic **HTTPS** certificates generation and renewal (Let's Encrypt or ZeroSSL)
+  - >
+    Copy your PHP files in the document root, that’s all!
+  - >
+    Popular PHP extensions, including **OPcache** and **XDebug**, are natively supported!

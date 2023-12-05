@@ -1,0 +1,27 @@
+title: 'Make your PHP apps <strong class="text-green">faster than ever</strong>!'
+overtitle: "Worker mode"
+content:
+  - title: "Worker apps"
+    content: |
+      Boot your app once, it **stays in memory**!
+  #- title: "Seamless"
+  #  content: |
+  #    Process incoming requests **without having to boot your app again**
+  - title: "Straightforward"
+    content: |
+      Natively supported by Symfony, API Platform, Laravel...
+  - title: "Simple"
+    content: |
+      Uses plain old superglobals: **no need for PSR-7**.
+  - title: "Fast"
+    content: |
+      According to our benchmarks, **3.5x faster than FPM** on API Platform apps.
+  - title: "Efficient"
+    content: |
+      FrankenPHP is written in **Go** and **C**. It relies on Go's iconic feature: goroutines!
+  - title: "Optional"
+    content: |
+      Your app can be served as-is, even if it isn't compatible with the worker mode.
+  - title: "Easy Deploy"
+    content: |
+      Runs in process: one binary, **no external service needed**.

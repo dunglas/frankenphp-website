@@ -1,0 +1,20 @@
+
+languageCode: 'en-us'
+title: 'FrankenPHP: the modern PHP app server'
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    noClasses: false
+menu:
+  main:
+  - name: Documentation
+    pageRef: /docs/
+build:
+  ignoreFiles:
+      - "^home/"
+taxonomies:
+relativeURLs: true

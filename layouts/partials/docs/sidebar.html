@@ -1,0 +1,86 @@
+{{ $mainPermalink := .RelPermalink }}
+<div
+  class="fixed w-full z-20 top-16 border-b bg-white/75 backdrop-blur-sm border-b-gray-200 left-0"
+>
+  <div
+    class="h-12 p-4 mx-auto flex flex-row gap-4 items-center max-w-8xl md:hidden"
+  >
+    <label for="doc-nav-toggle" class="cursor-pointer">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        class="w-6 h-6 stroke-current"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        ></path>
+      </svg>
+    </label>
+    <span
+      class="font-semibold text-sm text-gray-800 text-ellipsis whitespace-nowrap overflow-hidden"
+    >
+      {{ .Params.nav }}
+    </span>
+  </div>
+</div>
+<input
+  class="absolute invisible pointer-events-none peer"
+  type="checkbox"
+  name="doc-nav-toggle"
+  id="doc-nav-toggle"
+  aria-label="Toggle Doc Navigation"
+/>
+<label
+  for="doc-nav-toggle"
+  class="fixed inset-0 backdrop-blur-sm z-50 bg-purple-dark/60 transition-all duration-500 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto md:hidden"
+></label>
+<div
+  class="fixed -left-72 peer-checked:left-0 z-50 text-gray-700 border-r bg-white border-r-gray-300 text-sm top-0 h-screen transition-all duration-300 | md:left-0 md:z-0 md:pt-16 md:sticky md:block w-72"
+>
+  <nav
+    class="relative w-72 h-full p-8 overflow-y-auto transition-all duration-300"
+  >
+    <label
+      for="doc-nav-toggle"
+      class="w-full h-12 bg-white py-2 z-10 block md:hidden"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        class="cursor-pointer w-8 h-8 ml-auto stroke-purple"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        ></path>
+      </svg>
+    </label>
+    {{ with .Site.Data.nav }}
+      <ul class="flex flex-col gap-2">
+        {{ with .links }}
+          {{ range . }}
+            <li>
+              <a
+                {{ if hasPrefix .url "http" }}target="_blank"{{ end }}
+                class="{{ if hasSuffix $mainPermalink .url }}
+                  text-green-dark bg-green-light/20 relative font-bold
+                  before:top-1/2 before:-translate-y-1/2
+                {{ end }} py-2 px-2 block"
+                href="{{ .url }}"
+              >
+                {{ .title }}
+              </a>
+            </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    {{ end }}
+  </nav>
+</div>
