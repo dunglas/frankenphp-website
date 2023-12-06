@@ -16,4 +16,4 @@ code: |
     }
     ```
 content: |
-  Five lines of config: it's now all you need to start a production-grade PHP server (automatic HTTPS, HTTP/3, Zstandard compression...), powered by Caddy.
+  Five lines of config: it's now all you need to start a production-grade PHP server (automatic HTTPS, HTTP/3, Zstandard compression...), powered by [Caddy](https://caddyserver.com).

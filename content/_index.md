@@ -13,7 +13,7 @@ technos:
     url: https://github.com/dunglas/frankenphp-wordpress
   - image: "laravel.png"
     title: "Laravel"
-    url: https://github.com/dunglas/frankenphp/blob/main/docs/laravel.md
+    url: /docs/laravel/
   - image: "symfony.png"
     title: "Symfony"
     url: https://github.com/dunglas/symfony-docker

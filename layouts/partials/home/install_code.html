@@ -25,7 +25,7 @@
         <div
           class="text-gray-800 text-lg leading-relaxed text-center lg:text-left"
         >
-          {{ .content }}
+          {{ .content | markdownify | safeHTML }}
         </div>
       </div>
       <div

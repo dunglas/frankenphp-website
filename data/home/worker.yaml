@@ -1,7 +1,7 @@
 title: 'Make your PHP apps <strong class="text-green">faster than ever</strong>!'
 overtitle: "Worker mode"
 content:
-  - title: "Worker apps"
+  - title: "Worker script"
     content: |
       Boot your app once, it **stays in memory**!
   #- title: "Seamless"
