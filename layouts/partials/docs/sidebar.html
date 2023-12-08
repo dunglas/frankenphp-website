@@ -75,7 +75,7 @@
                 {{ end }} py-2 px-2 block"
                 href="{{ .url }}"
               >
-                {{ .title }}
+                {{ .title | markdownify | safeHTML }}
               </a>
             </li>
           {{ end }}
