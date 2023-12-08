@@ -23,7 +23,7 @@ function markdownToYaml($markdownText)
     $links = [];
     preg_match_all(LINKS_REGEX, $markdownText, $matches, PREG_SET_ORDER);
     foreach ($matches as $match) {
-        $title = $match[1];
+        $title = str_replace('**', '', $match[1]);
         $url = $match[2];
         $links[] = ["title" => $title, "url" => $url];
     }
@@ -104,9 +104,9 @@ function fixLinks($content)
             if (substr($url, -1) !== '/') {
                 $url .= '/';
             }
-
         }
-
+        
+        $url = preg_replace('#^https://frankenphp.dev#', '', $url);
         $url = str_replace('docs/CONTRIBUTING', 'docs/contributing', $url);
 
         // Rebuild the link with the new path

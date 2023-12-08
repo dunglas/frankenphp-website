@@ -1,5 +1,5 @@
-title: 'Make your PHP apps <strong class="text-green">faster than ever</strong>!'
-overtitle: "Worker mode"
+title: Worker <strong class="text-green">mode</strong>
+overtitle: Make your PHP apps faster than ever!
 content:
   - title: "Worker script"
     content: |
@@ -15,7 +15,7 @@ content:
       Uses plain old superglobals: **no need for PSR-7**.
   - title: "Fast"
     content: |
-      According to our benchmarks, **3.5x faster than FPM** on API Platform apps.
+      According to <a href="https://github.com/dunglas/frankenphp-demo/tree/main/benchmark" target="_blank" rel="noreferrer noopener" class="link">our benchmarks</a>, **3.5x faster than FPM** on API Platform apps.
   - title: "Efficient"
     content: |
       FrankenPHP is written in **Go** and **C**. It relies on Go's iconic feature: goroutines!
