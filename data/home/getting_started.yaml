@@ -4,8 +4,8 @@ overtitle: "One command to run them all"
 docker: |
   ```bash
   # Docker
-  docker -v $PWD:/app/public -p 443:443 \
-    run dunglas/frankenphp
+  docker run -v $PWD:/app/public -p 443:443 \
+    dunglas/frankenphp
   ```
 standard: |
   ```bash
