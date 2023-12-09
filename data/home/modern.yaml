@@ -7,7 +7,7 @@ content:
   - > 
     Uses the official PHP executor embedded in a state-of-the-art web server: **[Caddy](https://caddyserver.com)**
   - >
-    Native support for HTTP/1?1, HTTP/2 and **HTTP/3**
+    Native support for HTTP/1.1, HTTP/2 and **HTTP/3**
   - >
     Automatic **HTTPS** certificates generation and renewal (Let's Encrypt or ZeroSSL)
   - >
