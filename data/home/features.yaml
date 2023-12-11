@@ -12,7 +12,7 @@ content:
   - image: "/img/rocket.svg"
     title: "Easy deploy"
     content: |
-      Cloud Native app shipped as <a href="/docs/docker/">a Docker imag</a>. Compatible with Kubernetes, and all modern cloud platforms. It's also possible to package your PHP app as <a href="/docs/embed/" class="link">a standalone, self-executable static binary</a>.
+      Cloud Native app shipped as <a href="/docs/docker/">a Docker image</a>. Compatible with Kubernetes, and all modern cloud platforms. It's also possible to package your PHP app as <a href="/docs/embed/" class="link">a standalone, self-executable static binary</a>.
   - image: "/img/worker.svg"
     title: "Worker mode"
     content: |
