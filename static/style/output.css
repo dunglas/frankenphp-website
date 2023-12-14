@@ -1896,7 +1896,7 @@ pre {
 }
 
 .stroke-green-dark {
-  stroke: ##92a72e;
+  stroke: #92a72e;
 }
 
 .stroke-purple {
@@ -2057,6 +2057,10 @@ pre {
   line-height: 1;
 }
 
+.text-\[0\] {
+  font-size: 0;
+}
+
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -2082,12 +2086,8 @@ pre {
   line-height: 1rem;
 }
 
-.text-\[0px\] {
-  font-size: 0px;
-}
-
-.text-\[0\] {
-  font-size: 0;
+.font-\[0px\] {
+  font-weight: 0px;
 }
 
 .font-bold {
@@ -2108,10 +2108,6 @@ pre {
 
 .font-semibold {
   font-weight: 600;
-}
-
-.font-\[0px\] {
-  font-weight: 0px;
 }
 
 .uppercase {
@@ -2175,7 +2171,8 @@ pre {
 }
 
 .text-green-dark {
-  color: ##92a72e;
+  --tw-text-opacity: 1;
+  color: rgb(146 167 46 / var(--tw-text-opacity));
 }
 
 .text-purple {
