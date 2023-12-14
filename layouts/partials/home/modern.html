@@ -1,19 +1,19 @@
 {{ with .Site.Data.home.modern }}
-  <section id="modern" class="py-12 md:py-24 px-4">
+  <section id="modern" class="py-12 lg:py-24 px-4">
     <div
-      class="container relative max-w-6xl bg-gray-100 py-12 rounded-[50px] px-8 md:px-14 overflow-hidden"
+      class="container relative max-w-6xl bg-gray-100 py-12 rounded-[50px] px-8 lg:px-14 overflow-hidden"
     >
       <div
-        class="flex flex-col gap-24 items-center justify-center md:flex-row relative"
+        class="flex flex-col gap-24 items-center justify-center lg:flex-row relative lg:gap-40"
       >
         <div class="flex-1 relative z-10">
           <div
-            class="text-lg uppercase mb-2 text-purple-light text-center md:text-left"
+            class="text-lg uppercase mb-2 text-purple-light text-center lg:text-left"
           >
             {{ .overtitle }}
           </div>
           <h2
-            class="text-5xl font-bold mb-8 text-purple leading-tight text-center md:text-left"
+            class="text-5xl font-bold mb-8 text-purple leading-tight text-center lg:text-left"
           >
             {{ .title | safeHTML }}
           </h2>
@@ -40,7 +40,7 @@
           </ul>
         </div>
         <div
-          class="relative w-full max-w-xs h-full md:w-1/2 md:max-w-sm pointer-events-none"
+          class="relative w-full max-w-xs h-full lg:w-1/2 lg:max-w-sm pointer-events-none"
         >
           <span id="dab-full" />
           <svg
@@ -61,7 +61,7 @@
           />
           <div
             id="shape2"
-            class="hidden md:block rotate-45 rounded-full absolute z-0 left-full -translate-x-2/4 top-1/2 -translate-y-2/3 w-[150%] h-[200%] bg-green-light"
+            class="hidden lg:block rotate-45 rounded-full absolute z-0 left-full -translate-x-2/4 top-1/2 -translate-y-2/3 w-[150%] h-[200%] bg-green-light"
           ></div>
         </div>
       </div>
@@ -70,7 +70,7 @@
           href="{{ .link.url }}"
           target="_blank"
           rel="noreferrer noopener"
-          class="mt-12 relative text-purple text-lg py-2 mx-auto  md:mt-4 px-4 inline-block font-bold transition-all duration-300 before:pointer-events-none before:transition-all before:duration-300 before:z-0 before:bg-green before:w-full before:h-full before:absolute-center after:z-0 after:absolute-center after:w-full after:h-full after:pointer-events-none after:border-2 after:border-green/0 after:scale-150 after:transition-all after:duration-300 hover:before:scale-50 hover:before:bg-green/0 hover:after:border-green hover:after:scale-100 hover:text-green"
+          class="mt-12 relative text-purple text-lg py-2 mx-auto  lg:mt-4 px-4 inline-block font-bold transition-all duration-300 before:pointer-events-none before:transition-all before:duration-300 before:z-0 before:bg-green before:w-full before:h-full before:absolute-center after:z-0 after:absolute-center after:w-full after:h-full after:pointer-events-none after:border-2 after:border-green/0 after:scale-150 after:transition-all after:duration-300 hover:before:scale-50 hover:before:bg-green/0 hover:after:border-green hover:after:scale-100 hover:text-green"
         >
           <span class="relative">{{ .link.text }}</span>
         </a>
