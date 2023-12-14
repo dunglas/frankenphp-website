@@ -2082,6 +2082,14 @@ pre {
   line-height: 1rem;
 }
 
+.text-\[0px\] {
+  font-size: 0px;
+}
+
+.text-\[0\] {
+  font-size: 0;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -2100,6 +2108,10 @@ pre {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.font-\[0px\] {
+  font-weight: 0px;
 }
 
 .uppercase {
