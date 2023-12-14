@@ -1,4 +1,4 @@
-title: "Get <strong class='text-green'>started</strong>!"
+title: "Get <strong class='text-green-dark'>started</strong>!"
 layout: partials/home/getting_started
 overtitle: "One command to run them all"
 docker: |
@@ -11,6 +11,9 @@ standard: |
   ```bash
   # Static binary
   ./frankenphp php-server
+
+  # Command-line script
+  ./frankenphp php-cli /path/to/your/script.php
   ```
 content: |
   Get a production-grade PHP server up and running in just one command!

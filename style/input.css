@@ -41,4 +41,19 @@
   section {
     @apply overflow-x-clip;
   }
+  blockquote:has(.tip) {
+    @apply border-l-green;
+  }
+  blockquote:has(.note) {
+    @apply border-l-[#3d68ce];
+  }
+  blockquote:has(.warning) {
+    @apply border-l-[#db472a];
+  }
+  blockquote:has(.important) {
+    @apply border-l-purple;
+  }
+  blockquote:has(.caution) {
+    @apply border-l-[#c1050a];
+  }
 }

@@ -15,7 +15,7 @@ module.exports = {
       green: {
         DEFAULT: "#b3d133",
         light: "#cbdb8b",
-        dark: "#7e9324",
+        dark: "#92a72e",
         extralight: "#e8efc8",
       },
       purple: {
@@ -54,6 +54,12 @@ module.exports = {
         defile: "defile 50s linear infinite",
       },
       typography: (theme) => ({
+        quoteless: {
+          css: {
+            "blockquote p:first-of-type::before": { content: "none" },
+            "blockquote p:first-of-type::after": { content: "none" },
+          },
+        },
         DEFAULT: {
           css: {
             h1: {

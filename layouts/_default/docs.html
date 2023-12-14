@@ -3,9 +3,14 @@
     <div class="flex flex-row items-start justify-start">
       {{ partial "docs/sidebar.html" . }}
       <div
-        class="px-10 pb-6 pt-32 md:pt-24 prose flex-1 overflow-x-hidden prose-img:max-w-full max-w-none lg:prose-img:max-w-xl"
+        class="px-10 pb-6 pt-32 md:pt-24 prose prose-quoteless flex-1 overflow-x-hidden prose-img:max-w-full max-w-none lg:prose-img:max-w-xl"
       >
-        {{ .Content | markdownify | safeHTML }}
+        {{ $content := replaceRE `\[!TIP]` (partial "docs/tipIcon.html" .) .Content }}
+        {{ $content := replaceRE `\[!CAUTION]` (partial "docs/cautionIcon.html" .) $content }}
+        {{ $content := replaceRE `\[!IMPORTANT]` (partial "docs/importantIcon.html" .) $content }}
+        {{ $content := replaceRE `\[!NOTE]` (partial "docs/noteIcon.html" .) $content }}
+        {{ $content := replaceRE `\[!WARNING]` (partial "docs/warningIcon.html" .) $content }}
+        {{ $content | markdownify | safeHTML }}
       </div>
     </div>
   </div>
