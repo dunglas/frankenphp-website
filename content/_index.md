@@ -1,5 +1,5 @@
 ---
-title: "FrankenPHP : The Modern Php App Server, written in Go"
+title: "FrankenPHP : The Modern PHP App Server, written in Go"
 layout: home
 technos:
   - image: "drupal.png"
