@@ -57,3 +57,14 @@
     @apply border-l-[#c1050a];
   }
 }
+
+  .SprdMain .sprd-burgermenu {
+    top: 48px!important;
+  }
+  .SprdMain .sprd-info-banner {
+    background: #92a72e!important;
+  }
+  body > div > svg {
+    display: none; /* fix spreadshop css issue */
+  }
+  

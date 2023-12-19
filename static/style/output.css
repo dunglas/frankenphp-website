@@ -1265,6 +1265,10 @@ pre {
   margin-bottom: 5rem;
 }
 
+.mb-36 {
+  margin-bottom: 9rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -1455,10 +1459,6 @@ pre {
 
 .w-full {
   width: 100%;
-}
-
-.min-w-0 {
-  min-width: 0px;
 }
 
 .max-w-2xl {
@@ -2345,6 +2345,19 @@ blockquote:has(.important) {
 blockquote:has(.caution) {
   --tw-border-opacity: 1;
   border-left-color: rgb(193 5 10 / var(--tw-border-opacity));
+}
+
+.SprdMain .sprd-burgermenu {
+  top: 48px!important;
+}
+
+.SprdMain .sprd-info-banner {
+  background: #92a72e!important;
+}
+
+body > div > svg {
+  display: none;
+  /* fix spreadshop css issue */
 }
 
 .before\:pointer-events-none::before {
