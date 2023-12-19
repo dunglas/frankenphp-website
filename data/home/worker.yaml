@@ -7,7 +7,7 @@ content:
   #- title: "Seamless"
   #  content: |
   #    Process incoming requests **without having to boot your app again**
-  - title: "Straightforward"
+  - title: <span>Straight</span><span>forward</span>
     content: |
       Natively supported by Symfony, API Platform, Laravel...
   - title: "Simple"

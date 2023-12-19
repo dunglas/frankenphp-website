@@ -1,5 +1,5 @@
 {{ with .Site.Data.home.worker }}
-  <section id="worker" class="py-12 md:py-24 px-4">
+  <section id="worker" class="py-12 md:py-24">
     <div class="container relative ">
       <div
         class="absolute w-full -translate-y-36 md:-translate-y-52 scale-y-75 opacity-40 from-green-light via-transparent to-transparent bg-gradient-to-b aspect-square rounded-full left-1/2 top-0 -translate-x-1/2"
@@ -36,13 +36,13 @@
                   class="group h-full flex flex-col gap-2 justify-center"
                 >
                   <div
-                    class="relative h-full w-full rounded-xl"
+                    class="relative h-full w-full rounded-2xl bg-white p-4 shadow-xl inset-0"
                   >
                     <div
-                      class="relative h-full flex flex-col p-4 text-center items-center justify-center inset-0 bg-white shadow-xl rounded-2xl"
+                      class="relative h-full flex flex-col text-center items-center justify-center overflow-hidden"
                     >
-                      <div class="font-bold text-xl uppercase text-purple">
-                        {{ .title }}
+                      <div class="font-bold text-md md:text-xl uppercase text-purple flex flex-wrap justify-center">
+                        {{ .title | safeHTML }}
                       </div>
                       <p class="font-medium text-gray-500 text-sm">
                         {{ .content | markdownify }}
