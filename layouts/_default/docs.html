@@ -17,11 +17,11 @@
           class="bg-green inline-flex text-sm text-purple mt-4 gap-2 flex-row items-center p-2"
           target="_blank"
           {{ if (eq $lastUrlElement "docs") }}
-            href="https://github.com/dunglas/frankenphp/edit/main/README.md"
+            href="https://github.com/dunglas/frankenphp/blob/main/README.md"
           {{ else if (eq $lastUrlElement "contributing") }}
-            href="https://github.com/dunglas/frankenphp/edit/main/CONTRIBUTING.md"
+            href="https://github.com/dunglas/frankenphp/blob/main/CONTRIBUTING.md"
           {{ else }}
-            href="https://github.com/dunglas/frankenphp/edit/main/docs/{{ $lastUrlElement }}.md"
+            href="https://github.com/dunglas/frankenphp/blob/main/docs/{{ $lastUrlElement }}.md"
           {{ end }}
         >
           <svg
