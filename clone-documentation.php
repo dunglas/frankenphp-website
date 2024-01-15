@@ -89,7 +89,7 @@ function fixLinks($content)
         if (preg_match('/^docs/', $url)) {
             $url = preg_replace('/^docs/', '/docs', $url);
             $url = str_replace('.md', '', $url);
-            if (substr($url, -1) !== '/') {
+            if (substr($url, -1) !== '/' && strpos($url, '.') === false) {
                 $url .= '/';
             }
         }
@@ -101,7 +101,7 @@ function fixLinks($content)
             } else {
                 $url = "/docs/" . $url;
             }
-            if (substr($url, -1) !== '/') {
+            if (substr($url, -1) !== '/' && strpos($url, '.') === false) {
                 $url .= '/';
             }
         }
