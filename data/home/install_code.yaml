@@ -10,10 +10,10 @@ code: |
 
     localhost {
         # Enable compression (optional)
-        encode zstd gzip
+        encode zstd br gzip
         # Execute PHP files in the current directory and serve assets
         php_server
     }
     ```
 content: |
-  Five lines of config: it's now all you need to start a production-grade PHP server (automatic HTTPS, HTTP/3, Zstandard compression...), powered by [Caddy](https://caddyserver.com).
+  Five lines of config: it's now all you need to start a production-grade PHP server (automatic HTTPS, HTTP/3, Brotli compression...), powered by [Caddy](https://caddyserver.com).
