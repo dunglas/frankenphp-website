@@ -32,6 +32,9 @@
     <link rel="stylesheet" href="/style/output.css" />
     <link rel="stylesheet" href="/style/syntax.css" />
     <script src="/js/parallax.js"></script>
+<link href="
+https://cdn.jsdelivr.net/npm/@docsearch/css@3.5.2/dist/style.min.css
+" rel="stylesheet">
     {{ block "head" . }}{{ end }}
   </head>
   <body class="min-h-[100vh] overflow-x-hidden">
@@ -91,5 +94,18 @@
         </a>
       </p>
     </footer>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      docsearch({
+  container: '#docsearch',
+  appId: "BXUBZVECND",
+  indexName: 'frankenphp',
+  apiKey:"57b6245de6ff6ca5d345bb85d6db42c9",
+   debug: true,
+      });
+    });
+  </script>
   </body>
 </html>

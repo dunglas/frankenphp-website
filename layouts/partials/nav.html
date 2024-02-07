@@ -30,6 +30,9 @@
     <a href="/" class="block h-6 mr-auto" aria-label="Home">
       {{ partial "logo.html" . }}
     </a>
+      <div class="mr-4">
+        <div id="docsearch" placeholder="Search"></div>
+      </div>
     <div class="hidden lg:flex flex-row items-center gap-4">
       {{ partial "menu.html" . }}
     </div>
@@ -53,7 +56,7 @@
 >
   {{ partial "menu.html" . }}
 </div>
-<div class="fixed top-5 right-5 z-50 group">
+<div class="fixed top-[22px] right-5 z-50 group">
   <label
     for="hamburger-toggle"
     class="{{ if .IsHome }}
