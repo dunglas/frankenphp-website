@@ -18,7 +18,7 @@ const TEMP_DIR = __DIR__ . "/temp-documentation";
 const LINKS_REGEX = '/\[([^\]]+)\]\(([^)]+)\)/';
 
 // Function to transform the navigation from markdown to yaml
-function markdownToYaml($markdownText)
+function docsYamlIndexFromMarkdown($markdownText)
 {
     $links = [];
     preg_match_all(LINKS_REGEX, $markdownText, $matches, PREG_SET_ORDER);
@@ -28,6 +28,7 @@ function markdownToYaml($markdownText)
         $links[] = ["title" => $title, "url" => $url];
     }
     $yamlOutput = "links:\n";
+    $yamlOutput .= "  - title: Overview\n    url: /docs/\n";
     foreach ($links as $link) {
         $yamlOutput .= "  - title: {$link['title']}\n    url: {$link['url']}\n";
     }
@@ -195,7 +196,7 @@ $navContent = substr($content, $start, $end - $start);
 $navContent = str_replace("##", "", $navContent);
 $navContent = fixLinks($navContent);
 
-$yamlOutput = markdownToYaml($navContent);
+$yamlOutput = docsYamlIndexFromMarkdown($navContent);
 file_put_contents(NAV_DESTINATION, $yamlOutput);
 
 // Delete the temporary directory
