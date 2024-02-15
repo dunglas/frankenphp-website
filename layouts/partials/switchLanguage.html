@@ -1,0 +1,35 @@
+
+<div class="relative hidden lg:block">
+<input
+  class="invisible absolute pointer-events-none peer"
+  type="checkbox"
+  name="language-toggle"
+  id="language-toggle"
+  aria-label="Toggle Language Modal"
+/>
+<label for="language-toggle" class="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-10 hidden peer-checked:block"></label>
+<label for="language-toggle" class="flex flex-row gap-1 flex-1 lg:py-2 lg:pl-4 cursor-pointer group">
+    <img src="/img/flags/{{ .Site.Language.Lang }}.svg" class="w-7 h-7" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 peer-checked:group-[]:-scale-y-100">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </svg>
+    </label>
+    <div class="absolute right-0 top-full bg-white py-4 text-gray-700 rounded-xl w-max min-w-[150px] shadow-xl hidden peer-checked:block z-20">
+        <label for="language-toggle" class="px-6 pb-2 text-xs text-gray-400 uppercase">
+            {{ i18n "language.switch" }}
+
+</label>
+        <ul class="flex flex-col">
+        {{ if .IsTranslated }}
+            {{ range .Translations }}
+                <li>
+                    <a href="{{ .RelPermalink }}" class="flex flex-row gap-2 py-2 px-6 items-center hover:bg-purple-dark/10">
+                        <img class="w-5 h-5" src="/img/flags/{{ .Language }}.svg" />
+                        <span class="text-gray-700 font-bold text-xs uppercase">{{ .Language }}</span>
+                    </a>
+                </li>
+            {{ end }}
+        {{ end }}
+        </ul>
+    </div>
+</div>

@@ -27,7 +27,7 @@
   <div
     class="h-16 p-4 mx-auto flex flex-row items-center justify-end max-w-8xl"
   >
-    <a href="/" class="block h-6 mr-auto" aria-label="Home">
+    <a href="{{ relLangURL "/" }}" class="block h-6 mr-auto" aria-label="Home">
       {{ partial "logo.html" . }}
     </a>
       <div class="mr-4">
@@ -37,7 +37,7 @@
       {{ partial "menu.html" . }}
     </div>
     <div>
-      <div class="w-7 h-5"></div>
+      <div class="w-7 h-5 lg:hidden"></div>
       <!-- hamburger button space-->
     </div>
   </div>

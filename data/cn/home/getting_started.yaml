@@ -1,0 +1,19 @@
+title: "开始<strong class='text-green-dark'>使用</strong>！"
+layout: partials/home/getting_started
+overtitle: "一条命令运行所有"
+docker: |
+  ```bash
+  # Docker
+  docker run -v $PWD:/app/public -p 443:443 \
+    dunglas/frankenphp
+  ```
+standard: |
+  ```bash
+  # Static binary
+  ./frankenphp php-server
+
+  # Command-line script
+  ./frankenphp php-cli /path/to/your/script.php
+  ```
+content: |
+  只需一条命令，即可启动并运行一个生产级别的 PHP 服务器！

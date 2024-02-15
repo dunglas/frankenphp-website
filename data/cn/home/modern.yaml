@@ -1,0 +1,18 @@
+title: 比以往任何时候都<strong class="text-green-dark">更现代</strong>的 PHP！
+overtitle: "准备好迎接未来了吗？"
+link:
+  text: "尝试一下"
+  url: "/docs/"
+content:
+  - >
+    使用官方 PHP 执行器，嵌入在最先进的 web 服务器中：**[Caddy](https://caddyserver.com)**
+  - >
+    原生支持 HTTP/1.1、HTTP/2 和 **HTTP/3**
+  - >
+    自动 **HTTPS** 证书生成和续订（Let's Encrypt 或 ZeroSSL）
+  - >
+    将您的 PHP 文件复制到文档根目录，就是这么简单！
+  - >
+    为您的 PHP web 应用和命令行工具[构建 **独立的**、自执行的、无依赖的二进制文件](/docs/embed/)。
+  - >
+    包括 **OPcache** 和 **XDebug** 在内的流行 PHP 扩展得到了原生支持！

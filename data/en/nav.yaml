@@ -1,0 +1,29 @@
+links:
+  - title: The worker mode
+    url: /docs/worker/
+  - title: Early Hints support (103 HTTP status code)
+    url: /docs/early-hints/
+  - title: Real-time
+    url: /docs/mercure/
+  - title: Configuration
+    url: /docs/config/
+  - title: Docker images
+    url: /docs/docker/
+  - title: Deploy in production
+    url: /docs/production/
+  - title: Create standalone, self-executable PHP apps
+    url: /docs/embed/
+  - title: Create static binaries
+    url: /docs/static/
+  - title: Compile from sources
+    url: /docs/compile/
+  - title: Laravel integration
+    url: /docs/laravel/
+  - title: Known issues
+    url: /docs/known-issues/
+  - title: Demo app (Symfony) and benchmarks
+    url: https://github.com/dunglas/frankenphp-demo
+  - title: Go library documentation
+    url: https://pkg.go.dev/github.com/dunglas/frankenphp
+  - title: Contributing and debugging
+    url: /docs/contributing/

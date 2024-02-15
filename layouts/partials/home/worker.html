@@ -1,4 +1,5 @@
-{{ with .Site.Data.home.worker }}
+
+{{ with index .Site.Data .Site.Language.Lang "home" "worker" }}
   <section id="worker" class="py-12 md:py-24">
     <div class="container relative ">
       <div

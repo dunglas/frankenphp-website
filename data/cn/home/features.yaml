@@ -1,0 +1,51 @@
+title: "FrankenPHP <strong class='text-green-dark'>概览</strong>"
+overtitle: "特征"
+content:
+  - image: "/img/box.svg"
+    title: "可伸缩"
+    content: |
+      与 PHP 8.2+、大多数 PHP 扩展和所有 Caddy 模块兼容。
+  - image: "/img/one.svg"
+    title: "唯一服务"
+    content: |
+      设计简洁明了：只需要一个服务，只需要一个二进制文件！FrankenPHP 不需要 PHP-FPM，它使用为 Go web 服务器特别定制的自己的 SAPI。
+  - image: "/img/rocket.svg"
+    title: "易于部署"
+    content: |
+      作为<a href="/docs/docker/">Docker 镜像</a>的云原生应用交付。兼容 Kubernetes 和所有现代云平台。也可以将您的 PHP 应用程序打包为<a href="/docs/embed/" class="link">独立的、自执行的静态二进制文件</a>。
+  - image: "/img/worker.svg"
+    title: "工作模式"
+    content: |
+      <a href="/docs/worker/" class="link">一次启动您的应用程序</a>并保持其在内存中！它准备在几毫秒内处理传入请求。
+  - image: "/img/bulb.svg"
+    title: "103 提前提示"
+    content: |
+      <a href="/docs/early-hints/"  class="link">提前提示</a>是 web 平台的一个全新特性，可以通过<a href="https://blog.cloudflare.com/early-hints/" target="_blank" rel="noreferrer noopener" class="link">提前 30% 的时间加载网站</a>。FrankenPHP 是唯一支持提前提示的 PHP SAPI！
+  - image: "/img/clock.svg"
+    title: "实时功能"
+    content: |
+      内置的<a href="https://mercure.rocks" target="_blank" rel="noreferrer noopener" class="link">Mercure 中心</a>。从您的 PHP 应用程序发送事件到所有连接的浏览器，它们立即作为 JavaScript 事件接收负载！
+  - image: "/img/zip.svg"
+    title: "Brotli、Zstandard 和 Gzip 压缩"
+    content: |
+      现代压缩格式开箱即用。
+  - image: "/img/log.svg"
+    title: "结构化日志"
+    content: |
+      为您的日志带来更加明确的格式和细节。
+  - image: "/img/metrics.svg"
+    title: "Prometheus 指标和追踪"
+    content: |
+      内置的<a href="https://caddyserver.com/docs/metrics" target="_blank" rel="noreferrer noopener" class="link">Prometheus 支持</a>！
+  - image: "/img/http.svg"
+    title: "HTTP/2 & HTTP/3"
+    content: |
+      对 HTTPS、HTTP/2 和 **HTTP/3** 的原生支持。
+  - image: "/img/https.svg"
+    title: "HTTPS 自动化"
+    content: |
+      自动 HTTPS 证书生成、续订和撤销。
+  - image: "/img/reload.svg"
+    title: "平滑重载"
+    content: |
+      通过平滑重载零停机部署您的应用。

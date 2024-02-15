@@ -1,7 +1,5 @@
----
-title: "FrankenPHP : The Modern PHP App Server, written in Go"
-layout: home
-technos:
+title: "Support natif pour"
+content:
   - image: "drupal.png"
     title: "Drupal"
     url: https://github.com/dunglas/frankenphp-drupal
@@ -20,4 +18,3 @@ technos:
   - image: "api-platform.png"
     title: "API Platform"
     url: https://api-platform.com/docs/distribution/
----

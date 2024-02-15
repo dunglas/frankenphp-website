@@ -1,24 +1,8 @@
 <?php
-// Variables
-$githubKey = $_SERVER["GITHUB_KEY"] ?? false;
-if (!$githubKey) {
-    echo "The GITHUB_KEY environment variable is not defined.";
-    $githubKey = "XXX";
-}
-$repoURL = "https://$githubKey@github.com/dunglas/frankenphp.git";
-
-// Constants
-const DOCS_TO_CLONE = "docs";
-const DESTINATION_DIRECTORY = __DIR__ . "/content";
-const DOCS_DESTINATION = DESTINATION_DIRECTORY . "/docs";
-const NAV_DESTINATION = __DIR__ . "/data/nav.yaml";
-const TEMP_DIR = __DIR__ . "/temp-documentation";
-
 // Regex for performing transformations
 const LINKS_REGEX = '/\[([^\]]+)\]\(([^)]+)\)/';
 
-// Function to transform the navigation from markdown to yaml
-function docsYamlIndexFromMarkdown($markdownText)
+function markdownToYaml($markdownText)
 {
     $links = [];
     preg_match_all(LINKS_REGEX, $markdownText, $matches, PREG_SET_ORDER);
@@ -28,7 +12,6 @@ function docsYamlIndexFromMarkdown($markdownText)
         $links[] = ["title" => $title, "url" => $url];
     }
     $yamlOutput = "links:\n";
-    $yamlOutput .= "  - title: Overview\n    url: /docs/\n";
     foreach ($links as $link) {
         $yamlOutput .= "  - title: {$link['title']}\n    url: {$link['url']}\n";
     }
@@ -80,13 +63,18 @@ function copyDirectory($source, $dest)
     return true;
 }
 
+
 // Function to delete ".md" at the end of the links and add /docs prefix when necessary
-function fixLinks($content)
+function fixLinks($content, $lang = "en")
 {
     // Replacement function
     $content = preg_replace_callback(LINKS_REGEX, function ($matches) {
         $textLink = $matches[1];
         $url = $matches[2];
+        // anchor link
+        if (preg_match('/^#/', $url)) {
+            return "[$textLink]($url)";
+        }
         if (preg_match('/^docs/', $url)) {
             $url = preg_replace('/^docs/', '/docs', $url);
             $url = str_replace('.md', '', $url);
@@ -106,13 +94,24 @@ function fixLinks($content)
                 $url .= '/';
             }
         }
-        
+
         $url = preg_replace('#^https://frankenphp.dev#', '', $url);
         $url = str_replace('docs/CONTRIBUTING', 'docs/contributing', $url);
 
         // Rebuild the link with the new path
         return "[$textLink]($url)";
     }, $content);
+
+    if ($lang !== "en") {
+        $content = preg_replace_callback(
+            "/(?<=^|[^a-zA-Z0-9])\/docs\/(?!$lang)([^\/]+)\/?/",
+            function ($matches) use ($lang) {
+                // Ajoute '/docs/<lang>/' au début et s'assure qu'il y a un slash à la fin.
+                return '/' . $lang . '/docs/' . $matches[1] . '/';
+            },
+            $content
+        );
+    }
 
     // Write the modified content to the file
     return $content;
@@ -123,8 +122,10 @@ function addFrontmatter($content)
 {
     if (preg_match('/#\s+([^\n]+)/', $content, $matches)) {
         $navtitle = $matches[1];
-        if (str_starts_with(strtolower($matches[1]), 'frankenphp')) $title = $matches[1];
-        else $title = "FrankenPHP | " . $matches[1];
+        if (str_starts_with(strtolower($matches[1]), 'frankenphp'))
+            $title = $matches[1];
+        else
+            $title = "FrankenPHP | " . $matches[1];
     } else {
         $navtitle = "";
         $title = "FrankenPHP";
@@ -133,75 +134,127 @@ function addFrontmatter($content)
     return $content;
 }
 
-// Delete the temporary directory if it exists
-if (file_exists(TEMP_DIR)) {
-    $success = deleteDirectory(TEMP_DIR);
+function generateLangDocumentation($repoURL, $lang = "en") {
+        // Variables
+    $githubKey = $_SERVER["GITHUB_KEY"] ?? false;
+    if (!$githubKey) {
+        echo "The GITHUB_KEY environment variable is not defined.";
+        $githubKey = "XXX";
+    }
+
+    // Constants
+    $DOCS_TO_CLONE = $lang === "en" ? "docs" : "docs/" . $lang;
+    $DESTINATION_DIRECTORY = __DIR__ . "/content/" . $lang;
+    $DOCS_DESTINATION = $DESTINATION_DIRECTORY . "/docs";
+    $NAV_DESTINATION = __DIR__ . "/data/" . $lang . "/nav.yaml";
+    $TEMP_DIR = __DIR__ . "/temp-documentation";
+
+
+
+    // Delete the temporary directory if it exists
+    if (file_exists($TEMP_DIR)) {
+        $success = deleteDirectory($TEMP_DIR);
+        if (!$success) {
+            echo "Error when deleting the temporary directory\n";
+            return;
+        }
+    }
+
+    // Clone the repository
+    $cloneCommand = "git clone " . $repoURL . " " . $TEMP_DIR;
+    exec($cloneCommand, $output, $returnCode);
+    if ($returnCode !== 0) {
+        echo "Error during repository cloning\n";
+        return;
+    }
+
+    // Copy the necessary files
+    if (file_exists($DOCS_DESTINATION)) {
+        $success = deleteDirectory($DOCS_DESTINATION);
+        if (!$success) {
+            echo "Error when deleting the destination directory\n";
+            return;
+        }
+    }
+    $success = copyDirectory($TEMP_DIR . '/' . $DOCS_TO_CLONE, $DOCS_DESTINATION);
+    if (!$success) {
+        echo "Error while copying the doc files\n";
+        return;
+    }
+
+    /* handle CONTRIBUTING file */
+    $CONTRIBUTING_SOURCE = $TEMP_DIR . ($lang === "en" || $lang === "cn" ? "" : "/docs/" . $lang) . "/CONTRIBUTING.md";
+    if (!file_get_contents($CONTRIBUTING_SOURCE))
+        $CONTRIBUTING_SOURCE = $TEMP_DIR . "/CONTRIBUTING.md";
+
+    $success = copy($CONTRIBUTING_SOURCE, $DOCS_DESTINATION . "/CONTRIBUTING.md");
+    if (!$success) {
+        echo "Error when copying CONTRIBUTING.md\n";
+        return;
+    }
+    rename($DOCS_DESTINATION . "/CONTRIBUTING.md", $DOCS_DESTINATION . "/contributing.md");
+
+
+    /* handle index / README file */
+    $README_SOURCE = $TEMP_DIR . ($lang === "en" || $lang === "cn" ? "" : "/docs/" . $lang) . "/README.md";
+    if (!file_get_contents($README_SOURCE)) $README_SOURCE = $TEMP_DIR . "/README.md";
+
+    // Modify README.md
+    copy($README_SOURCE, $DESTINATION_DIRECTORY . "/README.md");
+    $content = file_get_contents($DESTINATION_DIRECTORY . "/README.md");
+    $content = preg_replace('/src="((?!http)[^"]*)"/', 'src="https://raw.githubusercontent.com/dunglas/frankenphp/main/$1"', $content);
+    file_put_contents($DESTINATION_DIRECTORY . "/README.md", $content);
+    rename($DESTINATION_DIRECTORY . "/README.md", $DOCS_DESTINATION . "/_index.md");
+
+
+    // Modify .md files in the docs directory
+    $files = scandir($DOCS_DESTINATION);
+    foreach ($files as $file) {
+        if (pathinfo($file, PATHINFO_EXTENSION) === "md") {
+            $filePath = $DOCS_DESTINATION . "/" . $file;
+            $content = file_get_contents($filePath);
+            $content = addFrontmatter($content);
+            $content = fixLinks($content, $lang);
+            file_put_contents($filePath, $content);
+        }
+    }
+
+    $content = file_get_contents($DOCS_DESTINATION . "/_index.md");
+
+    // Utilisez preg_match_all pour trouver toutes les occurrences de lignes commençant par "## "
+    preg_match_all('/^##\s.*/m', $content, $matches, PREG_OFFSET_CAPTURE);
+
+    if (count($matches[0]) >= 2) {
+        // Trouvez la position de départ de la deuxième occurrence
+        $start = $matches[0][1][1] + strlen($matches[0][1][0]);
+
+        // Trouvez la position de fin (début de la prochaine occurrence de "## " ou fin du fichier si non trouvé)
+        $end = count($matches[0]) > 2 ? $matches[0][2][1] : strlen($content);
+
+        // Extrait le contenu entre la deuxième et la troisième occurrence de "## "
+        $navContent = substr($content, $start, $end - $start);
+
+        // Puis procédez comme avant avec le contenu extrait
+    } else {
+        echo "Pas assez de sections trouvées.";
+    }
+
+    $yamlOutput = markdownToYaml($navContent);
+    file_put_contents($NAV_DESTINATION, $yamlOutput);
+
+    // Delete the temporary directory
+    $success = deleteDirectory($TEMP_DIR);
     if (!$success) {
         echo "Error when deleting the temporary directory\n";
-        return;
     }
-}
 
-// Clone the repository
-$cloneCommand = "git clone " . $repoURL . " " . TEMP_DIR;
-exec($cloneCommand, $output, $returnCode);
-if ($returnCode !== 0) {
-    echo "Error during repository cloning\n";
-    return;
 }
+$repoURL = "https://$githubKey@github.com/dunglas/frankenphp.git";
+$repoCNURL = "https://$githubKey@github.com/pierresh/frankenphp.git";
+$repoFRURL = "https://$githubKey@github.com/ginifizz/frankenphp.git";
 
-// Copy the necessary files
-if (file_exists(DOCS_DESTINATION)) {
-    $success = deleteDirectory(DOCS_DESTINATION);
-    if (!$success) {
-        echo "Error when deleting the destination directory\n";
-        return;
-    }
-}
-$success = copyDirectory(TEMP_DIR . '/' . DOCS_TO_CLONE, DOCS_DESTINATION);
-if (!$success) {
-    echo "Error while copying the doc files\n";
-    return;
-}
-$success = copy(TEMP_DIR . "/CONTRIBUTING.md", DOCS_DESTINATION . "/contributing.md");
-if (!$success) {
-    echo "Error when copying CONTRIBUTING.md\n";
-    return;
-}
+generateLangDocumentation($repoURL);
+generateLangDocumentation($repoCNURL, "cn");
+generateLangDocumentation($repoFRURL, "fr");
 
-// Modify README.md
-copy(TEMP_DIR . "/README.md", DESTINATION_DIRECTORY . "/README.md");
-$content = file_get_contents(DESTINATION_DIRECTORY . "/README.md");
-$content = preg_replace('/src="((?!http)[^"]*)"/', 'src="https://raw.githubusercontent.com/dunglas/frankenphp/main/$1"', $content);
-file_put_contents(DESTINATION_DIRECTORY . "/README.md", $content);
-rename(DESTINATION_DIRECTORY . "/README.md", DOCS_DESTINATION . "/_index.md");
-
-// Modify .md files in the docs directory
-$files = scandir(DOCS_DESTINATION);
-foreach ($files as $file) {
-    if (pathinfo($file, PATHINFO_EXTENSION) === "md") {
-        $filePath = DOCS_DESTINATION . "/" . $file;
-        $content = file_get_contents($filePath);
-        $content = addFrontmatter($content);
-        $content = fixLinks($content);
-        file_put_contents($filePath, $content);
-    }
-}
-
-// Extract content between "## Docs" and "##" sections of README.md
-$content = file_get_contents(TEMP_DIR . "/README.md");
-$start = strpos($content, "## Docs");
-$end = strpos($content, "##", $start + 1);
-$navContent = substr($content, $start, $end - $start);
-$navContent = str_replace("##", "", $navContent);
-$navContent = fixLinks($navContent);
-
-$yamlOutput = docsYamlIndexFromMarkdown($navContent);
-file_put_contents(NAV_DESTINATION, $yamlOutput);
-
-// Delete the temporary directory
-$success = deleteDirectory(TEMP_DIR);
-if (!$success) {
-    echo "Error when deleting the temporary directory\n";
-}
 ?>

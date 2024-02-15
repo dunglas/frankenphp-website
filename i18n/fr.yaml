@@ -1,0 +1,8 @@
+language:
+  switch: Modifier la langue
+edit: Editer cette page
+powered: Sponsorisé par
+footer:
+  owner: "Créé pour vous par %owner%, créateur d'%api-platform% et membre de la Core Team %symfony%"
+  design: "Site designé par %designer%"
+  sponsor: "Sponsorisé par %sponsor%"

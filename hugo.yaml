@@ -9,10 +9,44 @@ markup:
     codeFences: true
     guessSyntax: true
     noClasses: false
-menu:
-  main:
-  - name: Documentation
-    pageRef: /docs/
+defaultContentLanguage: en
+languages:
+  en:
+    disabled: false
+    languageCode: "en"
+    languageDirection: ""
+    languageName: "English"
+    contentDir: content/en
+    title: ""
+    weight: 1
+    menu:
+      main:
+      - name: Documentation
+        pageRef: /docs/
+  cn:
+    disabled: false
+    languageCode: "cn"
+    languageDirection: ""
+    languageName: "Chinese"
+    contentDir: content/cn
+    title: ""
+    weight: 2
+    menu:
+      main:
+      - name: 文档
+        pageRef: /docs/
+  fr:
+    disabled: false
+    languageCode: "fr"
+    languageDirection: ""
+    languageName: "French"
+    contentDir: content/fr
+    title: ""
+    weight: 2
+    menu:
+      main:
+      - name: Documentation
+        pageRef: /docs/
 build:
   ignoreFiles:
       - "^home/"

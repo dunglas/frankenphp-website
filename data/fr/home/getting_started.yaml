@@ -1,0 +1,19 @@
+title: "Commencez <strong class='text-green-dark'>maintenant</strong> !"
+layout: partials/home/getting_started
+overtitle: "Une commande pour les exécuter toutes"
+docker: |
+  ```bash
+  # Docker
+  docker run -v $PWD:/app/public -p 443:443 \
+    dunglas/frankenphp
+  ```
+standard: |
+  ```bash
+  # Binaire statique
+  ./frankenphp php-server
+
+  # Script en ligne de commande
+  ./frankenphp php-cli /path/to/your/script.php
+  ```
+content: |
+  Lancez un serveur PHP de qualité production en une simple commande !

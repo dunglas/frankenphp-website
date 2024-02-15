@@ -1,0 +1,24 @@
+title: Worker <strong class="text-green-dark">模式</strong>
+overtitle: 让您的 PHP 应用速度超乎想象！
+content:
+  - title: "Worker 脚本"
+    content: |
+      启动您的应用一次，它便**常驻内存**！
+  - title: "<span>直接</span><span>明了</span>"
+    content: |
+      Symfony、API Platform、Laravel... 原生支持。
+  - title: "简单"
+    content: |
+      仅需使用原始的超全局变量：**无需 PSR-7**。
+  - title: "快速"
+    content: |
+      根据<a href="https://github.com/dunglas/frankenphp-demo/tree/main/benchmark" target="_blank" rel="noreferrer noopener" class="link">我们的基准测试</a>，API Platform 应用上**比 FPM 快 3.5 倍**。
+  - title: "高效"
+    content: |
+      FrankenPHP 用 **Go** 和 **C** 编写。它依赖 Go 的标志性功能：goroutines！
+  - title: "可选"
+    content: |
+      即使您的应用不兼容 worker 模式，也可以按原样提供服务。
+  - title: "简易部署"
+    content: |
+      以进程方式运行：一个二进制文件，**无需外部服务**。

@@ -64,7 +64,8 @@
         ></path>
       </svg>
     </label>
-    {{ with .Site.Data.nav }}
+
+  {{ with index .Site.Data .Site.Language.Lang "nav" }}
       <ul class="flex flex-col gap-2">
         {{ with .links }}
           {{ range . }}
