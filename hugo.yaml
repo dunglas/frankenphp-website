@@ -42,7 +42,7 @@ languages:
     languageName: "French"
     contentDir: content/fr
     title: ""
-    weight: 2
+    weight: 3
     menu:
       main:
       - name: Documentation
