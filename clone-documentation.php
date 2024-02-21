@@ -135,12 +135,6 @@ function addFrontmatter($content)
 }
 
 function generateLangDocumentation($repoURL, $lang = "en") {
-        // Variables
-    $githubKey = $_SERVER["GITHUB_KEY"] ?? false;
-    if (!$githubKey) {
-        echo "The GITHUB_KEY environment variable is not defined.";
-        $githubKey = "XXX";
-    }
 
     // Constants
     $DOCS_TO_CLONE = $lang === "en" ? "docs" : "docs/" . $lang;
@@ -249,6 +243,13 @@ function generateLangDocumentation($repoURL, $lang = "en") {
     }
 
 }
+// Variables
+$githubKey = $_SERVER["GITHUB_KEY"] ?? false;
+if (!$githubKey) {
+    echo "The GITHUB_KEY environment variable is not defined.";
+    $githubKey = "XXX";
+}
+
 $repoURL = "https://$githubKey@github.com/dunglas/frankenphp.git";
 $repoCNURL = "https://$githubKey@github.com/pierresh/frankenphp.git";
 $repoFRURL = "https://$githubKey@github.com/ginifizz/frankenphp.git";
