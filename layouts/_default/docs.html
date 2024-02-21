@@ -5,13 +5,7 @@
       <div
         class="px-10 pb-6 pt-32 md:pt-24 prose prose-quoteless flex-1 overflow-x-hidden prose-img:max-w-full max-w-none lg:prose-img:max-w-xl"
       >
-        {{ $content := replaceRE `\[!TIP]` (partial "docs/tipIcon.html" .) .Content }}
-        {{ $content := replaceRE `\[!CAUTION]` (partial "docs/cautionIcon.html" .) $content }}
-        {{ $content := replaceRE `\[!IMPORTANT]` (partial "docs/importantIcon.html" .) $content }}
-        {{ $content := replaceRE `\[!NOTE]` (partial "docs/noteIcon.html" .) $content }}
-        {{ $content := replaceRE `\[!WARNING]` (partial "docs/warningIcon.html" .) $content }}
-        {{ $content | markdownify | safeHTML }}
-
+        {{ partial "docs/formatDoc" .Content }}
         {{ $lastUrlElement := index (split .Page.RelPermalink "/") (sub (len (split .Page.RelPermalink "/")) 2) }}
         <a
           class="bg-green inline-flex text-sm text-purple mt-4 gap-2 flex-row items-center p-2"
