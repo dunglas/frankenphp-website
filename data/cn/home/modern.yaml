@@ -5,11 +5,11 @@ link:
   url: "/docs/"
 content:
   - >
-    使用官方 PHP 执行器，嵌入在最先进的 web 服务器中：**[Caddy](https://caddyserver.com)**
+    使用嵌入在最先进的 Web 服务器中的官方 PHP 执行器：**[Caddy](https://caddyserver.com)**
   - >
     原生支持 HTTP/1.1、HTTP/2 和 **HTTP/3**
   - >
-    自动 **HTTPS** 证书生成和续订（Let's Encrypt 或 ZeroSSL）
+    自动生成和续订 **HTTPS** 证书（Let's Encrypt 或 ZeroSSL）
   - >
     将您的 PHP 文件复制到文档根目录，就是这么简单！
   - >

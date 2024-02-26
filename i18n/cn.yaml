@@ -3,6 +3,6 @@ language:
 edit: 编辑此页面
 powered: 由...提供支持
 footer:
-  owner: "为您创建由 %owner% (创建者 %api-platform% 和 %symfony% 核心团队成员)"
-  design: "网站设计由 %designer%"
+  owner: "由 %owner% (API Platform 创建者, Symfony 核心团队成员) 为您创建"
+  design: "网站设计 %designer%"
   sponsor: "赞助商 %sponsor%"

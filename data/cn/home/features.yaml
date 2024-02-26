@@ -18,9 +18,9 @@ content:
     content: |
       <a href="/docs/worker/" class="link">一次启动您的应用程序</a>并保持其在内存中！它准备在几毫秒内处理传入请求。
   - image: "/img/bulb.svg"
-    title: "103 提前提示"
+    title: "103 早期提示"
     content: |
-      <a href="/docs/early-hints/"  class="link">提前提示</a>是 web 平台的一个全新特性，可以通过<a href="https://blog.cloudflare.com/early-hints/" target="_blank" rel="noreferrer noopener" class="link">提前 30% 的时间加载网站</a>。FrankenPHP 是唯一支持提前提示的 PHP SAPI！
+      <a href="/docs/early-hints/"  class="link">早期提示</a>是 web 平台的一个全新特性，可以通过<a href="https://blog.cloudflare.com/early-hints/" target="_blank" rel="noreferrer noopener" class="link">提前 30% 的时间加载网站</a>。FrankenPHP 是唯一支持提前提示的 PHP SAPI！
   - image: "/img/clock.svg"
     title: "实时功能"
     content: |
@@ -44,7 +44,7 @@ content:
   - image: "/img/https.svg"
     title: "HTTPS 自动化"
     content: |
-      自动 HTTPS 证书生成、续订和撤销。
+      自动生成、续订和撤销 HTTPS 证书。
   - image: "/img/reload.svg"
     title: "平滑重载"
     content: |
