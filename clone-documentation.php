@@ -67,53 +67,52 @@ function copyDirectory($source, $dest)
 // Function to delete ".md" at the end of the links and add /docs prefix when necessary
 function fixLinks($content, $lang = "en")
 {
-    // Replacement function
     $content = preg_replace_callback(LINKS_REGEX, function ($matches) {
-        $textLink = $matches[1];
-        $url = $matches[2];
-        // anchor link
-        if (preg_match('/^#/', $url)) {
+        [$fullMatch, $textLink, $url] = $matches;
+
+        // Handle image links
+        if (preg_match('/\.(png|svg|jpg)$/', $url, $imageMatches)) {
+            $imageName = basename($url); // Extract the image name
+            // Replace with the new base URL and retain the image name
+            return "[$textLink](https://raw.githubusercontent.com/dunglas/frankenphp/main/docs/$imageName)";
+        }
+
+        // Handle anchor links directly
+        if (strpos($url, '#') === 0) {
             return "[$textLink]($url)";
         }
-        if (preg_match('/^docs/', $url)) {
-            $url = preg_replace('/^docs/', '/docs', $url);
-            $url = str_replace('.md', '', $url);
+
+        // Normalize URL
+        if (preg_match('/^docs/', $url) || !preg_match('/^http/', $url)) {
+            $url = preg_replace('/^docs/', '/docs', $url); // Ensure leading /docs
+            $url = str_replace('.md', '', $url); // Remove .md extension
+            $url = strpos($url, '/') === 0 ? "/docs$url" : "/docs/$url"; // Ensure correct path
+            $url = preg_replace('#^https://frankenphp.dev#', '', $url); // Remove domain
+            $url = str_replace('docs/CONTRIBUTING', 'docs/contributing', $url); // Specific case
             if (substr($url, -1) !== '/' && strpos($url, '.') === false) {
-                $url .= '/';
-            }
-        }
-        // Check if the URL does not start with "http"
-        elseif (!preg_match('/^http/', $url)) {
-            $url = str_replace('.md', '', $url);
-            if (strpos($url, '/') === 0) {
-                $url = "/docs" . $url;
-            } else {
-                $url = "/docs/" . $url;
-            }
-            if (substr($url, -1) !== '/' && strpos($url, '.') === false) {
-                $url .= '/';
+                $url .= '/'; // Ensure trailing slash if not a file
             }
         }
 
-        $url = preg_replace('#^https://frankenphp.dev#', '', $url);
-        $url = str_replace('docs/CONTRIBUTING', 'docs/contributing', $url);
-
-        // Rebuild the link with the new path
         return "[$textLink]($url)";
     }, $content);
 
+    // Language-specific adjustments
     if ($lang !== "en") {
         $content = preg_replace_callback(
             "/(?<=^|[^a-zA-Z0-9])\/docs\/(?!$lang)([^\/]+)\/?/",
             function ($matches) use ($lang) {
-                // Ajoute '/docs/<lang>/' au début et s'assure qu'il y a un slash à la fin.
-                return '/' . $lang . '/docs/' . $matches[1] . '/';
+                return "/$lang/docs/{$matches[1]}/"; // Adjust path with language
             },
             $content
         );
     }
 
-    // Write the modified content to the file
+    // Special case for 'cn' language
+    if ($lang === "cn") {
+        $content = str_replace('/cn/docs/contributing', '/docs/contributing', $content);
+    }
+
     return $content;
 }
 
@@ -177,16 +176,15 @@ function generateLangDocumentation($repoURL, $lang = "en") {
     }
 
     /* handle CONTRIBUTING file */
-    $CONTRIBUTING_SOURCE = $TEMP_DIR . ($lang === "en" || $lang === "cn" ? "" : "/docs/" . $lang) . "/CONTRIBUTING.md";
-    if (!file_get_contents($CONTRIBUTING_SOURCE))
-        $CONTRIBUTING_SOURCE = $TEMP_DIR . "/CONTRIBUTING.md";
-
-    $success = copy($CONTRIBUTING_SOURCE, $DOCS_DESTINATION . "/CONTRIBUTING.md");
-    if (!$success) {
-        echo "Error when copying CONTRIBUTING.md\n";
-        return;
+    $CONTRIBUTING_SOURCE = $TEMP_DIR . ($lang === "en" ? "" : "/docs/" . $lang) . "/CONTRIBUTING.md";
+    if (file_get_contents($CONTRIBUTING_SOURCE)) {
+        $success = copy($CONTRIBUTING_SOURCE, $DOCS_DESTINATION . "/CONTRIBUTING.md");
+        if (!$success) {
+            echo "Error when copying CONTRIBUTING.md\n";
+            return;
+        }
+        rename($DOCS_DESTINATION . "/CONTRIBUTING.md", $DOCS_DESTINATION . "/contributing.md");
     }
-    rename($DOCS_DESTINATION . "/CONTRIBUTING.md", $DOCS_DESTINATION . "/contributing.md");
 
 
     /* handle index / README file */
@@ -196,7 +194,17 @@ function generateLangDocumentation($repoURL, $lang = "en") {
     // Modify README.md
     copy($README_SOURCE, $DESTINATION_DIRECTORY . "/README.md");
     $content = file_get_contents($DESTINATION_DIRECTORY . "/README.md");
-    $content = preg_replace('/src="((?!http)[^"]*)"/', 'src="https://raw.githubusercontent.com/dunglas/frankenphp/main/$1"', $content);
+    // fix image link
+    $content = preg_replace_callback(
+        '/src="((?!http)[^"]*)"/',
+        function ($matches) {
+            // Supprime '../../' du chemin capturé
+            $cleanPath = str_replace('../../', '', $matches[1]);
+            // Préfixe le chemin nettoyé avec l'URL GitHub Raw
+            return 'src="https://raw.githubusercontent.com/dunglas/frankenphp/main/' . $cleanPath . '"';
+        },
+        $content
+    );
     file_put_contents($DESTINATION_DIRECTORY . "/README.md", $content);
     rename($DESTINATION_DIRECTORY . "/README.md", $DOCS_DESTINATION . "/_index.md");
 

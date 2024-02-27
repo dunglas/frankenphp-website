@@ -1,4 +1,4 @@
 node_modules
 content/**/docs/
 .env.local
-data/nav.yaml
+data/**/nav.yaml

@@ -8,6 +8,10 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@dunglas" />
     <meta name="twitter:creator" content="@dunglas" />
+    <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+    {{ range .Translations }}
+	  <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+    {{ end }}
     <meta
       name="twitter:title"
       content="FrankenPHP: the modern PHP app server"
