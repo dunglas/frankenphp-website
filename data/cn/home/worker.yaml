@@ -1,12 +1,12 @@
 title: Worker <strong class="text-green-dark">模式</strong>
-overtitle: 让您的 PHP 应用速度超乎想象！
+overtitle: 让您的 PHP 应用程序比以往任何时候都更快！
 content:
   - title: "Worker 脚本"
     content: |
       启动您的应用一次，它便**常驻内存**！
   - title: "<span>直接</span><span>明了</span>"
     content: |
-      Symfony、API Platform、Laravel... 原生支持。
+      由 Symfony、API Platform、Laravel... 原生支持。
   - title: "简单"
     content: |
       仅需使用原始的超全局变量：**无需 PSR-7**。

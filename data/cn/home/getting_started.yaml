@@ -9,11 +9,11 @@ docker: |
   ```
 standard: |
   ```bash
-  # Static binary
+  # 静态二进制文件
   ./frankenphp php-server
 
-  # Command-line script
+  # 命令行脚本
   ./frankenphp php-cli /path/to/your/script.php
   ```
 content: |
-  只需一条命令，即可启动并运行一个生产级别的 PHP 服务器！
+  只需使用一条命令即可启动并运行一个生产级别的 PHP 服务器！
