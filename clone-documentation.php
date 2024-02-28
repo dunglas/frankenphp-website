@@ -188,7 +188,7 @@ function generateLangDocumentation($repoURL, $lang = "en") {
 
 
     /* handle index / README file */
-    $README_SOURCE = $TEMP_DIR . ($lang === "en" || $lang === "cn" ? "" : "/docs/" . $lang) . "/README.md";
+    $README_SOURCE = $TEMP_DIR . ($lang === "en" ? "" : "/docs/" . $lang) . "/README.md";
     if (!file_get_contents($README_SOURCE)) $README_SOURCE = $TEMP_DIR . "/README.md";
 
     // Modify README.md
@@ -259,11 +259,9 @@ if (!$githubKey) {
 }
 
 $repoURL = "https://$githubKey@github.com/dunglas/frankenphp.git";
-$repoCNURL = "https://$githubKey@github.com/pierresh/frankenphp.git";
-$repoFRURL = "https://$githubKey@github.com/ginifizz/frankenphp.git";
 
 generateLangDocumentation($repoURL);
-generateLangDocumentation($repoCNURL, "cn");
-generateLangDocumentation($repoFRURL, "fr");
+generateLangDocumentation($repoURL, "cn");
+generateLangDocumentation($repoURL, "fr");
 
 ?>

@@ -1261,8 +1261,8 @@ pre {
   margin-bottom: 0.75rem;
 }
 
-.-mb-1 {
-  margin-bottom: -0.25rem;
+.-mt-12 {
+  margin-top: -3rem;
 }
 
 .mb-1 {
@@ -1293,6 +1293,10 @@ pre {
   margin-bottom: 2rem;
 }
 
+.ml-4 {
+  margin-left: 1rem;
+}
+
 .ml-auto {
   margin-left: auto;
 }
@@ -1321,16 +1325,12 @@ pre {
   margin-top: 2rem;
 }
 
-.-mb-2 {
-  margin-bottom: -0.5rem;
+.-mt-96 {
+  margin-top: -24rem;
 }
 
-.ml-2 {
-  margin-left: 0.5rem;
-}
-
-.ml-4 {
-  margin-left: 1rem;
+.-mt-20 {
+  margin-top: -5rem;
 }
 
 .block {
@@ -1825,10 +1825,6 @@ pre {
   border-radius: 0.75rem;
 }
 
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
 .border-b {
   border-bottom-width: 1px;
 }
@@ -2072,11 +2068,6 @@ pre {
   padding-bottom: 2rem;
 }
 
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-}
-
 .pb-12 {
   padding-bottom: 3rem;
 }
@@ -2113,12 +2104,20 @@ pre {
   padding-top: 8rem;
 }
 
+.pt-4 {
+  padding-top: 1rem;
+}
+
 .pt-8 {
   padding-top: 2rem;
 }
 
-.pt-4 {
-  padding-top: 1rem;
+.pt-96 {
+  padding-top: 24rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
 }
 
 .text-center {
@@ -2941,6 +2940,10 @@ kbd.DocSearch-Commands-Key {
   background-color: rgb(179 209 51 / var(--tw-bg-opacity)) !important;
 }
 
+.hover\:\!bg-transparent:hover {
+  background-color: transparent !important;
+}
+
 .hover\:bg-green:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(179 209 51 / var(--tw-bg-opacity));
@@ -2954,18 +2957,6 @@ kbd.DocSearch-Commands-Key {
   background-color: rgb(35 1 67 / 0.1);
 }
 
-.hover\:\!bg-transparent:hover {
-  background-color: transparent !important;
-}
-
-.hover\:bg-none:hover {
-  background-image: none;
-}
-
-.hover\:\!bg-none:hover {
-  background-image: none !important;
-}
-
 .hover\:\!text-purple:hover {
   --tw-text-opacity: 1 !important;
   color: rgb(57 0 117 / var(--tw-text-opacity)) !important;
@@ -2976,14 +2967,14 @@ kbd.DocSearch-Commands-Key {
   color: rgb(179 209 51 / var(--tw-text-opacity));
 }
 
-.hover\:text-purple:hover {
-  --tw-text-opacity: 1;
-  color: rgb(57 0 117 / var(--tw-text-opacity));
-}
-
 .hover\:text-green-dark:hover {
   --tw-text-opacity: 1;
   color: rgb(146 167 46 / var(--tw-text-opacity));
+}
+
+.hover\:text-purple:hover {
+  --tw-text-opacity: 1;
+  color: rgb(57 0 117 / var(--tw-text-opacity));
 }
 
 .hover\:opacity-100:hover {
