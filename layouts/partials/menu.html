@@ -1,14 +1,17 @@
 <!-- sidebar menu start-->
-  <div class="flex flex-row gap-3 ml-4 pt-4 lg:hidden">
-    <img src="/img/flags/{{ .Site.Language.Lang }}.svg" class="w-8 h-8 saturate-0 opacity-50" />
-        {{ if .IsTranslated }}
-            {{ range .Translations }}
-                    <a href="{{ .RelPermalink }}" class="">
-                        <img class="w-8 h-8" src="/img/flags/{{ .Language }}.svg" />
-                    </a>
-            {{ end }}
-        {{ end }}
-              </div>
+<div class="flex flex-row gap-3 ml-4 pt-4 lg:hidden">
+  <img
+    src="/img/flags/{{ .Site.Language.Lang }}.svg"
+    class="w-8 h-8 saturate-0 opacity-50"
+  />
+  {{ if .IsTranslated }}
+    {{ range .Translations }}
+      <a href="{{ .RelPermalink }}" class="">
+        <img class="w-8 h-8" src="/img/flags/{{ .Language }}.svg" />
+      </a>
+    {{ end }}
+  {{ end }}
+</div>
 <ul
   class="flex flex-col items-center gap-4 pt-24 text-xl uppercase font-bold lg:pt-0 lg:items-start lg:flex-row lg:font-normal lg:normal-case lg:text-base"
 >
@@ -54,7 +57,9 @@
   class="bg-purple py-8 px-4 text-white lg:px-0 lg:bg-transparent lg:hidden lg:text-current flex-1 xl:flex-auto xl:flex flex-col gap-1 items-center"
   aria-label="Powered by Les-Tilleuls.coop"
 >
-  <div class="text-xs font-light xl:-mb-1 text-center">{{ i18n "powered"}}</div>
+  <div class="text-xs font-light xl:-mb-1 text-center">
+    {{ i18n "powered" }}
+  </div>
   <div class="w-full lg:w-28 h-8 lg:h-4 relative">
     {{ if .IsHome }}
       {{ partial "logoTilleuls" (dict "color1" "fill-white" "color2" "fill-white") }}

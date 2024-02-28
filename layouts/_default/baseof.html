@@ -8,9 +8,9 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@dunglas" />
     <meta name="twitter:creator" content="@dunglas" />
-    <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+    <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}" />
     {{ range .Translations }}
-	  <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+      <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}" />
     {{ end }}
     <meta
       name="twitter:title"
@@ -36,9 +36,12 @@
     <link rel="stylesheet" href="/style/output.css" />
     <link rel="stylesheet" href="/style/syntax.css" />
     <script src="/js/parallax.js"></script>
-<link href="
+    <link
+      href="
 https://cdn.jsdelivr.net/npm/@docsearch/css@3.5.2/dist/style.min.css
-" rel="stylesheet">
+"
+      rel="stylesheet"
+    />
     {{ block "head" . }}{{ end }}
   </head>
   <body class="min-h-[100vh] overflow-x-hidden">
@@ -67,18 +70,18 @@ https://cdn.jsdelivr.net/npm/@docsearch/css@3.5.2/dist/style.min.css
         {{ replace (i18n "footer.sponsor") "%sponsor%" "<a class=\"footer-link\" href=\"https://les-tilleuls.coop/en\" target=\"_blank\" rel=\"noreferrer noopener\">Les-Tilleuls.coop</a>" | safeHTML }}
       </p>
     </footer>
-<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-      docsearch({
-  container: '#docsearch',
-  appId: "BXUBZVECND",
-  indexName: 'frankenphp',
-  apiKey:"57b6245de6ff6ca5d345bb85d6db42c9",
-   debug: true,
+      document.addEventListener("DOMContentLoaded", function () {
+        docsearch({
+          container: "#docsearch",
+          appId: "BXUBZVECND",
+          indexName: "frankenphp",
+          apiKey: "57b6245de6ff6ca5d345bb85d6db42c9",
+          debug: true,
+        });
       });
-    });
-  </script>
+    </script>
   </body>
 </html>

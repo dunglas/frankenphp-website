@@ -6,7 +6,9 @@
     class="h-12 p-4 mx-auto flex flex-row gap-4 items-center max-w-8xl md:hidden"
   >
     <label for="doc-nav-toggle" class="cursor-pointer">
-      <span class="-left-screen absolute text-[0] scale-0 pointer-events-none">Toggle doc navigation</span>
+      <span class="-left-screen absolute text-[0] scale-0 pointer-events-none">
+        Toggle doc navigation
+      </span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -38,7 +40,11 @@
 <label
   for="doc-nav-toggle"
   class="fixed inset-0 backdrop-blur-sm z-50 bg-purple-dark/60 transition-all duration-500 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto md:hidden"
-><span class="-left-screen absolute text-[0] scale-0 pointer-events-none">Toggle doc navigation</span></label>
+>
+  <span class="-left-screen absolute text-[0] scale-0 pointer-events-none">
+    Toggle doc navigation
+  </span>
+</label>
 <div
   class="fixed -left-72 peer-checked:left-0 z-50 text-gray-700 border-r bg-white border-r-gray-300 text-sm top-0 h-screen transition-all duration-300 | md:left-0 md:z-0 md:pt-16 md:sticky md:block w-72"
 >
@@ -49,7 +55,9 @@
       for="doc-nav-toggle"
       class="w-full h-12 bg-white py-2 z-10 block md:hidden"
     >
-    <span class="-left-screen absolute text-[0] scale-0 pointer-events-none">Toggle doc navigation</span>
+      <span class="-left-screen absolute text-[0] scale-0 pointer-events-none">
+        Toggle doc navigation
+      </span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -65,7 +73,7 @@
       </svg>
     </label>
 
-  {{ with index .Site.Data .Site.Language.Lang "nav" }}
+    {{ with index .Site.Data .Site.Language.Lang "nav" }}
       <ul class="flex flex-col gap-2">
         {{ with .links }}
           {{ range . }}

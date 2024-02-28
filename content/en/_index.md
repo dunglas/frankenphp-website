@@ -1,5 +1,5 @@
 ---
-title: "FrankenPHP：现代 PHP 应用服务器，用 Go 编写"
+title: "FrankenPHP : The Modern PHP App Server, written in Go"
 layout: home
 technos:
   - image: "drupal.png"
