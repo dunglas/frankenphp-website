@@ -4,10 +4,7 @@ content:
   - title: "Script Worker"
     content: |
       Démarrez votre application une fois, elle **reste en mémoire** !
-  #- title: "Sans couture"
-  #  content: |
-  #    Traitez les requêtes entrantes **sans avoir à redémarrer votre application**
-  - title: <span>Direct</span><span>ement</span>
+  - title: <span>Va à l'essentiel</span><span>ement</span>
     content: |
       Pris en charge nativement par Symfony, API Platform, Laravel...
   - title: "Simple"
@@ -15,7 +12,7 @@ content:
       Utilise les superglobales classiques : **pas besoin de PSR-7**.
   - title: "Rapide"
     content: |
-      Selon <a href="https://github.com/dunglas/frankenphp-demo/tree/main/benchmark" target="_blank" rel="noreferrer noopener" class="link">nos benchmarks</a>, **3,5 fois plus rapide que FPM** sur les applications API Platform.
+      3,5 fois plus rapide que FPM** sur les applications API Platform selon <a href="https://github.com/dunglas/frankenphp-demo/tree/main/benchmark" target="_blank" rel="noreferrer noopener" class="link">nos benchmarks</a>**.
   - title: "Efficace"
     content: |
       FrankenPHP est écrit en **Go** et **C**. Il s'appuie sur la fonctionnalité emblématique de Go : les goroutines !
