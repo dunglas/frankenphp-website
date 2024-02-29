@@ -1,4 +1,4 @@
-title: "FrankenPHP <strong class='text-green-dark'>en un coup d'œil</strong>"
+title: "FrankenPHP <strong class='text-green-dark'>en un aperçu</strong>"
 overtitle: "Fonctionnalités"
 content:
   - image: "/img/box.svg"
@@ -12,7 +12,7 @@ content:
   - image: "/img/rocket.svg"
     title: "Déploiement facile"
     content: |
-      Application Cloud Native fournie comme <a href="/docs/docker/" class="link">une image Docker</a>. Compatible avec Kubernetes et toutes les plateformes cloud modernes. Il est également possible de packager votre application PHP comme <a href="/docs/embed/" class="link">un binaire statique autonome et auto-exécutable</a>.
+      Application Cloud Native fournie comme <a href="/docs/docker/" class="link">une image Docker</a>. Compatible avec Kubernetes et toutes les plateformes Cloud modernes. Il est également possible de packager votre application PHP comme <a href="/docs/embed/" class="link">un binaire statique autonome et auto-exécutable</a>.
   - image: "/img/worker.svg"
     title: "Mode worker"
     content: |
@@ -20,7 +20,7 @@ content:
   - image: "/img/bulb.svg"
     title: "103 Early Hints"
     content: |
-      Les <a href="/docs/early-hints/"  class="link">Early Hints</a> sont une toute nouvelle fonctionnalité de la plateforme web qui peut améliorer <a href="https://blog.cloudflare.com/early-hints/" target="_blank" rel="noreferrer noopener" class="link">le temps de chargement des sites web de 30%</a>. FrankenPHP est le seul SAPI PHP avec support des Early Hints !
+      Les <a href="/docs/early-hints/"  class="link">Early Hints</a> améliorent <a href="https://blog.cloudflare.com/early-hints/" target="_blank" rel="noreferrer noopener" class="link">le temps de chargement des sites web de 30%</a>. FrankenPHP est le seul SAPI PHP avec support des Early Hints !
   - image: "/img/clock.svg"
     title: "Temps réel"
     content: |
@@ -46,6 +46,6 @@ content:
     content: |
       Génération, renouvellement et révocation automatiques des certificats HTTPS.
   - image: "/img/reload.svg"
-    title: "Rechargement en douceur"
+    title: "Rechargement fluide"
     content: |
       Déployez vos applications sans aucun temps d'arrêt grâce aux rechargements en douceur.
