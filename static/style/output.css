@@ -1261,8 +1261,8 @@ pre {
   margin-bottom: 0.75rem;
 }
 
-.-mt-12 {
-  margin-top: -3rem;
+.-mt-20 {
+  margin-top: -5rem;
 }
 
 .mb-1 {
@@ -1323,14 +1323,6 @@ pre {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.-mt-96 {
-  margin-top: -24rem;
-}
-
-.-mt-20 {
-  margin-top: -5rem;
 }
 
 .block {
@@ -2096,6 +2088,10 @@ pre {
   padding-top: 4rem;
 }
 
+.pt-20 {
+  padding-top: 5rem;
+}
+
 .pt-24 {
   padding-top: 6rem;
 }
@@ -2110,14 +2106,6 @@ pre {
 
 .pt-8 {
   padding-top: 2rem;
-}
-
-.pt-96 {
-  padding-top: 24rem;
-}
-
-.pt-20 {
-  padding-top: 5rem;
 }
 
 .text-center {

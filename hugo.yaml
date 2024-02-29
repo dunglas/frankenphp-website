@@ -23,6 +23,11 @@ languages:
       main:
       - name: Documentation
         pageRef: /docs/
+      - name: Shop
+        url: https://frankenphp.tpopsite.com/
+        params:
+          rel: external
+          target: _blank
   cn:
     disabled: false
     languageCode: "cn"
@@ -35,6 +40,11 @@ languages:
       main:
       - name: 文档
         pageRef: /docs/
+      - name: 店铺
+        url: https://frankenphp.tpopsite.com/
+        params:
+          rel: external
+          target: _blank
   fr:
     disabled: false
     languageCode: "fr"
@@ -47,6 +57,11 @@ languages:
       main:
       - name: Documentation
         pageRef: /docs/
+      - name: Shop
+        url: https://frankenphp.tpopsite.com/
+        params:
+          rel: external
+          target: _blank
 build:
   ignoreFiles:
       - "^home/"

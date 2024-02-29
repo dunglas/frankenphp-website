@@ -25,7 +25,7 @@
   {{ $currentPage := . }}
   {{ range .Site.Menus.main }}
     <li class="rounded-md p-2  hover:bg-green-light/20 transition-colors">
-      <a href="{{ relLangURL .URL | absURL }}">
+      <a href="{{ relLangURL .URL | absURL }}" {{ with .Params.rel }}rel="{{ . }}"{{ end }} {{ with .Params.target }}target="{{ . }}"{{ end }}>
         <span>{{ .Name }}</span>
       </a>
     </li>
