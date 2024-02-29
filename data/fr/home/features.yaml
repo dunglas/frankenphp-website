@@ -12,15 +12,15 @@ content:
   - image: "/img/rocket.svg"
     title: "Déploiement facile"
     content: |
-      Application Cloud Native fournie comme <a href="/docs/docker/" class="link">une image Docker</a>. Compatible avec Kubernetes et toutes les plateformes Cloud modernes. Il est également possible de packager votre application PHP comme <a href="/docs/embed/" class="link">un binaire statique autonome et auto-exécutable</a>.
+      Application Cloud Native fournie comme <a href="/fr/docs/docker/" class="link">une image Docker</a>. Compatible avec Kubernetes et toutes les plateformes Cloud modernes. Il est également possible de packager votre application PHP comme <a href="/fr/docs/embed/" class="link">un binaire statique autonome et auto-exécutable</a>.
   - image: "/img/worker.svg"
     title: "Mode worker"
     content: |
-      <a href="/docs/worker/" class="link">Démarrez votre application une fois</a> et gardez-la en mémoire ! Elle est prête à gérer les requêtes entrantes en quelques millisecondes.
+      <a href="/fr/docs/worker/" class="link">Démarrez votre application une fois</a> et gardez-la en mémoire ! Elle est prête à gérer les requêtes entrantes en quelques millisecondes.
   - image: "/img/bulb.svg"
     title: "103 Early Hints"
     content: |
-      Les <a href="/docs/early-hints/"  class="link">Early Hints</a> améliorent <a href="https://blog.cloudflare.com/early-hints/" target="_blank" rel="noreferrer noopener" class="link">le temps de chargement des sites web de 30%</a>. FrankenPHP est le seul SAPI PHP avec support des Early Hints !
+      Les <a href="/fr/docs/early-hints/"  class="link">Early Hints</a> améliorent <a href="https://blog.cloudflare.com/early-hints/" target="_blank" rel="noreferrer noopener" class="link">le temps de chargement des sites web de 30%</a>. FrankenPHP est le seul SAPI PHP avec support des Early Hints !
   - image: "/img/clock.svg"
     title: "Temps réel"
     content: |

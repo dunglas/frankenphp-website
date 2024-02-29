@@ -2,7 +2,7 @@ title: <strong class="text-green-dark">Plus moderne</strong> que jamais !
 overtitle: "Prêts pour la révolution PHP ?"
 link:
   text: "Essayez FrankenPHP"
-  url: "/docs/"
+  url: "/fr/docs/"
 content:
   - >
     Utilise l'exécuteur PHP officiel intégré dans un serveur web de pointe : **[Caddy](https://caddyserver.com)**

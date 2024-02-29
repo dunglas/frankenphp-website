@@ -11,7 +11,7 @@ content:
     url: https://github.com/dunglas/frankenphp-wordpress
   - image: "laravel.png"
     title: "Laravel"
-    url: /docs/laravel/
+    url: /cn/docs/laravel/
   - image: "symfony.png"
     title: "Symfony"
     url: https://github.com/dunglas/symfony-docker
