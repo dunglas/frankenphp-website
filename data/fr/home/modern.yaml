@@ -1,18 +1,18 @@
-title: <strong class="text-green-dark">Plus moderne</strong> que jamais en PHP !
-overtitle: "Prêt pour le futur ?"
+title: <strong class="text-green-dark">Plus moderne</strong> que jamais !
+overtitle: "Prêts pour la révolution PHP ?"
 link:
-  text: "Essayez-le"
+  text: "Essayez FrankenPHP"
   url: "/docs/"
 content:
   - >
-    Utilise l'exécuteur PHP officiel intégré dans un serveur web à la pointe de la technologie : **[Caddy](https://caddyserver.com)**
+    Utilise l'exécuteur PHP officiel intégré dans un serveur web de pointe : **[Caddy](https://caddyserver.com)**
   - >
     Support natif pour HTTP/1.1, HTTP/2 et **HTTP/3**
   - >
     Génération et renouvellement automatiques des certificats **HTTPS** (Let's Encrypt ou ZeroSSL)
   - >
-    Copiez vos fichiers PHP dans la racine du document, c'est tout !
+    Copie vos fichiers PHP dans la racine du document, et c'est tout !
   - >
-    [Créez des binaires **autonomes**, auto-exécutables et sans dépendances](/docs/embed/) pour vos applications web PHP, et outils en ligne de commande.
+    [Crée des binaires **autonomes**, auto-exécutables et sans dépendances](/docs/embed/) pour vos applications web PHP, et outils en ligne de commande.
   - >
-    Les extensions PHP les plus populaires, incluant **OPcache** et **XDebug**, sont nativement supportées !
+    Les extensions PHP les plus populaires, incluant **OPcache** et **XDebug**, sont nativement supportées.

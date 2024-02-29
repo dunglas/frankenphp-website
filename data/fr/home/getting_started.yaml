@@ -1,6 +1,6 @@
-title: "Commencez <strong class='text-green-dark'>maintenant</strong> !"
+title: "Commencez dès <strong class='text-green-dark'>maintenant</strong> !"
 layout: partials/home/getting_started
-overtitle: "Une commande pour les exécuter toutes"
+overtitle: "Une seule commande nécessaire"
 docker: |
   ```bash
   # Docker
@@ -16,4 +16,4 @@ standard: |
   ./frankenphp php-cli /path/to/your/script.php
   ```
 content: |
-  Lancez un serveur PHP de qualité production en une simple commande !
+  Lancez un serveur PHP de haute qualité en production en une simple commande !
