@@ -71,11 +71,12 @@ function fixLinks($content, $lang = "en")
         [$fullMatch, $textLink, $url] = $matches;
 
         // Handle image links
-        if (preg_match('/\.(png|svg|jpg)$/', $url, $imageMatches)) {
+        if (!preg_match('/^http/', $url) && preg_match('/\.(png|svg|jpg)$/', $url, $imageMatches)) {
             $imageName = basename($url); // Extract the image name
             // Replace with the new base URL and retain the image name
             return "[$textLink](https://raw.githubusercontent.com/dunglas/frankenphp/main/docs/$imageName)";
         }
+
 
         // Handle anchor links directly
         if (strpos($url, '#') === 0) {
@@ -107,6 +108,9 @@ function fixLinks($content, $lang = "en")
             $content
         );
     }
+
+    // Ensure no /docs/docs occurrences
+    $content = preg_replace('#/docs/docs(/|$)#', '/docs$1', $content);
 
     // Special case for 'cn' language
     if ($lang === "cn") {
