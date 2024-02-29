@@ -1,3 +1,5 @@
+metadescription: "FrankenPHP is a new app server for PHP apps (built on top of Caddy) and a library to embed the PHP interpreter in Go web servers."
+metatitle: "FrankenPHP: the modern PHP app server"
 language:
   switch: Change language
 edit: Edit this page
@@ -5,4 +7,4 @@ powered: Powered by
 footer:
   owner: "Brought to you by %owner%, creator of %api-platform% et %symfony% Core Team member."
   design: "Design by %designer%"
-  sponsor: "Sponsored by %%sponsor%"
+  sponsor: "Sponsored by %sponsor%"

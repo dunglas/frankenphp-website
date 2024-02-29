@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ .Lang }}">
   <head>
     <meta charset="UTF-8" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Modern application server for PHP." />
+    <meta name="description" content="{{ i18n "metadescription" }}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@dunglas" />
     <meta name="twitter:creator" content="@dunglas" />
@@ -14,20 +14,20 @@
     {{ end }}
     <meta
       name="twitter:title"
-      content="FrankenPHP: the modern PHP app server"
+      content="{{ i18n "metatitle" }}"
     />
     <meta
       name="twitter:description"
-      content="FrankenPHP is a new app server for PHP apps (built on top of Caddy) and a library to embed the PHP interpreter in Go web servers."
+      content="{{ i18n "metadescription" }}"
     />
     <meta name="twitter:image" content="https://frankenphp.dev/card.png" />
     <meta name="og:image" content="https://frankenphp.dev/card.png" />
-    <meta name="og:title" content="FrankenPHP: the modern PHP app server" />
+    <meta name="og:title" content="{{ i18n "metatitle" }}" />
     <meta
       name="og:description"
-      content="FrankenPHP is a new app server for PHP apps (built on top of Caddy) and a library to embed the PHP interpreter in Go web servers."
+      content="{{ i18n "metadescription" }}"
     />
-    <title>{{ .Title }}</title>
+    <title>{{ i18n "metatitle" }}</title>
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

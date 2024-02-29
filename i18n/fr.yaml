@@ -1,3 +1,5 @@
+metadescription: "FrankenPHP est un nouveau serveur d'applications pour les applications PHP (construit sur la base de Caddy) et une bibliothèque permettant d'incorporer l'interpréteur PHP dans les serveurs web Go."
+metatitle: "FrankenPHP: le serveur d'applications PHP moderne, écrit en Go"
 language:
   switch: Modifier la langue
 edit: Editer cette page

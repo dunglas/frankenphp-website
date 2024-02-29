@@ -23,11 +23,13 @@ languages:
       main:
       - name: Documentation
         pageRef: /docs/
+        weight: 1
       - name: Shop
         url: https://frankenphp.tpopsite.com/
         params:
           rel: external
           target: _blank
+        weight: 5
   cn:
     disabled: false
     languageCode: "cn"
@@ -40,11 +42,13 @@ languages:
       main:
       - name: 文档
         pageRef: /docs/
+        weight: 1
       - name: 店铺
         url: https://frankenphp.tpopsite.com/
         params:
           rel: external
           target: _blank
+        weight: 5
   fr:
     disabled: false
     languageCode: "fr"
@@ -57,8 +61,10 @@ languages:
       main:
       - name: Documentation
         pageRef: /docs/
+        weight: 1
       - name: Shop
         url: https://frankenphp.tpopsite.com/
+        weight: 5
         params:
           rel: external
           target: _blank
