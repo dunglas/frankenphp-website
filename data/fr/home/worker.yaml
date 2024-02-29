@@ -4,7 +4,7 @@ content:
   - title: "Script Worker"
     content: |
       Démarrez votre application une fois, elle **reste en mémoire** !
-  - title: <span>Va à l'essentiel</span><span>ement</span>
+  - title: <span>Va à l'essentiel</span>
     content: |
       Pris en charge nativement par Symfony, API Platform, Laravel...
   - title: "Simple"
