@@ -1,0 +1,8 @@
+language:
+  switch: 改变语言
+edit: 编辑此页面
+powered: 由...提供支持
+footer:
+  owner: "由 %owner% (API Platform 创建者, Symfony 核心团队成员) 为您创建"
+  design: "网站设计 %designer%"
+  sponsor: "赞助商 %sponsor%"

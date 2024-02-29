@@ -1,4 +1,4 @@
-{{ with .Site.Data.home.getting_started }}
+{{ with index .Site.Data .Site.Language.Lang "home" "getting_started" }}
   <section
     id="getting-started"
     class="bg-white py-12 md:py-24 relative before:clip-path-inclinated before:bg-white before:w-full before:h-48 before:absolute before:bottom-full before:left-0 translate-y-[0.5px]"

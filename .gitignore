@@ -1,5 +1,4 @@
 node_modules
-content/docs
-content/contributing.md
+content/**/docs/
 .env.local
-data/nav.yaml
+data/**/nav.yaml

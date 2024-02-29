@@ -1,0 +1,42 @@
+hero:
+  title: "让我们一起创造一些<strong class='text-green'>伟大的</strong>东西！"
+  overtitle: "需要帮助吗？"
+  content: "<a class='link !text-green-light hover:!text-purple hover:bg-green' href='https://les-tilleuls.coop/en'>Les-Tilleuls.coop</a>，FrankenPHP的编辑者，提供了广泛的资源来帮助您使您的应用程序更快更可靠。<br /><br />如果您正在寻找关于定义、构建和改进您的基础设施的指导，那么您来对地方了！"
+  button: "联系我们！"
+migration:
+  title: "<strong class='text-green-dark'>迁移</strong>您的应用程序到FrankenPHP"
+  content: "我们将您的基础设施迁移到FrankenPHP，并培训您的团队使用它。这将增强您的基础设施的稳定性，从而提高生产力。现在让我们制定一个迁移计划，并与您的团队携手实施！"
+  button: "开始吧！"
+hosting:
+  title: "<strong class='text-green-dark'>托管</strong>您的项目与FrankenPHP"
+  content: "我们在生产中部署和管理您的PHP应用程序，并处理 <strong>一切</strong>：监控、执行安全性、升级、优化性能……<br /><br />此外，我们可以将您的应用程序管理到最适合您需求的Cloud技术（Kubernetes、GCP、AWS…）或您的本地服务器。"
+  button: "取得联系！"
+services:
+  title: "广泛的<strong class='text-green-dark'>PHP</strong>服务"
+  content: "FrankenPHP由 <a class='link' href='https://les-tilleuls.coop/en' target='_blank'>Les-Tilleuls.coop</a>赞助，这是一家专注于API、电子商务、网站和Cloud的法国IT服务公司。<br /><br />我们是<a class='link' href='https://api-platform/com' target='_blank'>API Platform</a>的创建者，Symfony的共同维护者，PHP基金会咨询委员会的成员，并为超过100个开源解决方案（Laravel、Kubernetes、PM2、Go…）做出了贡献。"
+  button: "了解更多"
+go:
+  title: "我们是<strong class='text-green'>Go</strong>爱好者"
+  content: "我们也是Go的主要贡献者。我们创建了<a class='link !text-green-light hover:!text-purple hover:!bg-green' target='_blank' href='https://mercure.rocks'>Mercure</a>，一个用这种语言编写的简化的实时开放协议和参考实现，以及<a class='link !text-green-light hover:!text-purple hover:!bg-green' target='_blank' href='https://vulcain.rocks'>Vulcain</a>，一个用于快速和习惯性的客户端驱动的REST API的开放协议。"
+further:
+  title: "与<strong class='text-green-dark'>Les-Tilleuls.coop</strong>更进一步"
+  subtitle: "Les-Tilleuls.coop还可以通过各种服务提供个性化支持："
+  content:
+    - title: "网站开发"
+      content: |
+        释放现代框架的力量，创建强大的网站。（Symfony、Laravel、Vue.js、Next.js…）
+    - title: "培训"
+      content: |
+        通过我们认证的开发者提升您的技能
+    - title: "咨询"
+      content: |
+        通过我们量身定制的战略咨询服务自信地克服挑战
+    - title: "任务救援"
+      content: |
+        我们帮助您构建高挑战性的网站
+    - title: "性能和安全审计"
+      content: |
+        通过我们深入的审计确保顶级的性能和安全
+    - title: "用户体验和平面设计"
+      content: |
+        通过我们的设计专长创造引人入胜的用户体验。

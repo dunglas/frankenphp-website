@@ -8,6 +8,10 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@dunglas" />
     <meta name="twitter:creator" content="@dunglas" />
+    <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}" />
+    {{ range .Translations }}
+      <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}" />
+    {{ end }}
     <meta
       name="twitter:title"
       content="FrankenPHP: the modern PHP app server"
@@ -32,9 +36,12 @@
     <link rel="stylesheet" href="/style/output.css" />
     <link rel="stylesheet" href="/style/syntax.css" />
     <script src="/js/parallax.js"></script>
-<link href="
+    <link
+      href="
 https://cdn.jsdelivr.net/npm/@docsearch/css@3.5.2/dist/style.min.css
-" rel="stylesheet">
+"
+      rel="stylesheet"
+    />
     {{ block "head" . }}{{ end }}
   </head>
   <body class="min-h-[100vh] overflow-x-hidden">
@@ -51,61 +58,30 @@ https://cdn.jsdelivr.net/npm/@docsearch/css@3.5.2/dist/style.min.css
         class="h-20 w-20 absolute bottom-full left-1/2 transform translate-y-[0.5px] -translate-x-1/2"
       />
       <p class="text-sm text-white mb-1">
-        Brought to you by
-        <a
-          class="footer-link"
-          href="https://dunglas.dev/"
-          target="_blank"
-          rel="noreferrer noopener"
-        >Kévin Dunglas</a>, creator of
-        <a
-          href="https://api-platform.com"
-          class="footer-link"
-          target="_blank"
-          rel="noreferrer noopener"
-        >API Platform</a>
-        and
-        <a
-          href="https://symfony.com"
-          target="_blank"
-          rel="noreferrer noopener"
-          class="footer-link"
-        >Symfony</a>
-        Core Team member.
+        {{ $owner := "<a class=\"footer-link\" href=\"https://dunglas.dev/\" target=\"_blank\" rel=\"noreferrer noopener\">Kévin Dunglas</a>" }}
+        {{ $apiPlatform := "<a href=\"https://api-platform.com\" class=\"footer-link\" target=\"_blank\" rel=\"noreferrer noopener\">API Platform</a>" }}
+        {{ $symfony := "<a href=\"https://symfony.com\" target=\"_blank\" rel=\"noreferrer noopener\" class=\"footer-link\">Symfony</a>" }}
+        {{ replace (replace (replace (i18n "footer.owner") "%owner%" $owner) "%api-platform%" $apiPlatform) "%symfony%" $symfony | safeHTML }}
       </p>
       <p class="text-sm text-white mb-1">
-        Design by
-        <a
-          class="footer-link"
-          href="https://github.com/ginifizz"
-          target="_blank"
-          rel="noreferrer noopener"
-        >Laury Sorriaux</a>.
+        {{ replace (i18n "footer.design") "%designer%" "<a class=\"footer-link\" href=\"https://github.com/ginifizz\" target=\"_blank\" rel=\"noreferrer noopener\">Laury Sorriaux</a>" | safeHTML }}
       </p>
       <p class="text-xs text-white">
-        Sponsored by
-        <a
-          class="footer-link"
-          href="https://les-tilleuls.coop/en"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Les-Tilleuls.coop
-        </a>
+        {{ replace (i18n "footer.sponsor") "%sponsor%" "<a class=\"footer-link\" href=\"https://les-tilleuls.coop/en\" target=\"_blank\" rel=\"noreferrer noopener\">Les-Tilleuls.coop</a>" | safeHTML }}
       </p>
     </footer>
-<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-      docsearch({
-  container: '#docsearch',
-  appId: "BXUBZVECND",
-  indexName: 'frankenphp',
-  apiKey:"57b6245de6ff6ca5d345bb85d6db42c9",
-   debug: true,
+      document.addEventListener("DOMContentLoaded", function () {
+        docsearch({
+          container: "#docsearch",
+          appId: "BXUBZVECND",
+          indexName: "frankenphp",
+          apiKey: "57b6245de6ff6ca5d345bb85d6db42c9",
+          debug: true,
+        });
       });
-    });
-  </script>
+    </script>
   </body>
 </html>

@@ -1,0 +1,7 @@
+{{ $content := replaceRE `\[!TIP]` (partial "docs/tipIcon.html" .) . }}
+{{ $content := replaceRE `\[!CAUTION]` (partial "docs/cautionIcon.html" .) $content }}
+{{ $content := replaceRE `\[!IMPORTANT]` (partial "docs/importantIcon.html" .) $content }}
+{{ $content := replaceRE `\[!NOTE]` (partial "docs/noteIcon.html" .) $content }}
+{{ $content := replaceRE `\[!WARNING]` (partial "docs/warningIcon.html" .) $content }}
+{{ $content := replaceRE "(<h[2-3] id=\"([^\"]+)\")(.*?>)(.*?)(</h[2-3]>)" `<div class="-mt-20"> ${1}${3}<a class="pt-20 inline-block text-purple-light hover:!bg-transparent hover:text-green-dark" href="#${2}"><small>#</small></a> ${4}${5}</div>` $content }}
+{{ $content | markdownify | safeHTML }}

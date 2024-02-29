@@ -1,0 +1,51 @@
+title: "FrankenPHP <strong class='text-green-dark'>en un coup d'œil</strong>"
+overtitle: "Fonctionnalités"
+content:
+  - image: "/img/box.svg"
+    title: "Extensible"
+    content: |
+      Compatible avec PHP 8.2+, la plupart des extensions PHP et tous les modules Caddy.
+  - image: "/img/one.svg"
+    title: "Un seul service"
+    content: |
+      Conçu dans un souci de simplicité : un seul service, un seul binaire ! FrankenPHP n'a pas besoin de PHP-FPM, il utilise son propre SAPI spécialement conçu pour les serveurs web Go.
+  - image: "/img/rocket.svg"
+    title: "Déploiement facile"
+    content: |
+      Application Cloud Native fournie comme <a href="/docs/docker/" class="link">une image Docker</a>. Compatible avec Kubernetes et toutes les plateformes cloud modernes. Il est également possible de packager votre application PHP comme <a href="/docs/embed/" class="link">un binaire statique autonome et auto-exécutable</a>.
+  - image: "/img/worker.svg"
+    title: "Mode worker"
+    content: |
+      <a href="/docs/worker/" class="link">Démarrez votre application une fois</a> et gardez-la en mémoire ! Elle est prête à gérer les requêtes entrantes en quelques millisecondes.
+  - image: "/img/bulb.svg"
+    title: "103 Early Hints"
+    content: |
+      Les <a href="/docs/early-hints/"  class="link">Early Hints</a> sont une toute nouvelle fonctionnalité de la plateforme web qui peut améliorer <a href="https://blog.cloudflare.com/early-hints/" target="_blank" rel="noreferrer noopener" class="link">le temps de chargement des sites web de 30%</a>. FrankenPHP est le seul SAPI PHP avec support des Early Hints !
+  - image: "/img/clock.svg"
+    title: "Temps réel"
+    content: |
+      Hub Mercure intégré. Envoyez des événements depuis vos applications PHP vers tous les navigateurs connectés, ils reçoivent instantanément la charge utile comme un événement JavaScript !
+  - image: "/img/zip.svg"
+    title: "Compression Brotli, Zstandard et Gzip"
+    content: |
+      Les formats de compression modernes sont pris en charge nativement.
+  - image: "/img/log.svg"
+    title: "Logs structurés"
+    content: |
+      Apporte un format plus défini et des détails à vos logs.
+  - image: "/img/metrics.svg"
+    title: "Métriques Prometheus et traçage"
+    content: |
+      Support de Prometheus intégré <a href="https://caddyserver.com/docs/metrics" target="_blank" rel="noreferrer noopener" class="link">!</a>
+  - image: "/img/http.svg"
+    title: "HTTP/2 & HTTP/3"
+    content: |
+      Support natif pour HTTPS, HTTP/2 et **HTTP/3**.
+  - image: "/img/https.svg"
+    title: "Automatisation HTTPS"
+    content: |
+      Génération, renouvellement et révocation automatiques des certificats HTTPS.
+  - image: "/img/reload.svg"
+    title: "Rechargement en douceur"
+    content: |
+      Déployez vos applications sans aucun temps d'arrêt grâce aux rechargements en douceur.

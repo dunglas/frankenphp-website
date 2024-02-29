@@ -1,0 +1,42 @@
+hero:
+  title: "Créons quelque chose de <strong class='text-green'>génial</strong>&nbsp;!"
+  overtitle: "Besoin d'aide ?"
+  content: "<a class='link !text-green-light hover:!text-purple hover:bg-green' href='https://les-tilleuls.coop/en'>Les-Tilleuls.coop</a>, les éditeurs de FrankenPHP, offrent une large gamme de ressources pour vous aider à rendre votre application plus rapide et plus fiable.<br /><br />Si vous cherchez des conseils pour définir, construire et améliorer votre infrastructure, vous êtes au bon endroit !"
+  button: "Contactez-nous !"
+migration:
+  title: "<strong class='text-green-dark'>Migrez</strong> vos applications vers FrankenPHP"
+  content: "Nous migrons votre infrastructure vers FrankenPHP et formons vos équipes à son utilisation. Cela améliorera la stabilité de votre infra, conduisant à une productivité accrue. Établissons dès maintenant un plan de migration et travaillons main dans la main avec vos équipes pour sa mise en œuvre !"
+  button: "Commençons !"
+hosting:
+  title: "<strong class='text-green-dark'>Hébergement</strong> de vos projets avec FrankenPHP"
+  content: "Nous déployons et gérons vos applications PHP en production et prenons en charge <strong>tout</strong> : surveillance, application des mesures de sécurité, mises à niveau, optimisation des performances…<br /><br />De plus, nous pouvons gérer vos applications vers les technologies Cloud qui conviennent le mieux à vos besoins (Kubernetes, GCP, AWS…) ou vos serveurs sur site."
+  button: "Prenez contact !"
+services:
+  title: "Une large gamme de services <strong class='text-green-dark'>PHP</strong>"
+  content: "FrankenPHP est sponsorisé par <a class='link' href='https://les-tilleuls.coop/en' target='_blank'>Les-Tilleuls.coop</a>, une entreprise française de services informatiques spécialisée dans les API, le e-commerce, le web et le Cloud.<br /><br />Nous sommes les créateurs de <a class='link' href='https://api-platform/com' target='_blank'>API Platform</a>, co-mainteneurs de Symfony, membres du conseil consultatif de la Fondation PHP, et contributeurs à plus de 100 solutions open-source (Laravel, Kubernetes, PM2, Go…)."
+  button: "En savoir plus"
+go:
+  title: "Nous adorons <strong class='text-green'>Go</strong>"
+  content: "Nous sommes également d'importants contributeurs à Go. Nous avons créé <a class='link !text-green-light hover:!text-purple hover:!bg-green' target='_blank' href='https://mercure.rocks'>Mercure</a>, un protocole open-source simplifié pour le temps réel et une implémentation de référence écrite dans ce langage, ainsi que <a class='link !text-green-light hover:!text-purple hover:!bg-green' target='_blank' href='https://vulcain.rocks'>Vulcain</a>, un protocole open-source pour des API REST rapides et idiomatiques pilotées par le client."
+further:
+  title: "Aller plus loin avec <strong class='text-green-dark'>Les-Tilleuls.coop</strong>"
+  subtitle: "Les-Tilleuls.coop peut également fournir un soutien personnalisé à travers divers services :"
+  content:
+    - title: "Développement web"
+      content: |
+        Exploitez la puissance des cadres modernes pour créer des sites web puissants. (Symfony, Laravel, Vue.js, Next.js…)
+    - title: "Formations"
+      content: |
+        Élevez vos compétences avec nos développeurs certifiés
+    - title: "Conseil"
+      content: |
+        Surmontez les défis en toute confiance avec nos services de conseil stratégique adaptés à vos besoins
+    - title: "Mission de sauvetage"
+      content: |
+        Nous vous aidons à construire des sites web à haut défi
+    - title: "Audit de performance et de sécurité"
+      content: |
+        Assurez une performance et une sécurité de premier ordre avec nos audits approfondis
+    - title: "Conception UX et graphique"
+      content: |
+        Créez des expériences utilisateur captivantes avec notre expertise en design.

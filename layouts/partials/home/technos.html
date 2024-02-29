@@ -1,4 +1,4 @@
-{{ with .Site.Data.home.technos }}
+{{ with index .Site.Data .Site.Language.Lang "home" "technos" }}
   <section id="technos" class="w-full relative">
     <div
       class="absolute z-20 h-full w-[10vw] bg-gradient-to-r from-white to-transparent left-0 top-0"
@@ -16,7 +16,7 @@
             {{ range $index, $element := . }}
               <a
                 target="_blank"
-                href="{{ .url }}"
+                href="{{ relLangURL .url }}"
                 class="w-36 lg:w-52 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
               >
                 <img
@@ -31,7 +31,7 @@
             {{ range $index, $element := . }}
               <a
                 target="_blank"
-                href="{{ .url }}"
+                href="{{ relLangURL .url }}"
                 class="w-36 lg:w-52 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
               >
                 <img
@@ -46,7 +46,7 @@
             {{ range $index, $element := . }}
               <a
                 target="_blank"
-                href="{{ .url }}"
+                href="{{ relLangURL .url }}"
                 class="w-36 lg:w-52 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
               >
                 <img

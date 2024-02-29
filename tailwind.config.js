@@ -4,7 +4,12 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  content: ["./layouts/**/*.{html,js,md}", "./static/**/*.{html,js,php}"],
+  content: [
+    "./layouts/**/*.{html,js,md}",
+    "./static/**/*.{html,js,php}",
+    "./data/**/*.yaml",
+    "./i18n/**/*.yaml",
+  ],
   safelist: ["text-green"],
   theme: {
     container: {
