@@ -88,12 +88,12 @@ function fixLinks($content, $lang = "en")
             $url = preg_replace('/^docs/', '/docs', $url); // Ensure leading /docs
             $url = str_replace('.md', '', $url); // Remove .md extension
             $url = strpos($url, '/') === 0 ? "/docs$url" : "/docs/$url"; // Ensure correct path
-            $url = preg_replace('#^https://frankenphp.dev#', '', $url); // Remove domain
             $url = str_replace('docs/CONTRIBUTING', 'docs/contributing', $url); // Specific case
             if (substr($url, -1) !== '/' && strpos($url, '.') === false) {
                 $url .= '/'; // Ensure trailing slash if not a file
             }
         }
+        $url = preg_replace('#^https://frankenphp.dev#', '', $url);
 
         return "[$textLink]($url)";
     }, $content);
