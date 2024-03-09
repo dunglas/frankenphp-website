@@ -1251,10 +1251,6 @@ pre {
   z-index: 50;
 }
 
-.z-\[-10\] {
-  z-index: -10;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1263,10 +1259,6 @@ pre {
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
-}
-
-.-mt-20 {
-  margin-top: -5rem;
 }
 
 .mb-1 {
@@ -1327,6 +1319,10 @@ pre {
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.-mt-20 {
+  margin-top: -5rem;
 }
 
 .block {
@@ -1421,6 +1417,10 @@ pre {
   height: 100vh;
 }
 
+.h-px {
+  height: 1px;
+}
+
 .min-h-\[100vh\] {
   min-height: 100vh;
 }
@@ -1508,6 +1508,10 @@ pre {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-px {
+  width: 1px;
 }
 
 .min-w-\[150px\] {
@@ -2092,10 +2096,6 @@ pre {
   padding-top: 4rem;
 }
 
-.pt-20 {
-  padding-top: 5rem;
-}
-
 .pt-24 {
   padding-top: 6rem;
 }
@@ -2110,6 +2110,10 @@ pre {
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
 }
 
 .text-center {
@@ -2612,6 +2616,21 @@ kbd.DocSearch-Commands-Key {
   z-index: 10;
 }
 
+.before\:-mt-20::before {
+  content: var(--tw-content);
+  margin-top: -5rem;
+}
+
+.before\:-mt-14::before {
+  content: var(--tw-content);
+  margin-top: -3.5rem;
+}
+
+.before\:block::before {
+  content: var(--tw-content);
+  display: block;
+}
+
 .before\:h-0::before {
   content: var(--tw-content);
   height: 0px;
@@ -2642,6 +2661,11 @@ kbd.DocSearch-Commands-Key {
   height: 100%;
 }
 
+.before\:h-px::before {
+  content: var(--tw-content);
+  height: 1px;
+}
+
 .before\:w-10::before {
   content: var(--tw-content);
   width: 2.5rem;
@@ -2650,6 +2674,11 @@ kbd.DocSearch-Commands-Key {
 .before\:w-full::before {
   content: var(--tw-content);
   width: 100%;
+}
+
+.before\:w-px::before {
+  content: var(--tw-content);
+  width: 1px;
 }
 
 .before\:-translate-x-1\/2::before {
@@ -2718,6 +2747,16 @@ kbd.DocSearch-Commands-Key {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.before\:pt-20::before {
+  content: var(--tw-content);
+  padding-top: 5rem;
+}
+
+.before\:pt-14::before {
+  content: var(--tw-content);
+  padding-top: 3.5rem;
 }
 
 .before\:transition-all::before {
