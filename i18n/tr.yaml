@@ -1,0 +1,10 @@
+metadescription: "FrankenPHP, PHP uygulamaları için yeni bir uygulama sunucusu (Caddy'nin üzerine inşa edilmiştir) ve PHP yorumlayıcısını Go web sunucularına yerleştirmek için bir kütüphanedir."
+metatitle: "FrankenPHP: modern PHP uygulama sunucusu"
+language:
+  switch: Dili değiştir
+edit: Bu sayfayı düzenleyin
+powered: Tarafından desteklenmektedir
+footer:
+  owner: "Size %api-platform% 'un yaratıcısı ve %symfony% Core Team üyesi olan %owner% tarafından sunulmuştur."
+  design: "%designer% tarafından tasarlandı"
+  sponsor: "%sponsor% tarafından desteklenir"
