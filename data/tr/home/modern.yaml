@@ -1,0 +1,18 @@
+title: <strong class="text-green-dark">Modern</strong> PHP Her Zamankinden Daha İyi!
+overtitle: "Geleceğe hazır mısın?"
+link:
+  text: "Hemen dene"
+  url: "/docs/"
+content:
+  - > 
+    Son teknoloji ürünü bir web sunucusuna gömülü resmi PHP yürütücüsünü kullanır: **[Caddy](https://caddyserver.com)**
+  - >
+    HTTP/1.1, HTTP/2 ve **HTTP/3** için yerel destek
+  - >
+    Otomatik **HTTPS** sertifikaları oluşturma ve yenileme (Let's Encrypt veya ZeroSSL)
+  - >
+    PHP dosyalarınızı belge kök dizinine kopyalayın, hepsi bu!
+  - >
+    [PHP web uygulamalarınız ve komut satırı araçlarınız için **bağımsız**, kendi kendine çalıştırılabilir binary dosyalar oluşturun](/docs/embed/).
+  - >
+    **OPcache** ve **XDebug** dahil olmak üzere popüler PHP eklentileri yerel olarak desteklenmektedir!

@@ -1,0 +1,19 @@
+title: "<strong class='text-green-dark'>Başlayın!</strong>"
+layout: partials/home/getting_started
+overtitle: "Hepsini çalıştırmak için tek bir komut"
+docker: |
+  ```bash
+  # Docker
+  docker run -v $PWD:/app/public -p 443:443 \
+    dunglas/frankenphp
+  ```
+standard: |
+  ```bash
+  # Statik binary
+  ./frankenphp php-server
+
+  # Komut satırı komut dosyası
+  ./frankenphp php-cli /path/to/your/script.php
+  ```
+content: |
+  Sadece tek bir komutla canlı ortamdaki gibi bir PHP sunucusu kurun ve çalıştırın!

@@ -1,0 +1,27 @@
+title: Worker <strong class="text-green-dark">modu</strong>
+overtitle: PHP uygulamalarınızı her zamankinden daha hızlı hale getirin!
+content:
+  - title: "Worker komut dosyası"
+    content: |
+      Uygulamanızı bir kez başlatın, **bellekte kalır**!
+  #- title: "Kusursuz"
+  #  content: |
+  #    Gelen istekleri **uygulamanızı tekrar başlatmak zorunda kalmadan** işleyin
+  - title: <span>Dümdüz</span><span>ilerleyin</span>
+    content: |
+      Symfony, API Platformu, Laravel tarafından yerel olarak desteklenir...
+  - title: "Basit"
+    content: |
+      Düz eski süper globalleri kullanır: **PSR-7'ye gerek yok**.
+  - title: "Hızlı"
+    content: |
+      <a href="https://github.com/dunglas/frankenphp-demo/tree/main/benchmark" target="_blank" rel="noreferrer noopener" class="link">Kıyaslamalarımıza</a> göre, API Platform uygulamalarında **FPM'den** 3,5 kat daha hızlı.
+  - title: "Verimli"
+    content: |
+      FrankenPHP **Go** ve **C** dillerinde yazılmıştır. Go'nun ikonik özelliğine dayanır: goroutines!
+  - title: "Opsiyonel"
+    content: |
+      Uygulamanız, worker moduyla uyumlu olmasa bile olduğu gibi çalıştırılabilir.
+  - title: "Kolay Dağıtım"
+    content: |
+      İşletim sistemi süreci içinde çalışır: bir binary var ve **harici servis gerekmez**.
