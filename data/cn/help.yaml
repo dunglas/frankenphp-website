@@ -13,7 +13,7 @@ hosting:
   button: "取得联系！"
 services:
   title: "广泛的<strong class='text-green-dark'>PHP</strong>服务"
-  content: "FrankenPHP由 <a class='link' href='https://les-tilleuls.coop/en' target='_blank'>Les-Tilleuls.coop</a>赞助，这是一家专注于API、电子商务、网站和Cloud的法国IT服务公司。<br /><br />我们是<a class='link' href='https://api-platform/com' target='_blank'>API Platform</a>的创建者，Symfony的共同维护者，PHP基金会咨询委员会的成员，并为超过100个开源解决方案（Laravel、Kubernetes、PM2、Go…）做出了贡献。"
+  content: "FrankenPHP由 <a class='link' href='https://les-tilleuls.coop/en' target='_blank'>Les-Tilleuls.coop</a>赞助，这是一家专注于API、电子商务、网站和Cloud的法国IT服务公司。<br /><br />我们是<a class='link' href='https://api-platform.com' target='_blank'>API Platform</a>的创建者，Symfony的共同维护者，PHP基金会咨询委员会的成员，并为超过100个开源解决方案（Laravel、Kubernetes、PM2、Go…）做出了贡献。"
   button: "了解更多"
 go:
   title: "我们是<strong class='text-green'>Go</strong>爱好者"

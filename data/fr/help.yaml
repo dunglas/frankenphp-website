@@ -13,7 +13,7 @@ hosting:
   button: "Écrivez-nous !"
 services:
   title: "Une large gamme de services <strong class='text-green-dark'>PHP</strong>"
-  content: "FrankenPHP est sponsorisé par <a class='link' href='https://les-tilleuls.coop/en' target='_blank'>Les-Tilleuls.coop</a>, une entreprise française de services informatiques spécialisée dans les API, le e-commerce, le web et le Cloud.<br /><br />Nous sommes les créateurs de <a class='link' href='https://api-platform/com' target='_blank'>API Platform</a>, co-mainteneurs de Symfony, membres du board de la PHP Foundation, et contributeurs à plus d'une centaine de projets open-source (Laravel, Kubernetes, PM2, Go…)."
+  content: "FrankenPHP est sponsorisé par <a class='link' href='https://les-tilleuls.coop/en' target='_blank'>Les-Tilleuls.coop</a>, une entreprise française de services informatiques spécialisée dans les API, le e-commerce, le web et le Cloud.<br /><br />Nous sommes les créateurs de <a class='link' href='https://api-platform.com' target='_blank'>API Platform</a>, co-mainteneurs de Symfony, membres du board de la PHP Foundation, et contributeurs à plus d'une centaine de projets open-source (Laravel, Kubernetes, PM2, Go…)."
   button: "En savoir plus"
 go:
   title: "Des développeurs <strong class='text-green'>Go</strong>"

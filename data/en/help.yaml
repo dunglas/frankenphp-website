@@ -13,7 +13,7 @@ hosting:
   button: "Get in touch!"
 services:
   title: "A wide range of <strong class='text-green-dark'>PHP</strong>services"
-  content: "FrankenPHP is sponsored by <a class='link' href='https://les-tilleuls.coop/en' target='_blank'>Les-Tilleuls.coop</a>, a French-based IT services company specializing in APIs,e-commerce, web, and Cloud.<br /><br />We are the creators of <a class='link' href='https://api-platform/com' target='_blank'>API Platform</a>, co-maintainers of Symfony, members of the PHP Foundation’s advisory board, and contributors to more than 100 open-source solutions (Laravel, Kubernetes, PM2, Go…)."
+  content: "FrankenPHP is sponsored by <a class='link' href='https://les-tilleuls.coop/en' target='_blank'>Les-Tilleuls.coop</a>, a French-based IT services company specializing in APIs,e-commerce, web, and Cloud.<br /><br />We are the creators of <a class='link' href='https://api-platform.com' target='_blank'>API Platform</a>, co-maintainers of Symfony, members of the PHP Foundation’s advisory board, and contributors to more than 100 open-source solutions (Laravel, Kubernetes, PM2, Go…)."
   button: "Learn more"
 go:
   title: "We are <strong class='text-green'>Go</strong> lovers"
