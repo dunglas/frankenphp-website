@@ -1,0 +1,43 @@
+hero:
+  title: "Hadi <strong class='text-green'>harika</strong> bir şey yaratalım!"
+  overtitle: "Yardım ister misiniz?"
+  content: "<a class='link !text-green-light hover:!text-purple hover:bg-green' href='https://les-tilleuls.coop/en'>Les-Tilleuls.coop</a>, FrankenPHP'nin editörleri, uygulamanızı daha hızlı ve daha güvenilir hale getirmenize yardımcı olacak çok çeşitli kaynaklar sunar.<br /><br />Altyapınızı tanımlama, oluşturma ve geliştirme konusunda rehberlik arıyorsanız, doğru yerdesiniz!"
+  button: "Bize ulaşın!"
+migration:
+  title: "Uygulamalarınızı FrankenPHP'ye <strong class='text-green-dark'>taşıyın</strong>"
+  content: "Altyapınızı FrankenPHP'ye taşıyor ve ekiplerinizi kullanımı konusunda eğitiyoruz. Bu, altyapınızın istikrarını artıracak ve verimliliğin artmasına yol açacaktır. Şimdi bir geçiş planı oluşturalım ve uygulanması için ekiplerinizle el ele çalışalım!"
+  button: "Hadi başlayalım!"
+hosting:
+  title: "Projelerinizi FrankenPHP ile <strong class='text-green-dark'>barındırma</strong>"
+  content: "PHP uygulamalarınızı canlı ortama dağıtıyor, yönetiyor ve <strong>her şeyle</strong> ilgileniyoruz: izleme, güvenliği sağlama, yükseltme, performansı optimize etme...<br /><br />Ayrıca, uygulamalarınızı ihtiyaçlarınıza en uygun cloud servisleri üzerinde (Kubernetes, GCP, AWS ...) veya şirket içi sunucularınızda yönetebiliriz."
+  button: "İletişime geçin!"
+services:
+  title: "Çok çeşitli <strong class='text-green-dark'>PHP</strong>hizmetleri"
+  content: "FrankenPHP, API'lar, e-ticaret, web ve cloud konusunda uzmanlaşmış Fransız merkezli bir BT hizmetleri şirketi olan <a class='link' href='https://les-tilleuls.coop/en' target='_blank'>Les-Tilleuls.coop</a> tarafından desteklenmektedir.<br /><br />Biz <a class='link' href='https://api-platform/com' target='_blank'>API Platform</a> yaratıcıları olarak, Symfony'nin ortak geliştiricileri, PHP Vakfı'nın danışma kurulu üyeleri ve 100'den fazla açık kaynaklı çözüme (Laravel, Kubernetes, PM2, Go...) katkıda bulunanlarız."
+  button: "Daha fazla öğrenin"
+go:
+  title: "Biz <strong class='text-green'>Go</strong> severleriz"
+  content: "Go'ya da önemli katkılarda bulunuyoruz. Bu dilde yazılmış basitleştirilmiş bir gerçek zamanlı açık protokol ve referans uygulaması olan <a class='link !text-green-light hover:!text-purple hover:!bg-green' target='_blank' href='https://mercure.rocks'>Mercure</a> ve hızlı, deyimsel istemci güdümlü REST API'ları için açık bir protokol olan <a class='link !text-green-light hover:!text-purple hover:!bg-green' target='_blank' href='https://vulcain.rocks'> Vulcain'ı</a> oluşturduk."
+further:
+  title: "Daha fazlası için <strong class='text-green-dark'>Les-Tilleuls.coop</strong>"
+  subtitle: "Les-Tilleuls.coop çeşitli hizmetler aracılığıyla kişiselleştirilmiş destek de sağlayabilir:"
+  content:
+    - title: "Web geliştirme"
+      content: |
+        Güçlü web siteleri oluşturmak için modern frameworklerin gücünü açığa çıkarın. (Symfony, Laravel, Vue.js, Next.js...)
+    - title: "Trainings"
+      content: |
+        Sertifikalı geliştiricilerimizle becerilerinizi geliştirin
+    - title: "Danışmanlık"
+      content: |
+        İhtiyaçlarınıza göre uyarlanmış stratejik danışmanlık hizmetlerimizle zorlukların üstesinden güvenle gelin
+    - title: "Görev kurtarma"
+      content: |
+        Zorluk seviyesi yüksek web siteleri oluşturmanıza yardımcı oluyoruz
+    - title: "Performans ve güvenlik denetimi"
+      content: |
+        Derinlemesine denetimlerimizle birinci sınıf performans ve güvenlik sağlayın
+    - title: "UX ve grafik tasarım"
+      content: |
+        Tasarım uzmanlığımızla büyüleyici kullanıcı deneyimleri yaratın.
+   

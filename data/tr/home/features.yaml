@@ -1,0 +1,51 @@
+title: "FrankenPHP <strong class='text-green-dark'>bir bakışta</strong>"
+overtitle: "Özellikler"
+content:
+  - image: "/img/box.svg"
+    title: "Genişletilebilir"
+    content: |
+      PHP 8.2+, çoğu PHP eklentisi ve tüm Caddy modülleri ile uyumludur.
+  - image: "/img/one.svg"
+    title: "Sadece bir hizmet"
+    content: |
+      Basitlik göz önünde bulundurularak tasarlanmıştır: sadece bir servis, sadece bir binary! FrankenPHP PHP-FPM'e ihtiyaç duymaz, Go web sunucuları için özel olarak hazırlanmış kendi SAPI'sini kullanır.
+  - image: "/img/rocket.svg"
+    title: "Kolay dağıtım"
+    content: |
+      Cloud yerel uygulaması <a href="/docs/docker/">bir Docker imajı</a> olarak gönderilir. Kubernetes ve tüm modern cloud platformları ile uyumludur. PHP uygulamanızı <a href="/docs/embed/" class="link">tek başına, çalıştırılabilir statik binary</a> olarak paketlemeniz de mümkündür.
+  - image: "/img/worker.svg"
+    title: "Worker modu"
+    content: |
+      <a href="/docs/worker/" class="link">Uygulamanızı bir kez başlatın</a> ve bellekte tutun! Birkaç milisaniye içinde gelen istekleri işlemeye hazırdır.
+  - image: "/img/bulb.svg"
+    title: "103 Early Hints"
+    content: |
+      <a href="/docs/early-hints/"  class="link">Early Hints</a>, <a href="https://blog.cloudflare.com/early-hints/" target="_blank" rel="noreferrer noopener" class="link">web sayfalarınızı %30'a kadar</a> hızlandıracak web teknolojisinin yepyeni bir özelliğidir. FrankenPHP, Early Hints desteğine sahip tek PHP SAPI'dir!
+  - image: "/img/clock.svg"
+    title: "Real-time"
+    content: |
+      Yerleşik <a href="https://mercure.rocks" target="_blank" rel="noreferrer noopener" class="link">Mercure</a> merkezi. PHP uygulamalarınızdan tüm bağlı tarayıcılara olay gönderin, veriyi anında bir JavaScript olayı olarak alırlar!
+  - image: "/img/zip.svg"
+    title: "Brotli, Zstandard ve Gzip sıkıştırma"
+    content: |
+      Modern sıkıştırma formatları kullanıma hazır olarak desteklenir.
+  - image: "/img/log.svg"
+    title: "Yapılandırılmış günlük kaydı"
+    content: |
+      Günlük kaydınıza daha tanımlı bir format ve ayrıntılar getirin.
+  - image: "/img/metrics.svg"
+    title: "Prometheus metrikleri ve izleme"
+    content: |
+      Yerleşik <a href="https://caddyserver.com/docs/metrics" target="_blank" rel="noreferrer noopener" class="link">Prometheus desteği</a>!
+  - image: "/img/http.svg"
+    title: "HTTP/2 ve HTTP/3"
+    content: |
+      HTTPS, HTTP/2 ve **HTTP/3** için yerel destek.
+  - image: "/img/https.svg"
+    title: "HTTPS Otomasyonu"
+    content: |
+      Otomatik HTTPS sertifikası oluşturma, yenileme ve iptal etme.
+  - image: "/img/reload.svg"
+    title: "Zarif yeniden yükleme"
+    content: |
+      Zarif yeniden yüklemeler sayesinde uygulamalarınızı sıfır kesinti süresiyle dağıtın.
