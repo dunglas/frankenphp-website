@@ -25,7 +25,7 @@ languages:
         pageRef: /docs/
         weight: 1
       - name: Shop
-        url: https://frankenphp.tpopsite.com/
+        url: https://frankenphp.tpopsite.com/shop
         params:
           rel: external
           target: _blank
@@ -44,7 +44,7 @@ languages:
         pageRef: /docs/
         weight: 1
       - name: 店铺
-        url: https://frankenphp.tpopsite.com/
+        url: https://frankenphp.tpopsite.com/shop
         params:
           rel: external
           target: _blank
@@ -63,7 +63,26 @@ languages:
         pageRef: /docs/
         weight: 1
       - name: Shop
-        url: https://frankenphp.tpopsite.com/
+        url: https://frankenphp.tpopsite.com/shop
+        weight: 5
+        params:
+          rel: external
+          target: _blank
+  tr:
+    disabled: false
+    languageCode: "tr"
+    languageDirection: ""
+    languageName: "Turkish"
+    contentDir: content/tr
+    title: ""
+    weight: 6
+    menu:
+      main:
+      - name: Dokümantasyon
+        pageRef: /docs/
+        weight: 1
+      - name: Mağaza
+        url: https://frankenphp.tpopsite.com/shop
         weight: 5
         params:
           rel: external

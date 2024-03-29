@@ -267,5 +267,6 @@ $repoURL = "https://$githubKey@github.com/dunglas/frankenphp.git";
 generateLangDocumentation($repoURL);
 generateLangDocumentation($repoURL, "cn");
 generateLangDocumentation($repoURL, "fr");
+generateLangDocumentation($repoURL, "tr");
 
 ?>
