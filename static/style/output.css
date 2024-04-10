@@ -1261,11 +1261,6 @@ pre {
   margin-bottom: 0.75rem;
 }
 
-.mx-12 {
-  margin-left: 3rem;
-  margin-right: 3rem;
-}
-
 .-mt-20 {
   margin-top: -5rem;
 }
@@ -1314,6 +1309,10 @@ pre {
   margin-right: 1rem;
 }
 
+.mr-8 {
+  margin-right: 2rem;
+}
+
 .mr-auto {
   margin-right: auto;
 }
@@ -1328,22 +1327,6 @@ pre {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mr-8 {
-  margin-right: 2rem;
-}
-
-.mr-12 {
-  margin-right: 3rem;
-}
-
-.mr-11 {
-  margin-right: 2.75rem;
-}
-
-.mr-20 {
-  margin-right: 5rem;
 }
 
 .block {
@@ -1442,22 +1425,6 @@ pre {
   height: 100vh;
 }
 
-.h-\[32\] {
-  height: 32;
-}
-
-.h-\[40\] {
-  height: 40;
-}
-
-.h-40 {
-  height: 10rem;
-}
-
-.h-52 {
-  height: 13rem;
-}
-
 .min-h-\[100vh\] {
   min-height: 100vh;
 }
@@ -1532,10 +1499,6 @@ pre {
 
 .w-\[calc\(100\%\+1\.3px\)\] {
   width: calc(100% + 1.3px);
-}
-
-.w-auto {
-  width: auto;
 }
 
 .w-full {
@@ -1643,11 +1606,6 @@ pre {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.translate-x-12 {
-  --tw-translate-x: 3rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .translate-x-\[30\%\] {
   --tw-translate-x: 30%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1655,11 +1613,6 @@ pre {
 
 .translate-y-0 {
   --tw-translate-y: 0px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.translate-y-2 {
-  --tw-translate-y: 0.5rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1678,11 +1631,6 @@ pre {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.-rotate-6 {
-  --tw-rotate: -6deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .rotate-0 {
   --tw-rotate: 0deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1695,21 +1643,6 @@ pre {
 
 .rotate-45 {
   --tw-rotate: 45deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.rotate-6 {
-  --tw-rotate: 6deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.rotate-1 {
-  --tw-rotate: 1deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.-rotate-1 {
-  --tw-rotate: -1deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1900,33 +1833,16 @@ pre {
   border-radius: 0.75rem;
 }
 
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
-.rounded-sm {
-  border-radius: 0.125rem;
-}
-
-.border-2 {
-  border-width: 2px;
-}
-
-.border-x-2 {
-  border-left-width: 2px;
-  border-right-width: 2px;
-}
-
 .border-b {
   border-bottom-width: 1px;
 }
 
-.border-r {
-  border-right-width: 1px;
-}
-
 .border-b-2 {
   border-bottom-width: 2px;
+}
+
+.border-r {
+  border-right-width: 1px;
 }
 
 .border-gray-300 {
@@ -1934,30 +1850,19 @@ pre {
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
-.border-white {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity));
-}
-
-.border-x-green {
-  --tw-border-opacity: 1;
-  border-left-color: rgb(179 209 51 / var(--tw-border-opacity));
-  border-right-color: rgb(179 209 51 / var(--tw-border-opacity));
-}
-
 .border-b-gray-200 {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
-.border-r-gray-300 {
-  --tw-border-opacity: 1;
-  border-right-color: rgb(209 213 219 / var(--tw-border-opacity));
-}
-
 .border-b-green {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(179 209 51 / var(--tw-border-opacity));
+}
+
+.border-r-gray-300 {
+  --tw-border-opacity: 1;
+  border-right-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
 .bg-black {
@@ -2005,26 +1910,6 @@ pre {
 
 .bg-white\/75 {
   background-color: rgb(255 255 255 / 0.75);
-}
-
-.bg-green-extralight {
-  --tw-bg-opacity: 1;
-  background-color: rgb(232 239 200 / var(--tw-bg-opacity));
-}
-
-.bg-green-dark {
-  --tw-bg-opacity: 1;
-  background-color: rgb(146 167 46 / var(--tw-bg-opacity));
-}
-
-.bg-purple-light {
-  --tw-bg-opacity: 1;
-  background-color: rgb(147 125 168 / var(--tw-bg-opacity));
-}
-
-.bg-purple-extralight {
-  --tw-bg-opacity: 1;
-  background-color: rgb(195 178 211 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-b {
@@ -2122,14 +2007,6 @@ pre {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.p-0 {
-  padding: 0px;
-}
-
-.p-0\.5 {
-  padding: 0.125rem;
 }
 
 .p-10 {
@@ -2230,10 +2107,6 @@ pre {
 
 .pb-6 {
   padding-bottom: 1.5rem;
-}
-
-.pr-11 {
-  padding-right: 2.75rem;
 }
 
 .pt-12 {
@@ -2425,6 +2298,11 @@ pre {
   color: rgb(57 0 117 / var(--tw-text-opacity));
 }
 
+.text-purple-dark {
+  --tw-text-opacity: 1;
+  color: rgb(35 1 67 / var(--tw-text-opacity));
+}
+
 .text-purple-light {
   --tw-text-opacity: 1;
   color: rgb(147 125 168 / var(--tw-text-opacity));
@@ -2437,11 +2315,6 @@ pre {
 
 .text-white\/90 {
   color: rgb(255 255 255 / 0.9);
-}
-
-.text-purple-dark {
-  --tw-text-opacity: 1;
-  color: rgb(35 1 67 / var(--tw-text-opacity));
 }
 
 .opacity-0 {
@@ -3384,18 +3257,6 @@ kbd.DocSearch-Commands-Key {
 }
 
 @media (min-width: 640px) {
-  .sm\:mr-0 {
-    margin-right: 0px;
-  }
-
-  .sm\:block {
-    display: block;
-  }
-
-  .sm\:h-20 {
-    height: 5rem;
-  }
-
   .sm\:max-w-md {
     max-width: 28rem;
   }
@@ -3445,24 +3306,12 @@ kbd.DocSearch-Commands-Key {
     margin-bottom: 0px;
   }
 
-  .md\:mr-0 {
-    margin-right: 0px;
-  }
-
-  .md\:mr-20 {
-    margin-right: 5rem;
-  }
-
   .md\:block {
     display: block;
   }
 
   .md\:hidden {
     display: none;
-  }
-
-  .md\:h-20 {
-    height: 5rem;
   }
 
   .md\:w-1\/2 {
@@ -3475,10 +3324,6 @@ kbd.DocSearch-Commands-Key {
 
   .md\:w-full {
     width: 100%;
-  }
-
-  .md\:w-auto {
-    width: auto;
   }
 
   .md\:max-w-lg {
@@ -3509,10 +3354,6 @@ kbd.DocSearch-Commands-Key {
 
   .md\:items-start {
     align-items: flex-start;
-  }
-
-  .md\:border-4 {
-    border-width: 4px;
   }
 
   .md\:py-24 {
@@ -3559,12 +3400,12 @@ kbd.DocSearch-Commands-Key {
     right: 50%;
   }
 
-  .lg\:mt-4 {
-    margin-top: 1rem;
-  }
-
   .lg\:mr-0 {
     margin-right: 0px;
+  }
+
+  .lg\:mt-4 {
+    margin-top: 1rem;
   }
 
   .lg\:block {
@@ -3579,20 +3420,16 @@ kbd.DocSearch-Commands-Key {
     display: none;
   }
 
+  .lg\:h-20 {
+    height: 5rem;
+  }
+
   .lg\:h-4 {
     height: 1rem;
   }
 
   .lg\:h-5 {
     height: 1.25rem;
-  }
-
-  .lg\:h-20 {
-    height: 5rem;
-  }
-
-  .lg\:h-24 {
-    height: 6rem;
   }
 
   .lg\:w-1\/2 {
@@ -3671,13 +3508,13 @@ kbd.DocSearch-Commands-Key {
     border-color: rgb(209 213 219 / var(--tw-border-opacity));
   }
 
-  .lg\:bg-transparent {
-    background-color: transparent;
-  }
-
   .lg\:bg-purple-dark {
     --tw-bg-opacity: 1;
     background-color: rgb(35 1 67 / var(--tw-bg-opacity));
+  }
+
+  .lg\:bg-transparent {
+    background-color: transparent;
   }
 
   .lg\:fill-black {
@@ -3760,10 +3597,6 @@ kbd.DocSearch-Commands-Key {
 @media (min-width: 1280px) {
   .xl\:-mb-1 {
     margin-bottom: -0.25rem;
-  }
-
-  .xl\:inline {
-    display: inline;
   }
 
   .xl\:flex {

@@ -25,13 +25,13 @@
   {{ end }} left-0 z-30 w-full top-0 group"
 >
 {{ if .IsHome }}
-      <a
+      <div
         class="bg-white lg:bg-purple-dark overflow-hidden border-b-2 border-b-green z-50 to-[#000] text-purple-dark font-bold h-16 lg:h-20 w-full text-center relative align-center flex items-center justify-center"
+      >
+        <a class="w-full lg:w-auto max-w-8xl relative flex flex-row items-center px-8 py-2 rounded-md gap-4 bg-white"
         href="https://www.gofundme.com/f/support-ryans-brain-cancer-battle"
         rel="noopener noreferrer"
-        target="_blank"
-      >
-        <div class="w-full lg:w-auto max-w-8xl relative flex flex-row items-center px-8 py-2 rounded-md gap-4 bg-white">
+        target="_blank">
           <div class="text-left flex-1">
             <p class="text-sm lg:text-lg">
               Ryan Weaver, long-time contributor to the PHP ecosystem, needs our help!
@@ -43,8 +43,8 @@
           <button class="rounded-3xl bg-green text-purple px-4 py-2 mr-8 lg:mr-0 inline-block text-sm relative uppercase">
             Donate
           </button>
-        </div>
-      </a>
+        </a>
+      </div>
       {{ end }}
   <div
     class="h-16 p-4 mx-auto flex flex-row items-center justify-end max-w-8xl"
