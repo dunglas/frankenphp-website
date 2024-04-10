@@ -3310,6 +3310,10 @@ kbd.DocSearch-Commands-Key {
     display: block;
   }
 
+  .md\:inline {
+    display: inline;
+  }
+
   .md\:hidden {
     display: none;
   }
