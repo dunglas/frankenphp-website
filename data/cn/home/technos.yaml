@@ -7,8 +7,8 @@ content:
     title: "Sulu"
     url: https://sulu.io/blog/running-sulu-with-frankenphp
   - image: "wordpress.png"
-    title: "Wordpress"
-    url: https://github.com/dunglas/frankenphp-wordpress
+    title: "WordPress"
+    url: https://github.com/StephenMiracle/frankenwp
   - image: "laravel.png"
     title: "Laravel"
     url: /cn/docs/laravel/
