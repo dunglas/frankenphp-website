@@ -3,7 +3,7 @@
     <div class="flex flex-row items-start justify-start">
       {{ partial "docs/sidebar.html" . }}
       <div
-        class="px-10 pb-6 pt-32 md:pt-24 prose prose-quoteless flex-1 overflow-x-hidden prose-img:max-w-full max-w-none lg:prose-img:max-w-xl"
+        class="px-10 pb-6 pt-32 md:pt-24 prose prose-quoteless flex-1 overflow-x-hidden prose-img:max-w-full max-w-none lg:prose-img:max-w-xl lg:pt-32"
       >
         {{ partial "docs/formatDoc" .Content }}
         {{ $lastUrlElement := index (split .Page.RelPermalink "/") (sub (len (split .Page.RelPermalink "/")) 2) }}

@@ -49,14 +49,23 @@ module.exports = {
       boxShadow: {
         header: "0px 4px 10px rgba(0,0,0,0.05)",
       },
+      backgroundImage: {
+        "conf-gradient":
+          "radial-gradient(ellipse farthest-corner at 52% 160%, rgba(213, 33, 137, 0.8), transparent 50%), radial-gradient(at right 60%, rgba(17, 229, 240, 0.3), transparent 50%), radial-gradient(circle at 75% 50%, rgba(17, 230, 240, 0.2), transparent 50%)",
+      },
       keyframes: {
         defile: {
           "0%": { transform: "translateX(calc(-100%/3 - 2rem / 3))" },
           "100%": { transform: "translateX(calc(2 * (-100%/3 - 2rem / 3)))" },
         },
+        "defile-top": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(calc(-100%/3))" },
+        },
       },
       animation: {
         defile: "defile 50s linear infinite",
+        "defile-top": "defile-top 70s linear infinite",
       },
       typography: (theme) => ({
         quoteless: {
