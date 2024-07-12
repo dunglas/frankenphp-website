@@ -15,7 +15,11 @@
           {{ else if (eq $lastUrlElement "contributing") }}
             href="https://github.com/dunglas/frankenphp/blob/main/CONTRIBUTING.md"
           {{ else }}
-            href="https://github.com/dunglas/frankenphp/blob/main/docs/{{ $lastUrlElement }}.md"
+              {{ if (eq .Lang "en" )}}
+                href="https://github.com/dunglas/frankenphp/blob/main/docs/{{ $lastUrlElement }}.md"
+              {{ else }}
+                href="https://github.com/dunglas/frankenphp/blob/main/docs/{{ .Lang }}/{{ $lastUrlElement }}.md"
+              {{ end }}
           {{ end }}
         >
           <svg
