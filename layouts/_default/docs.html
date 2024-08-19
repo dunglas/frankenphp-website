@@ -11,9 +11,17 @@
           class="bg-green inline-flex text-sm text-purple mt-4 gap-2 flex-row items-center p-2"
           target="_blank"
           {{ if (eq $lastUrlElement "docs") }}
-            href="https://github.com/dunglas/frankenphp/blob/main/README.md"
+            {{ if (eq .Lang "en" )}}
+              href="https://github.com/dunglas/frankenphp/blob/main/README.md"
+            {{ else }}
+              href="https://github.com/dunglas/frankenphp/blob/main/docs/{{ .Lang }}/README.md"
+            {{ end }} 
           {{ else if (eq $lastUrlElement "contributing") }}
-            href="https://github.com/dunglas/frankenphp/blob/main/CONTRIBUTING.md"
+            {{ if (eq .Lang "en" )}}
+              href="https://github.com/dunglas/frankenphp/blob/main/CONTRIBUTING.md"
+            {{ else }}
+            href="https://github.com/dunglas/frankenphp/blob/main/docs/{{ .Lang }}/CONTRIBUTING.md"
+            {{ end }}
           {{ else }}
             {{ if (eq .Lang "en" )}}
               href="https://github.com/dunglas/frankenphp/blob/main/docs/{{ $lastUrlElement }}.md"
