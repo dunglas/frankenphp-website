@@ -37,9 +37,7 @@
     <link rel="stylesheet" href="/style/syntax.css" />
     <script src="/js/parallax.js"></script>
     <link
-      href="
-https://cdn.jsdelivr.net/npm/@docsearch/css@3.5.2/dist/style.min.css
-"
+      href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"
       rel="stylesheet"
     />
     {{ block "head" . }}{{ end }}
@@ -79,7 +77,10 @@ https://cdn.jsdelivr.net/npm/@docsearch/css@3.5.2/dist/style.min.css
           appId: "BXUBZVECND",
           indexName: "frankenphp",
           apiKey: "57b6245de6ff6ca5d345bb85d6db42c9",
-          debug: true,
+          {{ if (eq hugo.Environment "development") }}debug: true,{{ end }}
+          searchParameters: {
+            facetFilters: ['lang:{{ .Lang }}'],
+          },
         });
       });
     </script>
