@@ -9,7 +9,7 @@ migration:
   button: "Let's start!"
 hosting:
   title: "<strong class='text-green-dark'>Hosting</strong> your projects with FrankenPHP"
-  content: "We deploy and manage your PHP apps in production and take care of <strong>everything</strong>: monitoring, enforcing security, upgrading, optimizing performance…<br /><br />In addition, we can manage your applications to the Cloudtechnologies that best suit your needs (Kubernetes, GCP, AWS…) or your on premise servers."
+  content: "We deploy and manage your PHP apps in production and take care of <strong>everything</strong>: monitoring, enforcing security, upgrading, optimizing performance…<br /><br />In addition, we can manage your applications to the cloud technologies that best suit your needs (Kubernetes, GCP, AWS…) or your on premise servers."
   button: "Get in touch!"
 services:
   title: "A wide range of <strong class='text-green-dark'>PHP</strong> services"
