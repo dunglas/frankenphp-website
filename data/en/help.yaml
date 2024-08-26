@@ -12,8 +12,8 @@ hosting:
   content: "We deploy and manage your PHP apps in production and take care of <strong>everything</strong>: monitoring, enforcing security, upgrading, optimizing performance…<br /><br />In addition, we can manage your applications to the Cloudtechnologies that best suit your needs (Kubernetes, GCP, AWS…) or your on premise servers."
   button: "Get in touch!"
 services:
-  title: "A wide range of <strong class='text-green-dark'>PHP</strong>services"
-  content: "FrankenPHP is sponsored by <a class='link' href='https://les-tilleuls.coop/en' target='_blank'>Les-Tilleuls.coop</a>, a French-based IT services company specializing in APIs,e-commerce, web, and Cloud.<br /><br />We are the creators of <a class='link' href='https://api-platform.com' target='_blank'>API Platform</a>, co-maintainers of Symfony, members of the PHP Foundation’s advisory board, and contributors to more than 100 open-source solutions (Laravel, Kubernetes, PM2, Go…)."
+  title: "A wide range of <strong class='text-green-dark'>PHP</strong> services"
+  content: "FrankenPHP is sponsored by <a class='link' href='https://les-tilleuls.coop/en' target='_blank'>Les-Tilleuls.coop</a>, a French-based IT services company specializing in APIs, e-commerce, web, and cloud.<br /><br />We are the creators of <a class='link' href='https://api-platform.com' target='_blank'>API Platform</a>, co-maintainers of Symfony, members of the PHP Foundation’s advisory board, and contributors to more than 100 open-source solutions (Laravel, Kubernetes, PM2, Go…)."
   button: "Learn more"
 go:
   title: "We are <strong class='text-green'>Go</strong> lovers"
