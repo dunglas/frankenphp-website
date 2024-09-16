@@ -1325,6 +1325,10 @@ pre {
   margin-top: 2rem;
 }
 
+.mt-px {
+  margin-top: 1px;
+}
+
 .block {
   display: block;
 }
@@ -2063,6 +2067,11 @@ pre {
   padding-right: 0.5rem;
 }
 
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -2106,16 +2115,6 @@ pre {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.px-16 {
-  padding-left: 4rem;
-  padding-right: 4rem;
-}
-
-.px-20 {
-  padding-left: 5rem;
-  padding-right: 5rem;
 }
 
 .pb-12 {
@@ -2164,10 +2163,6 @@ pre {
 
 .pt-8 {
   padding-top: 2rem;
-}
-
-.pt-28 {
-  padding-top: 7rem;
 }
 
 .text-center {
@@ -2495,6 +2490,8 @@ blockquote:has(.caution) {
   border-left-color: rgb(193 5 10 / var(--tw-border-opacity));
 }
 
+/* poppins-latin-200-normal */
+
 @font-face {
   font-family: 'Poppins';
 
@@ -2587,6 +2584,102 @@ blockquote:has(.caution) {
   src: url(https://cdn.jsdelivr.net/fontsource/fonts/poppins@latest/latin-900-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/poppins@latest/latin-900-normal.woff) format('woff');
 
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* poppins-latin-ext-200-normal */
+
+@font-face {
+  font-family: 'Poppins';
+
+  font-style: normal;
+
+  font-display: swap;
+
+  font-weight: 200;
+
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/poppins@latest/latin-ext-200-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/poppins@latest/latin-ext-200-normal.woff) format('woff');
+
+  unicode-range: U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* poppins-latin-ext-400-normal */
+
+@font-face {
+  font-family: 'Poppins';
+
+  font-style: normal;
+
+  font-display: swap;
+
+  font-weight: 400;
+
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/poppins@latest/latin-ext-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/poppins@latest/latin-ext-400-normal.woff) format('woff');
+
+  unicode-range: U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* poppins-latin-ext-500-normal */
+
+@font-face {
+  font-family: 'Poppins';
+
+  font-style: normal;
+
+  font-display: swap;
+
+  font-weight: 500;
+
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/poppins@latest/latin-ext-500-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/poppins@latest/latin-ext-500-normal.woff) format('woff');
+
+  unicode-range: U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* poppins-latin-ext-600-normal */
+
+@font-face {
+  font-family: 'Poppins';
+
+  font-style: normal;
+
+  font-display: swap;
+
+  font-weight: 600;
+
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/poppins@latest/latin-ext-600-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/poppins@latest/latin-ext-600-normal.woff) format('woff');
+
+  unicode-range: U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* poppins-latin-ext-700-normal */
+
+@font-face {
+  font-family: 'Poppins';
+
+  font-style: normal;
+
+  font-display: swap;
+
+  font-weight: 700;
+
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/poppins@latest/latin-ext-700-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/poppins@latest/latin-ext-700-normal.woff) format('woff');
+
+  unicode-range: U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* poppins-latin-ext-900-normal */
+
+@font-face {
+  font-family: 'Poppins';
+
+  font-style: normal;
+
+  font-display: swap;
+
+  font-weight: 900;
+
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/poppins@latest/latin-ext-900-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/poppins@latest/latin-ext-900-normal.woff) format('woff');
+
+  unicode-range: U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
 }
 
 .SprdMain .sprd-burgermenu {
@@ -3401,16 +3494,6 @@ kbd.DocSearch-Commands-Key {
     padding-top: 6rem;
   }
 
-  .md\:pt-\[104px\] {
-    padding-top: 104px;
-  }
-
-  @media (min-width: 768px) {
-    .md\:md\:pt-\[104px\] {
-      padding-top: 104px;
-    }
-  }
-
   .md\:text-left {
     text-align: left;
   }
@@ -3438,24 +3521,12 @@ kbd.DocSearch-Commands-Key {
     right: 50%;
   }
 
-  .lg\:mt-4 {
-    margin-top: 1rem;
-  }
-
-  .lg\:-mt-16 {
-    margin-top: -4rem;
-  }
-
-  .lg\:-mt-12 {
-    margin-top: -3rem;
-  }
-
-  .lg\:-mt-32 {
-    margin-top: -8rem;
-  }
-
   .lg\:-mt-28 {
     margin-top: -7rem;
+  }
+
+  .lg\:mt-4 {
+    margin-top: 1rem;
   }
 
   .lg\:block {
@@ -3514,20 +3585,6 @@ kbd.DocSearch-Commands-Key {
   .lg\:-translate-x-20 {
     --tw-translate-x: -5rem;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  }
-
-  @keyframes defile-top {
-    0% {
-      transform: translateX(0);
-    }
-
-    100% {
-      transform: translateX(calc(-100%/3));
-    }
-  }
-
-  .lg\:animate-defile-top {
-    animation: defile-top 70s linear infinite;
   }
 
   .lg\:grid-cols-2 {
@@ -3609,28 +3666,16 @@ kbd.DocSearch-Commands-Key {
     padding-top: 0px;
   }
 
-  .lg\:pt-\[104px\] {
-    padding-top: 104px;
-  }
-
-  .lg\:pt-36 {
-    padding-top: 9rem;
+  .lg\:pt-28 {
+    padding-top: 7rem;
   }
 
   .lg\:pt-32 {
     padding-top: 8rem;
   }
 
-  .lg\:pt-28 {
-    padding-top: 7rem;
-  }
-
-  .lg\:pt-16 {
-    padding-top: 4rem;
-  }
-
-  .lg\:pt-12 {
-    padding-top: 3rem;
+  .lg\:pt-\[104px\] {
+    padding-top: 104px;
   }
 
   .lg\:text-left {
