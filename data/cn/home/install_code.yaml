@@ -5,7 +5,6 @@ code: |
     {
         # 启用 FrankenPHP
         frankenphp
-        order php_server before file_server
     }
 
     localhost {
