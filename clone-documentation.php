@@ -137,7 +137,8 @@ function addFrontmatter($content)
     return $content;
 }
 
-function generateLangDocumentation($repoURL, $lang = "en") {
+function generateLangDocumentation($repoURL, $lang = "en")
+{
 
     // Constants
     $DOCS_TO_CLONE = $lang === "en" ? "docs" : "docs/" . $lang;
@@ -193,7 +194,8 @@ function generateLangDocumentation($repoURL, $lang = "en") {
 
     /* handle index / README file */
     $README_SOURCE = $TEMP_DIR . ($lang === "en" ? "" : "/docs/" . $lang) . "/README.md";
-    if (!file_get_contents($README_SOURCE)) $README_SOURCE = $TEMP_DIR . "/README.md";
+    if (!file_get_contents($README_SOURCE))
+        $README_SOURCE = $TEMP_DIR . "/README.md";
 
     // Modify README.md
     copy($README_SOURCE, $DESTINATION_DIRECTORY . "/README.md");
@@ -255,11 +257,33 @@ function generateLangDocumentation($repoURL, $lang = "en") {
     }
 
 }
-// Variables
-$githubKey = $_SERVER["GITHUB_KEY"] ?? false;
-if (!$githubKey) {
-    echo "The GITHUB_KEY environment variable is not defined.";
-    $githubKey = "XXX";
+
+function copyInstallSh(): void
+{
+    $url = "https://github.com/dunglas/frankenphp/blob/main/install.sh";
+    $destinationDir = __DIR__ . "/static/";
+    $fileName = basename($url);
+    $destination = $destinationDir . $fileName;
+
+    $fileContent = file_get_contents($url);
+
+    if ($fileContent === false) {
+        echo "Error downloading install.sh";
+    } else {
+        // Enregistrer le fichier dans le chemin local
+        if (file_put_contents($destination, $fileContent)) {
+            echo "Success downloading install.sh";
+        } else {
+            echo "Error saving install.sh";
+        }
+    }
+
+    // Variables
+    $githubKey = $_SERVER["GITHUB_KEY"] ?? false;
+    if (!$githubKey) {
+        echo "The GITHUB_KEY environment variable is not defined.";
+        $githubKey = "XXX";
+    }
 }
 
 $repoURL = "https://$githubKey@github.com/dunglas/frankenphp.git";
@@ -268,5 +292,6 @@ generateLangDocumentation($repoURL);
 generateLangDocumentation($repoURL, "cn");
 generateLangDocumentation($repoURL, "fr");
 generateLangDocumentation($repoURL, "tr");
+copyInstallSh();
 
 ?>
