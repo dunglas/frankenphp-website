@@ -191,6 +191,19 @@ function generateLangDocumentation($repoURL, $lang = "en")
         rename($DOCS_DESTINATION . "/CONTRIBUTING.md", $DOCS_DESTINATION . "/contributing.md");
     }
 
+    // handle install sh
+    if ($lang === "en") {
+        $INSTALLSH = $TEMP_DIR . "/install.sh";
+        
+        if (file_get_contents($INSTALLSH)) {
+            $success = copy($INSTALLSH, __DIR__ . "/static/install.sh");
+            if (!$success) {
+                echo "Error when copying install.sh\n";
+                return;
+            }
+        }
+    }
+
 
     /* handle index / README file */
     $README_SOURCE = $TEMP_DIR . ($lang === "en" ? "" : "/docs/" . $lang) . "/README.md";
@@ -292,6 +305,5 @@ generateLangDocumentation($repoURL);
 generateLangDocumentation($repoURL, "cn");
 generateLangDocumentation($repoURL, "fr");
 generateLangDocumentation($repoURL, "tr");
-copyInstallSh();
 
 ?>
