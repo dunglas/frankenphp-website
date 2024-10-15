@@ -260,7 +260,7 @@ function generateLangDocumentation($repoURL, $lang = "en")
 
 function copyInstallSh(): void
 {
-    $url = "https://github.com/dunglas/frankenphp/blob/main/install.sh";
+    $url = "https://raw.githubusercontent.com/dunglas/frankenphp/refs/heads/main/install.sh";
     $destinationDir = __DIR__ . "/static/";
     $fileName = basename($url);
     $destination = $destinationDir . $fileName;
