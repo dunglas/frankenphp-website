@@ -2,7 +2,7 @@ title: "<strong class='text-green-dark'>Başlayın!</strong>"
 layout: partials/home/getting_started
 overtitle: "Hepsini çalıştırmak için tek bir komut"
 dockerTab: "Docker"
-staticTab: "Standalone binary"
+staticTab: "Statik binary"
 docker: |
   ```bash
   # public/ dizinine hizmet verin
