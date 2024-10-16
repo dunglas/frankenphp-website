@@ -1,19 +1,30 @@
 title: "<strong class='text-green-dark'>Başlayın!</strong>"
 layout: partials/home/getting_started
 overtitle: "Hepsini çalıştırmak için tek bir komut"
+dockerTab: "Docker"
+staticTab: "Statik binary"
 docker: |
   ```bash
-  # Docker
-  docker run -v $PWD:/app/public -p 443:443 \
+  # public/ dizinine hizmet verin
+  docker run -v $PWD:/app/public \
+    -p 443:443/tcp -p 443:443/udp \
     dunglas/frankenphp
+
+  # Bir komut satırı betiği çalıştırın
+  docker run -v $PWD:/app \
+    dunglas/frankenphp php script.php
   ```
 standard: |
   ```bash
-  # Statik binary
-  ./frankenphp php-server
+  # FrankenPHP'yi yükleyin
+  curl https://frankenphp.dev/install.sh | sh
+  mv frankenphp /usr/local/bin/
 
-  # Komut satırı komut dosyası
-  ./frankenphp php-cli /path/to/your/script.php
+  # Public/ dizinine hizmet verin
+  frankenphp php-server -r public/
+
+  # Bir komut satırı betiği çalıştırın
+  frankenphp php-cli script.php
   ```
 content: |
   Sadece tek bir komutla canlı ortamdaki gibi bir PHP sunucusu kurun ve çalıştırın!

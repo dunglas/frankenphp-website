@@ -3,3 +3,4 @@ content/**/docs/
 .env.local
 data/**/nav.yaml
 static/install.sh
+public

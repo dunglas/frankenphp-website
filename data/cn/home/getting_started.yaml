@@ -1,19 +1,30 @@
 title: "开始<strong class='text-green-dark'>使用</strong>！"
 layout: partials/home/getting_started
 overtitle: "一条命令运行所有"
+dockerTab: "Docker"
+staticTab: "静态二进制文件"
 docker: |
   ```bash
-  # Docker
-  docker run -v $PWD:/app/public -p 443:443 \
+  # 服务 public/ 目录
+  docker run -v $PWD:/app/public \
+    -p 443:443/tcp -p 443:443/udp \
     dunglas/frankenphp
+
+  # 运行命令行脚
+  docker run -v $PWD:/app \
+    dunglas/frankenphp php script.php
   ```
 standard: |
   ```bash
-  # 静态二进制文件
-  ./frankenphp php-server
+  # 安装 FrankenPHP
+  curl https://frankenphp.dev/install.sh | sh
+  mv frankenphp /usr/local/bin/
 
-  # 命令行脚本
-  ./frankenphp php-cli /path/to/your/script.php
+  # 服务 public/ 目录
+  frankenphp php-server -r public/
+
+  # 运行命令行脚本
+  frankenphp php-cli script.php
   ```
 content: |
   只需使用一条命令即可启动并运行一个生产级别的 PHP 服务器！
