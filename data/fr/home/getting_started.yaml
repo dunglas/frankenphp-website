@@ -3,17 +3,26 @@ layout: partials/home/getting_started
 overtitle: "Une seule commande nécessaire"
 docker: |
   ```bash
-  # Docker
-  docker run -v $PWD:/app/public -p 443:443 \
+  # Servir le répertoire public/
+  docker run -v $PWD:/app/public \
+    -p 443:443/tcp -p 443:443/udp \
     dunglas/frankenphp
+
+  # Exécuter un script en ligne de commande
+  docker run -v $PWD:/app \
+    dunglas/frankenphp php script.php
   ```
 standard: |
   ```bash
-  # Binaire statique
-  ./frankenphp php-server
+  # Installer FrankenPHP
+  curl https://frankenphp.dev/install.sh | sh
+  mv frankenphp /usr/local/bin/
 
-  # Script en ligne de commande
-  ./frankenphp php-cli /path/to/your/script.php
+  # Servir le répertoire public/
+  frankenphp php-server -r public/
+
+  # Exécuter un script en ligne de commande
+  frankenphp php-cli script.php
   ```
 content: |
   Lancez un serveur PHP de haute qualité en production en une simple commande !
