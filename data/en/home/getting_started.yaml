@@ -3,17 +3,22 @@ layout: partials/home/getting_started
 overtitle: "One command to run them all"
 docker: |
   ```bash
-  # Use Docker...
-  docker run -v $PWD:/app/public -p 443:443 \
+  # Serve the public/ directory
+  docker run -v $PWD:/app/public \
+    -p 443:443/tcp -p 443:443/udp \
     dunglas/frankenphp
+
+  # Run a command-line script
+  docker run -v $PWD:/app \
+    dunglas/frankenphp php script.php
   ```
 standard: |
   ```bash
-  # ...or install the static binary
+  # Install FrankenPHP
   curl https://frankenphp.dev/install.sh | sh
   mv frankenphp /usr/local/bin/
 
-  # Start a PHP server
+  # Serve the public/ directory
   frankenphp php-server -r public/
 
   # Run a command-line script
