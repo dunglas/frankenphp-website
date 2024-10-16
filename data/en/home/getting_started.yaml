@@ -1,6 +1,8 @@
 title: "Get <strong class='text-green-dark'>started</strong>!"
 layout: partials/home/getting_started
 overtitle: "One command to run them all"
+dockerTab: "Docker"
+staticTab: "Standalone binary"
 docker: |
   ```bash
   # Serve the public/ directory

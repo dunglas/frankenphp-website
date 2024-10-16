@@ -1,6 +1,8 @@
 title: "Commencez dès <strong class='text-green-dark'>maintenant</strong> !"
 layout: partials/home/getting_started
 overtitle: "Une seule commande nécessaire"
+dockerTab: "Docker"
+staticTab: "Standalone binary"
 docker: |
   ```bash
   # Servir le répertoire public/
