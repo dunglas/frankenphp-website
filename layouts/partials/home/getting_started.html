@@ -39,14 +39,14 @@
         >
           <div class="bg-purple-dark relative z-20 rounded-xl overflow-hidden">
             <div class="bg-purple text-sm flex flex-row">
-              <button id="btn-docker" class="flex-1 tablink uppercase px-4 border-b-0 border-b-green border-r border-r-green rounded-t-xl py-2 text-purple-extralight bg-purple-dark" onclick="openCode('docker')">Docker</button>
-              <button id="btn-static" class="flex-1 rounded-t-xl tablink border-b border-b-green border-l-0 border-l-green uppercase px-4 py-2 text-purple-light" onclick="openCode('static')">Standalone binary</button>
+              <button id="btn-static" class="flex-1 tablink uppercase px-4 border-b-0 border-b-green border-r border-r-green rounded-t-xl py-2 text-purple-extralight bg-purple-dark" onclick="openCode('static')">Standalone binary</button>
+              <button id="btn-docker" class="flex-1 rounded-t-xl tablink border-b border-b-green border-l-0 border-l-green uppercase px-4 py-2 text-purple-light" onclick="openCode('docker')">Docker</button>
             </div>
-            <div class="p-4">
-            <pre id="docker" class="code"><code>{{ .docker | markdownify | safeHTML }}</code></pre>
+            <div class="p-4 min-h-[280px]">
             <pre id="static"
-              class="code hidden"
+              class="code"
             ><code>{{ .standard | markdownify | safeHTML }}</code></pre>
+            <pre id="docker" class="code hidden"><code>{{ .docker | markdownify | safeHTML }}</code></pre>
             </div>
           </div>
         </div>
