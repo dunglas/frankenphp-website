@@ -4,7 +4,7 @@ content:
   - title: "Script Worker"
     content: |
       Démarrez votre application une fois, elle **reste en mémoire** !
-  - title: <span>Va à l'essentiel</span>
+  - title: "Direct"
     content: |
       Pris en charge nativement par Symfony, API Platform, Laravel...
   - title: "Simple"
@@ -22,3 +22,6 @@ content:
   - title: "Déploiement facile"
     content: |
       Fonctionne en processus : un binaire, **aucun service externe nécessaire**.
+  - title: "Watcher"
+    content: |
+      Le worker redémarre **à chaque changement de votre code**.

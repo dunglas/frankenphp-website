@@ -25,3 +25,7 @@ content:
   - title: "Kolay Dağıtım"
     content: |
       İşletim sistemi süreci içinde çalışır: bir binary var ve **harici servis gerekmez**.
+  - title: "Gözlemci"
+    content: |
+      Çalışan, kodunuz değişir değişmez yeniden başlar.
+    

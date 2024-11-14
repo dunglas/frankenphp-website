@@ -25,3 +25,6 @@ content:
   - title: "Easy Deploy"
     content: |
       Runs in process: one binary, **no external service needed**.
+  - title: "Watcher"
+    content: |
+      Automatically restart the worker **each time your code change**.
