@@ -49,7 +49,39 @@
       </div>
       </div>
       </a>-->
-
+      {{if ne .Lang "en" }}
+      <a
+      href="{{ range .Translations }}
+  {{ if eq .Lang "en" }}
+    {{ .Permalink }}
+  {{ end }}
+{{ end }}"
+        rel="noopener noreferrer"
+        target="_blank"
+        class="flex bg-purple text-xs font-normal border-b-2 border-b-green z-50 text-white gap-4 h-10 w-full relative items-center justify-center"
+      >
+      <div class="animate-defile-top lg:animate-none lg:w-full h-full absolute min-w-max flex flex-row items-center justify-center top-0 left-0 flex-nowrap">
+      <div class="w-full flex gap-2 items-center justify-center px-20">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+</svg>
+<p>{{ i18n "nav.official" | safeHTML }}</p>
+      </div>
+      <div class="w-full lg:hidden flex gap-2 items-center justify-center px-20">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+</svg>
+<p>{{ i18n "nav.official" | safeHTML }}</p>
+      </div>
+      <div class="w-full lg:hidden flex gap-2 items-center justify-center px-20">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+</svg>
+<p>{{ i18n "nav.official" | safeHTML }}</p>
+      </div>
+      </div>
+      </a>
+      {{ end }}
   <div
     class="h-16 p-4 mx-auto flex flex-row items-center justify-end max-w-8xl"
   >
@@ -86,7 +118,7 @@
 >
   {{ partial "menu.html" . }}
 </div>
-<div class="fixed top-[22px] right-5 z-50 group">
+<div class="fixed {{ if eq .Lang "en" }} top-[22px] {{ else }} top-[62px] {{end}} right-5 z-50 group">
   <label
     for="hamburger-toggle"
     class="{{ if .IsHome }}

@@ -8,3 +8,5 @@ footer:
   owner: "Créé pour vous par %owner%, créateur d'%api-platform% et membre de la Core Team %symfony%"
   design: "Site designé par %designer%"
   sponsor: "Sponsorisé par %sponsor%"
+nav:
+  official: "Cette page a été traduite par la communauté et n'est pas forcément à jour. Consultez <strong class='underline'>la version de référence</strong> (en anglais)."
