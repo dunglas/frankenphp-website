@@ -8,3 +8,5 @@ footer:
   sponsor: 赞助商 %sponsor%
 metatitle: FrankenPHP：现代 PHP 应用服务器
 metadescription: FrankenPHP 是一个新的 PHP 应用服务器（基于 Caddy 构建），同时也是一个库，用于在 Go Web 服务器中嵌入 PHP 解释器.
+nav:
+  official: "该页面已由社区翻译，可能不是最新的。参见<strong class='underline'>参考版本</strong>（英文）。"

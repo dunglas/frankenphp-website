@@ -1223,8 +1223,16 @@ pre {
   top: 1.25rem;
 }
 
+.top-\[102px\] {
+  top: 102px;
+}
+
 .top-\[22px\] {
   top: 22px;
+}
+
+.top-\[62px\] {
+  top: 62px;
 }
 
 .top-full {
@@ -1433,8 +1441,8 @@ pre {
   min-height: 100vh;
 }
 
-.min-h-\[500px\] {
-  min-height: 500px;
+.min-h-\[280px\] {
+  min-height: 280px;
 }
 
 .min-h-\[72px\] {
@@ -1443,18 +1451,6 @@ pre {
 
 .min-h-screen {
   min-height: 100vh;
-}
-
-.min-h-\[200px\] {
-  min-height: 200px;
-}
-
-.min-h-\[300px\] {
-  min-height: 300px;
-}
-
-.min-h-\[280px\] {
-  min-height: 280px;
 }
 
 .w-1\/2 {
@@ -2204,8 +2200,16 @@ pre {
   padding-top: 1rem;
 }
 
+.pt-40 {
+  padding-top: 10rem;
+}
+
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pt-\[104px\] {
+  padding-top: 104px;
 }
 
 .text-center {
@@ -2386,6 +2390,10 @@ pre {
 
 .text-white\/90 {
   color: rgb(255 255 255 / 0.9);
+}
+
+.underline {
+  text-decoration-line: underline;
 }
 
 .opacity-0 {
@@ -3542,6 +3550,10 @@ kbd.DocSearch-Commands-Key {
     padding-top: 6rem;
   }
 
+  .md\:pt-32 {
+    padding-top: 8rem;
+  }
+
   .md\:text-left {
     text-align: left;
   }
@@ -3617,6 +3629,10 @@ kbd.DocSearch-Commands-Key {
     width: 13rem;
   }
 
+  .lg\:w-full {
+    width: 100%;
+  }
+
   .lg\:max-w-sm {
     max-width: 24rem;
   }
@@ -3633,6 +3649,10 @@ kbd.DocSearch-Commands-Key {
   .lg\:-translate-x-20 {
     --tw-translate-x: -5rem;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .lg\:animate-none {
+    animation: none;
   }
 
   .lg\:grid-cols-2 {
@@ -3712,6 +3732,10 @@ kbd.DocSearch-Commands-Key {
 
   .lg\:pt-0 {
     padding-top: 0px;
+  }
+
+  .lg\:pt-16 {
+    padding-top: 4rem;
   }
 
   .lg\:pt-28 {

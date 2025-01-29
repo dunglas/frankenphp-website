@@ -8,3 +8,6 @@ footer:
   owner: "Size %api-platform% 'un yaratıcısı ve %symfony% Core Team üyesi olan %owner% tarafından sunulmuştur."
   design: "%designer% tarafından tasarlandı"
   sponsor: "%sponsor% tarafından desteklenir"
+nav:
+  official: "Bu sayfa topluluk tarafından çevrilmiştir ve güncel olmayabilir. <strong class='underline'>Referans versiyonuna</strong> (İngilizce) bakın."
+
