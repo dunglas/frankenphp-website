@@ -305,5 +305,6 @@ generateLangDocumentation($repoURL);
 generateLangDocumentation($repoURL, "cn");
 generateLangDocumentation($repoURL, "fr");
 generateLangDocumentation($repoURL, "tr");
+generateLangDocumentation($repoURL, "ru");
 
 ?>

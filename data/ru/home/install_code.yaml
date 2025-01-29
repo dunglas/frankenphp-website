@@ -1,0 +1,18 @@
+title: <strong class="text-green-dark">Простая</strong> настройка
+overtitle: "Молниеносная скорость"
+code: |
+    ```caddyfile
+    {
+        # Активируйте FrankenPHP
+        frankenphp
+    }
+
+    localhost {
+        # Активируйте сжатие (необязательно)
+        encode zstd br gzip
+        # Запуск файлов PHP в текущем каталоге и обслуживание ресурсов
+        php_server
+    }
+    ```
+content: |
+  Пять строк конфигурации: это все, что вам нужно для запуска PHP-сервера производственного уровня (автоматический HTTPS, HTTP/3, сжатие Brotli...), работающего на базе [Caddy](https://caddyserver.com).
