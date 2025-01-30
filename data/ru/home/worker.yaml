@@ -1,0 +1,27 @@
+title: Режим <strong class="text-green-dark">Worker</strong>
+overtitle: Сделайте ваши PHP-приложения быстрее, чем когда-либо!
+content:
+  - title: "Скрипт Worker"
+    content: |
+      Запустите ваше приложение один раз, оно **остается в памяти**!
+  - title: "Прямой доступ"
+    content: |
+      Поддерживается нативно в Symfony, API Platform, Laravel...
+  - title: "Простой"
+    content: |
+      Использует стандартные суперглобальные переменные: **не нужен PSR-7**.
+  - title: "Быстрый"
+    content: |
+      **В 3,5 раза быстрее, чем FPM** на приложениях API Platform, согласно <a href="https://github.com/dunglas/frankenphp-demo/tree/main/benchmark" target="_blank" rel="noreferrer noopener" class="link">нашим бенчмаркам</a>.
+  - title: "Эффективный"
+    content: |
+      FrankenPHP написан на **Go** и **C**. Он использует ключевую особенность Go — горутины!
+  - title: "Опциональный"
+    content: |
+      Ваше приложение может работать как есть, даже если оно не поддерживает режим worker.
+  - title: "Легкое развертывание"
+    content: |
+      Работает как отдельный процесс: один бинарный файл, **никаких внешних сервисов не требуется**.
+  - title: "Watcher"
+    content: |
+      Worker перезапускается **при каждом изменении кода**.

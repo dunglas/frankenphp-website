@@ -87,6 +87,25 @@ languages:
         params:
           rel: external
           target: _blank
+  ru:
+    disabled: false
+    languageCode: "ru"
+    languageDirection: ""
+    languageName: "Russian"
+    contentDir: content/ru
+    title: ""
+    weight: 6
+    menu:
+      main:
+      - name: Документация
+        pageRef: /docs/
+        weight: 1
+      - name: Магазин
+        url: https://frankenphp.tpopsite.com/shop
+        weight: 5
+        params:
+          rel: external
+          target: _blank
 build:
   ignoreFiles:
       - "^home/"

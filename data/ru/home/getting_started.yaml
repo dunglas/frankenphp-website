@@ -1,0 +1,30 @@
+title: "Начните <strong class='text-green-dark'>прямо сейчас</strong>!"
+layout: partials/home/getting_started
+overtitle: "Требуется всего одна команда"
+dockerTab: "Docker"
+staticTab: "Статический бинарник"
+docker: |
+  ```bash
+  # Обслуживание каталога public/
+  docker run -v $PWD:/app/public \
+    -p 443:443/tcp -p 443:443/udp \
+    dunglas/frankenphp
+
+  # Запуск сценария командной строки
+  docker run -v $PWD:/app \
+    dunglas/frankenphp php script.php
+  ```
+standard: |
+  ```bash
+  # Установите FrankenPHP
+  curl https://frankenphp.dev/install.sh | sh
+  mv frankenphp /usr/local/bin/
+
+  # Обслуживание каталога public/
+  frankenphp php-server -r public/
+
+  # Запуск сценария командной строки
+  frankenphp php-cli script.php
+  ```
+content: |
+  Запустите высококачественный PHP-сервер в производство с помощью одной команды!
