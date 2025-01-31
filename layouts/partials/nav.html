@@ -24,31 +24,6 @@
     border-gray-300
   {{ end }} left-0 z-30 w-full top-0 group"
 >
-
-      <!--<a
-      href="https://api-platform.com/con"
-        rel="noopener noreferrer"
-        target="_blank"
-        class="hidden lg:flex bg-purple-dark bg-conf-gradient text-xs font-normal border-b-2 border-b-green z-50 text-white gap-4 h-10 w-full relative items-center justify-center"
-      >
-      <div class="animate-defile-top h-full absolute min-w-max flex flex-row items-center justify-center top-0 left-0 flex-nowrap">
-      <div class="flex gap-4 items-center justify-center px-20">
-              <span class="font-semibold text-sm uppercase">API Platform Conference 2024</span>
-          <span>Sep 19-20, 2024</span>
-         <span>Join FrankenPHP creators, contributors, and speakers in Lille, France, or online.</span>
-      </div>
-      <div class="flex gap-4 items-center justify-center px-20">
-              <span class="font-semibold text-sm uppercase">API Platform Conference 2024</span>
-          <span>Sep 19-20, 2024</span>
-         <span>Join FrankenPHP creators, contributors, and speakers in Lille, France, or online.</span>
-      </div>
-      <div class="flex gap-4 items-center justify-center px-20">
-              <span class="font-semibold text-sm uppercase">API Platform Conference 2024</span>
-          <span>Sep 19-20, 2024</span>
-         <span>Join FrankenPHP creators, contributors, and speakers in Lille, France, or online.</span>
-      </div>
-      </div>
-      </a>-->
       {{if ne .Lang "en" }}
       <a
       href="{{ range .Translations }}
@@ -56,7 +31,7 @@
     {{ .Permalink }}
   {{ end }}
 {{ end }}"
-        class="overflow-x-hidden flex bg-purple text-xs font-normal border-b-2 border-b-green z-50 text-white gap-4 h-10 w-full relative items-center justify-center"
+        class="overflow-x-hidden flex bg-purple text-xs font-normal border-b-2 border-b-green z-50 text-white h-10 w-full relative items-center justify-center"
       >
       <div class="animate-defile-top lg:animate-none lg:w-full h-full absolute min-w-max flex flex-row items-center justify-center top-0 left-0 flex-nowrap">
       <div class="w-full flex gap-2 items-center justify-center px-20">
@@ -76,6 +51,31 @@
   <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
 </svg>
 <p>{{ i18n "nav.official" | safeHTML }}</p>
+      </div>
+      </div>
+      </a>
+      {{ else }}
+      <a
+      href="https://api-platform.com/en/con"
+        rel="noopener noreferrer"
+        target="_blank"
+        class="flex bg-purple-dark bg-conf-gradient text-xs font-normal border-b-2 border-b-green z-50 text-white h-10 w-full relative items-center justify-center"
+      >
+      <div class="animate-defile-top h-full absolute min-w-max flex flex-row items-center justify-center top-0 left-0 flex-nowrap">
+      <div class="flex gap-4 items-center justify-center px-20">
+              <span class="font-semibold text-sm uppercase">API Platform Conference 2025</span>
+          <span>Sep 18-19, 2025</span>
+         <span>Join FrankenPHP creators, contributors, and speakers in Lille, France, or online.</span>
+      </div>
+      <div class="flex gap-4 items-center justify-center px-20">
+              <span class="font-semibold text-sm uppercase">API Platform Conference 2025</span>
+          <span>Sep 18-19, 2025</span>
+         <span>Join FrankenPHP creators, contributors, and speakers in Lille, France, or online.</span>
+      </div>
+      <div class="flex gap-4 items-center justify-center px-20">
+              <span class="font-semibold text-sm uppercase">API Platform Conference 2025</span>
+          <span>Sep 18-19, 2025</span>
+         <span>Join FrankenPHP creators, contributors, and speakers in Lille, France, or online.</span>
       </div>
       </div>
       </a>
@@ -116,7 +116,7 @@
 >
   {{ partial "menu.html" . }}
 </div>
-<div class="fixed {{ if eq .Lang "en" }} top-[22px] {{ else }} top-[62px] {{end}} right-5 z-50 group">
+<div class="fixed {{ if eq .Lang "en" }} top-[62px] {{ else }} top-[62px] {{end}} right-5 z-50 group">
   <label
     for="hamburger-toggle"
     class="{{ if .IsHome }}

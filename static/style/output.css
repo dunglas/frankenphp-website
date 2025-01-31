@@ -3554,6 +3554,10 @@ kbd.DocSearch-Commands-Key {
     padding-top: 8rem;
   }
 
+  .md\:pt-\[104px\] {
+    padding-top: 104px;
+  }
+
   .md\:text-left {
     text-align: left;
   }
