@@ -21,3 +21,6 @@ content:
   - image: "magento.png"
     title: "Magento"
     url: https://github.com/ekino/frankenphp-magento2
+  - image: "maho.png"
+    title: "Maho"
+    url: https://github.com/MahoCommerce/maho
