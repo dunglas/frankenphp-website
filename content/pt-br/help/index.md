@@ -1,5 +1,5 @@
 ---
 layout: help
-title: "Need help?"
+title: "Precisa de ajuda?"
 menu: "main"
 ---
