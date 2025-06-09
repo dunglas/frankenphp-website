@@ -2,11 +2,6 @@ title: Yapılandırması çok <strong class="text-green-dark">kolay!</strong>
 overtitle: "Şimşek kadar hızlı"
 code: |
     ```caddyfile
-    {
-        # FrankenPHP etkinleştir
-        frankenphp
-    }
-
     localhost {
         # Sıkıştırmayı etkinleştir (isteğe bağlı)
         encode zstd br gzip
@@ -15,4 +10,4 @@ code: |
     }
     ```
 content: |
-  Beş satırlık yapılandırma: artık [Caddy](https://caddyserver.com) tarafından desteklenen canlı ortamdaki gibi bir PHP sunucusu (otomatik HTTPS, HTTP/3, Brotli sıkıştırma...) başlatmak için ihtiyacınız olan tek şey bu.
+    Üç satırlık yapılandırma: artık [Caddy](https://caddyserver.com) tarafından desteklenen canlı ortamdaki gibi bir PHP sunucusu (otomatik HTTPS, HTTP/3, Brotli sıkıştırma...) başlatmak için ihtiyacınız olan tek şey bu.
