@@ -10,4 +10,4 @@ code: |
     }
     ```
 content: |
-    Üç satırlık yapılandırma: artık [Caddy](https://caddyserver.com) tarafından desteklenen canlı ortamdaki gibi bir PHP sunucusu (otomatik HTTPS, HTTP/3, Brotli sıkıştırma...) başlatmak için ihtiyacınız olan tek şey bu.
+  Üç satırlık yapılandırma: artık [Caddy](https://caddyserver.com) tarafından desteklenen canlı ortamdaki gibi bir PHP sunucusu (otomatik HTTPS, HTTP/3, Brotli sıkıştırma...) başlatmak için ihtiyacınız olan tek şey bu.
