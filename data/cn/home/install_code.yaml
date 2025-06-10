@@ -2,11 +2,6 @@ title: 配置<strong class="text-green-dark">如此简单</strong>！
 overtitle: "快如闪电"
 code: |
     ```caddyfile
-    {
-        # 启用 FrankenPHP
-        frankenphp
-    }
-
     localhost {
         # 启用压缩（可选)
         encode zstd br gzip
@@ -15,4 +10,4 @@ code: |
     }
     ```
 content: |
-  只需五行配置：现在，您所需要的就是启动一个生产级别的 PHP 服务器（自动 HTTPS、HTTP/3、Brotli 压缩...），由 [Caddy](https://caddyserver.com) 提供支持。
+  只需三行配置：现在，您所需要的就是启动一个生产级别的 PHP 服务器（自动 HTTPS、HTTP/3、Brotli 压缩...），由 [Caddy](https://caddyserver.com) 提供支持。
