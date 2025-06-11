@@ -299,7 +299,7 @@ function copyInstallSh(): void
     }
 }
 
-$repoURL = "https://$githubKey@github.com/dunglas/frankenphp.git";
+$repoURL = "https://$githubKey@github.com/php/frankenphp.git";
 
 generateLangDocumentation($repoURL);
 generateLangDocumentation($repoURL, "cn");
