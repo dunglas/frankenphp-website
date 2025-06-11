@@ -1,0 +1,31 @@
+title: "<strong class='text-green-dark'>Comece</strong>!"
+layout: partials/home/getting_started
+overtitle: "Um comando para executá-los todos"
+dockerTab: "Docker"
+staticTab: "Binário estático"
+docker: |
+  ```bash
+  # Serve o diretório public/
+  docker run -v $PWD:/app/public \
+    -p 443:443/tcp -p 443:443/udp \
+    dunglas/frankenphp
+
+  # Executa um script de linha de comando
+  docker run -v $PWD:/app \
+    dunglas/frankenphp php script.php
+  ```
+standard: |
+  ```bash
+  # Instala o FrankenPHP
+  curl https://frankenphp.dev/install.sh | sh
+  mv frankenphp /usr/local/bin/
+
+  # Serve o diretório public/
+  frankenphp php-server -r public/
+
+  # Executa um script de linha de comando
+  frankenphp php-cli script.php
+  ```
+content: |
+  Tenha um servidor PHP de nível de produção instalado e funcionando com apenas
+  um comando!
