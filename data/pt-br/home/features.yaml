@@ -19,7 +19,7 @@ content:
       <a href="/docs/docker/">uma imagem Docker</a>.
       Compatível com Kubernetes e todas as plataformas de nuvem modernas.
       Também é possível empacotar sua aplicação PHP como
-      <a href="/docs/embed/" class="link">um binário estático autônomo e autoexecutável</a>.
+      <a href="/docs/embed/" class="link">um binário estático independente e autoexecutável</a>.
   - image: "/img/worker.svg"
     title: "Modo worker"
     content: |
