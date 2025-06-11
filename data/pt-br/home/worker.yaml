@@ -1,30 +1,34 @@
-title: Worker <strong class="text-green-dark">mode</strong>
-overtitle: Make your PHP apps faster than ever!
+title: <strong class="text-green-dark">Modo</strong> worker
+overtitle: Deixe suas aplicações PHP mais rápidas do que nunca!
 content:
-  - title: "Worker script"
+  - title: "Script worker"
     content: |
-      Boot your app once, it **stays in memory**!
-  #- title: "Seamless"
+      Inicie sua aplicação uma vez e ela **permanece na memória**!
+  #- title: "Perfeito"
   #  content: |
-  #    Process incoming requests **without having to boot your app again**
-  - title: <span>Straight</span><span>forward</span>
+  #    Processe requisições recebidas **sem precisar reiniciar sua aplicação**
+  - title: <span>Direto</span>
     content: |
-      Natively supported by Symfony, API Platform, Laravel...
-  - title: "Simple"
+      Suportado nativamente pelo Symfony, API Platform, Laravel...
+  - title: "Simples"
     content: |
-      Uses plain old superglobals: **no need for PSR-7**.
-  - title: "Fast"
+      Usa superglobais simples: **não precisa de PSR-7**.
+  - title: "Rápido"
     content: |
-      According to <a href="https://github.com/dunglas/frankenphp-demo/tree/main/benchmark" target="_blank" rel="noreferrer noopener" class="link">our benchmarks</a>, **3.5x faster than FPM** on API Platform apps.
-  - title: "Efficient"
+      De acordo com
+      <a href="https://github.com/dunglas/frankenphp-demo/tree/main/benchmark" target="_blank" rel="noreferrer noopener" class="link">nossos benchmarks</a>,
+      **3,5x mais rápido que o FPM** em aplicações da API Platform.
+  - title: "Eficiente"
     content: |
-      FrankenPHP is written in **Go** and **C**. It relies on Go's iconic feature: goroutines!
-  - title: "Optional"
+      O FrankenPHP foi escrito em **Go** e **C**.
+      Ele conta com o recurso icônico do Go: goroutines!
+  - title: "Opcional"
     content: |
-      Your app can be served as-is, even if it isn't compatible with the worker mode.
-  - title: "Easy Deploy"
+      Sua aplicação pode ser servida como está, mesmo que não seja compatível
+      com o modo worker.
+  - title: "Fácil implantação"
     content: |
-      Runs in process: one binary, **no external service needed**.
+      Executa em processo: um binário, **nenhum serviço externo necessário**.
   - title: "Watcher"
     content: |
-      Automatically restart the worker **each time your code change**.
+      Reinicie automaticamente o worker **sempre que seu código for alterado**.
