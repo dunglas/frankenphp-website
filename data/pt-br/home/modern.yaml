@@ -1,18 +1,18 @@
-title: <strong class="text-green-dark">Moderner</strong> PHP Than Ever!
-overtitle: "Ready for the future?"
+title: PHP <strong class="text-green-dark">mais moderno</strong> do que nunca!
+overtitle: "Pronta para o futuro?"
 link:
-  text: "Try it"
+  text: "Experimente"
   url: "/docs/"
 content:
-  - > 
-    Uses the official PHP executor embedded in a state-of-the-art web server: **[Caddy](https://caddyserver.com)**
   - >
-    Native support for HTTP/1.1, HTTP/2 and **HTTP/3**
+    Utiliza o executor PHP oficial incorporado em um servidor web de última geração: **[Caddy](https://caddyserver.com)**
   - >
-    Automatic **HTTPS** certificates generation and renewal (Let's Encrypt or ZeroSSL)
+    Suporte nativo a HTTP/1.1, HTTP/2 e **HTTP/3**
   - >
-    Copy your PHP files in the document root, that’s all!
+    Geração e renovação automática de certificados **HTTPS** (Let's Encrypt ou ZeroSSL)
   - >
-    [Build **standalone**, self-executable and dependencies-free binaries](/docs/embed/) for your PHP web applications, and command-line tools.
+    Copie seus arquivos PHP para a raiz do documento, só isso!
   - >
-    Popular PHP extensions, including **OPcache** and **XDebug**, are natively supported!
+    [Crie binários **independentes**, autoexecutáveis e sem dependências](/docs/embed/) para suas aplicações web PHP e ferramentas de linha de comando.
+  - >
+    Extensões PHP populares, incluindo **OPcache** e **XDebug**, têm suporte nativo!
