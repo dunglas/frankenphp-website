@@ -11,7 +11,7 @@ content:
   - >
     Geração e renovação automática de certificados **HTTPS** (Let's Encrypt ou ZeroSSL)
   - >
-    Copie seus arquivos PHP para a raiz do documento, só isso!
+    Copie seus arquivos PHP para o diretório raiz, só isso!
   - >
     [Crie binários **independentes**, autoexecutáveis e sem dependências](/docs/embed/) para suas aplicações web PHP e ferramentas de linha de comando.
   - >
