@@ -1,13 +1,20 @@
-title: So <strong class="text-green-dark">easy</strong> to configure!
-overtitle: "Fast as lightning"
+title: Tão <strong class="text-green-dark">fácil</strong> de configurar!
+overtitle: "Rápido como um raio"
 code: |
     ```caddyfile
+    {
+        # Habilita o FrankenPHP
+        frankenphp
+    }
+
     localhost {
-        # Enable compression (optional)
+        # Habilita a compressão (opcional)
         encode zstd br gzip
-        # Execute PHP files in the current directory and serve assets
+        # Executa arquivos PHP no diretório atual e serve os assets
         php_server
     }
     ```
 content: |
-  Three lines of config: it's now all you need to start a production-grade PHP server (automatic HTTPS, HTTP/3, zstd compression...), powered by [Caddy](https://caddyserver.com).
+  Cinco linhas de configuração: agora isso é tudo o que você precisa para
+  iniciar um servidor PHP de nível de produção (HTTPS automático, HTTP/3,
+  compressão Brotli...), desenvolvido com [Caddy](https://caddyserver.com).
