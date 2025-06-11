@@ -1,51 +1,71 @@
-title: "FrankenPHP <strong class='text-green-dark'>at a glance</strong>"
-overtitle: "Features"
+title: "FrankenPHP <strong class='text-green-dark'>em resumo</strong>"
+overtitle: "Características"
 content:
   - image: "/img/box.svg"
-    title: "Extensible"
+    title: "Extensível"
     content: |
-      Compatible with PHP 8.2+, most PHP extensions and all Caddy modules.
+      Compatível com PHP 8.2+, a maioria das extensões PHP e todos os módulos
+      Caddy.
   - image: "/img/one.svg"
-    title: "Only one service"
+    title: "Apenas um serviço"
     content: |
-      Designed with simplicity in mind: only one service, only one binary! FrankenPHP doesn't need PHP-FPM, it uses its own SAPI specially handcrafted for Go web servers.
+      Projetado com simplicidade em mente: apenas um serviço, apenas um binário!
+      O FrankenPHP não precisa do PHP-FPM, ele usa sua própria SAPI,
+      especialmente desenvolvida para servidores web Go.
   - image: "/img/rocket.svg"
-    title: "Easy deploy"
+    title: "Fácil implantação"
     content: |
-      Cloud Native app shipped as <a href="/docs/docker/">a Docker image</a>. Compatible with Kubernetes, and all modern cloud platforms. It's also possible to package your PHP app as <a href="/docs/embed/" class="link">a standalone, self-executable static binary</a>.
+      Aplicação nativa em nuvem enviada como
+      <a href="/docs/docker/">uma imagem Docker</a>.
+      Compatível com Kubernetes e todas as plataformas de nuvem modernas.
+      Também é possível empacotar sua aplicação PHP como
+      <a href="/docs/embed/" class="link">um binário estático autônomo e autoexecutável</a>.
   - image: "/img/worker.svg"
-    title: "Worker mode"
+    title: "Modo worker"
     content: |
-      <a href="/docs/worker/" class="link">Boot your application once</a> and keep it in memory! It is ready to handle incoming requests in a few milliseconds.
+      <a href="/docs/worker/" class="link">Inicie sua aplicação uma vez</a> e
+      mantenha-a na memória!
+      Ela estará pronta para processar requisições recebidas em poucos
+      milissegundos.
   - image: "/img/bulb.svg"
     title: "103 Early Hints"
     content: |
-      <a href="/docs/early-hints/"  class="link">Early Hints</a> are a brand new feature of the web platform that can improve <a href="https://blog.cloudflare.com/early-hints/" target="_blank" rel="noreferrer noopener" class="link">website load times by 30%</a>. FrankenPHP is the only PHP SAPI with Early Hints support!
+      <a href="/docs/early-hints/" class="link">Early Hints</a> são um novo
+      recurso da plataforma web que pode melhorar
+      <a href="https://blog.cloudflare.com/early-hints/" target="_blank" rel="noreferrer noopener" class="link">o tempo de carregamento de sites em 30%</a>.
+      O FrankenPHP é a única SAPI PHP com suporte a Early Hints!
   - image: "/img/clock.svg"
-    title: "Real-time"
+    title: "Em tempo real"
     content: |
-      Built-in <a href="https://mercure.rocks" target="_blank" rel="noreferrer noopener" class="link">Mercure</a> hub. Send events from your PHP apps to all connected browsers, they instantly receive the payload as a JavaScript event!
+      Hub
+      <a href="https://mercure.rocks" target="_blank" rel="noreferrer noopener" class="link">Mercure</a>
+      integrado.
+      Envie eventos das suas aplicações PHP para todos os navegadores
+      conectados, e eles receberão o payload instantaneamente como um evento
+      JavaScript!
   - image: "/img/zip.svg"
-    title: "Brotli, Zstandard and Gzip compression"
+    title: "Compressão Brotli, Zstandard e Gzip"
     content: |
-      Modern compression formats are supported out-of-the-box.
+      Formatos de compressão modernos são suportados imediatamente.
   - image: "/img/log.svg"
-    title: "Structured logging"
+    title: "Logging estruturado"
     content: |
-      Bring a more defined format and details to your logging.
+      Traga um formato e detalhes mais definidos para seu logging.
   - image: "/img/metrics.svg"
-    title: "Prometheus metrics and tracing"
+    title: "Métricas e rastreamento do Prometheus"
     content: |
-      Built-in <a href="https://caddyserver.com/docs/metrics" target="_blank" rel="noreferrer noopener" class="link">Prometheus support</a>!
+      Suporte integrado ao
+      <a href="https://caddyserver.com/docs/metrics" target="_blank" rel="noreferrer noopener" class="link">Prometheus</a>!
   - image: "/img/http.svg"
-    title: "HTTP/2 & HTTP/3"
+    title: "HTTP/2 e HTTP/3"
     content: |
-      Native support for HTTPS, HTTP/2 and **HTTP/3**.
+      Suporte nativo a HTTPS, HTTP/2 e **HTTP/3**.
   - image: "/img/https.svg"
-    title: "HTTPS Automation"
+    title: "Automação HTTPS"
     content: |
-      Automatic HTTPS certificate generation, renewal and revocation.
+      Geração, renovação e revogação automáticas de certificados HTTPS.
   - image: "/img/reload.svg"
-    title: "Graceful reload"
+    title: "Recarga graciosa"
     content: |
-      Deploy your apps with zero downtime thanks to graceful reloads.
+      Implante suas aplicações sem tempo de inatividade graças a recargas
+      graciosas.
