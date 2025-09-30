@@ -1,15 +1,16 @@
 <!-- sidebar menu start-->
 <div class="flex flex-row gap-3 ml-4 pt-4 lg:hidden">
   <img
-    src="/img/flags/{{ .Site.Language.Lang }}.svg"
+    src="/img/flags/{{ or .Language.Params.flag .Language.Lang }}.svg"
     class="w-8 h-8 saturate-0 opacity-50"
   />
   {{ if .IsTranslated }}
     {{ range .Translations }}
-      <a href="{{ .RelPermalink }}" class="">
-        <img class="w-8 h-8" src="/img/flags/{{ .Language }}.svg" />
-      </a>
-    {{ end }}
+  <a href="{{ .RelPermalink }}">
+    <img class="w-8 h-8" src="/img/flags/{{ or .Language.Params.flag .Language.Lang }}.svg" />
+
+  </a>
+{{ end }}
   {{ end }}
 </div>
 <ul

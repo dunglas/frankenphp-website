@@ -12,15 +12,15 @@ content:
   - image: "/img/rocket.svg"
     title: "易于部署"
     content: |
-      作为<a href="/cn/docs/docker/">Docker 镜像</a>的云原生应用交付。兼容 Kubernetes 和所有现代云平台。也可以将您的 PHP 应用程序打包为<a href="/docs/embed/" class="link">独立的、自执行的静态二进制文件</a>。
+      作为<a href="/zh/docs/docker/">Docker 镜像</a>的云原生应用交付。兼容 Kubernetes 和所有现代云平台。也可以将您的 PHP 应用程序打包为<a href="/docs/embed/" class="link">独立的、自执行的静态二进制文件</a>。
   - image: "/img/worker.svg"
     title: "工作模式"
     content: |
-      <a href="/cn/docs/worker/" class="link">一次启动您的应用程序</a>并保持其在内存中！它准备在几毫秒内处理传入请求。
+      <a href="/zh/docs/worker/" class="link">一次启动您的应用程序</a>并保持其在内存中！它准备在几毫秒内处理传入请求。
   - image: "/img/bulb.svg"
     title: "103 早期提示"
     content: |
-      <a href="/cn/docs/early-hints/"  class="link">早期提示</a>是 web 平台的一个全新特性，可以通过<a href="https://blog.cloudflare.com/early-hints/" target="_blank" rel="noreferrer noopener" class="link">提前 30% 的时间加载网站</a>。FrankenPHP 是唯一支持提前提示的 PHP SAPI！
+      <a href="/zh/docs/early-hints/"  class="link">早期提示</a>是 web 平台的一个全新特性，可以通过<a href="https://blog.cloudflare.com/early-hints/" target="_blank" rel="noreferrer noopener" class="link">提前 30% 的时间加载网站</a>。FrankenPHP 是唯一支持提前提示的 PHP SAPI！
   - image: "/img/clock.svg"
     title: "实时功能"
     content: |

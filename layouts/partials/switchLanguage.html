@@ -14,7 +14,7 @@
     for="language-toggle"
     class="flex flex-row gap-1 flex-1 lg:py-2 lg:pl-4 cursor-pointer group"
   >
-    <img src="/img/flags/{{ .Site.Language.Lang }}.svg" class="w-7 h-7" />
+    <img src="/img/flags/{{ or .Language.Params.flag .Language.Lang }}.svg" class="w-7 h-7" />
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -48,9 +48,9 @@
               href="{{ .RelPermalink }}"
               class="flex flex-row gap-2 py-2 px-6 items-center hover:bg-purple-dark/10"
             >
-              <img class="w-5 h-5" src="/img/flags/{{ .Language }}.svg" />
+              <img class="w-5 h-5" src="/img/flags/{{ or .Language.Params.flag .Language.Lang }}.svg" />
               <span class="text-gray-700 font-bold text-xs uppercase">
-                {{ .Language }}
+                {{ or .Language.Params.flag .Language.Lang }}
               </span>
             </a>
           </li>

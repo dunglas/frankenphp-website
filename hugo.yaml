@@ -30,14 +30,16 @@ languages:
           rel: external
           target: _blank
         weight: 5
-  cn:
+  zh:
     disabled: false
-    languageCode: "cn"
+    languageCode: "zh"
     languageDirection: ""
     languageName: "Chinese"
-    contentDir: content/cn
+    contentDir: content/zh
     title: ""
     weight: 2
+    params:
+      flag: "cn"
     menu:
       main:
       - name: 文档
@@ -49,14 +51,16 @@ languages:
           rel: external
           target: _blank
         weight: 5
-  jp:
+  ja:
     disabled: false
     languageCode: "jp"
     languageDirection: ""
     languageName: "Japanese"
-    contentDir: content/jp
+    contentDir: content/ja
     title: ""
     weight: 2
+    params:
+      flag: "jp"
     menu:
       main:
       - name: ドキュメント

@@ -116,7 +116,7 @@ function fixLinks($content, $lang = "en")
 
     // Special case for 'cn' language
     if ($lang === "cn") {
-        $content = str_replace('/cn/docs/contributing', '/docs/contributing', $content);
+        $content = str_replace('/zh/docs/contributing', '/docs/contributing', $content);
     }
 
     $content = preg_replace('#/docs/\.\./\##', '/docs#', $content);
@@ -147,7 +147,7 @@ function addFrontmatter($content)
 function generateLangDocumentation($repoURL, $lang = "en")
 {
     // Special case: "ja" should become "jp" in destination
-    $langDest = ($lang === "ja") ? "jp" : $lang;
+    $langDest = ($lang === "cn") ? "zh" : $lang;
     // Constants
     $DOCS_TO_CLONE = $lang === "en" ? "docs" : "docs/" . $lang;
     $DESTINATION_DIRECTORY = __DIR__ . "/content/" . $langDest;

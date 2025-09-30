@@ -25,6 +25,8 @@
           {{ else }}
             {{ if (eq .Lang "en" )}}
               href="https://github.com/dunglas/frankenphp/blob/main/docs/{{ $lastUrlElement }}.md"
+            {{ else if (eq .Lang "zh" )}}
+              href="https://github.com/dunglas/frankenphp/blob/main/docs/cn/{{ $lastUrlElement }}.md"
             {{ else }}
               href="https://github.com/dunglas/frankenphp/blob/main/docs/{{ .Lang }}/{{ $lastUrlElement }}.md"
             {{ end }}
