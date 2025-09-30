@@ -114,15 +114,11 @@ function fixLinks($content, $lang = "en")
     // Ensure no /docs/docs occurrences
     $content = preg_replace('#/docs/docs(/|$)#', '/docs$1', $content);
 
-    // Special case for 'cn' language
-    if ($lang === "cn") {
-        $content = str_replace('/zh/docs/contributing', '/docs/contributing', $content);
-    }
-
+    // or /docs/..
     $content = preg_replace('#/docs/\.\./\##', '/docs#', $content);
 
+    // or /docs/README
     $content = preg_replace('#/docs/README\#([^/]+)/#', '/docs#$1', $content);
-
 
     return $content;
 }
@@ -146,7 +142,7 @@ function addFrontmatter($content)
 
 function generateLangDocumentation($repoURL, $lang = "en")
 {
-    // Special case: "ja" should become "jp" in destination
+    // Special case: "cn" should become "zh" in destination
     $langDest = ($lang === "cn") ? "zh" : $lang;
     // Constants
     $DOCS_TO_CLONE = $lang === "en" ? "docs" : "docs/" . $lang;
@@ -182,7 +178,20 @@ function generateLangDocumentation($repoURL, $lang = "en")
             return;
         }
     }
-    $success = copyDirectory($TEMP_DIR . '/' . $DOCS_TO_CLONE, $DOCS_DESTINATION);
+    mkdir($DOCS_DESTINATION, 0755, true);
+
+    foreach (scandir($TEMP_DIR . '/' . $DOCS_TO_CLONE) as $file) {
+        // Keep only .md
+        if (substr($file, -3) === '.md') {
+            copy(
+                $TEMP_DIR . '/' . $DOCS_TO_CLONE . '/' . $file,
+                $DOCS_DESTINATION . '/' . $file
+            );
+        }
+    }
+
+
+    //$success = copyDirectory($TEMP_DIR . '/' . $DOCS_TO_CLONE, $DOCS_DESTINATION);
     if (!$success) {
         echo "Error while copying the doc files\n";
         return;
@@ -218,9 +227,11 @@ function generateLangDocumentation($repoURL, $lang = "en")
     if (!file_get_contents($README_SOURCE))
         $README_SOURCE = $TEMP_DIR . "/README.md";
 
+    $content = file_get_contents($README_SOURCE);
+
     // Modify README.md
-    copy($README_SOURCE, $DESTINATION_DIRECTORY . "/README.md");
-    $content = file_get_contents($DESTINATION_DIRECTORY . "/README.md");
+    //copy($README_SOURCE, $DESTINATION_DIRECTORY . "/README.md");
+    //$content = file_get_contents($DESTINATION_DIRECTORY . "/README.md");
     // fix image link
     $content = preg_replace_callback(
         '/src="((?!http)[^"]*)"/',
@@ -232,8 +243,13 @@ function generateLangDocumentation($repoURL, $lang = "en")
         },
         $content
     );
-    file_put_contents($DESTINATION_DIRECTORY . "/README.md", $content);
-    rename($DESTINATION_DIRECTORY . "/README.md", $DOCS_DESTINATION . "/_index.md");
+    file_put_contents($DOCS_DESTINATION . "/_index.md", $content);
+    //file_put_contents($DESTINATION_DIRECTORY . "/README.md", $content);
+    //rename($DESTINATION_DIRECTORY . "/README.md", $DOCS_DESTINATION . "/_index.md");
+
+    if (file_exists($DOCS_DESTINATION . "/README.md")) {
+        unlink($DOCS_DESTINATION . "/README.md");
+    }
 
 
     // Modify .md files in the docs directory
