@@ -38,31 +38,6 @@ function deleteDirectory($dir)
     return rmdir($dir);
 }
 
-// Function to copy a directory
-function copyDirectory($source, $dest)
-{
-    if (!is_dir($source))
-        return false;
-    if (!is_dir($dest) && !mkdir($dest, 0755, true))
-        return false;
-
-    $dir = dir($source);
-    while (false !== $entry = $dir->read()) {
-        if ($entry == '.' || $entry == '..')
-            continue;
-        $sourcePath = "$source/$entry";
-        $destPath = "$dest/$entry";
-        if (is_dir($sourcePath)) {
-            if (!copyDirectory($sourcePath, $destPath))
-                return false;
-        } elseif (!copy($sourcePath, $destPath)) {
-            return false;
-        }
-    }
-    $dir->close();
-    return true;
-}
-
 
 // Function to delete ".md" at the end of the links and add /docs prefix when necessary
 function fixLinks($content, $lang = "en")
@@ -70,20 +45,16 @@ function fixLinks($content, $lang = "en")
     $content = preg_replace_callback(LINKS_REGEX, function ($matches) {
         [$fullMatch, $textLink, $url] = $matches;
 
-        // Handle image links
-        if (!preg_match('/^http/', $url) && preg_match('/\.(png|svg|jpg)$/', $url, $imageMatches)) {
-            $imageName = basename($url); // Extract the image name
-            // Replace with the new base URL and retain the image name
+        // Handle image links (png, svg, jpg) that are not absolute
+        if (!preg_match('/^http/', $url) && preg_match('/\.(png|svg|jpg)$/', $url)) {
+            $imageName = basename($url);
             return "[$textLink](https://raw.githubusercontent.com/dunglas/frankenphp/main/docs/$imageName)";
         }
 
-
-
-        // Handle anchor links directly
+        // Handle anchor links directly (e.g. "#section")
         if (strpos($url, '#') === 0) {
             return "[$textLink]($url)";
         }
-
 
         // Normalize URL
         if (preg_match('/^docs/', $url) || !preg_match('/^http/', $url)) {
@@ -91,16 +62,19 @@ function fixLinks($content, $lang = "en")
             $url = str_replace('.md', '', $url); // Remove .md extension
             $url = strpos($url, '/') === 0 ? "/docs$url" : "/docs/$url"; // Ensure correct path
             $url = str_replace('docs/CONTRIBUTING', 'docs/contributing', $url); // Specific case
-            if (substr($url, -1) !== '/' && strpos($url, '.') === false) {
-                $url .= '/'; // Ensure trailing slash if not a file
+            // Add trailing slash if it's not a file
+            if (!str_ends_with($url, '/') && !str_contains($url, '.')) {
+                $url .= '/';
             }
         }
+        // Remove base domain if present
         $url = preg_replace('#^https://frankenphp.dev#', '', $url);
 
         return "[$textLink]($url)";
     }, $content);
 
-    // Language-specific adjustments
+
+    // Add language prefix for non-English docs
     if ($lang !== "en") {
         $content = preg_replace_callback(
             "/(?<=^|[^a-zA-Z0-9])\/docs\/(?!$lang)([^\/]+)\/?/",
@@ -110,14 +84,10 @@ function fixLinks($content, $lang = "en")
             $content
         );
     }
-
-    // Ensure no /docs/docs occurrences
+    
+    // Clean up unwanted patterns
     $content = preg_replace('#/docs/docs(/|$)#', '/docs$1', $content);
-
-    // or /docs/..
     $content = preg_replace('#/docs/\.\./\##', '/docs#', $content);
-
-    // or /docs/README
     $content = preg_replace('#/docs/README\#([^/]+)/#', '/docs#$1', $content);
 
     return $content;
@@ -126,95 +96,80 @@ function fixLinks($content, $lang = "en")
 // Function to add layout and title on docs pages
 function addFrontmatter($content)
 {
+    $title = "FrankenPHP";
+    $navtitle = "";
+
     if (preg_match('/#\s+([^\n]+)/', $content, $matches)) {
         $navtitle = $matches[1];
-        if (str_starts_with(strtolower($matches[1]), 'frankenphp'))
-            $title = $matches[1];
-        else
-            $title = "FrankenPHP | " . $matches[1];
-    } else {
-        $navtitle = "";
-        $title = "FrankenPHP";
+        $title = stripos($navtitle, 'frankenphp') === 0
+            ? $navtitle
+            : "FrankenPHP | $navtitle";
     }
-    $content = "---\nlayout: docs\ntitle: \"$title\"\nnav: \"$navtitle\"\n---\n$content";
-    return $content;
+
+    return "---\nlayout: docs\ntitle: \"$title\"\nnav: \"$navtitle\"\n---\n$content";
 }
 
 function generateLangDocumentation($repoURL, $lang = "en")
 {
     // Special case: "cn" should become "zh" in destination
     $langDest = ($lang === "cn") ? "zh" : $lang;
-    // Constants
-    $DOCS_TO_CLONE = $lang === "en" ? "docs" : "docs/" . $lang;
-    $DESTINATION_DIRECTORY = __DIR__ . "/content/" . $langDest;
-    $DOCS_DESTINATION = $DESTINATION_DIRECTORY . "/docs";
-    $NAV_DESTINATION = __DIR__ . "/data/" . $langDest . "/nav.yaml";
+
+    $DOCS_TO_CLONE = $lang === "en" ? "docs" : "docs/$lang";
+    $DESTINATION_DIRECTORY = __DIR__ . "/content/$langDest";
+    $DOCS_DESTINATION = "$DESTINATION_DIRECTORY/docs";
+    $NAV_DESTINATION = __DIR__ . "/data/$langDest/nav.yaml";
     $TEMP_DIR = __DIR__ . "/temp-documentation";
 
-
-
-    // Delete the temporary directory if it exists
-    if (file_exists($TEMP_DIR)) {
-        $success = deleteDirectory($TEMP_DIR);
-        if (!$success) {
-            echo "Error when deleting the temporary directory\n";
-            return;
-        }
+    // Reset temp directory
+    if (file_exists($TEMP_DIR) && !deleteDirectory($TEMP_DIR)) {
+        echo "Error deleting temporary directory\n";
+        return;
     }
-
-    // Clone the repository
-    $cloneCommand = "git clone " . $repoURL . " " . $TEMP_DIR;
-    exec($cloneCommand, $output, $returnCode);
+    
+    // Clone repository
+    exec("git clone $repoURL $TEMP_DIR", $output, $returnCode);
     if ($returnCode !== 0) {
-        echo "Error during repository cloning\n";
+        echo "Error cloning repository\n";
         return;
     }
 
-    // Copy the necessary files
-    if (file_exists($DOCS_DESTINATION)) {
-        $success = deleteDirectory($DOCS_DESTINATION);
-        if (!$success) {
-            echo "Error when deleting the destination directory\n";
-            return;
-        }
+    // Reset docs destination
+    if (file_exists($DOCS_DESTINATION) && !deleteDirectory($DOCS_DESTINATION)) {
+        echo "Error deleting docs destination\n";
+        return;
     }
+    
     mkdir($DOCS_DESTINATION, 0755, true);
 
-    foreach (scandir($TEMP_DIR . '/' . $DOCS_TO_CLONE) as $file) {
-        // Keep only .md
-        if (substr($file, -3) === '.md') {
-            copy(
-                $TEMP_DIR . '/' . $DOCS_TO_CLONE . '/' . $file,
-                $DOCS_DESTINATION . '/' . $file
-            );
+    // Copy only .md files from docs
+    foreach (scandir("$TEMP_DIR/$DOCS_TO_CLONE") as $file) {
+        if (str_ends_with($file, ".md")) {
+            copy("$TEMP_DIR/$DOCS_TO_CLONE/$file", "$DOCS_DESTINATION/$file");
         }
     }
 
-
-    //$success = copyDirectory($TEMP_DIR . '/' . $DOCS_TO_CLONE, $DOCS_DESTINATION);
-    if (!$success) {
-        echo "Error while copying the doc files\n";
-        return;
-    }
-
-    /* handle CONTRIBUTING file */
-    $CONTRIBUTING_SOURCE = $TEMP_DIR . ($lang === "en" ? "" : "/docs/" . $lang) . "/CONTRIBUTING.md";
-    if (file_get_contents($CONTRIBUTING_SOURCE)) {
-        $success = copy($CONTRIBUTING_SOURCE, $DOCS_DESTINATION . "/CONTRIBUTING.md");
-        if (!$success) {
+    // Handle CONTRIBUTING.md
+    $CONTRIBUTING_SOURCE = $TEMP_DIR . ($lang === "en" ? "" : "/docs/$lang") . "/CONTRIBUTING.md";
+    if (is_file($CONTRIBUTING_SOURCE)) {
+        if (!copy($CONTRIBUTING_SOURCE, $DOCS_DESTINATION . "/contributing.md")) {
             echo "Error when copying CONTRIBUTING.md\n";
             return;
         }
-        rename($DOCS_DESTINATION . "/CONTRIBUTING.md", $DOCS_DESTINATION . "/contributing.md");
+        rename(
+            $DOCS_DESTINATION . "/CONTRIBUTING.md",
+            $DOCS_DESTINATION . "/contributing.md"
+        );
     }
 
+
     // handle install sh
+// handle install.sh (only for English docs)
     if ($lang === "en") {
-        $INSTALLSH = $TEMP_DIR . "/install.sh";
-        
-        if (file_get_contents($INSTALLSH)) {
-            $success = copy($INSTALLSH, __DIR__ . "/static/install.sh");
-            if (!$success) {
+        $INSTALLSH = "$TEMP_DIR/install.sh";
+        $DEST = __DIR__ . "/static/install.sh";
+
+        if (is_file($INSTALLSH)) {
+            if (!copy($INSTALLSH, $DEST)) {
                 echo "Error when copying install.sh\n";
                 return;
             }
@@ -223,113 +178,81 @@ function generateLangDocumentation($repoURL, $lang = "en")
 
 
     /* handle index / README file */
-    $README_SOURCE = $TEMP_DIR . ($lang === "en" ? "" : "/docs/" . $lang) . "/README.md";
-    if (!file_get_contents($README_SOURCE))
-        $README_SOURCE = $TEMP_DIR . "/README.md";
-
-    $content = file_get_contents($README_SOURCE);
-
-    // Modify README.md
-    //copy($README_SOURCE, $DESTINATION_DIRECTORY . "/README.md");
-    //$content = file_get_contents($DESTINATION_DIRECTORY . "/README.md");
-    // fix image link
-    $content = preg_replace_callback(
-        '/src="((?!http)[^"]*)"/',
-        function ($matches) {
-            // Supprime '../../' du chemin capturé
-            $cleanPath = str_replace('../../', '', $matches[1]);
-            // Préfixe le chemin nettoyé avec l'URL GitHub Raw
-            return 'src="https://raw.githubusercontent.com/dunglas/frankenphp/main/' . $cleanPath . '"';
-        },
-        $content
-    );
-    file_put_contents($DOCS_DESTINATION . "/_index.md", $content);
-    //file_put_contents($DESTINATION_DIRECTORY . "/README.md", $content);
-    //rename($DESTINATION_DIRECTORY . "/README.md", $DOCS_DESTINATION . "/_index.md");
-
-    if (file_exists($DOCS_DESTINATION . "/README.md")) {
-        unlink($DOCS_DESTINATION . "/README.md");
+    $README_SOURCE = $TEMP_DIR . ($lang === "en" ? "" : "/docs/$lang") . "/README.md";
+    if (!is_file($README_SOURCE)) {
+        $README_SOURCE = "$TEMP_DIR/README.md";
     }
 
+    if (is_file($README_SOURCE)) {
+        $content = file_get_contents($README_SOURCE);
+
+        // fix image links
+        $content = preg_replace_callback(
+            '/src="((?!http)[^"]*)"/',
+            function ($matches) {
+                $cleanPath = str_replace('../../', '', $matches[1]);
+                return 'src="https://raw.githubusercontent.com/dunglas/frankenphp/main/' . $cleanPath . '"';
+            },
+            $content
+        );
+
+        file_put_contents("$DOCS_DESTINATION/_index.md", $content);
+    }
+
+    // remove leftover README.md if any
+    $readmeInDest = "$DOCS_DESTINATION/README.md";
+    if (is_file($readmeInDest)) {
+        unlink($readmeInDest);
+    }
 
     // Modify .md files in the docs directory
-    $files = scandir($DOCS_DESTINATION);
-    foreach ($files as $file) {
-        if (pathinfo($file, PATHINFO_EXTENSION) === "md") {
-            $filePath = $DOCS_DESTINATION . "/" . $file;
-            $content = file_get_contents($filePath);
-            $content = addFrontmatter($content);
-            $content = fixLinks($content, $langDest);
-            file_put_contents($filePath, $content);
+    foreach (scandir($DOCS_DESTINATION) as $file) {
+        if (pathinfo($file, PATHINFO_EXTENSION) !== "md") {
+            continue;
         }
+
+        $filePath = "$DOCS_DESTINATION/$file";
+        $content = file_get_contents($filePath);
+        $content = addFrontmatter($content);
+        $content = fixLinks($content, $langDest);
+        file_put_contents($filePath, $content);
     }
 
-    $content = file_get_contents($DOCS_DESTINATION . "/_index.md");
+    // reload updated _index.md
+    $content = file_get_contents("$DOCS_DESTINATION/_index.md");
 
-    // Utilisez preg_match_all pour trouver toutes les occurrences de lignes commençant par "## "
+    // Extract content between the 2nd and 3rd "##" headings
     preg_match_all('/^##\s.*/m', $content, $matches, PREG_OFFSET_CAPTURE);
 
     if (count($matches[0]) >= 2) {
-        // Trouvez la position de départ de la deuxième occurrence
         $start = $matches[0][1][1] + strlen($matches[0][1][0]);
+        $end = $matches[0][2][1] ?? strlen($content);
 
-        // Trouvez la position de fin (début de la prochaine occurrence de "## " ou fin du fichier si non trouvé)
-        $end = count($matches[0]) > 2 ? $matches[0][2][1] : strlen($content);
-
-        // Extrait le contenu entre la deuxième et la troisième occurrence de "## "
         $navContent = substr($content, $start, $end - $start);
 
-        // Puis procédez comme avant avec le contenu extrait
+        $yamlOutput = markdownToYaml($navContent);
+        file_put_contents($NAV_DESTINATION, $yamlOutput);
     } else {
-        echo "Pas assez de sections trouvées.";
+        echo "Not enough sections found.";
     }
 
-    $yamlOutput = markdownToYaml($navContent);
-    file_put_contents($NAV_DESTINATION, $yamlOutput);
-
-    // Delete the temporary directory
-    $success = deleteDirectory($TEMP_DIR);
-    if (!$success) {
+    // Clean up
+    if (!deleteDirectory($TEMP_DIR)) {
         echo "Error when deleting the temporary directory\n";
     }
-
 }
 
-function copyInstallSh(): void
-{
-    $url = "https://raw.githubusercontent.com/dunglas/frankenphp/refs/heads/main/install.sh";
-    $destinationDir = __DIR__ . "/static/";
-    $fileName = basename($url);
-    $destination = $destinationDir . $fileName;
+$githubKey = $_SERVER["GITHUB_KEY"] ?? false;
 
-    $fileContent = file_get_contents($url);
-
-    if ($fileContent === false) {
-        echo "Error downloading install.sh";
-    } else {
-        // Enregistrer le fichier dans le chemin local
-        if (file_put_contents($destination, $fileContent)) {
-            echo "Success downloading install.sh";
-        } else {
-            echo "Error saving install.sh";
-        }
-    }
-
-    // Variables
-    $githubKey = $_SERVER["GITHUB_KEY"] ?? false;
-    if (!$githubKey) {
-        echo "The GITHUB_KEY environment variable is not defined.";
-        $githubKey = "XXX";
-    }
+if (!$githubKey) {
+    echo "The GITHUB_KEY environment variable is not defined.";
+    $githubKey = "XXX";
 }
 
 $repoURL = "https://$githubKey@github.com/php/frankenphp.git";
 
-generateLangDocumentation($repoURL);
-generateLangDocumentation($repoURL, "cn");
-generateLangDocumentation($repoURL, "fr");
-generateLangDocumentation($repoURL, "tr");
-generateLangDocumentation($repoURL, "ru");
-generateLangDocumentation($repoURL, "ja");
+const languages = ["en", "cn", "fr", "tr", "ru", "ja"];
 
+foreach (languages as $l)
+    generateLangDocumentation($repoURL, $l);
 ?>
