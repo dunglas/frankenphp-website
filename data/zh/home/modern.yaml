@@ -2,7 +2,7 @@ title: 比以往任何时候都<strong class="text-green-dark">更现代</strong
 overtitle: "准备好迎接未来了吗？"
 link:
   text: "尝试一下"
-  url: "/cn/docs/"
+  url: "/zh/docs/"
 content:
   - >
     使用嵌入在最先进的 Web 服务器中的官方 PHP 执行器：**[Caddy](https://caddyserver.com)**

@@ -30,20 +30,43 @@ languages:
           rel: external
           target: _blank
         weight: 5
-  cn:
+  zh:
     disabled: false
-    languageCode: "cn"
+    languageCode: "zh"
     languageDirection: ""
     languageName: "Chinese"
-    contentDir: content/cn
+    contentDir: content/zh
     title: ""
     weight: 2
+    params:
+      flag: "cn"
     menu:
       main:
       - name: 文档
         pageRef: /docs/
         weight: 1
       - name: 店铺
+        url: https://frankenphp.tpopsite.com/shop
+        params:
+          rel: external
+          target: _blank
+        weight: 5
+  ja:
+    disabled: false
+    languageCode: "jp"
+    languageDirection: ""
+    languageName: "Japanese"
+    contentDir: content/ja
+    title: ""
+    weight: 2
+    params:
+      flag: "jp"
+    menu:
+      main:
+      - name: ドキュメント
+        pageRef: /docs/
+        weight: 1
+      - name: 店
         url: https://frankenphp.tpopsite.com/shop
         params:
           rel: external

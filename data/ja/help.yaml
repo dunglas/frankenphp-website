@@ -1,0 +1,42 @@
+hero:
+  title: "<strong class='text-green'>素晴らしい</strong>ものを一緒に作りましょう！"
+  overtitle: "お困りですか？"
+  content: "<a class='link !text-green-light hover:!text-purple hover:bg-green' href='https://les-tilleuls.coop/en'>Les-Tilleuls.coop</a>（FrankenPHPの編集者）は、アプリをより高速かつ信頼性の高いものにするための幅広いリソースを提供しています。<br /><br />インフラの設計、構築、改善に関するガイダンスをお探しなら、ここが最適です！"
+  button: "お問い合わせ"
+migration:
+  title: "アプリケーションをFrankenPHPに<strong class='text-green-dark'>移行</strong>"
+  content: "私たちはお客様のインフラをFrankenPHPへ移行し、その使用方法についてチームをトレーニングします。これによりインフラの安定性が向上し、生産性が高まります。今すぐ移行計画を立て、チームと一緒に実現しましょう！"
+  button: "始めましょう！"
+hosting:
+  title: "FrankenPHPであなたのプロジェクトを<strong class='text-green-dark'>ホスティング</strong>"
+  content: "私たちはPHPアプリを本番環境にデプロイ・管理し、<strong>すべて</strong>を担当します：監視、セキュリティ対策、アップグレード、パフォーマンス最適化など。<br /><br />さらに、お客様のニーズに最も適したクラウド技術（Kubernetes、GCP、AWS…）やオンプレミスサーバー上でアプリケーションを管理することも可能です。"
+  button: "ご連絡ください"
+services:
+  title: "幅広い<strong class='text-green-dark'>PHP</strong>サービス"
+  content: "FrankenPHPは、API、eコマース、Web、クラウドを専門とするフランスのITサービス企業 <a class='link' href='https://les-tilleuls.coop/en' target='_blank'>Les-Tilleuls.coop</a> によって支援されています。<br /><br />私たちは<a class='link' href='https://api-platform.com' target='_blank'>API Platform</a>の制作者であり、Symfonyの共同メンテナー、PHP Foundation諮問委員会のメンバー、そして100以上のオープンソースソリューション（Laravel、Kubernetes、PM2、Go…）へのコントリビューターです。"
+  button: "もっと知る"
+go:
+  title: "私たちは<strong class='text-green'>Go</strong>を愛しています"
+  content: "私たちはGoにも大きく貢献しています。この言語で書かれたリアルタイムオープンプロトコルの簡易実装 <a class='link !text-green-light hover:!text-purple hover:!bg-green' target='_blank' href='https://mercure.rocks'>Mercure</a> や、クライアント主導型REST APIのための高速で直感的なオープンプロトコル <a class='link !text-green-light hover:!text-purple hover:!bg-green' target='_blank' href='https://vulcain.rocks'>Vulcain</a> を開発しました。"
+further:
+  title: "<strong class='text-green-dark'>Les-Tilleuls.coop</strong>とさらに進む"
+  subtitle: "Les-Tilleuls.coopは以下のような多様なサービスを通じて、個別サポートを提供できます："
+  content:
+    - title: "Web開発"
+      content: |
+        モダンなフレームワークの力を活用して強力なウェブサイトを構築しましょう。（Symfony、Laravel、Vue.js、Next.js…）
+    - title: "トレーニング"
+      content: |
+        認定開発者によるスキル向上
+    - title: "コンサルティング"
+      content: |
+        お客様のニーズに合わせた戦略的コンサルティングサービスで自信を持って課題を克服
+    - title: "レスキューミッション"
+      content: |
+        困難なプロジェクトの立て直しをサポートします
+    - title: "パフォーマンス・セキュリティ監査"
+      content: |
+        詳細な監査で最高のパフォーマンスとセキュリティを確保
+    - title: "UXとグラフィックデザイン"
+      content: |
+        デザインの専門知識で魅力的なユーザー体験を創造します

@@ -1,0 +1,31 @@
+title: "<strong class='text-green-dark'>始めよう</strong>！"
+layout: partials/home/getting_started
+overtitle: "すべてを動かすワンコマンド"
+dockerTab: "Docker"
+staticTab: "スタティックバイナリ"
+docker: |
+  ```bash
+  # public/ ディレクトリを提供
+  docker run -v $PWD:/app/public \
+    -p 443:443/tcp -p 443:443/udp \
+    dunglas/frankenphp
+
+  # コマンドラインスクリプトを実行
+  docker run -v $PWD:/app \
+    dunglas/frankenphp php script.php
+  ```
+standard: |
+  ```bash
+  # FrankenPHP をインストール
+  curl https://frankenphp.dev/install.sh | sh
+  mv frankenphp /usr/local/bin/
+
+  # public/ ディレクトリを提供
+  frankenphp php-server -r public/
+
+  # コマンドラインスクリプトを実行
+  frankenphp php-cli script.php
+  ```
+content: |
+  本番環境レベルのPHPサーバーを、たった1つのコマンドで起動！
+

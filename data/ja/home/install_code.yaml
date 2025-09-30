@@ -1,0 +1,14 @@
+title: 設定はとても<strong class="text-green-dark">簡単</strong>！
+overtitle: "稲妻のように速い"
+code: |
+    ```caddyfile
+    localhost {
+        # 圧縮を有効化（オプション）
+        encode zstd br gzip
+        # カレントディレクトリ内のPHPファイルを実行し、アセットを配信
+        php_server
+    }
+    ```
+content: |
+  設定はたった3行：本番環境レベルのPHPサーバーを起動するのに必要なのはこれだけです  
+  （自動HTTPS、HTTP/3、zstd圧縮など対応）、[Caddy](https://caddyserver.com) 搭載。

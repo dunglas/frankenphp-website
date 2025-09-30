@@ -1,0 +1,33 @@
+title: ワーカー<strong class="text-green-dark">モード</strong>
+overtitle: あなたのPHPアプリをこれまで以上に高速化！
+content:
+  - title: "ワーカースクリプト"
+    content: |
+      アプリを一度起動すると、**メモリに常駐**します！
+  #- title: "シームレス"
+  #  content: |
+  #    アプリを再起動せずにリクエストを処理
+  - title: <span>ストレート</span><span>フォワード</span>
+    content: |
+      Symfony、API Platform、Laravelでネイティブにサポート…
+  - title: "シンプル"
+    content: |
+      古き良きスーパーグローバルを使用：**PSR-7は不要**。
+  - title: "高速"
+    content: |
+      <a href="https://github.com/dunglas/frankenphp-demo/tree/main/benchmark" target="_blank" rel="noreferrer noopener" class="link">ベンチマーク</a>によると、  
+      API PlatformアプリでFPMより**3.5倍高速**。
+  - title: "効率的"
+    content: |
+      FrankenPHPは**Go**と**C**で書かれています。  
+      Goの代表的な機能「ゴルーチン」に依存しています！
+  - title: "オプション"
+    content: |
+      アプリがワーカーモードに対応していなくても、そのまま提供可能。
+  - title: "簡単デプロイ"
+    content: |
+      プロセス内で実行：1つのバイナリ、**外部サービス不要**。
+  - title: "ウォッチャー"
+    content: |
+      コードを変更するたびにワーカーを**自動再起動**。
+

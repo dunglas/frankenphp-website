@@ -1,0 +1,57 @@
+title: "FrankenPHP <strong class='text-green-dark'>概要</strong>"
+overtitle: "機能"
+content:
+  - image: "/img/box.svg"
+    title: "拡張性"
+    content: |
+      PHP 8.2+、ほとんどのPHP拡張機能、そしてすべてのCaddyモジュールに対応。
+  - image: "/img/one.svg"
+    title: "1つのサービスだけ"
+    content: |
+      シンプルさを重視して設計：1つのサービス、1つのバイナリ！  
+      FrankenPHPはPHP-FPMを必要とせず、Goウェブサーバー向けに特別に作られた独自のSAPIを使用します。
+  - image: "/img/rocket.svg"
+    title: "簡単デプロイ"
+    content: |
+      クラウドネイティブアプリを<a href="/docs/docker/">Dockerイメージ</a>として提供。  
+      Kubernetesやすべての最新クラウドプラットフォームに対応。  
+      PHPアプリを<a href="/docs/embed/" class="link">スタンドアロンの自己実行可能な静的バイナリ</a>としてパッケージ化することも可能です。
+  - image: "/img/worker.svg"
+    title: "ワーカーモード"
+    content: |
+      <a href="/docs/worker/" class="link">アプリケーションを一度起動</a>してメモリに保持！  
+      数ミリ秒でリクエストを処理できるようになります。
+  - image: "/img/bulb.svg"
+    title: "103 Early Hints"
+    content: |
+      <a href="/docs/early-hints/" class="link">Early Hints</a>はウェブプラットフォームの新機能で、<a href="https://blog.cloudflare.com/early-hints/" target="_blank" rel="noreferrer noopener" class="link">ウェブサイトの読み込み時間を30%短縮</a>できます。  
+      FrankenPHPはEarly Hintsをサポートする唯一のPHP SAPIです！
+  - image: "/img/clock.svg"
+    title: "リアルタイム"
+    content: |
+      組み込みの<a href="https://mercure.rocks" target="_blank" rel="noreferrer noopener" class="link">Mercure</a>ハブ。  
+      PHPアプリから接続中のすべてのブラウザにイベントを送信し、JavaScriptイベントとして即座に受信！
+  - image: "/img/zip.svg"
+    title: "Brotli、Zstandard、Gzip圧縮"
+    content: |
+      最新の圧縮フォーマットを標準でサポート。
+  - image: "/img/log.svg"
+    title: "構造化ログ"
+    content: |
+      ログにより明確なフォーマットと詳細を追加。
+  - image: "/img/metrics.svg"
+    title: "Prometheusメトリクスとトレーシング"
+    content: |
+      組み込みの<a href="https://caddyserver.com/docs/metrics" target="_blank" rel="noreferrer noopener" class="link">Prometheusサポート</a>！
+  - image: "/img/http.svg"
+    title: "HTTP/2 & HTTP/3"
+    content: |
+      HTTPS、HTTP/2、**HTTP/3**をネイティブサポート。
+  - image: "/img/https.svg"
+    title: "HTTPS自動化"
+    content: |
+      HTTPS証明書の自動生成、更新、失効をサポート。
+  - image: "/img/reload.svg"
+    title: "優雅なリロード"
+    content: |
+      優雅なリロードにより、ダウンタイムゼロでアプリをデプロイ。
