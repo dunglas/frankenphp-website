@@ -1,0 +1,19 @@
+title: <strong class="text-green-dark">これまで以上にモダンな</strong> PHP！
+overtitle: "未来への準備はできていますか？"
+link:
+  text: "試してみる"
+  url: "/docs/"
+content:
+  - >
+    最新のWebサーバーに公式PHPエグゼキューターを組み込み：**[Caddy](https://caddyserver.com)**
+  - >
+    HTTP/1.1、HTTP/2、そして **HTTP/3** をネイティブサポート
+  - >
+    **HTTPS**証明書の自動生成と更新（Let's Encrypt または ZeroSSL）
+  - >
+    PHPファイルをドキュメントルートにコピーするだけ、それで完了！
+  - >
+    PHPウェブアプリやコマンドラインツール向けに、  
+    [**スタンドアロン**で自己実行可能かつ依存関係不要のバイナリをビルド](/docs/embed/)
+  - >
+    **OPcache** や **XDebug** を含む人気のPHP拡張をネイティブサポート！

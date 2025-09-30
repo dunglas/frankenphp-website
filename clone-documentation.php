@@ -78,10 +78,12 @@ function fixLinks($content, $lang = "en")
         }
 
 
+
         // Handle anchor links directly
         if (strpos($url, '#') === 0) {
             return "[$textLink]($url)";
         }
+
 
         // Normalize URL
         if (preg_match('/^docs/', $url) || !preg_match('/^http/', $url)) {
@@ -117,6 +119,11 @@ function fixLinks($content, $lang = "en")
         $content = str_replace('/cn/docs/contributing', '/docs/contributing', $content);
     }
 
+    $content = preg_replace('#/docs/\.\./\##', '/docs#', $content);
+
+    $content = preg_replace('#/docs/README\#([^/]+)/#', '/docs#$1', $content);
+
+
     return $content;
 }
 
@@ -139,12 +146,13 @@ function addFrontmatter($content)
 
 function generateLangDocumentation($repoURL, $lang = "en")
 {
-
+    // Special case: "ja" should become "jp" in destination
+    $langDest = ($lang === "ja") ? "jp" : $lang;
     // Constants
     $DOCS_TO_CLONE = $lang === "en" ? "docs" : "docs/" . $lang;
-    $DESTINATION_DIRECTORY = __DIR__ . "/content/" . $lang;
+    $DESTINATION_DIRECTORY = __DIR__ . "/content/" . $langDest;
     $DOCS_DESTINATION = $DESTINATION_DIRECTORY . "/docs";
-    $NAV_DESTINATION = __DIR__ . "/data/" . $lang . "/nav.yaml";
+    $NAV_DESTINATION = __DIR__ . "/data/" . $langDest . "/nav.yaml";
     $TEMP_DIR = __DIR__ . "/temp-documentation";
 
 
@@ -235,7 +243,7 @@ function generateLangDocumentation($repoURL, $lang = "en")
             $filePath = $DOCS_DESTINATION . "/" . $file;
             $content = file_get_contents($filePath);
             $content = addFrontmatter($content);
-            $content = fixLinks($content, $lang);
+            $content = fixLinks($content, $langDest);
             file_put_contents($filePath, $content);
         }
     }
@@ -306,5 +314,6 @@ generateLangDocumentation($repoURL, "cn");
 generateLangDocumentation($repoURL, "fr");
 generateLangDocumentation($repoURL, "tr");
 generateLangDocumentation($repoURL, "ru");
+generateLangDocumentation($repoURL, "ja");
 
 ?>

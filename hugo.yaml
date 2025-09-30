@@ -49,6 +49,25 @@ languages:
           rel: external
           target: _blank
         weight: 5
+  jp:
+    disabled: false
+    languageCode: "jp"
+    languageDirection: ""
+    languageName: "Japanese"
+    contentDir: content/jp
+    title: ""
+    weight: 2
+    menu:
+      main:
+      - name: ドキュメント
+        pageRef: /docs/
+        weight: 1
+      - name: 店
+        url: https://frankenphp.tpopsite.com/shop
+        params:
+          rel: external
+          target: _blank
+        weight: 5
   fr:
     disabled: false
     languageCode: "fr"
