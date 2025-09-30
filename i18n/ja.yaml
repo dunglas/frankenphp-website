@@ -1,0 +1,12 @@
+metadescription: "FrankenPHP は、PHP アプリ用の新しいアプリサーバーです (Caddy 上に構築) 。また、Go Web サーバーに PHP インタプリタを組み込むためのライブラリでもあります。"
+metatitle: "FrankenPHP: モダンな PHP アプリサーバー"
+language:
+  switch: 言語を変更
+edit: このページを編集
+powered: 提供
+footer:
+  owner: "%api-platform% の制作者であり、%symfony% コアチームメンバーでもある %owner% によって提供されています。"
+  design: "デザイン: %designer%"
+  sponsor: "スポンサー: %sponsor%"
+nav:
+  official: "このページはコミュニティによって翻訳されたもので、最新ではない可能性があります。<strong class='underline'>参照用のバージョン</strong>をご覧ください。"
