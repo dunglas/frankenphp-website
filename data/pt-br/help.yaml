@@ -1,0 +1,43 @@
+hero:
+  title: "Let’s create something <strong class='text-green'>great</strong>!"
+  overtitle: "Need help?"
+  content: "<a class='link !text-green-light hover:!text-purple hover:bg-green' href='https://les-tilleuls.coop/en'>Les-Tilleuls.coop</a>, the editors of FrankenPHP, provides a wide range of resources to help you make your app faster and more reliable.<br /><br />If you’re looking for guidance on defining, building, and improving your infrastructure, you’re in the right place!"
+  button: "Contact us!"
+migration:
+  title: "<strong class='text-green-dark'>Migrate</strong> your applications to FrankenPHP"
+  content: "We migrate your infrastructure to FrankenPHP and train your teams on its use. This will enhance the stability of your infra, leading to increased productivity. Let's establish a migration plan now and work hand in hand with your teams for its implementation!"
+  button: "Let's start!"
+hosting:
+  title: "<strong class='text-green-dark'>Hosting</strong> your projects with FrankenPHP"
+  content: "We deploy and manage your PHP apps in production and take care of <strong>everything</strong>: monitoring, enforcing security, upgrading, optimizing performance…<br /><br />In addition, we can manage your applications to the cloud technologies that best suit your needs (Kubernetes, GCP, AWS…) or your on premise servers."
+  button: "Get in touch!"
+services:
+  title: "A wide range of <strong class='text-green-dark'>PHP</strong> services"
+  content: "FrankenPHP is sponsored by <a class='link' href='https://les-tilleuls.coop/en' target='_blank'>Les-Tilleuls.coop</a>, a French-based IT services company specializing in APIs, e-commerce, web, and cloud.<br /><br />We are the creators of <a class='link' href='https://api-platform.com' target='_blank'>API Platform</a>, co-maintainers of Symfony, members of the PHP Foundation’s advisory board, and contributors to more than 100 open-source solutions (Laravel, Kubernetes, PM2, Go…)."
+  button: "Learn more"
+go:
+  title: "We are <strong class='text-green'>Go</strong> lovers"
+  content: "We are also major contributors to Go. We created <a class='link !text-green-light hover:!text-purple hover:!bg-green' target='_blank' href='https://mercure.rocks'>Mercure</a>, a simplified real-time open protocol and reference implementation written in this language, and <a class='link !text-green-light hover:!text-purple hover:!bg-green' target='_blank' href='https://vulcain.rocks'> Vulcain</a>, an open protocol for fast and idiomatic client-driven REST APIs."
+further:
+  title: "Going further with <strong class='text-green-dark'>Les-Tilleuls.coop</strong>"
+  subtitle: "Les-Tilleuls.coop can also provide personalized support through various services:"
+  content:
+    - title: "Web development"
+      content: |
+        Unleash the power of modern frameworks to create powerful websites. (Symfony, Laravel, Vue.js, Next.js…)
+    - title: "Trainings"
+      content: |
+        Elevate your skills with our certified developers
+    - title: "Consultancy"
+      content: |
+        Overcome challenges confidently with our strategic consulting services tailored to your needs
+    - title: "Mission rescue"
+      content: |
+        We help you build high-challenge websites
+    - title: "Performance and security audit"
+      content: |
+        Ensure top-notch performance and security with our in-depth audits
+    - title: "UX and graphic design"
+      content: |
+        Create captivating user experiences with our design expertise.
+   
