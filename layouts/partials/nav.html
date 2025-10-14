@@ -55,7 +55,7 @@
       </div>
       </a>
       {{ else }}
-      <a
+      <!--<a
       href="https://api-platform.com/en/con"
         rel="noopener noreferrer"
         target="_blank"
@@ -78,7 +78,7 @@
           <span>Join FrankenPHP creators, and be part of the firsts meeting the official elePHPant plushie.</span>
       </div>
       </div>
-      </a>
+      </a>-->
       {{ end }}
   <div
     class="h-16 p-4 mx-auto flex flex-row items-center justify-end max-w-8xl"
@@ -116,7 +116,7 @@
 >
   {{ partial "menu.html" . }}
 </div>
-<div class="fixed {{ if eq .Lang "en" }} top-[62px] {{ else }} top-[62px] {{end}} right-5 z-50 group">
+<div class="fixed {{ if eq .Lang "en" }} top-[22px] {{ else }} top-[62px] {{end}} right-5 z-50 group">
   <label
     for="hamburger-toggle"
     class="{{ if .IsHome }}

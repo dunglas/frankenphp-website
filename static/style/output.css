@@ -1269,8 +1269,12 @@ pre {
   margin-bottom: 0.75rem;
 }
 
-.-mt-20 {
-  margin-top: -5rem;
+.-mt-32 {
+  margin-top: -8rem;
+}
+
+.-mt-40 {
+  margin-top: -10rem;
 }
 
 .mb-1 {
@@ -1335,6 +1339,14 @@ pre {
 
 .mt-px {
   margin-top: 1px;
+}
+
+.-mt-24 {
+  margin-top: -6rem;
+}
+
+.-mt-28 {
+  margin-top: -7rem;
 }
 
 .block {
@@ -2184,10 +2196,6 @@ pre {
   padding-top: 4rem;
 }
 
-.pt-20 {
-  padding-top: 5rem;
-}
-
 .pt-24 {
   padding-top: 6rem;
 }
@@ -2210,6 +2218,10 @@ pre {
 
 .pt-\[104px\] {
   padding-top: 104px;
+}
+
+.pt-28 {
+  padding-top: 7rem;
 }
 
 .text-center {
@@ -3434,6 +3446,14 @@ kbd.DocSearch-Commands-Key {
 }
 
 @media (min-width: 640px) {
+  .sm\:-mt-28 {
+    margin-top: -7rem;
+  }
+
+  .sm\:-mt-24 {
+    margin-top: -6rem;
+  }
+
   .sm\:max-w-md {
     max-width: 28rem;
   }
@@ -3449,6 +3469,14 @@ kbd.DocSearch-Commands-Key {
   .sm\:py-12 {
     padding-top: 3rem;
     padding-bottom: 3rem;
+  }
+
+  .sm\:pt-28 {
+    padding-top: 7rem;
+  }
+
+  .sm\:pt-24 {
+    padding-top: 6rem;
   }
 
   .sm\:text-4xl {
@@ -3481,6 +3509,10 @@ kbd.DocSearch-Commands-Key {
   .md\:my-0 {
     margin-top: 0px;
     margin-bottom: 0px;
+  }
+
+  .md\:-mt-28 {
+    margin-top: -7rem;
   }
 
   .md\:block {
@@ -3554,8 +3586,8 @@ kbd.DocSearch-Commands-Key {
     padding-top: 8rem;
   }
 
-  .md\:pt-\[104px\] {
-    padding-top: 104px;
+  .md\:pt-28 {
+    padding-top: 7rem;
   }
 
   .md\:text-left {
@@ -3585,12 +3617,12 @@ kbd.DocSearch-Commands-Key {
     right: 50%;
   }
 
-  .lg\:-mt-28 {
-    margin-top: -7rem;
-  }
-
   .lg\:mt-4 {
     margin-top: 1rem;
+  }
+
+  .lg\:-mt-28 {
+    margin-top: -7rem;
   }
 
   .lg\:block {
@@ -3742,16 +3774,12 @@ kbd.DocSearch-Commands-Key {
     padding-top: 4rem;
   }
 
-  .lg\:pt-28 {
-    padding-top: 7rem;
-  }
-
-  .lg\:pt-32 {
-    padding-top: 8rem;
-  }
-
   .lg\:pt-\[104px\] {
     padding-top: 104px;
+  }
+
+  .lg\:pt-28 {
+    padding-top: 7rem;
   }
 
   .lg\:text-left {

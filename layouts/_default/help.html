@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{ $lang := .Lang }}
   {{ with index .Site.Data .Site.Language.Lang "help" }}
-    <div class="mx-auto overflow-x-clip pb-40 {{ if eq $lang "en" }} pt-[104px] {{ else }} pt-[104px] {{ end }} min-h-screen">
+    <div class="mx-auto overflow-x-clip pb-40 {{ if eq $lang "en" }} pt-16 {{ else }} pt-[104px] {{ end }} min-h-screen">
       <section
         class="bg-gradient-to-b from-purple-dark to-purple relative pb-12"
       >

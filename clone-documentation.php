@@ -161,8 +161,6 @@ function generateLangDocumentation($repoURL, $lang = "en")
         );
     }
 
-
-    // handle install sh
 // handle install.sh (only for English docs)
     if ($lang === "en") {
         $INSTALLSH = "$TEMP_DIR/install.sh";

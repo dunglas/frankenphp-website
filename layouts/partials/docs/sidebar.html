@@ -1,6 +1,6 @@
 {{ $mainPermalink := .RelPermalink }}
 <div
-  class="fixed w-full z-20 {{ if eq .Lang "en" }} top-[102px] {{ else }} top-[102px] {{ end }} border-b bg-white/75 backdrop-blur-sm border-b-gray-200 left-0"
+  class="fixed w-full z-20 {{ if eq .Lang "en" }} top-16 {{ else }} top-[102px] {{ end }} border-b bg-white/75 backdrop-blur-sm border-b-gray-200 left-0"
 >
   <div
     class="h-12 p-4 mx-auto flex flex-row gap-4 items-center max-w-8xl md:hidden"
@@ -46,7 +46,7 @@
   </span>
 </label>
 <div
-  class="{{ if eq .Lang "en" }} lg:pt-[104px] {{ else }} lg:pt-[104px] {{ end }} fixed -left-72 peer-checked:left-0 z-50 text-gray-700 border-r bg-white border-r-gray-300 text-sm top-0 h-screen transition-all duration-300 | md:left-0 md:z-0 md:pt-16 md:sticky md:block w-72"
+  class="{{ if eq .Lang "en" }} lg:pt-16 {{ else }} lg:pt-[104px] {{ end }} fixed -left-72 peer-checked:left-0 z-50 text-gray-700 border-r bg-white border-r-gray-300 text-sm top-0 h-screen transition-all duration-300 | md:left-0 md:z-0 md:pt-16 md:sticky md:block w-72"
 >
   <nav
     class="relative w-72 h-full p-8 overflow-y-auto transition-all duration-300"
