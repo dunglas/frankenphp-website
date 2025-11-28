@@ -2,7 +2,7 @@ title: "Get <strong class='text-green-dark'>started</strong>!"
 layout: partials/home/getting_started
 overtitle: "One command to run them all"
 dockerTab: "Docker"
-staticTab: "Static binary"
+staticTab: "System"
 docker: |
   ```bash
   # Serve the public/ directory
@@ -18,7 +18,6 @@ standard: |
   ```bash
   # Install FrankenPHP
   curl https://frankenphp.dev/install.sh | sh
-  mv frankenphp /usr/local/bin/
 
   # Serve the public/ directory
   frankenphp php-server -r public/
