@@ -2,7 +2,7 @@ title: "<strong class='text-green-dark'>始めよう</strong>！"
 layout: partials/home/getting_started
 overtitle: "すべてを動かすワンコマンド"
 dockerTab: "Docker"
-staticTab: "スタティックバイナリ"
+staticTab: "システム"
 docker: |
   ```bash
   # public/ ディレクトリを提供
@@ -18,7 +18,6 @@ standard: |
   ```bash
   # FrankenPHP をインストール
   curl https://frankenphp.dev/install.sh | sh
-  mv frankenphp /usr/local/bin/
 
   # public/ ディレクトリを提供
   frankenphp php-server -r public/

@@ -2,7 +2,7 @@ title: "Начните <strong class='text-green-dark'>прямо сейчас</
 layout: partials/home/getting_started
 overtitle: "Требуется всего одна команда"
 dockerTab: "Docker"
-staticTab: "Статический бинарник"
+staticTab: "Система"
 docker: |
   ```bash
   # Обслуживание каталога public/
@@ -18,7 +18,6 @@ standard: |
   ```bash
   # Установите FrankenPHP
   curl https://frankenphp.dev/install.sh | sh
-  mv frankenphp /usr/local/bin/
 
   # Обслуживание каталога public/
   frankenphp php-server -r public/

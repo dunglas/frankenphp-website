@@ -2,7 +2,7 @@ title: "<strong class='text-green-dark'>Comece</strong>!"
 layout: partials/home/getting_started
 overtitle: "Um comando para executá-los todos"
 dockerTab: "Docker"
-staticTab: "Binário estático"
+staticTab: "Sistema"
 docker: |
   ```bash
   # Serve o diretório public/
@@ -18,7 +18,6 @@ standard: |
   ```bash
   # Instala o FrankenPHP
   curl https://frankenphp.dev/install.sh | sh
-  mv frankenphp /usr/local/bin/
 
   # Serve o diretório public/
   frankenphp php-server -r public/
