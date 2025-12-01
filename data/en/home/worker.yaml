@@ -24,7 +24,7 @@ content:
       Your app can be served as-is, even if it isn't compatible with the worker mode.
   - title: "Easy Deploy"
     content: |
-      Runs in process: one binary, **no external service neededs**.
+      Runs in process: one binary, **no external service needed**.
   - title: "Watcher"
     content: |
       Automatically restart workers **each time your code change**.
