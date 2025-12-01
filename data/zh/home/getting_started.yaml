@@ -2,7 +2,7 @@ title: "开始<strong class='text-green-dark'>使用</strong>！"
 layout: partials/home/getting_started
 overtitle: "一条命令运行所有"
 dockerTab: "Docker"
-staticTab: "静态二进制文件"
+staticTab: "系统"
 docker: |
   ```bash
   # 服务 public/ 目录
@@ -18,7 +18,6 @@ standard: |
   ```bash
   # 安装 FrankenPHP
   curl https://frankenphp.dev/install.sh | sh
-  mv frankenphp /usr/local/bin/
 
   # 服务 public/ 目录
   frankenphp php-server -r public/
