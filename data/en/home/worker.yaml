@@ -27,4 +27,4 @@ content:
       Runs in process: one binary, **no external service needed**.
   - title: "Watcher"
     content: |
-      Automatically restart workers **each time your code change**.
+      Automatically restart workers **each time your code changes**.
