@@ -1,0 +1,18 @@
+title: <strong class="text-green-dark">PHP más moderno</strong> que nunca!
+overtitle: "¿Listo para el futuro?"
+link:
+  text: "Pruébalo"
+  url: "/docs/"
+content:
+  - > 
+    Utiliza el ejecutor oficial de PHP integrado en un servidor web de última generación: **[Caddy](https://caddyserver.com)**
+  - >
+    Soporte nativo para HTTP/1.1, HTTP/2 y **HTTP/3**
+  - >
+    Generación y renovación automática de certificados **HTTPS** (Let's Encrypt o ZeroSSL)
+  - >
+    ¡Copia tus archivos PHP en el directorio raíz del documento, eso es todo!
+  - >
+    [Construye binarios **independientes**, autoejecutables y sin dependencias](/docs/embed/) para tus aplicaciones web PHP y herramientas de línea de comandos.
+  - >
+    ¡Las extensiones populares de PHP, incluyendo **OPcache** y **XDebug**, son compatibles de forma nativa!

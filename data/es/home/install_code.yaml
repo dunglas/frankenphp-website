@@ -1,0 +1,13 @@
+title: ¡Tan <strong class="text-green-dark">fácil</strong> de configurar!
+overtitle: "Rápido como el rayo"
+code: |
+    ```caddyfile
+    localhost {
+        # Habilitar compresión (opcional)
+        encode zstd br gzip
+        # Ejecutar archivos PHP en el directorio actual y servir activos
+        php_server
+    }
+    ```
+content: |
+  Tres líneas de configuración: es todo lo que necesitas para iniciar un servidor PHP de nivel de producción (HTTPS automático, HTTP/3, compresión zstd...), impulsado por [Caddy](https://caddyserver.com).
