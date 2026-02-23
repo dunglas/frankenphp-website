@@ -19,14 +19,17 @@ function markdownToYaml($markdownText)
 }
 
 // Function to delete a directory and its contents
+// Function to delete a directory and its contents
 function deleteDirectory($dir)
 {
+    if (is_link($dir) || !is_dir($dir)) {
+        return unlink($dir);
+    }
+
     if (!file_exists($dir)) {
         return true;
     }
-    if (!is_dir($dir)) {
-        return unlink($dir);
-    }
+
     foreach (scandir($dir) as $item) {
         if ($item == '.' || $item == '..') {
             continue;
@@ -35,6 +38,7 @@ function deleteDirectory($dir)
             return false;
         }
     }
+
     return rmdir($dir);
 }
 
