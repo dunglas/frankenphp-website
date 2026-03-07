@@ -3,4 +3,5 @@ content/**/docs/
 .env.local
 data/**/nav.yaml
 static/install.sh
+static/install.ps1
 public

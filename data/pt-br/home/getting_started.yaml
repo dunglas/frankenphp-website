@@ -16,8 +16,11 @@ docker: |
   ```
 standard: |
   ```bash
-  # Instala o FrankenPHP
+  # Instala o FrankenPHP no Linux ou macOS
   curl https://frankenphp.dev/install.sh | sh
+
+  # Ou no Windows, com PowerShell
+  irm https://frankenphp.dev/install.ps1 | iex
 
   # Serve o diretório public/
   frankenphp php-server -r public/

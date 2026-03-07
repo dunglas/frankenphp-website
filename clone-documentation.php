@@ -88,7 +88,7 @@ function fixLinks($content, $lang = "en")
             $content
         );
     }
-    
+
     // Clean up unwanted patterns
     $content = preg_replace('#/docs/docs(/|$)#', '/docs$1', $content);
     $content = preg_replace('#/docs/\.\./\##', '/docs#', $content);
@@ -129,7 +129,7 @@ function generateLangDocumentation($repoURL, $lang = "en")
         echo "Error deleting temporary directory\n";
         return;
     }
-    
+
     // Clone repository
     exec("git clone $repoURL $TEMP_DIR", $output, $returnCode);
     if ($returnCode !== 0) {
@@ -142,7 +142,7 @@ function generateLangDocumentation($repoURL, $lang = "en")
         echo "Error deleting docs destination\n";
         return;
     }
-    
+
     mkdir($DOCS_DESTINATION, 0755, true);
 
     // Copy only .md files from docs
@@ -173,6 +173,16 @@ function generateLangDocumentation($repoURL, $lang = "en")
         if (is_file($INSTALLSH)) {
             if (!copy($INSTALLSH, $DEST)) {
                 echo "Error when copying install.sh\n";
+                return;
+            }
+        }
+
+        $INSTALLPS1 = "$TEMP_DIR/install.ps1";
+        $DEST = __DIR__ . "/static/install.ps1";
+
+        if (is_file($INSTALLPS1)) {
+            if (!copy($INSTALLPS1, $DEST)) {
+                echo "Error when copying install.ps1\n";
                 return;
             }
         }
@@ -247,9 +257,10 @@ function generateLangDocumentation($repoURL, $lang = "en")
 $githubKey = $_SERVER["GITHUB_KEY"] ?? false;
 
 if (!$githubKey) {
-    echo "The GITHUB_KEY environment variable is not defined.";
+    echo "The GITHUB_KEY environment variable is not defined." . PHP_EOL;
     $githubKey = "XXX";
 }
+
 
 $repoURL = "https://$githubKey@github.com/php/frankenphp.git";
 
