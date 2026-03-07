@@ -1,4 +1,5 @@
 <?php
+
 // Regex for performing transformations
 const LINKS_REGEX = '/\[([^\]]+)\]\(([^)]+)\)/';
 
@@ -165,7 +166,7 @@ function generateLangDocumentation($repoURL, $lang = "en")
         );
     }
 
-// handle install.sh (only for English docs)
+    // handle install.sh (only for English docs)
     if ($lang === "en") {
         $INSTALLSH = "$TEMP_DIR/install.sh";
         $DEST = __DIR__ . "/static/install.sh";
@@ -266,6 +267,6 @@ $repoURL = "https://$githubKey@github.com/php/frankenphp.git";
 
 const languages = ["en", "cn", "fr", "tr", "ru", "ja", "pt-br"];
 
-foreach (languages as $l)
+foreach (languages as $l) {
     generateLangDocumentation($repoURL, $l);
-?>
+}
