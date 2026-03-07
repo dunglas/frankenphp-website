@@ -16,8 +16,11 @@ docker: |
   ```
 standard: |
   ```bash
-  # FrankenPHP をインストール
+  # Linux または macOS に FrankenPHP をインストール
   curl https://frankenphp.dev/install.sh | sh
+
+  # または Windows の場合、PowerShell で
+  irm https://frankenphp.dev/install.ps1 | iex
 
   # public/ ディレクトリを提供
   frankenphp php-server -r public/
