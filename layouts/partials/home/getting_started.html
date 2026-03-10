@@ -1,28 +1,42 @@
 {{ with index .Site.Data .Site.Language.Lang "home" "getting_started" }}
-<script>
-  function openCode(codeTab) {
-  var i;
-  var x = document.getElementsByClassName("code");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  document.getElementById(codeTab).style.display = "block";
+  <script>
+    function openCode(codeTab) {
+      var i;
+      var x = document.getElementsByClassName("code");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      document.getElementById(codeTab).style.display = "block";
 
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < x.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" bg-purple-dark", "");
-    tablinks[i].classList.replace("text-purple-extralight", "text-purple-light");
-    tablinks[i].classList.replace("border-b-0", "border-b");
-    tablinks[i].classList.replace("border-l", "border-l-0");
-    tablinks[i].classList.replace("border-r", "border-r-0");
-  }
-  document.getElementById(`btn-${codeTab}`).classList.add("bg-purple-dark");
-  document.getElementById(`btn-${codeTab}`).classList.replace("text-purple-light", "text-purple-extralight");
-  document.getElementById(`btn-${codeTab}`).classList.replace("border-b", "border-b-0");
-  document.getElementById(`btn-${codeTab}`).classList.replace("border-r-0", "border-r");
-  document.getElementById(`btn-${codeTab}`).classList.replace("border-l-0", "border-l");
-}
-</script>
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < x.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(
+          " bg-purple-dark",
+          "",
+        );
+        tablinks[i].classList.replace(
+          "text-purple-extralight",
+          "text-purple-light",
+        );
+        tablinks[i].classList.replace("border-b-0", "border-b");
+        tablinks[i].classList.replace("border-l", "border-l-0");
+        tablinks[i].classList.replace("border-r", "border-r-0");
+      }
+      document.getElementById(`btn-${codeTab}`).classList.add("bg-purple-dark");
+      document
+        .getElementById(`btn-${codeTab}`)
+        .classList.replace("text-purple-light", "text-purple-extralight");
+      document
+        .getElementById(`btn-${codeTab}`)
+        .classList.replace("border-b", "border-b-0");
+      document
+        .getElementById(`btn-${codeTab}`)
+        .classList.replace("border-r-0", "border-r");
+      document
+        .getElementById(`btn-${codeTab}`)
+        .classList.replace("border-l-0", "border-l");
+    }
+  </script>
   <section
     id="getting-started"
     class="bg-white py-12 md:py-24 relative before:clip-path-inclinated before:bg-white before:w-full before:h-48 before:absolute before:bottom-full before:left-0 mt-px"
@@ -39,14 +53,30 @@
         >
           <div class="bg-purple-dark relative z-20 rounded-xl overflow-hidden">
             <div class="bg-purple text-sm flex flex-row">
-              <button id="btn-static" class="flex-1 tablink uppercase px-4 border-b-0 border-b-green border-r border-r-green rounded-t-xl py-2 text-purple-extralight bg-purple-dark" onclick="openCode('static')">{{.staticTab}}</button>
-              <button id="btn-docker" class="flex-1 rounded-t-xl tablink border-b border-b-green border-l-0 border-l-green uppercase px-4 py-2 text-purple-light" onclick="openCode('docker')">{{.dockerTab}}</button>
+              <button
+                id="btn-static"
+                class="flex-1 tablink uppercase px-4 border-b-0 border-b-green border-r border-r-green rounded-t-xl py-2 text-purple-extralight bg-purple-dark"
+                onclick="openCode('static')"
+              >
+                {{ .staticTab }}
+              </button>
+              <button
+                id="btn-docker"
+                class="flex-1 rounded-t-xl tablink border-b border-b-green border-l-0 border-l-green uppercase px-4 py-2 text-purple-light"
+                onclick="openCode('docker')"
+              >
+                {{ .dockerTab }}
+              </button>
             </div>
             <div class="p-4 min-h-[280px]">
-            <pre id="static"
-              class="code"
-            ><code>{{ .standard | markdownify | safeHTML }}</code></pre>
-            <pre id="docker" class="code hidden"><code>{{ .docker | markdownify | safeHTML }}</code></pre>
+              <pre
+                id="static"
+                class="code"
+              ><code>{{ .standard | markdownify | safeHTML }}</code></pre>
+              <pre
+                id="docker"
+                class="code hidden"
+              ><code>{{ .docker | markdownify | safeHTML }}</code></pre>
             </div>
           </div>
         </div>
