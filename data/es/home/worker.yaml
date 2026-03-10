@@ -1,0 +1,30 @@
+title: Modo <strong class="text-green-dark">Worker</strong>
+overtitle: ¡Haz que tus aplicaciones PHP sean más rápidas que nunca!
+content:
+  - title: "Script Worker"
+    content: |
+      Inicia tu aplicación una vez, ¡**permanece en memoria**!
+  #- title: "Seamless"
+  #  content: |
+  #    Process incoming requests **without having to boot your app again**
+  - title: <span>Directo</span><span>y sencillo</span>
+    content: |
+      Compatible nativamente con Symfony, API Platform, Laravel...
+  - title: "Simple"
+    content: |
+      Utiliza las superglobales tradicionales: **no es necesario PSR-7**.
+  - title: "Rápido"
+    content: |
+      Según <a href="https://github.com/dunglas/frankenphp-demo/tree/main/benchmark" target="_blank" rel="noreferrer noopener" class="link">nuestros benchmarks</a>, **3.5 veces más rápido que FPM** en aplicaciones API Platform.
+  - title: "Eficiente"
+    content: |
+      FrankenPHP está escrito en **Go** y **C**. ¡Se basa en la característica icónica de Go: las goroutines!
+  - title: "Opcional"
+    content: |
+      Tu aplicación puede ser servida tal cual, incluso si no es compatible con el modo Worker.
+  - title: "Fácil despliegue"
+    content: |
+      Se ejecuta en proceso: un binario, **no se necesita ningún servicio externo**.
+  - title: "Watcher"
+    content: |
+      Reinicia automáticamente los workers **cada vez que tu código cambia**.
