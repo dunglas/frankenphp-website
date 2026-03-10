@@ -6,11 +6,13 @@
   />
   {{ if .IsTranslated }}
     {{ range .Translations }}
-  <a href="{{ .RelPermalink }}">
-    <img class="w-8 h-8" src="/img/flags/{{ or .Language.Params.flag .Language.Lang }}.svg" />
-
-  </a>
-{{ end }}
+      <a href="{{ .RelPermalink }}">
+        <img
+          class="w-8 h-8"
+          src="/img/flags/{{ or .Language.Params.flag .Language.Lang }}.svg"
+        />
+      </a>
+    {{ end }}
   {{ end }}
 </div>
 <ul
@@ -26,7 +28,11 @@
   {{ $currentPage := . }}
   {{ range .Site.Menus.main }}
     <li class="rounded-md p-2  hover:bg-green-light/20 transition-colors">
-      <a href="{{ relLangURL .URL | absURL }}" {{ with .Params.rel }}rel="{{ . }}"{{ end }} {{ with .Params.target }}target="{{ . }}"{{ end }}>
+      <a
+        href="{{ relLangURL .URL | absURL }}"
+        {{ with .Params.rel }}rel="{{ . }}"{{ end }}
+        {{ with .Params.target }}target="{{ . }}"{{ end }}
+      >
         <span>{{ .Name }}</span>
       </a>
     </li>
