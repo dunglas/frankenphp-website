@@ -3,7 +3,11 @@
     <div class="flex flex-row items-start justify-start">
       {{ partial "docs/sidebar.html" . }}
       <div
-        class="px-10 pb-6 {{ if eq .Lang "en" }} pt-32 md:pt-24 {{ else }} pt-40 md:pt-32 {{end}} prose prose-quoteless flex-1 overflow-x-hidden prose-img:max-w-full max-w-none lg:prose-img:max-w-xl"
+        class="px-10 pb-6 {{ if eq .Lang "en" }}
+          pt-32 md:pt-24
+        {{ else }}
+          pt-40 md:pt-32
+        {{ end }} prose prose-quoteless flex-1 overflow-x-hidden prose-img:max-w-full max-w-none lg:prose-img:max-w-xl"
       >
         {{ partial "docs/formatDoc" .Content }}
         {{ $lastUrlElement := index (split .Page.RelPermalink "/") (sub (len (split .Page.RelPermalink "/")) 2) }}
@@ -11,21 +15,21 @@
           class="bg-green inline-flex text-sm text-purple mt-4 gap-2 flex-row items-center p-2"
           target="_blank"
           {{ if (eq $lastUrlElement "docs") }}
-            {{ if (eq .Lang "en" )}}
+            {{ if (eq .Lang "en" ) }}
               href="https://github.com/dunglas/frankenphp/blob/main/README.md"
             {{ else }}
               href="https://github.com/dunglas/frankenphp/blob/main/docs/{{ .Lang }}/README.md"
-            {{ end }} 
+            {{ end }}
           {{ else if (eq $lastUrlElement "contributing") }}
-            {{ if (eq .Lang "en" )}}
+            {{ if (eq .Lang "en" ) }}
               href="https://github.com/dunglas/frankenphp/blob/main/CONTRIBUTING.md"
             {{ else }}
-            href="https://github.com/dunglas/frankenphp/blob/main/docs/{{ .Lang }}/CONTRIBUTING.md"
+              href="https://github.com/dunglas/frankenphp/blob/main/docs/{{ .Lang }}/CONTRIBUTING.md"
             {{ end }}
           {{ else }}
-            {{ if (eq .Lang "en" )}}
+            {{ if (eq .Lang "en" ) }}
               href="https://github.com/dunglas/frankenphp/blob/main/docs/{{ $lastUrlElement }}.md"
-            {{ else if (eq .Lang "zh" )}}
+            {{ else if (eq .Lang "zh" ) }}
               href="https://github.com/dunglas/frankenphp/blob/main/docs/cn/{{ $lastUrlElement }}.md"
             {{ else }}
               href="https://github.com/dunglas/frankenphp/blob/main/docs/{{ .Lang }}/{{ $lastUrlElement }}.md"

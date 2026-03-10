@@ -2,7 +2,10 @@
 <html lang="{{ .Lang }}">
   <head>
     <meta charset="UTF-8" />
-    <meta name="go-import" content="frankenphp.dev git https://github.com/php/frankenphp" />
+    <meta
+      name="go-import"
+      content="frankenphp.dev git https://github.com/php/frankenphp"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="{{ i18n "metadescription" }}" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -12,21 +15,12 @@
     {{ range .Translations }}
       <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}" />
     {{ end }}
-    <meta
-      name="twitter:title"
-      content="{{ i18n "metatitle" }}"
-    />
-    <meta
-      name="twitter:description"
-      content="{{ i18n "metadescription" }}"
-    />
+    <meta name="twitter:title" content="{{ i18n "metatitle" }}" />
+    <meta name="twitter:description" content="{{ i18n "metadescription" }}" />
     <meta name="twitter:image" content="https://frankenphp.dev/card.png" />
     <meta name="og:image" content="https://frankenphp.dev/card.png" />
     <meta name="og:title" content="{{ i18n "metatitle" }}" />
-    <meta
-      name="og:description"
-      content="{{ i18n "metadescription" }}"
-    />
+    <meta name="og:description" content="{{ i18n "metadescription" }}" />
     <title>{{ i18n "metatitle" }}</title>
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
