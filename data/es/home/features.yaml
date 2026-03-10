@@ -1,0 +1,51 @@
+title: "FrankenPHP <strong class='text-green-dark'>de un vistazo</strong>"
+overtitle: "Características"
+content:
+  - image: "/img/box.svg"
+    title: "Extensible"
+    content: |
+      Compatible con PHP 8.2+, la mayoría de las extensiones de PHP y todos los módulos de Caddy.
+  - image: "/img/one.svg"
+    title: "Solo un servicio"
+    content: |
+      Diseñado con simplicidad en mente: ¡solo un servicio, solo un binario! FrankenPHP no necesita PHP-FPM, utiliza su propia SAPI especialmente diseñada para servidores web Go.
+  - image: "/img/rocket.svg"
+    title: "Fácil despliegue"
+    content: |
+      Aplicación Cloud Native enviada como <a href="/docs/docker/">una imagen Docker</a>. Compatible con Kubernetes y todas las plataformas modernas en la nube. También es posible empaquetar tu aplicación PHP como <a href="/docs/embed/" class="link">un binario estático independiente y autoejecutable</a>.
+  - image: "/img/worker.svg"
+    title: "Modo Worker"
+    content: |
+      <a href="/docs/worker/" class="link">Inicia tu aplicación una vez</a> y manténla en memoria. Está lista para manejar solicitudes entrantes en unos pocos milisegundos.
+  - image: "/img/bulb.svg"
+    title: "103 Early Hints"
+    content: |
+      <a href="/docs/early-hints/"  class="link">Early Hints</a> es una nueva característica de la plataforma web que puede mejorar <a href="https://blog.cloudflare.com/early-hints/" target="_blank" rel="noreferrer noopener" class="link">los tiempos de carga del sitio web en un 30%</a>. ¡FrankenPHP es la única SAPI de PHP con soporte para Early Hints!
+  - image: "/img/clock.svg"
+    title: "Tiempo real"
+    content: |
+      Hub <a href="https://mercure.rocks" target="_blank" rel="noreferrer noopener" class="link">Mercure</a> integrado. Envía eventos desde tus aplicaciones PHP a todos los navegadores conectados, ¡reciben instantáneamente la carga útil como un evento de JavaScript!
+  - image: "/img/zip.svg"
+    title: "Compresión Brotli, Zstandard y Gzip"
+    content: |
+      Los formatos de compresión modernos son compatibles de forma inmediata.
+  - image: "/img/log.svg"
+    title: "Registro estructurado"
+    content: |
+      Aporta un formato más definido y detalles a tu registro.
+  - image: "/img/metrics.svg"
+    title: "Métricas de Prometheus y trazado"
+    content: |
+      ¡Soporte integrado para <a href="https://caddyserver.com/docs/metrics" target="_blank" rel="noreferrer noopener" class="link">Prometheus</a>!
+  - image: "/img/http.svg"
+    title: "HTTP/2 & HTTP/3"
+    content: |
+      Soporte nativo para HTTPS, HTTP/2 y **HTTP/3**.
+  - image: "/img/https.svg"
+    title: "Automatización HTTPS"
+    content: |
+      Generación, renovación y revocación automática de certificados HTTPS.
+  - image: "/img/reload.svg"
+    title: "Recarga elegante"
+    content: |
+      Implementa tus aplicaciones sin tiempo de inactividad gracias a las recargas elegantes.
