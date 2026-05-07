@@ -81,7 +81,7 @@
       </svg>
     </label>
 
-    {{ with index .Site.Data .Site.Language.Lang "nav" }}
+    {{ with index hugo.Data .Site.Language.Lang "nav" }}
       <ul class="flex flex-col gap-2">
         {{ with .links }}
           {{ range . }}

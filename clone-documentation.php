@@ -98,12 +98,27 @@ function fixLinks($content, $lang = "en")
     return $content;
 }
 
-// Function to add layout and title on docs pages
+// Function to add layout and title on docs pages.
+// Detects existing upstream YAML frontmatter (title, description) so the
+// SEO-tuned values added in php/frankenphp#2394 are preserved.
 function addFrontmatter($content)
 {
-    $title = "FrankenPHP";
-    $navtitle = "";
+    $upstreamTitle = "";
+    $upstreamDescription = "";
 
+    if (preg_match('/^---\s*\R(.*?)\R---\s*\R(.*)$/s', $content, $m)) {
+        $upstream = $m[1];
+        $content = $m[2];
+        if (preg_match('/^title:\s*(.+?)\s*$/m', $upstream, $tm)) {
+            $upstreamTitle = trim($tm[1], "\"'");
+        }
+        if (preg_match('/^description:\s*(.+?)\s*$/m', $upstream, $dm)) {
+            $upstreamDescription = trim($dm[1], "\"'");
+        }
+    }
+
+    $navtitle = "";
+    $title = "FrankenPHP";
     if (preg_match('/#\s+([^\n]+)/', $content, $matches)) {
         $navtitle = $matches[1];
         $title = stripos($navtitle, 'frankenphp') === 0
@@ -111,7 +126,18 @@ function addFrontmatter($content)
             : "FrankenPHP | $navtitle";
     }
 
-    return "---\nlayout: docs\ntitle: \"$title\"\nnav: \"$navtitle\"\n---\n$content";
+    $escape = fn ($s) => str_replace('"', '\\"', $s);
+
+    $frontmatter = "---\nlayout: docs\ntitle: \"" . $escape($title) . "\"\nnav: \"" . $escape($navtitle) . "\"\n";
+    if ($upstreamTitle !== "") {
+        $frontmatter .= "seotitle: \"" . $escape($upstreamTitle) . "\"\n";
+    }
+    if ($upstreamDescription !== "") {
+        $frontmatter .= "description: \"" . $escape($upstreamDescription) . "\"\n";
+    }
+    $frontmatter .= "---\n";
+
+    return $frontmatter . $content;
 }
 
 function generateLangDocumentation($repoURL, $lang = "en")
@@ -184,6 +210,16 @@ function generateLangDocumentation($repoURL, $lang = "en")
         if (is_file($INSTALLPS1)) {
             if (!copy($INSTALLPS1, $DEST)) {
                 echo "Error when copying install.ps1\n";
+                return;
+            }
+        }
+
+        $LLMSTXT = "$TEMP_DIR/llms.txt";
+        $DEST = __DIR__ . "/static/llms.txt";
+
+        if (is_file($LLMSTXT)) {
+            if (!copy($LLMSTXT, $DEST)) {
+                echo "Error when copying llms.txt\n";
                 return;
             }
         }
