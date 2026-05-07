@@ -25,12 +25,12 @@
   {{ end }} left-0 z-30 w-full top-0 group"
 >
   {{ if ne .Lang "en" }}
+    {{- $enPermalink := "" -}}
+    {{- range .Translations -}}
+      {{- if eq .Lang "en" }}{{ $enPermalink = .Permalink }}{{ end -}}
+    {{- end -}}
     <a
-      href="{{ range .Translations }}
-        {{ if eq .Lang "en" }}
-          {{ .Permalink }}
-        {{ end }}
-      {{ end }}"
+      href="{{ $enPermalink }}"
       class="overflow-x-hidden flex bg-purple text-xs font-normal border-b-2 border-b-green z-50 text-white h-10 w-full relative items-center justify-center"
     >
       <div

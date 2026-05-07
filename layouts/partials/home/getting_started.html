@@ -8,8 +8,8 @@
       }
       document.getElementById(codeTab).style.display = "block";
 
-      tablinks = document.getElementsByClassName("tablink");
-      for (i = 0; i < x.length; i++) {
+      var tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(
           " bg-purple-dark",
           "",

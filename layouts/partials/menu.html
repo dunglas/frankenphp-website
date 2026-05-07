@@ -3,13 +3,20 @@
   <img
     src="/img/flags/{{ or .Language.Params.flag .Language.Lang }}.svg"
     class="w-8 h-8 saturate-0 opacity-50"
+    alt=""
+    aria-hidden="true"
   />
   {{ if .IsTranslated }}
     {{ range .Translations }}
-      <a href="{{ .RelPermalink }}">
+      <a
+        href="{{ .RelPermalink }}"
+        aria-label="{{ .Language.Lang | upper }}"
+      >
         <img
           class="w-8 h-8"
           src="/img/flags/{{ or .Language.Params.flag .Language.Lang }}.svg"
+          alt=""
+          aria-hidden="true"
         />
       </a>
     {{ end }}

@@ -9,6 +9,9 @@
   },
   "keywords": [],
   "author": "",
+  "engines": {
+    "node": ">=18"
+  },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19",
     "prettier": "^3.8.1",

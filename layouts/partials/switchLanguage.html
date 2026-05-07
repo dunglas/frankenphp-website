@@ -17,6 +17,8 @@
     <img
       src="/img/flags/{{ or .Language.Params.flag .Language.Lang }}.svg"
       class="w-7 h-7"
+      alt=""
+      aria-hidden="true"
     />
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -54,6 +56,8 @@
               <img
                 class="w-5 h-5"
                 src="/img/flags/{{ or .Language.Params.flag .Language.Lang }}.svg"
+                alt=""
+                aria-hidden="true"
               />
               <span class="text-gray-700 font-bold text-xs uppercase">
                 {{ or .Language.Params.flag .Language.Lang }}
