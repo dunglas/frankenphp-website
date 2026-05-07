@@ -4,4 +4,5 @@ content/**/docs/
 data/**/nav.yaml
 static/install.sh
 static/install.ps1
+static/llms.txt
 public
