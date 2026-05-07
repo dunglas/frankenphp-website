@@ -53,7 +53,7 @@ languages:
         weight: 5
   ja:
     disabled: false
-    locale: "jp"
+    locale: "ja"
     languageDirection: ""
     label: "Japanese"
     contentDir: content/ja
