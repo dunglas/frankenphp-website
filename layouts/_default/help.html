@@ -1,6 +1,6 @@
 {{ define "main" }}
   {{ $lang := .Lang }}
-  {{ with index .Site.Data .Site.Language.Lang "help" }}
+  {{ with index hugo.Data .Site.Language.Lang "help" }}
     <div
       class="mx-auto overflow-x-clip pb-40 {{ if eq $lang "en" }}
         pt-16

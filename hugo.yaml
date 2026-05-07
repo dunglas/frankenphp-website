@@ -1,5 +1,5 @@
 
-languageCode: 'en-us'
+locale: 'en-us'
 title: 'FrankenPHP: the modern PHP app server'
 markup:
   goldmark:
@@ -13,9 +13,9 @@ defaultContentLanguage: en
 languages:
   en:
     disabled: false
-    languageCode: "en"
+    locale: "en"
     languageDirection: ""
-    languageName: "English"
+    label: "English"
     contentDir: content/en
     title: ""
     weight: 1
@@ -32,9 +32,9 @@ languages:
         weight: 5
   zh:
     disabled: false
-    languageCode: "zh"
+    locale: "zh"
     languageDirection: ""
-    languageName: "Chinese"
+    label: "Chinese"
     contentDir: content/zh
     title: ""
     weight: 2
@@ -53,9 +53,9 @@ languages:
         weight: 5
   ja:
     disabled: false
-    languageCode: "jp"
+    locale: "jp"
     languageDirection: ""
-    languageName: "Japanese"
+    label: "Japanese"
     contentDir: content/ja
     title: ""
     weight: 2
@@ -74,9 +74,9 @@ languages:
         weight: 5
   es:
     disabled: false
-    languageCode: "es"
+    locale: "es"
     languageDirection: ""
-    languageName: "Spanish"
+    label: "Spanish"
     contentDir: content/es
     title: ""
     weight: 4
@@ -93,9 +93,9 @@ languages:
         weight: 5
   fr:
     disabled: false
-    languageCode: "fr"
+    locale: "fr"
     languageDirection: ""
-    languageName: "French"
+    label: "French"
     contentDir: content/fr
     title: ""
     weight: 3
@@ -112,9 +112,9 @@ languages:
           target: _blank
   tr:
     disabled: false
-    languageCode: "tr"
+    locale: "tr"
     languageDirection: ""
-    languageName: "Turkish"
+    label: "Turkish"
     contentDir: content/tr
     title: ""
     weight: 6
@@ -131,9 +131,9 @@ languages:
           target: _blank
   ru:
     disabled: false
-    languageCode: "ru"
+    locale: "ru"
     languageDirection: ""
-    languageName: "Russian"
+    label: "Russian"
     contentDir: content/ru
     title: ""
     weight: 6
@@ -150,9 +150,9 @@ languages:
           target: _blank
   pt-br:
     disabled: false
-    languageCode: "pt-br"
+    locale: "pt-br"
     languageDirection: ""
-    languageName: "Brazilian Portuguese"
+    label: "Brazilian Portuguese"
     contentDir: content/pt-br
     title: ""
     weight: 2
