@@ -2,7 +2,10 @@
 <html lang="{{ .Lang }}">
   <head>
     <meta charset="UTF-8" />
-    <meta name="go-import" content="frankenphp.dev git https://github.com/php/frankenphp" />
+    <meta
+      name="go-import"
+      content="frankenphp.dev git https://github.com/php/frankenphp"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {{- $pageTitle := i18n "metatitle" }}
     {{- with .File }}
@@ -27,7 +30,9 @@
     {{ end }}
     {{- $defaultPermalink := .Permalink }}
     {{- if ne .Lang "en" }}
-      {{- range .Translations }}{{ if eq .Lang "en" }}{{ $defaultPermalink = .Permalink }}{{ end }}{{ end }}
+      {{- range .Translations }}
+        {{- if eq .Lang "en" }}{{ $defaultPermalink = .Permalink }}{{ end }}
+      {{- end }}
     {{- end }}
     <link rel="alternate" hreflang="x-default" href="{{ $defaultPermalink }}" />
     <meta property="og:type" content="website" />
@@ -35,7 +40,7 @@
     <meta property="og:image" content="https://frankenphp.dev/card.png" />
     <meta property="og:title" content="{{ $pageTitle }}" />
     {{- with $description }}
-    <meta property="og:description" content="{{ . }}" />
+      <meta property="og:description" content="{{ . }}" />
     {{- end }}
     <title>{{ $pageTitle }}</title>
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
