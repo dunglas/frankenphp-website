@@ -1,0 +1,32 @@
+title: "<strong class='text-green-dark'>Inizia</strong>!"
+layout: partials/home/getting_started
+overtitle: "Un solo comando per gestire tutto"
+dockerTab: "Docker"
+staticTab: "Sistema"
+docker: |
+  ```bash
+  # Servi la directory public/
+  docker run -v $PWD:/app/public \
+    -p 443:443/tcp -p 443:443/udp \
+    dunglas/frankenphp
+
+  # Esegui uno script da riga di comando
+  docker run -v $PWD:/app \
+    dunglas/frankenphp php script.php
+  ```
+standard: |
+  ```bash
+  # Installa FrankenPHP su Linux o macOS
+  curl https://frankenphp.dev/install.sh | sh
+
+  # Oppure su Windows, con PowerShell
+  irm https://frankenphp.dev/install.ps1 | iex
+
+  # Servi la directory public/
+  frankenphp php-server -r public/
+
+  # Esegui uno script da riga di comando
+  frankenphp php-cli script.php
+  ```
+content: |
+  Metti in piedi un server PHP di livello produttivo con un solo comando!
