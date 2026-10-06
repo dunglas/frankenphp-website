@@ -1,0 +1,51 @@
+title: "FrankenPHP <strong class='text-green-dark'>in breve</strong>"
+overtitle: "Funzionalità"
+content:
+  - image: "/img/box.svg"
+    title: "Estensibile"
+    content: |
+      Compatibile con PHP 8.2+, con la maggior parte delle estensioni PHP e con tutti i moduli Caddy.
+  - image: "/img/one.svg"
+    title: "Un solo servizio"
+    content: |
+      Progettato all'insegna della semplicità: un solo servizio, un solo binario! FrankenPHP non ha bisogno di PHP-FPM, usa la sua SAPI creata appositamente per i server web scritti in Go.
+  - image: "/img/rocket.svg"
+    title: "Deploy facile"
+    content: |
+      App Cloud Native distribuita come <a href="/docs/docker/">immagine Docker</a>. Compatibile con Kubernetes e con tutte le moderne piattaforme cloud. È anche possibile impacchettare la tua app PHP come <a href="/docs/embed/" class="link">un binario statico autonomo e auto-eseguibile</a>.
+  - image: "/img/worker.svg"
+    title: "Modalità worker"
+    content: |
+      <a href="/docs/worker/" class="link">Avvia la tua applicazione una sola volta</a> e mantienila in memoria! È pronta a gestire le richieste in arrivo in pochi millisecondi.
+  - image: "/img/bulb.svg"
+    title: "103 Early Hints"
+    content: |
+      Gli <a href="/docs/early-hints/"  class="link">Early Hints</a> sono una nuovissima funzionalità della piattaforma web che può migliorare <a href="https://blog.cloudflare.com/early-hints/" target="_blank" rel="noreferrer noopener" class="link">i tempi di caricamento dei siti del 30%</a>. FrankenPHP è l'unica SAPI PHP con supporto agli Early Hints!
+  - image: "/img/clock.svg"
+    title: "Tempo reale"
+    content: |
+      Hub <a href="https://mercure.rocks" target="_blank" rel="noreferrer noopener" class="link">Mercure</a> integrato. Invia eventi dalle tue app PHP a tutti i browser connessi: ricevono istantaneamente il payload come evento JavaScript!
+  - image: "/img/zip.svg"
+    title: "Compressione Brotli, Zstandard e Gzip"
+    content: |
+      I formati di compressione moderni sono supportati out-of-the-box.
+  - image: "/img/log.svg"
+    title: "Logging strutturato"
+    content: |
+      Dai un formato più definito e maggiori dettagli ai tuoi log.
+  - image: "/img/metrics.svg"
+    title: "Metriche Prometheus e tracing"
+    content: |
+      Supporto <a href="https://caddyserver.com/docs/metrics" target="_blank" rel="noreferrer noopener" class="link">Prometheus integrato</a>!
+  - image: "/img/http.svg"
+    title: "HTTP/2 e HTTP/3"
+    content: |
+      Supporto nativo per HTTPS, HTTP/2 e **HTTP/3**.
+  - image: "/img/https.svg"
+    title: "HTTPS automatico"
+    content: |
+      Generazione, rinnovo e revoca automatici dei certificati HTTPS.
+  - image: "/img/reload.svg"
+    title: "Reload graduale"
+    content: |
+      Distribuisci le tue app con zero downtime grazie ai reload graduali.

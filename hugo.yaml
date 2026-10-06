@@ -169,6 +169,25 @@ languages:
           rel: external
           target: _blank
         weight: 5
+  it:
+    disabled: false
+    locale: "it"
+    languageDirection: ""
+    label: "Italian"
+    contentDir: content/it
+    title: ""
+    weight: 7
+    menu:
+      main:
+      - name: Documentazione
+        pageRef: /docs/
+        weight: 1
+      - name: Negozio
+        url: https://frankenphp.tpopsite.com/shop
+        params:
+          rel: external
+          target: _blank
+        weight: 5
 build:
   ignoreFiles:
       - "^home/"

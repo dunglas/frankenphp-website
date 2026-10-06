@@ -301,7 +301,7 @@ if (!$githubKey) {
 
 $repoURL = "https://$githubKey@github.com/php/frankenphp.git";
 
-const languages = ["en", "cn", "es", "fr", "tr", "ru", "ja", "pt-br"];
+const languages = ["en", "cn", "es", "fr", "tr", "ru", "ja", "pt-br", "it"];
 
 foreach (languages as $l) {
     generateLangDocumentation($repoURL, $l);
