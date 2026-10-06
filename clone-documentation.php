@@ -1,7 +1,8 @@
 <?php
 
 // Regex for performing transformations
-const LINKS_REGEX = '/\[([^\]]+)\]\(([^)]+)\)/';
+const LINK_PATTERN = '\[([^\]]+)\]\(([^)]+)\)';
+const LINKS_REGEX = '/' . LINK_PATTERN . '/';
 
 function markdownToYaml($markdownText)
 {
@@ -47,8 +48,18 @@ function deleteDirectory($dir)
 // Function to delete ".md" at the end of the links and add /docs prefix when necessary
 function fixLinks($content, $lang = "en")
 {
-    $content = preg_replace_callback(LINKS_REGEX, function ($matches) {
-        [$fullMatch, $textLink, $url] = $matches;
+    // Match code before links, so Go generics like Type[any](args) aren't misread as Markdown links
+    // this is what turned unsafe.Pointer(arr) into /docs/unsafe.Pointer(arr) previously.
+    $pattern = '/(```.*?```|`[^`\n]+`)|' . LINK_PATTERN . '/s';
+
+    $content = preg_replace_callback($pattern, function ($matches) {
+        // matched code, leave as-is
+        if (!empty($matches[1])) {
+            return $matches[1];
+        }
+
+        $textLink = $matches[2];
+        $url = $matches[3];
 
         // Handle image links (png, svg, jpg) that are not absolute
         if (!preg_match('/^http/', $url) && preg_match('/\.(png|svg|jpg)$/', $url)) {
