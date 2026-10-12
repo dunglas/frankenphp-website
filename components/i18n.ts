@@ -23,7 +23,7 @@ export const LOCALES = {
 export type Locale = keyof typeof LOCALES;
 export const DEFAULT_LOCALE: Locale = "en";
 
-export const isLocale = (value: string | undefined): value is Locale =>
+const isLocale = (value: string | undefined): value is Locale =>
   value !== undefined && value in LOCALES;
 
 export const stringsFor = (locale: string | undefined): Strings =>

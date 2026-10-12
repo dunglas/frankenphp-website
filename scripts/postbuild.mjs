@@ -5,7 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const DIST = fs.existsSync(path.join(ROOT, "dist", "client")) ? path.join(ROOT, "dist", "client") : path.join(ROOT, "dist");
+const DIST = path.join(ROOT, "dist");
 const SITE = "https://frankenphp.dev";
 const LOCALES = ["en", "fr", "es", "zh", "ja", "pt-br", "ru", "tr"];
 const CUSTOM_PAGES = ["/", "/help"];

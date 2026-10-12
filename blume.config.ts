@@ -1,24 +1,15 @@
 import { defineConfig } from "blume";
-import { node } from "blume/deploy";
 import { pagefind } from "blume/search";
 
 import { codeThemes } from "./code-themes";
 
-import en from "./i18n/en.json";
-import es from "./i18n/es.json";
-import fr from "./i18n/fr.json";
-import ja from "./i18n/ja.json";
-import ptBr from "./i18n/pt-br.json";
-import ru from "./i18n/ru.json";
-import tr from "./i18n/tr.json";
-import zh from "./i18n/zh.json";
+import { LOCALES, type Strings } from "./components/i18n";
 
-const translations = { en, fr, es, zh, ja, "pt-br": ptBr, ru, tr };
-type Translation = typeof en;
+const en = LOCALES.en.strings;
 
-const t = (pick: (strings: Translation) => string) =>
+const t = (pick: (strings: Strings) => string) =>
   Object.fromEntries(
-    Object.entries(translations).map(([locale, strings]) => [locale, pick(strings)])
+    Object.entries(LOCALES).map(([locale, { strings }]) => [locale, pick(strings as Strings)])
   );
 
 const SITE = "https://frankenphp.dev";
@@ -43,20 +34,10 @@ export default defineConfig({
     owner: "dunglas",
     repo: "frankenphp-website",
   },
-  lastModified: "git",
 
   i18n: {
     defaultLocale: "en",
-    locales: [
-      { code: "en", label: "English" },
-      { code: "fr", label: "Français" },
-      { code: "es", label: "Español" },
-      { code: "zh", label: "简体中文" },
-      { code: "ja", label: "日本語" },
-      { code: "pt-br", label: "Português (Brasil)" },
-      { code: "ru", label: "Русский" },
-      { code: "tr", label: "Türkçe" },
-    ],
+    locales: Object.entries(LOCALES).map(([code, { label }]) => ({ code, label })),
   },
 
   navigation: {
@@ -124,12 +105,9 @@ export default defineConfig({
     },
     skillMd: true,
     catalog: true,
-    mcp: {
-      enabled: true,
-      instructions:
-        "Search and read the FrankenPHP documentation: installation, worker mode, configuration (Caddyfile), Docker images, deployment, Laravel, Symfony and WordPress integrations.",
-    },
   },
 
-  deployment: node({ site: SITE }),
+  deployment: {
+    site: SITE,
+  },
 });

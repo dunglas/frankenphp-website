@@ -411,14 +411,6 @@ function writeLanguage(repo, { source, locale }) {
   return pages.length + 1;
 }
 
-if (fs.existsSync(CONTENT) && !process.argv.includes("--force")) {
-  console.error(
-    "content/ already exists and holds the site's docs. Importing replaces it\n" +
-      "with a fresh copy from php/frankenphp; pass --force to do so.",
-  );
-  process.exit(1);
-}
-
 const { dir: repo, cleanup } = checkout();
 try {
   fs.rmSync(CONTENT, { recursive: true, force: true });
@@ -430,6 +422,10 @@ try {
   for (const language of LANGUAGES) {
     const count = writeLanguage(repo, language);
     console.log(`✓ ${language.locale}: ${count} pages`);
+  }
+
+  for (const installer of ["install.sh", "install.ps1"]) {
+    fs.copyFileSync(path.join(repo, installer), path.join(ROOT, "public", installer));
   }
 } finally {
   cleanup();
