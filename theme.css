@@ -1,0 +1,638 @@
+/*
+ * FrankenPHP, "It's alive!"
+ *
+ * The interface borrows the illustrations' own language: thick purple
+ * outlines, flat lime fills and hard offset shadows, so the mascot lives in
+ * the page instead of being pasted onto it. Motifs come from the mascot too:
+ * head stitches become seams, neck bolts become bullets.
+ */
+
+@theme {
+  --color-fp-night: #1a0330;
+  --color-fp-deep: #0f0120;
+  --color-fp-purple: #390075;
+  --color-fp-green: #b3d133;
+  --color-fp-lime: #c6e85a;
+  --color-fp-lilac: #c3b2d3;
+  --color-fp-paper: #f4effa;
+  --color-fp-olive: #6b860c;
+  --color-fp-mist: #d9cce8;
+}
+
+:root {
+  --blume-background: #ffffff;
+  --blume-foreground: #2b1b3f;
+  --blume-muted: #f4effa;
+  --blume-muted-foreground: #5e4b75;
+  --blume-border: #e3d9ee;
+  --blume-code-background: #1a0330;
+  --blume-content-width: 50rem;
+
+  --fp-bg: #ffffff;
+  --fp-paper: #f4effa;
+  --fp-card: #ffffff;
+  --fp-text: #2b1b3f;
+  --fp-muted: #4a3a5e;
+  --fp-soft: #6a4f8c;
+  --fp-heading: #390075;
+  --fp-line: #390075;
+  --fp-shadow: #390075;
+  --fp-hl: #6b860c;
+  --fp-tip: #eef5cf;
+  --fp-grid: rgba(57, 0, 117, 0.06);
+}
+
+:root[data-theme="dark"] {
+  --blume-background: #12021f;
+  --blume-foreground: #e9e1f3;
+  --blume-muted: #1f0838;
+  --blume-muted-foreground: #c9bbda;
+  --blume-border: rgba(195, 178, 211, 0.2);
+
+  --fp-bg: #12021f;
+  --fp-paper: #1a0330;
+  --fp-card: #1f0838;
+  --fp-text: #e9e1f3;
+  --fp-muted: #c9bbda;
+  --fp-soft: #b6a6ca;
+  --fp-heading: #ffffff;
+  --fp-line: #c3b2d3;
+  --fp-shadow: #b3d133;
+  --fp-hl: #b3d133;
+  --fp-tip: rgba(179, 209, 51, 0.1);
+  --fp-grid: rgba(195, 178, 211, 0.07);
+}
+
+@theme inline {
+  --color-paper: var(--fp-paper);
+  --color-card: var(--fp-card);
+  --color-ink: var(--fp-text);
+  --color-ink-muted: var(--fp-muted);
+  --color-ink-soft: var(--fp-soft);
+  --color-heading: var(--fp-heading);
+  --color-line: var(--fp-line);
+  --color-hl: var(--fp-hl);
+}
+
+/* Hard offset shadows, as in the line art. */
+@utility shadow-hard-sm {
+  box-shadow: 4px 4px 0 var(--fp-shadow);
+}
+
+@utility shadow-hard {
+  box-shadow: 6px 6px 0 var(--fp-shadow);
+}
+
+@utility shadow-hard-lg {
+  box-shadow: 10px 10px 0 var(--fp-shadow);
+}
+
+/* Lab graph paper. */
+@utility bg-lab {
+  background-image: linear-gradient(var(--fp-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--fp-grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@utility bg-lab-night {
+  background-color: #1a0330;
+  background-image: linear-gradient(rgba(195, 178, 211, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(195, 178, 211, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* The mascot's head stitches, as a seam. */
+@utility stitches {
+  height: 16px;
+  background:
+    linear-gradient(var(--stitch, #b3d133), var(--stitch, #b3d133)) center / 100% 3px no-repeat,
+    repeating-linear-gradient(90deg, var(--stitch, #b3d133) 0 4px, transparent 4px 28px) center / 100% 16px no-repeat;
+}
+
+/* A neck bolt, used as a bullet. */
+@utility bolt {
+  flex: none;
+  width: 22px;
+  height: 13px;
+  border-radius: 3px;
+  background: #c3b2d3;
+  border: 2.5px solid var(--fp-line);
+}
+
+/* Highlighted words in headings: olive on light ground, lime on night. */
+@utility hl-ink {
+  & :is(strong, .hl) {
+    color: var(--fp-hl);
+    font-weight: inherit;
+  }
+}
+
+@utility hl-night {
+  & :is(strong, .hl) {
+    color: #b3d133;
+    font-weight: inherit;
+  }
+}
+
+@utility hl-sticker {
+  & :is(strong, .hl) {
+    display: inline-block;
+    padding: 0 0.22em 0.12em;
+    border-radius: 0.2em;
+    background: #1a0330;
+    color: #b3d133;
+    font-weight: inherit;
+    rotate: -2deg;
+  }
+}
+
+@utility hl-swash {
+  & :is(strong, .hl) {
+    color: inherit;
+    font-weight: inherit;
+    background: linear-gradient(transparent 55%, #b3d133 55%, #b3d133 92%, transparent 92%);
+  }
+}
+
+/* Links in running text keep the text colour, underlined in lime. */
+@utility rich-text {
+  & a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: underline;
+    text-decoration-color: #b3d133;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+  }
+
+  & a:hover {
+    text-decoration-color: currentColor;
+  }
+
+  & strong {
+    font-weight: 700;
+  }
+
+  & code {
+    font-family: var(--font-mono);
+    font-size: 0.82em;
+  }
+}
+
+/* Motion: the creature breathes, the lightning flickers, the tapes run. */
+@keyframes fp-float {
+  0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+  50% { transform: translateY(-16px) rotate(1deg); }
+}
+
+@keyframes fp-flicker {
+  0%, 40%, 100% { opacity: 1; }
+  42% { opacity: 0.1; }
+  44% { opacity: 1; }
+  46% { opacity: 0.25; }
+  48%, 76% { opacity: 1; }
+  78% { opacity: 0.15; }
+  80% { opacity: 1; }
+}
+
+@keyframes fp-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes fp-blob {
+  0%, 100% { border-radius: 58% 42% 55% 45% / 48% 60% 40% 52%; }
+  33% { border-radius: 40% 60% 38% 62% / 60% 38% 62% 40%; }
+  66% { border-radius: 62% 38% 48% 52% / 38% 52% 48% 62%; }
+}
+
+@keyframes fp-glow {
+  0%, 100% { opacity: 0.55; scale: 1; }
+  50% { opacity: 0.95; scale: 1.08; }
+}
+
+@keyframes fp-req {
+  0% { left: 0; opacity: 0; }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { left: calc(100% - 12px); opacity: 0; }
+}
+
+@keyframes fp-pulse {
+  0%, 100% { box-shadow: 6px 6px 0 #1a0330, 0 0 0 0 rgba(26, 3, 48, 0.35); }
+  50% { box-shadow: 6px 6px 0 #1a0330, 0 0 0 12px rgba(26, 3, 48, 0); }
+}
+
+@keyframes fp-wiggle {
+  0%, 100% { rotate: 6deg; }
+  50% { rotate: -3deg; scale: 1.05; }
+}
+
+.fp-float { animation: fp-float 5s ease-in-out infinite; }
+.fp-flicker { animation: fp-flicker 3.2s linear infinite; }
+.fp-marquee { animation: fp-marquee 48s linear infinite; }
+.fp-marquee-r { animation: fp-marquee 60s linear infinite reverse; }
+.fp-blob { animation: fp-blob 11s ease-in-out infinite; }
+.fp-glow { animation: fp-glow 4s ease-in-out infinite; }
+.fp-req { animation: fp-req 2.4s linear infinite; }
+.fp-pulse { animation: fp-pulse 2.4s ease-in-out infinite; }
+.fp-wiggle { animation: fp-wiggle 2.4s ease-in-out infinite; }
+
+.fp-lift {
+  transition: translate 0.2s ease, rotate 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fp-lift:hover {
+  translate: -4px -4px;
+  rotate: 0deg;
+  box-shadow: 10px 10px 0 var(--fp-shadow);
+}
+
+.fp-press {
+  transition: translate 0.15s ease;
+}
+
+.fp-press:hover {
+  translate: -2px -2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header: always night purple, whatever the colour mode. */
+[data-blume-header] {
+  --blume-background: #1a0330;
+  --blume-foreground: #f4eefb;
+  --blume-muted-foreground: #d9cce8;
+  --blume-muted: rgba(195, 178, 211, 0.16);
+  --blume-border: rgba(195, 178, 211, 0.3);
+  background: #1a0330 !important;
+  border-bottom: 3px solid #0f0120;
+  color-scheme: dark;
+}
+
+[data-blume-header] img[src$="logo_lightbg.svg"] {
+  display: none !important;
+}
+
+[data-blume-header] img[src$="logo_darkbg.svg"] {
+  display: block !important;
+  height: 1.5rem;
+}
+
+/* Navigation progress bar (see NavProgress.astro). */
+#fp-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  height: 3px;
+  background: var(--color-fp-green);
+  box-shadow: 0 0 10px var(--color-fp-green);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+main {
+  transition: opacity 0.2s ease;
+}
+
+:root[data-fp-loading] main {
+  opacity: 0.55;
+}
+
+/* Docs sidebar: chunky section titles, the current page as a lime sticker. */
+.blume-nav-heading {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: var(--fp-heading);
+}
+
+.blume-nav-link {
+  border-radius: 10px;
+}
+
+.blume-nav-link[aria-current="page"] {
+  background: #b3d133 !important;
+  color: #1a0330 !important;
+  font-weight: 700;
+  border: 2.5px solid var(--fp-line);
+  box-shadow: 3px 3px 0 var(--fp-shadow);
+}
+
+/* "On this page": a neck bolt marks the current section. */
+[data-blume-toc] > p:first-child {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: var(--fp-heading);
+}
+
+[data-blume-toc] blume-toc a {
+  position: relative;
+  padding-inline-start: 1.75rem;
+}
+
+[data-blume-toc] blume-toc a::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.62rem;
+  width: 16px;
+  height: 10px;
+  border-radius: 3px;
+  border: 2px solid #c3b2d3;
+}
+
+[data-blume-toc] blume-toc a[aria-current="location"] {
+  font-weight: 700;
+}
+
+[data-blume-toc] blume-toc a[aria-current="location"]::before {
+  background: #b3d133;
+  border: 2.5px solid var(--fp-line);
+}
+
+/* Docs article. */
+.prose {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--fp-text);
+  --tw-prose-headings: var(--fp-heading);
+  --tw-prose-bold: var(--fp-heading);
+}
+
+.prose :where(h1, h2, h3, h4) {
+  font-family: var(--font-display);
+  color: var(--fp-heading);
+  font-weight: 800;
+}
+
+/* The page title and its lead read as one lilac card, mascot on the right. */
+.prose {
+  position: relative;
+}
+
+.prose > h1:first-child {
+  margin: 0;
+  padding: 2.125rem 2.25rem 0.5rem;
+  border: 3px solid var(--fp-line);
+  border-bottom: 0;
+  border-radius: 24px 24px 0 0;
+  background: var(--fp-paper);
+  box-shadow: 7px 7px 0 var(--fp-shadow);
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.prose > h1:first-child + p.text-lg {
+  margin: 0 0 2rem;
+  padding: 0.5rem 2.25rem 2rem;
+  border: 3px solid var(--fp-line);
+  border-top: 0;
+  border-radius: 0 0 24px 24px;
+  background: var(--fp-paper);
+  box-shadow: 7px 7px 0 var(--fp-shadow);
+  color: var(--fp-muted);
+  font-size: 1.1875rem;
+  line-height: 1.55;
+}
+
+.prose > h1:first-child:not(:has(+ p.text-lg)) {
+  margin-bottom: 2rem;
+  padding-bottom: 2.125rem;
+  border-bottom: 3px solid var(--fp-line);
+  border-radius: 24px;
+}
+
+@media (min-width: 52rem) {
+  .prose > h1:first-child,
+  .prose > h1:first-child + p.text-lg {
+    padding-inline-end: 13rem;
+  }
+
+  article.prose:has(> h1:first-child)::before {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    inset-inline-end: 1.75rem;
+    z-index: 1;
+    width: 10rem;
+    height: 10rem;
+    background: url("/img/elephant_cover.svg") center / contain no-repeat;
+    pointer-events: none;
+    animation: fp-float 6s ease-in-out infinite;
+  }
+}
+
+/* Section headings sit under a stitched seam. */
+.prose :where(h2):not(:where(.not-prose *)) {
+  margin-top: 3.5rem;
+  padding-top: 2.25rem;
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  background:
+    linear-gradient(#b3d133, #b3d133) top 6px left / 100% 3px no-repeat,
+    repeating-linear-gradient(90deg, #b3d133 0 4px, transparent 4px 28px) top left / 100% 16px no-repeat;
+}
+
+.prose :where(h3):not(:where(.not-prose *)) {
+  font-size: 1.375rem;
+  letter-spacing: -0.01em;
+}
+
+.prose :where(a):not(:where(.not-prose *, [data-blume-card], h1 *, h2 *, h3 *, h4 *)) {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: underline;
+  text-decoration-color: #b3d133;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.15s ease;
+
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+.prose :not(pre) > code:not(:where([class~="not-prose"] *)) {
+  padding: 0.125rem 0.4375rem;
+  border: 1.5px solid #c3b2d3;
+  border-radius: 7px;
+  background: var(--fp-paper);
+  color: var(--fp-heading);
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+/* Code: night purple, a thick outline and a lime hard shadow. Blume's own
+   code-block rules are !important, so these overrides must be too. */
+.prose pre.astro-code,
+.prose blume-tabs pre,
+.prose .not-prose > div > pre {
+  background: #1a0330 !important;
+  color: #f4eefb !important;
+}
+
+.prose pre.astro-code,
+.prose .not-prose > div > pre {
+  border: 3px solid #0f0120 !important;
+  border-radius: 16px !important;
+  box-shadow: 6px 6px 0 #b3d133;
+}
+
+.prose blume-tabs {
+  border: 3px solid #0f0120;
+  border-radius: 16px;
+  background: #1a0330;
+  box-shadow: 6px 6px 0 #b3d133;
+
+  & pre.astro-code {
+    border: 0 !important;
+    box-shadow: none;
+  }
+
+  & [role="tab"] {
+    color: #c9bbda;
+    font-weight: 600;
+  }
+
+  & [role="tab"][aria-selected="true"] {
+    color: #1a0330;
+    background: #b3d133;
+    border-radius: 8px;
+  }
+}
+
+.prose :where(pre[data-language])::before {
+  color: #c9bbda;
+  border-bottom-color: rgba(195, 178, 211, 0.2);
+}
+
+.prose :is(pre > [data-blume-copy], pre > [data-blume-ask], blume-tabs [data-blume-copy]) {
+  background: rgba(195, 178, 211, 0.16) !important;
+  border-color: transparent !important;
+  color: #c9bbda !important;
+
+  &:hover {
+    background: rgba(195, 178, 211, 0.28) !important;
+    color: #ffffff !important;
+  }
+}
+
+/* Callouts: outlined stickers with a round badge. */
+.fp-callout {
+  --callout: var(--fp-line);
+  --callout-bg: var(--fp-paper);
+  --callout-badge: #390075;
+  --callout-icon-color: #b3d133;
+  position: relative;
+  margin: 1.75rem 0;
+  padding: 1.125rem 1.375rem 1.125rem 4.25rem;
+  border: 3px solid var(--fp-line);
+  border-radius: 18px;
+  background: var(--callout-bg);
+  font-size: 1rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 1.125rem;
+    top: 1.125rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: var(--callout-badge);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: 1.125rem;
+    top: 1.125rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: var(--callout-icon-color);
+    mask: var(--callout-icon) center / 1.125rem no-repeat;
+  }
+
+  & > :first-child {
+    margin-top: 0;
+  }
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+
+  .prose & > p {
+    margin: 0.375rem 0;
+  }
+
+  .prose & .fp-callout-title {
+    margin: 0 0 0.25rem;
+    font-family: var(--font-display);
+    font-size: 1.1875rem;
+    font-weight: 800;
+    color: var(--fp-heading);
+  }
+
+  & a {
+    text-decoration-color: currentColor !important;
+  }
+
+  &[data-callout="note"] {
+    --callout-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4M12 8h.01'/%3E%3C/svg%3E");
+  }
+
+  &[data-callout="tip"] {
+    --callout-bg: var(--fp-tip);
+    --callout-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M13 2 4 14h7l-1 8 9-12h-7z'/%3E%3C/svg%3E");
+  }
+
+  &[data-callout="important"] {
+    --callout-badge: #b3d133;
+    --callout-icon-color: #1a0330;
+    --callout-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 8v5M12 17h.01'/%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3C/svg%3E");
+  }
+
+  &[data-callout="warning"] {
+    --callout-bg: #fff4d6;
+    --callout-badge: #8a5a00;
+    --callout-icon-color: #ffe08a;
+    --callout-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3ZM12 9v4M12 17h.01'/%3E%3C/svg%3E");
+  }
+
+  &[data-callout="caution"] {
+    --callout-bg: #ffe7e0;
+    --callout-badge: #a1260b;
+    --callout-icon-color: #ffd2c4;
+    --callout-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7.9 2h8.2L22 7.9v8.2L16.1 22H7.9L2 16.1V7.9zM12 8v4M12 16h.01'/%3E%3C/svg%3E");
+  }
+
+  :root[data-theme="dark"] & {
+    &[data-callout="note"] {
+      --callout-badge: #c3b2d3;
+      --callout-icon-color: #1a0330;
+    }
+
+    &[data-callout="warning"] {
+      --callout-bg: rgba(255, 196, 0, 0.1);
+    }
+
+    &[data-callout="caution"] {
+      --callout-bg: rgba(255, 90, 50, 0.12);
+    }
+  }
+}

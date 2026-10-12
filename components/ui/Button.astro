@@ -1,0 +1,33 @@
+---
+interface Props {
+  href: string;
+  variant?: "lime" | "purple" | "outline";
+  size?: "md" | "lg";
+  /** Colour of the hard shadow; on night sections use lilac so it reads. */
+  shadow?: "line" | "lilac" | "lime" | "none";
+  class?: string;
+}
+
+const { href, variant = "lime", size = "lg", shadow = variant === "purple" ? "lime" : "line", class: className } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={[
+    "fp-press inline-flex items-center gap-2.5 rounded-[14px] border-3 font-display font-extrabold no-underline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-fp-green",
+    {
+      "border-fp-deep bg-fp-green text-fp-night": variant === "lime",
+      "border-fp-deep bg-fp-purple text-white": variant === "purple",
+      "border-line bg-card text-heading": variant === "outline",
+      "h-13 px-6 text-[17px]": size === "md",
+      "h-14 px-7 text-lg": size === "lg",
+      "shadow-[6px_6px_0_var(--fp-line)]": shadow === "line",
+      "shadow-[6px_6px_0_#c3b2d3]": shadow === "lilac",
+      "shadow-[6px_6px_0_#b3d133]": shadow === "lime",
+    },
+    className,
+  ]}
+>
+  <slot />
+  {variant !== "outline" && <span aria-hidden="true">→</span>}
+</a>

@@ -1,0 +1,259 @@
+{
+  "meta": {
+    "title": "FrankenPHP: современный сервер приложений PHP, написанный на языке Go",
+    "description": "FrankenPHP - это новый сервер приложений для PHP-приложений (основанный на Caddy) и библиотека для встраивания интерпретатора PHP в веб-серверы Go."
+  },
+  "nav": {
+    "docs": "Документация",
+    "shop": "Магазин",
+    "help": "Вам нужна помощь?",
+    "editPage": "Редактировать эту страницу",
+    "poweredBy": "Спонсор"
+  },
+  "footer": {
+    "owner": "Создано для вас <a href=\"https://dunglas.dev/\">Kévin Dunglas</a>, создателем <a href=\"https://api-platform.com\">API Platform</a> и членом команды <a href=\"https://symfony.com\">Symfony</a> Core Team",
+    "design": "Веб-сайт разработан <a href=\"https://pushpak1300.me\">Pushpak Chhajed</a>.",
+    "sponsor": "Спонсор <a href=\"https://les-tilleuls.coop/en\">Les-Tilleuls.coop</a>."
+  },
+  "notice": "Эта страница была переведена сообществом и не обязательно является актуальной. Обратитесь к <strong>справочной версии</strong>.",
+  "home": {
+    "hero": {
+      "title": "Современный сервер приложений PHP, написанный на языке Go",
+      "cta": "Начать"
+    },
+    "gettingStarted": {
+      "overtitle": "Требуется всего одна команда",
+      "title": "Начните <strong class=\"hl\">прямо сейчас</strong>!",
+      "content": "Запустите высококачественный PHP-сервер в производство с помощью одной команды!",
+      "dockerTab": "Docker",
+      "staticTab": "Система",
+      "docker": "# Обслуживание каталога public/\ndocker run -v $PWD:/app/public \\\n  -p 443:443/tcp -p 443:443/udp \\\n  dunglas/frankenphp\n\n# Запуск сценария командной строки\ndocker run -v $PWD:/app \\\n  dunglas/frankenphp php script.php",
+      "standard": "# Установите FrankenPHP на Linux или macOS\ncurl https://frankenphp.dev/install.sh | sh\n\n# Или на Windows, с PowerShell\nirm https://frankenphp.dev/install.ps1 | iex\n\n# Обслуживание каталога public/\nfrankenphp php-server -r public/\n\n# Запуск сценария командной строки\nfrankenphp php-cli script.php"
+    },
+    "modern": {
+      "overtitle": "Готовы к революции в PHP?",
+      "title": "<strong class=\"hl\">Современнее</strong>, чем когда-либо!",
+      "items": [
+        "Использует официальный PHP-исполнитель, встроенный в передовой веб-сервер: <strong><a href=\"https://caddyserver.com\">Caddy</a></strong>",
+        "Нативная поддержка HTTP/1.1, HTTP/2 и <strong>HTTP/3</strong>",
+        "Автоматическая генерация и продление сертификатов <strong>HTTPS</strong> (Let's Encrypt или ZeroSSL)",
+        "Просто скопируйте файлы PHP в корневой каталог — и все готово!",
+        "<a href=\"/ru/docs/embed\">Создает <strong>автономные</strong> бинарные файлы</a>, самозапускаемые и без зависимостей, для ваших веб-приложений на PHP и инструментов командной строки.",
+        "Самые популярные PHP-расширения, включая <strong>OPcache</strong> и <strong>XDebug</strong>, поддерживаются нативно."
+      ],
+      "cta": "Попробуйте FrankenPHP"
+    },
+    "technos": {
+      "title": "Встроенная поддержка",
+      "items": [
+        {
+          "title": "Drupal",
+          "url": "https://github.com/dunglas/frankenphp-drupal",
+          "image": "/img/technos/drupal.png"
+        },
+        {
+          "title": "Sulu",
+          "url": "https://sulu.io/blog/running-sulu-with-frankenphp",
+          "image": "/img/technos/sulu.png"
+        },
+        {
+          "title": "WordPress",
+          "url": "https://github.com/StephenMiracle/frankenwp",
+          "image": "/img/technos/wordpress.png"
+        },
+        {
+          "title": "Laravel",
+          "url": "/ru/docs/laravel",
+          "image": "/img/technos/laravel.png"
+        },
+        {
+          "title": "Symfony",
+          "url": "https://github.com/dunglas/symfony-docker",
+          "image": "/img/technos/symfony.png"
+        },
+        {
+          "title": "API Platform",
+          "url": "https://api-platform.com/docs/distribution/",
+          "image": "/img/technos/api-platform.png"
+        },
+        {
+          "title": "Magento",
+          "url": "https://github.com/ekino/frankenphp-magento2",
+          "image": "/img/technos/magento.png"
+        }
+      ]
+    },
+    "worker": {
+      "overtitle": "Сделайте ваши PHP-приложения быстрее, чем когда-либо!",
+      "title": "Режим <strong class=\"hl\">Worker</strong>",
+      "items": [
+        {
+          "title": "Скрипт Worker",
+          "content": "Запустите ваше приложение один раз, оно <strong>остается в памяти</strong>!"
+        },
+        {
+          "title": "Прямой доступ",
+          "content": "Поддерживается нативно в Symfony, API Platform, Laravel..."
+        },
+        {
+          "title": "Простой",
+          "content": "Использует стандартные суперглобальные переменные: <strong>не нужен PSR-7</strong>."
+        },
+        {
+          "title": "Быстрый",
+          "content": "<strong>В 3,5 раза быстрее, чем FPM</strong> на приложениях API Platform, согласно <a href=\"https://github.com/dunglas/frankenphp-demo/tree/main/benchmark\">нашим бенчмаркам</a>."
+        },
+        {
+          "title": "Эффективный",
+          "content": "FrankenPHP написан на <strong>Go</strong> и <strong>C</strong>. Он использует ключевую особенность Go — горутины!"
+        },
+        {
+          "title": "Опциональный",
+          "content": "Ваше приложение может работать как есть, даже если оно не поддерживает режим worker."
+        },
+        {
+          "title": "Легкое развертывание",
+          "content": "Работает как отдельный процесс: один бинарный файл, <strong>никаких внешних сервисов не требуется</strong>."
+        },
+        {
+          "title": "Watcher",
+          "content": "Worker перезапускается <strong>при каждом изменении кода</strong>."
+        }
+      ]
+    },
+    "config": {
+      "overtitle": "Молниеносная скорость",
+      "title": "<strong class=\"hl\">Простая</strong> настройка",
+      "code": "localhost {\n    # Активируйте сжатие (необязательно)\n    encode zstd br gzip\n    # Запуск файлов PHP в текущем каталоге и обслуживание ресурсов\n    php_server\n}",
+      "content": "Три строки конфигурации: это все, что вам нужно для запуска PHP-сервера производственного уровня (автоматический HTTPS, HTTP/3, сжатие Brotli...), работающего на базе <a href=\"https://caddyserver.com\">Caddy</a>."
+    },
+    "features": {
+      "overtitle": "Функциональные возможности",
+      "title": "FrankenPHP <strong class=\"hl\">вкратце</strong>",
+      "items": [
+        {
+          "icon": "/img/box.svg",
+          "title": "Расширяемость",
+          "content": "Поддерживает PHP 8.2+, большинство PHP-расширений и все модули Caddy."
+        },
+        {
+          "icon": "/img/one.svg",
+          "title": "Единый сервис",
+          "content": "Разработан с упором на простоту: один сервис, один бинарный файл! FrankenPHP не требует PHP-FPM, так как использует собственный SAPI, специально созданный для веб-серверов на Go."
+        },
+        {
+          "icon": "/img/rocket.svg",
+          "title": "Легкое развертывание",
+          "content": "Облачное приложение, доступное как <a href=\"/ru/docs/docker\">Docker-образ</a>. Совместимо с Kubernetes и всеми современными облачными платформами. Также возможно упаковать ваше PHP-приложение как <a href=\"/ru/docs/embed\">самостоятельный исполняемый бинарный файл</a>."
+        },
+        {
+          "icon": "/img/worker.svg",
+          "title": "Режим worker",
+          "content": "<a href=\"/ru/docs/worker\">Запустите ваше приложение один раз</a> и держите его в памяти! Оно будет готово обрабатывать входящие запросы за считанные миллисекунды."
+        },
+        {
+          "icon": "/img/bulb.svg",
+          "title": "103 Early Hints",
+          "content": "<a href=\"/ru/docs/early-hints\">Early Hints</a> ускоряют <a href=\"https://blog.cloudflare.com/early-hints/\">загрузку веб-сайтов на 30%</a>. FrankenPHP — единственный SAPI PHP с поддержкой Early Hints!"
+        },
+        {
+          "icon": "/img/clock.svg",
+          "title": "Работа в реальном времени",
+          "content": "Встроенный Mercure Hub. Отправляйте события из ваших PHP-приложений во все подключенные браузеры — они мгновенно получат данные в виде JavaScript-событий!"
+        },
+        {
+          "icon": "/img/zip.svg",
+          "title": "Сжатие Brotli, Zstandard и Gzip",
+          "content": "Современные алгоритмы сжатия поддерживаются нативно."
+        },
+        {
+          "icon": "/img/log.svg",
+          "title": "Структурированные логи",
+          "content": "Логирование с четким форматом и детализированной информацией."
+        },
+        {
+          "icon": "/img/metrics.svg",
+          "title": "Метрики Prometheus и трассировка",
+          "content": "Встроенная поддержка Prometheus <a href=\"https://caddyserver.com/docs/metrics\">!</a>"
+        },
+        {
+          "icon": "/img/http.svg",
+          "title": "HTTP/2 & HTTP/3",
+          "content": "Нативная поддержка HTTPS, HTTP/2 и <strong>HTTP/3</strong>."
+        },
+        {
+          "icon": "/img/https.svg",
+          "title": "Автоматизация HTTPS",
+          "content": "Автоматическая генерация, продление и отзыв HTTPS-сертификатов."
+        },
+        {
+          "icon": "/img/reload.svg",
+          "title": "Плавная перезагрузка",
+          "content": "Развёртывайте ваши приложения без простоев благодаря мягким перезапускам."
+        }
+      ]
+    }
+  },
+  "help": {
+    "hero": {
+      "title": "Доверьте ваш проект нашим <strong class=\"hl\">экспертам</strong>&nbsp;",
+      "overtitle": "Нужна помощь?",
+      "content": "<a class=\"hl\" href='https://les-tilleuls.coop/en'>Les-Tilleuls.coop</a>, издатели FrankenPHP, предлагают широкий спектр услуг, чтобы помочь вам оптимизировать и повысить надежность вашего приложения.<br /><br />Если вам нужна поддержка в определении, создании и улучшении вашей инфраструктуры, вы обратились по адресу!",
+      "button": "Свяжитесь с нами!"
+    },
+    "migration": {
+      "title": "<strong class=\"hl\">Перенесите</strong> ваши приложения на FrankenPHP",
+      "content": "Мы поможем вам перенести вашу инфраструктуру на FrankenPHP и обучим ваши команды его использованию. Это повысит стабильность вашей системы и улучшит вашу продуктивность. Давайте разработаем план миграции и реализуем его вместе с вашей командой!",
+      "button": "Начнем!"
+    },
+    "hosting": {
+      "title": "<strong class=\"hl\">Размещайте</strong> ваши приложения с FrankenPHP",
+      "content": "Мы развернем и будем управлять вашими PHP-приложениями в продакшене, беря на себя <strong>все</strong>: мониторинг, безопасность, обновления, оптимизацию производительности…<br /><br />Кроме того, мы можем адаптировать ваши приложения к облачным технологиям, которые лучше всего подходят вашим потребностям (Kubernetes, GCP, AWS…).",
+      "button": "Напишите нам!"
+    },
+    "services": {
+      "title": "Широкий спектр услуг <strong class=\"hl\">PHP</strong>",
+      "content": "FrankenPHP спонсируется <a href='https://les-tilleuls.coop/en'>Les-Tilleuls.coop</a> — французской IT-компанией, специализирующейся на API, e-commerce, веб-разработке и облачных технологиях.<br /><br />Мы создатели <a href='https://api-platform.com'>API Platform</a>, со-ментейнеры Symfony, члены совета PHP Foundation и участники более сотни open-source проектов (Laravel, Kubernetes, PM2, Go…).",
+      "button": "Подробнее"
+    },
+    "go": {
+      "title": "Разработчики <strong class=\"hl\">Go</strong>",
+      "content": "Мы также вносим вклад в развитие языка Go. Мы создали <a class=\"hl\" href='https://mercure.rocks'>Mercure</a> — упрощенный open-source протокол для работы в реальном времени, а также его эталонную реализацию на этом языке. Кроме того, мы разработали <a class=\"hl\" href='https://vulcain.rocks'>Vulcain</a> — open-source протокол для быстрых и интуитивно понятных REST API, управляемых клиентом."
+    },
+    "further": {
+      "title": "Расширяйте возможности с <strong class=\"hl\">Les-Tilleuls.coop</strong>",
+      "subtitle": "Les-Tilleuls.coop предлагает поддержку через различные услуги:",
+      "content": [
+        {
+          "title": "Веб-разработка",
+          "content": "Используйте мощь современных фреймворков для создания эффективных веб-приложений (Symfony, Laravel, Vue.js, Next.js…)."
+        },
+        {
+          "title": "Обучение",
+          "content": "Повышайте свою квалификацию с нашей командой консультантов."
+        },
+        {
+          "title": "Консалтинг",
+          "content": "Наши консультационные услуги адаптированы к вашим потребностям и обеспечивают долгосрочную стабильность вашего приложения."
+        },
+        {
+          "title": "Экстренные решения",
+          "content": "Мы можем оперативно подключиться к вашей команде и усилить ее."
+        },
+        {
+          "title": "Аудит производительности, качества и безопасности",
+          "content": "Обеспечьте высочайшую производительность и безопасность с помощью наших детализированных аудитов."
+        },
+        {
+          "title": "UX и графический дизайн",
+          "content": "Создавайте привлекательные пользовательские интерфейсы с нашей экспертизой в дизайне."
+        }
+      ]
+    }
+  },
+  "ui": {
+    "copy": "Скопировать в буфер обмена",
+    "copied": "Скопировано!",
+    "language": "Язык"
+  }
+}

@@ -1,0 +1,84 @@
+---
+import CustomPage from "../CustomPage.astro";
+import Button from "../ui/Button.astro";
+import Heading from "../ui/Heading.astro";
+import { stringsFor } from "../i18n";
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const t = stringsFor(locale);
+const help = t.help;
+const contact = "mailto:contact@les-tilleuls.coop";
+
+const blocks = [
+  { ...help.migration, href: contact, image: "/img/migration.svg", width: 474, height: 553 },
+  { ...help.hosting, href: "https://les-tilleuls.coop/en/cloud-security", image: "/img/bellboy.svg", width: 1540, height: 1361 },
+  { ...help.services, href: "https://les-tilleuls.coop/en", image: "/img/love_php.svg", width: 1266, height: 976 },
+];
+const description = help.hero.content.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 158);
+---
+
+<CustomPage locale={locale} path="/help" title={`${t.nav.help} — FrankenPHP`} description={description}>
+  <section class="bg-lab-night text-[#f4eefb]">
+    <div class="mx-auto flex max-w-[80rem] flex-wrap items-center gap-12 px-6 py-20 md:px-8 md:py-24">
+      <div class="min-w-0 flex-[1_1_560px]">
+        <p class="m-0 inline-block rounded-full border-3 border-fp-deep bg-fp-green px-4 py-1.5 text-sm font-bold text-fp-night" style="rotate: -3deg">{help.hero.overtitle}</p>
+        <Heading as="h1" size="lg" tone="night" html={help.hero.title} class="mt-7" />
+        <p class="rich-text m-0 mt-6 max-w-[36rem] text-[19px]/[1.6] text-fp-mist [&_a]:text-white" set:html={help.hero.content} />
+        <Button href={contact} shadow="lilac" class="mt-9">{help.hero.button}</Button>
+      </div>
+      <img src="/img/franken-heart.svg" alt="" width="340" height="364" fetchpriority="high" class="fp-float mx-auto h-auto w-full max-w-[340px] flex-[0_1_340px]" />
+    </div>
+  </section>
+
+  <div class="mx-auto flex max-w-[80rem] flex-col gap-28 px-6 pt-28 md:px-8">
+    {
+      blocks.map((block, i) => (
+        <section class:list={["flex flex-wrap items-center gap-14", i % 2 === 1 && "flex-row-reverse"]}>
+          <div class="min-w-0 flex-[1.2_1_460px]">
+            <Heading html={block.title} size="sm" />
+            <p class="rich-text m-0 mt-5 text-[17px]/[1.65] text-ink-muted" set:html={block.content} />
+            <Button href={block.href} size="md" class="mt-8">{block.button}</Button>
+          </div>
+          <div class="relative min-w-0 flex-[1_1_340px] p-5">
+            <div class:list={["absolute inset-3 rounded-[26px] border-3 border-line", i % 2 === 1 ? "bg-fp-lilac" : "bg-fp-green"]} style={`rotate: ${i % 2 === 1 ? 3 : -3}deg`}></div>
+            <div class="relative flex items-center justify-center rounded-[24px] border-3 border-line bg-card p-8 shadow-hard">
+              <img src={block.image} alt="" width={block.width} height={block.height} loading="lazy" decoding="async" class="h-auto max-h-72 w-full max-w-xs object-contain" />
+            </div>
+          </div>
+        </section>
+      ))
+    }
+  </div>
+
+  <section class="bg-lab-night mt-30 border-t-3 border-fp-deep text-[#f4eefb]">
+    <div class="stitches"></div>
+    <div class="mx-auto flex max-w-[80rem] flex-wrap items-center gap-14 px-6 py-24 md:px-8">
+      <div class="min-w-0 flex-[1_1_460px]">
+        <Heading html={help.go.title} tone="night" size="sm" />
+        <p class="rich-text m-0 mt-5 text-[17px]/[1.65] text-fp-mist [&_a]:text-white" set:html={help.go.content} />
+      </div>
+      <div class="min-w-0 flex-[1_1_420px] rounded-[26px] border-3 border-fp-lilac bg-fp-paper p-6 shadow-[10px_10px_0_#b3d133]">
+        <img src="/img/gokenstein.svg" alt="" width="600" height="482" loading="lazy" decoding="async" class="block h-auto w-full" />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[80rem] px-6 pt-28 md:px-8">
+    <Heading html={help.further.title} />
+    <p class="m-0 mt-4 mb-12 text-lg text-ink-muted">{help.further.subtitle}</p>
+    <ul class="m-0 grid list-none grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5.5 p-0">
+      {
+        help.further.content.map((item) => (
+          <li class="fp-lift rounded-[22px] border-3 border-line bg-card p-6.5 shadow-hard">
+            <h3 class="m-0 font-display text-[21px]/tight font-extrabold text-heading" set:html={item.title} />
+            <p class="rich-text m-0 mt-2 text-[15px]/[1.6] text-ink-muted" set:html={item.content} />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</CustomPage>

@@ -1,8 +1,7 @@
 node_modules
-content/**/docs/
+.blume
+dist
 .env.local
-data/**/nav.yaml
-static/install.sh
-static/install.ps1
-static/llms.txt
-public
+public/install.sh
+public/install.ps1
+content

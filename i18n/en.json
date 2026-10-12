@@ -1,0 +1,329 @@
+{
+  "meta": {
+    "title": "FrankenPHP: the modern PHP app server",
+    "description": "FrankenPHP is a new app server for PHP apps (built on top of Caddy) and a library to embed the PHP interpreter in Go web servers."
+  },
+  "nav": {
+    "docs": "Documentation",
+    "shop": "Shop",
+    "help": "Need help?",
+    "editPage": "Edit this page",
+    "poweredBy": "Powered by"
+  },
+  "footer": {
+    "owner": "Brought to you by <a href=\"https://dunglas.dev/\">Kévin Dunglas</a>, creator of API Platform and a member of the Symfony Core Team.",
+    "design": "Design by <a href=\"https://pushpak1300.me\">Pushpak Chhajed</a>, illustrations by <a href=\"https://github.com/ginifizz\">Laury Sorriaux</a>.",
+    "sponsor": "Sponsored by <a href=\"https://les-tilleuls.coop/en\">Les-Tilleuls.coop</a>.",
+    "learn": "Learn",
+    "community": "Community",
+    "tagline": "Stitched together with Caddy, Go and C"
+  },
+  "notice": "This page has been translated by the community and may not be up to date. See <strong>the reference version</strong>.",
+  "home": {
+    "hero": {
+      "title": "The modern PHP app server, written in Go.",
+      "subtitle": "One binary that boots your app once and keeps it alive. Worker mode, automatic HTTPS, HTTP/3 and Early Hints, stitched together on top of Caddy.",
+      "pill": "Officially supported by The PHP Foundation",
+      "cta": "Get started",
+      "platforms": "Free and open source. Runs on Linux, macOS, Windows and FreeBSD.",
+      "sticker": "It's alive!"
+    },
+    "technos": {
+      "title": "Works natively with",
+      "items": [
+        {
+          "title": "Drupal",
+          "url": "https://github.com/dunglas/frankenphp-drupal",
+          "image": "/img/technos/drupal.png"
+        },
+        {
+          "title": "Sulu",
+          "url": "https://sulu.io/blog/running-sulu-with-frankenphp",
+          "image": "/img/technos/sulu.png"
+        },
+        {
+          "title": "WordPress",
+          "url": "/docs/wordpress",
+          "image": "/img/technos/wordpress.png"
+        },
+        {
+          "title": "Laravel",
+          "url": "/docs/laravel",
+          "image": "/img/technos/laravel.png"
+        },
+        {
+          "title": "Symfony",
+          "url": "https://github.com/dunglas/symfony-docker",
+          "image": "/img/technos/symfony.png"
+        },
+        {
+          "title": "API Platform",
+          "url": "https://api-platform.com/docs/distribution/",
+          "image": "/img/technos/api-platform.png"
+        },
+        {
+          "title": "Magento",
+          "url": "https://github.com/ekino/frankenphp-magento2",
+          "image": "/img/technos/magento.png"
+        }
+      ]
+    },
+    "tape": [
+      "Worker mode",
+      "HTTP/3",
+      "103 Early Hints",
+      "Mercure real-time",
+      "zstd · Brotli · gzip",
+      "Automatic HTTPS",
+      "Static binaries",
+      "Prometheus metrics",
+      "Graceful reload"
+    ],
+    "gettingStarted": {
+      "title": "One command to <strong class=\"hl\">run them all</strong>.",
+      "content": "A production-grade PHP server in one command. No PHP-FPM, no Nginx, no glue: copy your PHP files into the document root and you're done.",
+      "dockerTab": "Docker",
+      "staticTab": "System",
+      "docker": "# Serve the public/ directory\ndocker run -v $PWD:/app/public \\\n  -p 443:443/tcp -p 443:443/udp \\\n  dunglas/frankenphp\n\n# Run a command-line script\ndocker run -v $PWD:/app \\\n  dunglas/frankenphp php script.php",
+      "standard": "# Install FrankenPHP on Linux or macOS\ncurl https://frankenphp.dev/install.sh | sh\n\n# Or on Windows, with PowerShell\nirm https://frankenphp.dev/install.ps1 | iex\n\n# Serve the public/ directory\nfrankenphp php-server -r public/"
+    },
+    "anatomy": {
+      "title": "Anatomy of a <strong class=\"hl\">modern</strong> PHP server.",
+      "content": "Every part was stitched on for a reason. Here's what keeps the creature alive.",
+      "caption": "One binary. No PHP-FPM.",
+      "parts": [
+        {
+          "part": "The bolts",
+          "title": "Automatic HTTPS",
+          "content": "Certificates issued, renewed and revoked for you, with Let's Encrypt or ZeroSSL.",
+          "href": "/docs/config"
+        },
+        {
+          "part": "The brain",
+          "title": "Worker mode",
+          "content": "Boots your app once and keeps it in memory, ready in milliseconds.",
+          "href": "/docs/worker"
+        },
+        {
+          "part": "The stitches",
+          "title": "Caddy inside",
+          "content": "The official PHP executor sewn into Caddy, with every Caddy module at hand.",
+          "href": "/docs/config"
+        },
+        {
+          "part": "The eyes",
+          "title": "103 Early Hints",
+          "content": "Spots the assets a page needs and tells the browser before the response is ready.",
+          "href": "/docs/early-hints"
+        },
+        {
+          "part": "The ears",
+          "title": "Real-time",
+          "content": "A built-in Mercure hub pushes events from PHP to every connected browser.",
+          "href": "/docs/mercure"
+        },
+        {
+          "part": "The trunk",
+          "title": "HTTP/3 & compression",
+          "content": "HTTP/2 and HTTP/3 by default, with zstd, Brotli and gzip built in.",
+          "href": "/docs/config"
+        }
+      ]
+    },
+    "worker": {
+      "title": "Boot it once.<br>It stays <strong class=\"hl\">alive.</strong>",
+      "content": "Worker mode boots your application a single time and keeps it in memory. Every request after that skips the bootstrap, using plain old superglobals: no PSR-7 required.",
+      "stat": "3.5×",
+      "statText": "faster than PHP-FPM on API Platform apps, according to <a href=\"https://github.com/dunglas/frankenphp-demo/tree/main/benchmark\">our benchmarks</a>.",
+      "requests": "Requests",
+      "booted": "Your app, booted",
+      "bootedNote": "in memory, ready to answer",
+      "responses": "Responses",
+      "cta": "Read the worker docs",
+      "items": [
+        {
+          "title": "Straightforward",
+          "content": "Supported natively by Laravel Octane, Symfony and API Platform."
+        },
+        {
+          "title": "Efficient",
+          "content": "Written in Go and C, built on Go's iconic goroutines."
+        },
+        {
+          "title": "Optional",
+          "content": "Apps that aren't worker-ready are served as-is, in classic mode."
+        },
+        {
+          "title": "Easy deploy",
+          "content": "Runs in process: one binary, no external service needed."
+        },
+        {
+          "title": "Watcher",
+          "content": "Workers restart automatically each time your code changes."
+        },
+        {
+          "title": "Self-healing",
+          "content": "Restart a worker after N requests to keep memory leaks in check."
+        }
+      ]
+    },
+    "config": {
+      "title": "Three lines. <strong class=\"hl\">Production-grade.</strong>",
+      "content": "That's all it takes to run a production-grade PHP server, powered by <a href=\"https://caddyserver.com\">Caddy</a>.",
+      "code": "localhost {\n    # Enable compression (optional)\n    encode zstd br gzip\n    # Execute PHP files and serve assets\n    php_server\n}",
+      "sticker": "That's the whole file.",
+      "cta": "Read the config docs"
+    },
+    "features": {
+      "title": "Everything else, <strong class=\"hl\">in the box</strong>.",
+      "items": [
+        {
+          "icon": "/img/one.svg",
+          "title": "Only one service",
+          "content": "No PHP-FPM: FrankenPHP uses its own SAPI, handcrafted for Go web servers."
+        },
+        {
+          "icon": "/img/box.svg",
+          "title": "Extensible",
+          "content": "PHP 8.2+, most PHP extensions and all Caddy modules. Write extensions in Go, too."
+        },
+        {
+          "icon": "/img/rocket.svg",
+          "title": "Easy deploy",
+          "content": "A <a href=\"/docs/docker\">Docker image</a>, Kubernetes, or your whole app as <a href=\"/docs/embed\">one static binary</a>."
+        },
+        {
+          "icon": "/img/worker.svg",
+          "title": "Worker mode",
+          "content": "<a href=\"/docs/worker\">Boot once</a>, then answer each request in a few milliseconds."
+        },
+        {
+          "icon": "/img/bulb.svg",
+          "title": "103 Early Hints",
+          "content": "The only PHP SAPI with <a href=\"/docs/early-hints\">Early Hints</a>, for pages that start loading sooner."
+        },
+        {
+          "icon": "/img/clock.svg",
+          "title": "Real-time",
+          "content": "A built-in <a href=\"https://mercure.rocks\">Mercure</a> hub sends events from PHP to every browser."
+        },
+        {
+          "icon": "/img/zip.svg",
+          "title": "Modern compression",
+          "content": "Zstandard, Brotli and gzip, supported out of the box."
+        },
+        {
+          "icon": "/img/log.svg",
+          "title": "Structured logging",
+          "content": "Logs with a defined format and the details you need."
+        },
+        {
+          "icon": "/img/metrics.svg",
+          "title": "Metrics & tracing",
+          "content": "Built-in <a href=\"https://caddyserver.com/docs/metrics\">Prometheus support</a>, with no extra service to run."
+        },
+        {
+          "icon": "/img/http.svg",
+          "title": "HTTP/2 & HTTP/3",
+          "content": "Native support for HTTPS, HTTP/2 and HTTP/3."
+        },
+        {
+          "icon": "/img/https.svg",
+          "title": "HTTPS automation",
+          "content": "Certificates generated, renewed and revoked automatically."
+        },
+        {
+          "icon": "/img/reload.svg",
+          "title": "Graceful reload",
+          "content": "Deploy with zero downtime thanks to graceful reloads."
+        }
+      ]
+    },
+    "go": {
+      "sticker": "Go + C + PHP",
+      "title": "Born in a lab. <strong class=\"hl\">Written in Go.</strong>",
+      "content": "FrankenPHP is a Caddy module and a library: embed the PHP interpreter in any Go program and serve PHP scripts through <code>net/http</code>.",
+      "code": "server, _ := frankenphp.NewServer(\"public/\")\nfrankenphp.Init(frankenphp.WithServer(server))\ndefer frankenphp.Shutdown()\n\nhttp.HandleFunc(\"/\", func(w http.ResponseWriter, r *http.Request) {\n    server.ServeHTTP(w, r)\n})",
+      "cta": "Use FrankenPHP as a Go library"
+    },
+    "modern": {
+      "title": "<strong class=\"hl\">Moderner</strong> PHP than ever!",
+      "items": [
+        "Runs the official PHP interpreter inside <a href=\"https://caddyserver.com\">Caddy</a>, a state-of-the-art web server.",
+        "Supports HTTP/1.1, HTTP/2 and HTTP/3 natively, with automatic HTTPS certificates.",
+        "Copy your PHP files into the document root, and you're done.",
+        "Builds <a href=\"/docs/embed\">standalone, self-executable binaries</a> of your web apps and CLI tools.",
+        "Works out of the box with popular extensions, including OPcache and Xdebug."
+      ],
+      "cta": "Try it"
+    },
+    "helpCta": {
+      "title": "Need a hand? <strong class=\"hl\">We've got heart.</strong>",
+      "content": "<a href=\"https://les-tilleuls.coop/en\">Les-Tilleuls.coop</a>, the cooperative behind FrankenPHP, helps teams migrate, host and speed up their PHP apps.",
+      "button": "Get in touch",
+      "secondary": "See how we help"
+    }
+  },
+  "help": {
+    "hero": {
+      "title": "Let’s create something <strong class=\"hl\">great</strong>!",
+      "overtitle": "Need help?",
+      "content": "<a class=\"hl\" href='https://les-tilleuls.coop/en'>Les-Tilleuls.coop</a>, the editors of FrankenPHP, provides a wide range of resources to help you make your app faster and more reliable.<br /><br />If you’re looking for guidance on defining, building, and improving your infrastructure, you’re in the right place!",
+      "button": "Contact us!"
+    },
+    "migration": {
+      "title": "<strong class=\"hl\">Migrate</strong> your applications to FrankenPHP",
+      "content": "We migrate your infrastructure to FrankenPHP and train your teams on its use. This will enhance the stability of your infra, leading to increased productivity. Let's establish a migration plan now and work hand in hand with your teams for its implementation!",
+      "button": "Let's start!"
+    },
+    "hosting": {
+      "title": "<strong class=\"hl\">Hosting</strong> your projects with FrankenPHP",
+      "content": "We deploy and manage your PHP apps in production and take care of <strong>everything</strong>: monitoring, enforcing security, upgrading, optimizing performance…<br /><br />In addition, we can manage your applications to the cloud technologies that best suit your needs (Kubernetes, GCP, AWS…) or your on premise servers.",
+      "button": "Get in touch!"
+    },
+    "services": {
+      "title": "A wide range of <strong class=\"hl\">PHP</strong> services",
+      "content": "FrankenPHP is sponsored by <a href='https://les-tilleuls.coop/en'>Les-Tilleuls.coop</a>, a French-based IT services company specializing in APIs, e-commerce, web, and cloud.<br /><br />We are the creators of <a href='https://api-platform.com'>API Platform</a>, co-maintainers of Symfony, members of the PHP Foundation’s advisory board, and contributors to more than 100 open-source solutions (Laravel, Kubernetes, PM2, Go…).",
+      "button": "Learn more"
+    },
+    "go": {
+      "title": "We are <strong class=\"hl\">Go</strong> lovers",
+      "content": "We are also major contributors to Go. We created <a class=\"hl\" href='https://mercure.rocks'>Mercure</a>, a simplified real-time open protocol and reference implementation written in this language, and <a class=\"hl\" href='https://vulcain.rocks'> Vulcain</a>, an open protocol for fast and idiomatic client-driven REST APIs."
+    },
+    "further": {
+      "title": "Going further with <strong class=\"hl\">Les-Tilleuls.coop</strong>",
+      "subtitle": "Les-Tilleuls.coop can also provide personalized support through various services:",
+      "content": [
+        {
+          "title": "Web development",
+          "content": "Unleash the power of modern frameworks to create powerful websites. (Symfony, Laravel, Vue.js, Next.js…)"
+        },
+        {
+          "title": "Trainings",
+          "content": "Elevate your skills with our certified developers"
+        },
+        {
+          "title": "Consultancy",
+          "content": "Overcome challenges confidently with our strategic consulting services tailored to your needs"
+        },
+        {
+          "title": "Mission rescue",
+          "content": "We help you build high-challenge websites"
+        },
+        {
+          "title": "Performance and security audit",
+          "content": "Ensure top-notch performance and security with our in-depth audits"
+        },
+        {
+          "title": "UX and graphic design",
+          "content": "Create captivating user experiences with our design expertise."
+        }
+      ]
+    }
+  },
+  "ui": {
+    "copy": "Copy to clipboard",
+    "copied": "Copied!",
+    "language": "Language"
+  }
+}

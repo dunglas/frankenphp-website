@@ -1,0 +1,37 @@
+---
+import { Code } from "astro:components";
+
+import { codeThemes } from "../../code-themes";
+
+interface Props {
+  code: string;
+  lang: string;
+  filename?: string;
+  /** "night" is the outlined card; "lilac" sits on night sections; "none" fills a parent frame. */
+  frame?: "night" | "lilac" | "none";
+  class?: string;
+}
+
+const { code, lang, filename, frame = "night", class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    "min-w-0 overflow-hidden",
+    {
+      "rounded-[20px] border-3 border-fp-deep bg-fp-night": frame === "night",
+      "rounded-[18px] border-3 border-fp-lilac bg-fp-deep": frame === "lilac",
+      "bg-fp-night": frame === "none",
+    },
+    className,
+  ]}
+>
+  {filename && <p class="m-0 px-7 pt-5 font-mono text-xs text-[#9c86b5]">{filename}</p>}
+  <slot />
+  <Code
+    code={code.trim()}
+    lang={lang as never}
+    theme={codeThemes.dark as never}
+    class="m-0 overflow-x-auto bg-transparent! px-7 pt-4 pb-7 font-mono text-[13px]/[1.95]"
+  />
+</div>

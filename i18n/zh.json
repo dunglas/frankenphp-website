@@ -1,0 +1,259 @@
+{
+  "meta": {
+    "title": "FrankenPHP：现代 PHP 应用服务器",
+    "description": "FrankenPHP 是一个新的 PHP 应用服务器（基于 Caddy 构建），同时也是一个库，用于在 Go Web 服务器中嵌入 PHP 解释器."
+  },
+  "nav": {
+    "docs": "文档",
+    "shop": "店铺",
+    "help": "需要帮助？",
+    "editPage": "编辑此页面",
+    "poweredBy": "由...提供支持"
+  },
+  "footer": {
+    "owner": "由 <a href=\"https://dunglas.dev/\">Kévin Dunglas</a> (API Platform 创建者, Symfony 核心团队成员) 为您创建",
+    "design": "网站设计 <a href=\"https://pushpak1300.me\">Pushpak Chhajed</a>",
+    "sponsor": "赞助商 <a href=\"https://les-tilleuls.coop/en\">Les-Tilleuls.coop</a>"
+  },
+  "notice": "该页面已由社区翻译，可能不是最新的。参见<strong>参考版本</strong>（英文）。",
+  "home": {
+    "hero": {
+      "title": "现代 PHP 应用服务器，用 Go 编写",
+      "cta": "开始使用"
+    },
+    "gettingStarted": {
+      "overtitle": "一条命令运行所有",
+      "title": "开始<strong class=\"hl\">使用</strong>！",
+      "content": "只需使用一条命令即可启动并运行一个生产级别的 PHP 服务器！",
+      "dockerTab": "Docker",
+      "staticTab": "系统",
+      "docker": "# 服务 public/ 目录\ndocker run -v $PWD:/app/public \\\n  -p 443:443/tcp -p 443:443/udp \\\n  dunglas/frankenphp\n\n# 运行命令行脚\ndocker run -v $PWD:/app \\\n  dunglas/frankenphp php script.php",
+      "standard": "# 在 Linux 或 macOS 上安装 FrankenPHP\ncurl https://frankenphp.dev/install.sh | sh\n\n# 或者在 Windows 上，使用 PowerShell\nirm https://frankenphp.dev/install.ps1 | iex\n\n# 服务 public/ 目录\nfrankenphp php-server -r public/\n\n# 运行命令行脚本\nfrankenphp php-cli script.php"
+    },
+    "modern": {
+      "overtitle": "准备好迎接未来了吗？",
+      "title": "比以往任何时候都<strong class=\"hl\">更现代</strong>的 PHP！",
+      "items": [
+        "使用嵌入在最先进的 Web 服务器中的官方 PHP 执行器：<strong><a href=\"https://caddyserver.com\">Caddy</a></strong>",
+        "原生支持 HTTP/1.1、HTTP/2 和 <strong>HTTP/3</strong>",
+        "自动生成和续订 <strong>HTTPS</strong> 证书（Let's Encrypt 或 ZeroSSL）",
+        "将您的 PHP 文件复制到文档根目录，就是这么简单！",
+        "为您的 PHP web 应用和命令行工具<a href=\"/zh/docs/embed\">构建 <strong>独立的</strong>、自执行的、无依赖的二进制文件</a>。",
+        "包括 <strong>OPcache</strong> 和 <strong>XDebug</strong> 在内的流行 PHP 扩展得到了原生支持！"
+      ],
+      "cta": "尝试一下"
+    },
+    "technos": {
+      "title": "原生支持",
+      "items": [
+        {
+          "title": "Drupal",
+          "url": "https://github.com/dunglas/frankenphp-drupal",
+          "image": "/img/technos/drupal.png"
+        },
+        {
+          "title": "Sulu",
+          "url": "https://sulu.io/blog/running-sulu-with-frankenphp",
+          "image": "/img/technos/sulu.png"
+        },
+        {
+          "title": "WordPress",
+          "url": "https://github.com/StephenMiracle/frankenwp",
+          "image": "/img/technos/wordpress.png"
+        },
+        {
+          "title": "Laravel",
+          "url": "/zh/docs/laravel",
+          "image": "/img/technos/laravel.png"
+        },
+        {
+          "title": "Symfony",
+          "url": "https://github.com/dunglas/symfony-docker",
+          "image": "/img/technos/symfony.png"
+        },
+        {
+          "title": "API Platform",
+          "url": "https://api-platform.com/docs/distribution/",
+          "image": "/img/technos/api-platform.png"
+        },
+        {
+          "title": "Magento",
+          "url": "https://github.com/ekino/frankenphp-magento2",
+          "image": "/img/technos/magento.png"
+        }
+      ]
+    },
+    "worker": {
+      "overtitle": "让您的 PHP 应用程序比以往任何时候都更快！",
+      "title": "Worker <strong class=\"hl\">模式</strong>",
+      "items": [
+        {
+          "title": "Worker 脚本",
+          "content": "启动您的应用一次，它便<strong>常驻内存</strong>！"
+        },
+        {
+          "title": "直接明了",
+          "content": "由 Symfony、API Platform、Laravel... 原生支持。"
+        },
+        {
+          "title": "简单",
+          "content": "仅需使用原始的超全局变量：<strong>无需 PSR-7</strong>。"
+        },
+        {
+          "title": "快速",
+          "content": "根据<a href=\"https://github.com/dunglas/frankenphp-demo/tree/main/benchmark\">我们的基准测试</a>，API Platform 应用上<strong>比 FPM 快 3.5 倍</strong>。"
+        },
+        {
+          "title": "高效",
+          "content": "FrankenPHP 用 <strong>Go</strong> 和 <strong>C</strong> 编写。它依赖 Go 的标志性功能：goroutines！"
+        },
+        {
+          "title": "可选",
+          "content": "即使您的应用不兼容 worker 模式，也可以按原样提供服务。"
+        },
+        {
+          "title": "简易部署",
+          "content": "以进程方式运行：一个二进制文件，<strong>无需外部服务</strong>。"
+        },
+        {
+          "title": "观察者",
+          "content": "代码更改后，工作程序会立即重新启动。"
+        }
+      ]
+    },
+    "config": {
+      "overtitle": "快如闪电",
+      "title": "配置<strong class=\"hl\">如此简单</strong>！",
+      "code": "localhost {\n    # 启用压缩（可选)\n    encode zstd br gzip\n    # 执行当前目录中的PHP文件并提供资产\n    php_server\n}",
+      "content": "只需三行配置：现在，您所需要的就是启动一个生产级别的 PHP 服务器（自动 HTTPS、HTTP/3、Brotli 压缩...），由 <a href=\"https://caddyserver.com\">Caddy</a> 提供支持。"
+    },
+    "features": {
+      "overtitle": "特征",
+      "title": "FrankenPHP <strong class=\"hl\">概览</strong>",
+      "items": [
+        {
+          "icon": "/img/box.svg",
+          "title": "可伸缩",
+          "content": "与 PHP 8.2+、大多数 PHP 扩展和所有 Caddy 模块兼容。"
+        },
+        {
+          "icon": "/img/one.svg",
+          "title": "唯一服务",
+          "content": "设计简洁明了：只需要一个服务，只需要一个二进制文件！FrankenPHP 不需要 PHP-FPM，它使用为 Go web 服务器特别定制的自己的 SAPI。"
+        },
+        {
+          "icon": "/img/rocket.svg",
+          "title": "易于部署",
+          "content": "作为<a href=\"/zh/docs/docker\">Docker 镜像</a>的云原生应用交付。兼容 Kubernetes 和所有现代云平台。也可以将您的 PHP 应用程序打包为<a href=\"/zh/docs/embed\">独立的、自执行的静态二进制文件</a>。"
+        },
+        {
+          "icon": "/img/worker.svg",
+          "title": "工作模式",
+          "content": "<a href=\"/zh/docs/worker\">一次启动您的应用程序</a>并保持其在内存中！它准备在几毫秒内处理传入请求。"
+        },
+        {
+          "icon": "/img/bulb.svg",
+          "title": "103 早期提示",
+          "content": "<a href=\"/zh/docs/early-hints\">早期提示</a>是 web 平台的一个全新特性，可以通过<a href=\"https://blog.cloudflare.com/early-hints/\">提前 30% 的时间加载网站</a>。FrankenPHP 是唯一支持提前提示的 PHP SAPI！"
+        },
+        {
+          "icon": "/img/clock.svg",
+          "title": "实时功能",
+          "content": "内置的<a href=\"https://mercure.rocks\">Mercure 中心</a>。从您的 PHP 应用程序发送事件到所有连接的浏览器，它们立即作为 JavaScript 事件接收负载！"
+        },
+        {
+          "icon": "/img/zip.svg",
+          "title": "Brotli、Zstandard 和 Gzip 压缩",
+          "content": "现代压缩格式开箱即用。"
+        },
+        {
+          "icon": "/img/log.svg",
+          "title": "结构化日志",
+          "content": "为您的日志带来更加明确的格式和细节。"
+        },
+        {
+          "icon": "/img/metrics.svg",
+          "title": "Prometheus 指标和追踪",
+          "content": "内置的<a href=\"https://caddyserver.com/docs/metrics\">Prometheus 支持</a>！"
+        },
+        {
+          "icon": "/img/http.svg",
+          "title": "HTTP/2 & HTTP/3",
+          "content": "对 HTTPS、HTTP/2 和 <strong>HTTP/3</strong> 的原生支持。"
+        },
+        {
+          "icon": "/img/https.svg",
+          "title": "HTTPS 自动化",
+          "content": "自动生成、续订和撤销 HTTPS 证书。"
+        },
+        {
+          "icon": "/img/reload.svg",
+          "title": "平滑重载",
+          "content": "通过平滑重载零停机部署您的应用。"
+        }
+      ]
+    }
+  },
+  "help": {
+    "hero": {
+      "title": "让我们一起创造一些<strong class=\"hl\">伟大的</strong>东西！",
+      "overtitle": "需要帮助吗？",
+      "content": "<a class=\"hl\" href='https://les-tilleuls.coop/en'>Les-Tilleuls.coop</a>，FrankenPHP的编辑者，提供了广泛的资源来帮助您使您的应用程序更快更可靠。<br /><br />如果您正在寻找关于定义、构建和改进您的基础设施的指导，那么您来对地方了！",
+      "button": "联系我们！"
+    },
+    "migration": {
+      "title": "<strong class=\"hl\">迁移</strong>您的应用程序到FrankenPHP",
+      "content": "我们将您的基础设施迁移到FrankenPHP，并培训您的团队使用它。这将增强您的基础设施的稳定性，从而提高生产力。现在让我们制定一个迁移计划，并与您的团队携手实施！",
+      "button": "开始吧！"
+    },
+    "hosting": {
+      "title": "<strong class=\"hl\">托管</strong>您的项目与FrankenPHP",
+      "content": "我们在生产中部署和管理您的PHP应用程序，并处理 <strong>一切</strong>：监控、执行安全性、升级、优化性能……<br /><br />此外，我们可以将您的应用程序管理到最适合您需求的Cloud技术（Kubernetes、GCP、AWS…）或您的本地服务器。",
+      "button": "取得联系！"
+    },
+    "services": {
+      "title": "广泛的<strong class=\"hl\">PHP</strong>服务",
+      "content": "FrankenPHP由 <a href='https://les-tilleuls.coop/en'>Les-Tilleuls.coop</a>赞助，这是一家专注于API、电子商务、网站和Cloud的法国IT服务公司。<br /><br />我们是<a href='https://api-platform.com'>API Platform</a>的创建者，Symfony的共同维护者，PHP基金会咨询委员会的成员，并为超过100个开源解决方案（Laravel、Kubernetes、PM2、Go…）做出了贡献。",
+      "button": "了解更多"
+    },
+    "go": {
+      "title": "我们是<strong class=\"hl\">Go</strong>爱好者",
+      "content": "我们也是Go的主要贡献者。我们创建了<a class=\"hl\" href='https://mercure.rocks'>Mercure</a>，一个用这种语言编写的简化的实时开放协议和参考实现，以及<a class=\"hl\" href='https://vulcain.rocks'>Vulcain</a>，一个用于快速和习惯性的客户端驱动的REST API的开放协议。"
+    },
+    "further": {
+      "title": "与<strong class=\"hl\">Les-Tilleuls.coop</strong>更进一步",
+      "subtitle": "Les-Tilleuls.coop还可以通过各种服务提供个性化支持：",
+      "content": [
+        {
+          "title": "网站开发",
+          "content": "释放现代框架的力量，创建强大的网站。（Symfony、Laravel、Vue.js、Next.js…）"
+        },
+        {
+          "title": "培训",
+          "content": "通过我们认证的开发者提升您的技能"
+        },
+        {
+          "title": "咨询",
+          "content": "通过我们量身定制的战略咨询服务自信地克服挑战"
+        },
+        {
+          "title": "任务救援",
+          "content": "我们帮助您构建高挑战性的网站"
+        },
+        {
+          "title": "性能和安全审计",
+          "content": "通过我们深入的审计确保顶级的性能和安全"
+        },
+        {
+          "title": "用户体验和平面设计",
+          "content": "通过我们的设计专长创造引人入胜的用户体验。"
+        }
+      ]
+    }
+  },
+  "ui": {
+    "copy": "复制到剪贴板",
+    "copied": "已复制！",
+    "language": "语言"
+  }
+}

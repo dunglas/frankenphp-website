@@ -1,0 +1,80 @@
+---
+import NavProgress from "./NavProgress.astro";
+import { localeOfRoute, localizePath, stringsFor } from "./i18n";
+
+interface Props {
+  locale?: string;
+}
+
+const locale = Astro.props.locale ?? localeOfRoute(Astro.url.pathname);
+const t = stringsFor(locale);
+const footer = { ...stringsFor("en").footer, ...t.footer };
+const year = new Date().getFullYear();
+const docs = (path = "") => localizePath(`/docs${path}`, locale);
+const columns = [
+  {
+    title: footer.learn,
+    links: [
+      { label: t.nav.docs, href: docs() },
+      { label: "Worker mode", href: docs("/worker") },
+      { label: "Docker", href: docs("/docker") },
+      { label: "Laravel", href: docs("/laravel") },
+    ],
+  },
+  {
+    title: footer.community,
+    links: [
+      { label: "GitHub", href: "https://github.com/php/frankenphp" },
+      { label: t.nav.help, href: localizePath("/help", locale) },
+      { label: t.nav.shop, href: "https://frankenphp.tpopsite.com/shop" },
+    ],
+  },
+];
+---
+
+<NavProgress />
+<footer class="relative mt-44 bg-fp-night text-fp-mist">
+  <img
+    src="/img/elephant_footer.svg"
+    alt=""
+    width="120"
+    height="121"
+    loading="lazy"
+    decoding="async"
+    class="pointer-events-none absolute -top-[92px] left-1/2 z-[1] w-[120px] -translate-x-1/2"
+  />
+  <div class="stitches relative z-[2] bg-fp-night"></div>
+  <div class="mx-auto flex max-w-[80rem] flex-wrap justify-between gap-12 px-6 pt-18 md:px-8">
+    <div class="max-w-[30rem] flex-[1_1_360px]">
+      <img src="/img/logo_darkbg.svg" alt="FrankenPHP" width="228" height="30" loading="lazy" class="block h-[30px] w-auto" />
+      <p class="m-0 mt-4.5 text-[15px]/[1.7] [&_a]:text-white [&_a]:underline [&_a]:decoration-fp-green [&_a]:decoration-2 [&_a]:underline-offset-3">
+        <Fragment set:html={footer.owner} />
+        {" "}<Fragment set:html={footer.design} />
+        {" "}<Fragment set:html={footer.sponsor} />
+      </p>
+    </div>
+    <nav aria-label="Footer" class="flex flex-wrap gap-16">
+      {
+        columns.map((column) => (
+          <div class="flex flex-col gap-3 text-[15px]">
+            <span class="font-display text-[15px] font-extrabold tracking-[0.06em] text-fp-green uppercase">{column.title}</span>
+            {column.links.map((link) => (
+              <a class="text-fp-mist no-underline transition-colors hover:text-white hover:underline" href={link.href}>
+                {link.label}
+              </a>
+            ))}
+          </div>
+        ))
+      }
+    </nav>
+  </div>
+  <div class="mx-auto mt-14 max-w-[80rem] overflow-hidden px-6 md:px-8" aria-hidden="true">
+    <img src="/img/logo_darkbg.svg" alt="" width="1216" height="160" loading="lazy" class="-mb-[2.2%] block h-auto w-full opacity-[0.14]" />
+  </div>
+  <div class="border-t-2 border-fp-lilac/16">
+    <div class="mx-auto flex max-w-[80rem] flex-wrap justify-between gap-3 px-6 pt-5.5 pb-7.5 text-sm text-[#b6a6ca] md:px-8">
+      <span>© {year} FrankenPHP · MIT License</span>
+      <span>{footer.tagline}</span>
+    </div>
+  </div>
+</footer>

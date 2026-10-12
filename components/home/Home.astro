@@ -1,0 +1,402 @@
+---
+import CustomPage from "../CustomPage.astro";
+import Button from "../ui/Button.astro";
+import CodePanel from "../ui/CodePanel.astro";
+import Heading from "../ui/Heading.astro";
+import Sticker from "../ui/Sticker.astro";
+import CopyButton from "./CopyButton.astro";
+import { localizePath, stringsFor } from "../i18n";
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const t = stringsFor(locale);
+const en = stringsFor("en").home;
+const home = t.home;
+const docs = (path = "") => localizePath(`/docs${path}`, locale);
+
+// Sections added with the redesign are written in English first: translated
+// locales keep their own strings where a section exists and fall back to
+// English for the new ones, while one-line extras are simply left out.
+const own = home as Partial<typeof en>;
+const hero = home.hero as Partial<typeof en.hero> & { title: string; cta: string };
+const worker = home.worker as Partial<typeof en.worker> & Pick<typeof en.worker, "title" | "items">;
+const config = home.config as Partial<typeof en.config> & Pick<typeof en.config, "title" | "content" | "code">;
+const tape = own.tape ?? en.tape;
+const anatomy = own.anatomy ?? en.anatomy;
+const go = own.go ?? en.go;
+const helpCta = own.helpCta ?? en.helpCta;
+const conveyor = { ...en.worker, ...worker };
+
+// The hero sets its last word in lime, as the old site did with "written in Go".
+const escape = (text: string) => text.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+const plainTitle = hero.title.replace(/<[^>]+>/g, "").trim();
+const space = plainTitle.lastIndexOf(" ");
+const heroTitle =
+  space === -1
+    ? escape(plainTitle)
+    : `${escape(plainTitle.slice(0, space))} <strong class="hl">${escape(plainTitle.slice(space + 1))}</strong>`;
+const subtitle = hero.subtitle ?? t.meta.description;
+
+const installCommand = "curl https://frankenphp.dev/install.sh | sh";
+
+const workerScript = `<?php
+// Boot your app once
+require __DIR__.'/vendor/autoload.php';
+$app = new \\App\\Kernel();
+$app->boot();
+
+$handler = static function () use ($app) {
+    echo $app->handle($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
+};
+
+// …then serve request after request
+while (\\frankenphp_handle_request($handler)) {
+    gc_collect_cycles();
+}`;
+
+const tabs = [
+  { id: "system", label: home.gettingStarted.staticTab, code: home.gettingStarted.standard },
+  { id: "docker", label: home.gettingStarted.dockerTab, code: home.gettingStarted.docker },
+];
+const chips = ["HTTPS", "HTTP/3", "zstd · br · gzip", "Early Hints"];
+const tilts = [-1, 1, 0.8, -1.2, -0.6, 1.2, -0.8, 0.6];
+const left = anatomy.parts.slice(0, 3);
+const right = anatomy.parts.slice(3, 6);
+---
+
+<CustomPage locale={locale} path="/" title={t.meta.title} description={t.meta.description}>
+  <section class="bg-lab-night text-[#f4eefb]">
+    <div class="mx-auto flex max-w-[80rem] flex-wrap items-center gap-12 px-6 pt-18 pb-[150px] md:px-8">
+      <div class="relative z-10 min-w-0 flex-[1_1_560px]">
+        {
+          hero.pill && (
+            <a
+              href="https://github.com/php/frankenphp"
+              class="inline-flex items-center gap-2.5 rounded-full border-3 border-fp-deep bg-fp-green px-4 py-2 text-sm font-bold text-fp-night no-underline shadow-[4px_4px_0_#c3b2d3]"
+              style="rotate: -3deg"
+            >
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z" /></svg>
+              {hero.pill}
+            </a>
+          )
+        }
+        <Heading as="h1" size="xl" tone="night" html={heroTitle} class="mt-8" />
+        <p class="m-0 mt-7 max-w-[35rem] text-xl/[1.55] text-fp-mist">{subtitle}</p>
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <div class="flex h-14 max-w-full min-w-0 items-center gap-3 rounded-[14px] border-3 border-fp-deep bg-white ps-5 pe-2 font-mono text-sm text-fp-night shadow-[6px_6px_0_#b3d133]">
+            <span class="text-[#7a6a8f]" aria-hidden="true">$</span>
+            <code class="min-w-0 truncate">{installCommand}</code>
+            <CopyButton text={installCommand} label={t.ui.copy} copied={t.ui.copied} />
+          </div>
+          <Button href={docs()} shadow="lilac">{hero.cta}</Button>
+        </div>
+        {hero.platforms && <p class="m-0 mt-7 text-[15px] text-[#b6a6ca]">{hero.platforms}</p>}
+      </div>
+
+      <div class="relative h-[600px] min-w-0 flex-[1_1_440px]" aria-hidden="true">
+        <div class="fp-glow absolute top-[52%] left-1/2 size-[520px] max-w-full -translate-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(179,209,51,0.42),rgba(179,209,51,0.08)_60%,transparent)]"></div>
+        <div class="absolute bottom-[46px] left-1/2 h-[74px] w-[380px] max-w-[90%] -translate-x-1/2 rounded-[50%] border-3 border-fp-lilac bg-[#2a0a4a] shadow-[0_10px_0_#0f0120]"></div>
+        <div class="absolute bottom-[66px] left-1/2 w-[300px] max-w-[70%] -translate-x-1/2 border-t-3 border-dashed border-fp-green opacity-80"></div>
+        <img src="/img/lightning.svg" alt="" width="120" height="150" class="fp-flicker absolute top-[30px] left-0 w-[120px]" style="rotate: -14deg" />
+        <img src="/img/lightning.svg" alt="" width="92" height="115" class="fp-flicker absolute top-[110px] right-1 w-[92px] -scale-x-100 [animation-delay:0.7s] [animation-duration:2.6s]" style="rotate: 18deg" />
+        <img src="/img/lightning.svg" alt="" width="70" height="88" class="fp-flicker absolute bottom-[150px] left-[30px] w-[70px] [animation-delay:1.4s] [animation-duration:3.8s]" style="rotate: 8deg" />
+        <img
+          src="/img/elephant_cover.svg"
+          alt=""
+          width="480"
+          height="464"
+          fetchpriority="high"
+          class="fp-float absolute bottom-[70px] left-1/2 -ml-[min(240px,50%)] w-[480px] max-w-full"
+        />
+        {hero.sticker && <Sticker class="fp-wiggle absolute top-[26px] right-[18px] text-2xl">{hero.sticker}</Sticker>}
+      </div>
+    </div>
+  </section>
+
+  <div class="relative -mt-[100px] h-[210px] overflow-x-clip bg-[linear-gradient(#1a0330_50%,var(--fp-bg)_50%)]" aria-label={home.technos.title} role="region">
+    <div class="absolute top-[40px] -right-[5%] -left-[5%] z-[2] overflow-hidden border-y-3 border-fp-deep bg-fp-green shadow-[0_8px_0_rgba(15,1,32,0.25)]" style="rotate: -2.6deg">
+      <ul class="fp-marquee m-0 flex w-max list-none items-center gap-14 p-0 py-4">
+        {
+          [0, 1].map((copy) => (
+            <>
+              <li class="font-display text-xl font-extrabold text-fp-night" aria-hidden={copy === 1 ? "true" : undefined}>{home.technos.title}</li>
+              {home.technos.items.map((item) => (
+                <li aria-hidden={copy === 1 ? "true" : undefined}>
+                  <a href={item.url} tabindex={copy === 1 ? -1 : undefined} class="block opacity-85 transition-opacity hover:opacity-100">
+                    <img src={item.image} alt={copy === 1 ? "" : item.title} width="100" height="40" loading="lazy" decoding="async" class="h-10 w-auto brightness-0" />
+                  </a>
+                </li>
+              ))}
+            </>
+          ))
+        }
+      </ul>
+    </div>
+    <div class="absolute top-[112px] -right-[5%] -left-[5%] z-[1] overflow-hidden border-y-3 border-fp-deep bg-fp-purple" style="rotate: 1.8deg" aria-hidden="true">
+      <div class="fp-marquee-r flex w-max items-center gap-7 py-3 font-display text-[19px] font-extrabold text-fp-green">
+        {[...tape, ...tape].map((item) => (<><span>{item}</span><span class="text-fp-lilac">✕</span></>))}
+      </div>
+    </div>
+  </div>
+
+  <section class="mx-auto flex max-w-[80rem] flex-wrap items-center gap-18 px-6 pt-24 pb-10 md:px-8">
+    <div class="min-w-0 flex-[1_1_420px]">
+      <Heading html={home.gettingStarted.title} />
+      <p class="rich-text m-0 mt-6 max-w-[30rem] text-[19px]/[1.6] text-ink-muted" set:html={home.gettingStarted.content} />
+    </div>
+    <div class="relative min-w-0 flex-[1.3_1_520px] px-4.5 py-7">
+      <div class="absolute inset-[10px_30px_18px_8px] rounded-[22px] border-3 border-line bg-fp-green" style="rotate: -4deg"></div>
+      <div class="absolute inset-[22px_4px_4px_30px] rounded-[22px] border-3 border-line bg-fp-lilac" style="rotate: 2.6deg"></div>
+      <div class="relative overflow-hidden rounded-[20px] border-3 border-fp-deep bg-fp-night shadow-[8px_8px_0_#0f0120]" data-fp-tabs>
+        <div role="tablist" aria-label={home.gettingStarted.staticTab} class="flex items-center gap-1.5 border-b-2 border-fp-lilac/20 px-3 py-2.5">
+          <span class="me-1 h-2.5 w-4 rounded-[3px] bg-fp-lilac" aria-hidden="true"></span>
+          <span class="me-2.5 h-2.5 w-4 rounded-[3px] bg-fp-lilac" aria-hidden="true"></span>
+          {
+            tabs.map((tab, i) => (
+              <button
+                type="button"
+                role="tab"
+                id={`fp-tab-${tab.id}`}
+                aria-controls={`fp-panel-${tab.id}`}
+                aria-selected={i === 0 ? "true" : "false"}
+                tabindex={i === 0 ? 0 : -1}
+                class="min-h-10 cursor-pointer rounded-[9px] border-2 border-transparent bg-transparent px-3.5 font-mono text-[12.5px] font-semibold text-[#c9bbda] transition-colors hover:text-white aria-selected:border-fp-deep aria-selected:bg-fp-green aria-selected:text-fp-night"
+              >
+                {tab.label}
+              </button>
+            ))
+          }
+        </div>
+        {
+          tabs.map((tab, i) => (
+            <div role="tabpanel" id={`fp-panel-${tab.id}`} aria-labelledby={`fp-tab-${tab.id}`} hidden={i !== 0} class="relative">
+              <CodePanel code={tab.code} lang="bash" frame="none">
+                <div class="absolute end-3 top-3">
+                  <CopyButton text={tab.code.replace(/^#.*\n/gm, "").trim()} label={t.ui.copy} copied={t.ui.copied} tone="night" />
+                </div>
+              </CodePanel>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-lab mt-20 border-y-3 border-line bg-paper">
+    <div class="mx-auto max-w-[80rem] px-6 pt-25 pb-28 md:px-8">
+      <div class="flex flex-col items-center text-center">
+        <Heading html={anatomy.title} class="max-w-[56rem]" />
+        <p class="m-0 mt-5.5 max-w-[38rem] text-[19px]/[1.6] text-ink-muted">{anatomy.content}</p>
+      </div>
+
+      <div class="mt-16 flex flex-wrap items-center justify-center gap-9">
+        <div class="flex max-w-[360px] flex-[1_1_300px] flex-col gap-8.5">
+          {
+            left.map((part, i) => (
+              <a href={localizePath(part.href, locale)} class:list={["fp-lift relative block rounded-[18px] border-3 border-line bg-card px-5.5 py-5 text-inherit no-underline shadow-hard", i === 1 && "me-6.5"]}>
+                <p class="m-0 flex items-center gap-2.5 font-display text-[15px] font-bold text-ink-soft"><span class="bolt w-5 h-3"></span>{part.part}</p>
+                <h3 class="m-0 mt-2.5 font-display text-2xl/tight font-extrabold text-heading">{part.title}</h3>
+                <p class="m-0 mt-2 text-[15.5px]/[1.55] text-ink-muted">{part.content}</p>
+                <span class:list={["absolute top-1/2 hidden border-t-3 border-dashed border-line min-[980px]:block", i === 1 ? "-right-[70px] w-[66px]" : "-right-[44px] w-10"]} aria-hidden="true"></span>
+                <span class:list={["absolute top-[calc(50%-6px)] hidden size-3 rounded-full border-[2.5px] border-line bg-fp-green min-[980px]:block", i === 1 ? "-right-[78px]" : "-right-[52px]"]} aria-hidden="true"></span>
+              </a>
+            ))
+          }
+        </div>
+
+        <div class="flex min-w-[280px] flex-[0_1_420px] flex-col items-center">
+          <div class="relative flex aspect-square w-full max-w-[420px] items-center justify-center rounded-full border-3 border-line bg-card shadow-[8px_8px_0_var(--fp-shadow)]">
+            <div class="absolute inset-[18px] rounded-full border-[2.5px] border-dashed border-fp-lilac"></div>
+            <img src="/img/elephant_cover.svg" alt="The FrankenPHP mascot, labelled like an anatomy plate" width="330" height="320" loading="lazy" decoding="async" class="relative h-auto w-[78%]" />
+          </div>
+          <p class="m-0 mt-5.5 rounded-lg border-[2.5px] border-line bg-fp-green px-4 py-2 text-[15px] font-bold text-fp-night" style="rotate: 1.5deg">{anatomy.caption}</p>
+        </div>
+
+        <div class="flex max-w-[360px] flex-[1_1_300px] flex-col gap-8.5">
+          {
+            right.map((part, i) => (
+              <a href={localizePath(part.href, locale)} class:list={["fp-lift relative block rounded-[18px] border-3 border-line bg-card px-5.5 py-5 text-inherit no-underline shadow-hard", i === 1 && "ms-6.5"]}>
+                <p class="m-0 flex items-center gap-2.5 font-display text-[15px] font-bold text-ink-soft"><span class="bolt w-5 h-3"></span>{part.part}</p>
+                <h3 class="m-0 mt-2.5 font-display text-2xl/tight font-extrabold text-heading">{part.title}</h3>
+                <p class="m-0 mt-2 text-[15.5px]/[1.55] text-ink-muted">{part.content}</p>
+                <span class:list={["absolute top-1/2 hidden border-t-3 border-dashed border-line min-[980px]:block", i === 1 ? "-left-[70px] w-[66px]" : "-left-[44px] w-10"]} aria-hidden="true"></span>
+                <span class:list={["absolute top-[calc(50%-6px)] hidden size-3 rounded-full border-[2.5px] border-line bg-fp-green min-[980px]:block", i === 1 ? "-left-[78px]" : "-left-[52px]"]} aria-hidden="true"></span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b-3 border-fp-purple bg-fp-green text-fp-night">
+    <div class="mx-auto max-w-[80rem] px-6 pt-28 pb-30 md:px-8">
+      <div class="flex flex-wrap items-center gap-12">
+        <div class="min-w-0 flex-[1_1_520px]">
+          <Heading html={worker.title} size="lg" tone="lime" />
+          {worker.content && <p class="m-0 mt-6.5 max-w-[34rem] text-[19px]/[1.6] text-[#2b1b3f]">{worker.content}</p>}
+          {
+            worker.stat && (
+              <div class="mt-8.5 flex flex-wrap items-end gap-x-6 gap-y-4">
+                <span class="font-display text-[clamp(5.5rem,11vw,10rem)]/[0.8] font-extrabold tracking-[-0.05em] text-fp-purple">{worker.stat}</span>
+                <p class="rich-text m-0 mb-2 max-w-[16rem] text-base/normal text-[#2b1b3f] [&_a]:decoration-fp-night! [&_a]:decoration-2!" set:html={worker.statText} />
+              </div>
+            )
+          }
+        </div>
+        <div class="flex min-w-0 flex-[1_1_420px] justify-center">
+          <img src="/img/worker2.svg" alt="The FrankenPHP mascot in a hard hat, driving an excavator" width="520" height="406" loading="lazy" decoding="async" class="fp-float h-auto w-full max-w-[520px] [animation-duration:6s]" />
+        </div>
+      </div>
+
+      <div class="mt-16 flex flex-wrap items-center gap-x-6 gap-y-4.5 rounded-[20px] border-3 border-fp-night bg-white px-7 py-6.5 shadow-[8px_8px_0_#1a0330]" aria-hidden="true">
+        <span class="font-display text-lg font-extrabold text-fp-purple">{conveyor.requests}</span>
+        <div class="relative mt-2.5 h-3.5 flex-[1_1_160px] border-t-3 border-dashed border-fp-lilac">
+          {[0, 0.8, 1.6].map((delay) => <span class="fp-req absolute -top-[9px] size-3 rounded-full bg-fp-purple" style={`animation-delay: ${delay}s`}></span>)}
+        </div>
+        <div class="fp-pulse rounded-[14px] border-3 border-fp-night bg-fp-green px-5 py-3.5">
+          <p class="m-0 font-display text-xl font-extrabold text-fp-night">{conveyor.booted}</p>
+          <p class="m-0 mt-0.5 text-sm text-fp-night">{conveyor.bootedNote}</p>
+        </div>
+        <div class="relative mt-2.5 h-3.5 flex-[1_1_160px] border-t-3 border-dashed border-fp-lilac">
+          {[0.4, 1.2, 2].map((delay) => <span class="fp-req absolute -top-[9px] size-3 rounded-full border-2 border-fp-purple bg-fp-green" style={`animation-delay: ${delay}s`}></span>)}
+        </div>
+        <span class="font-display text-lg font-extrabold text-fp-purple">{conveyor.responses}</span>
+      </div>
+
+      <div class="mt-10 flex flex-wrap items-start gap-8">
+        <CodePanel code={workerScript} lang="php" filename="public/index.php" class="flex-[1.1_1_480px] shadow-[8px_8px_0_#390075] outline-2 -outline-offset-12 outline-fp-green/55 outline-dashed" />
+        <ul class="m-0 grid min-w-0 flex-[1_1_440px] list-none grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4.5 p-0">
+          {
+            worker.items.map((item, i) => (
+              <li class="fp-lift rounded-2xl border-3 border-fp-night bg-white px-5 py-4.5 shadow-[5px_5px_0_#1a0330] hover:shadow-[10px_10px_0_#1a0330]!" style={`rotate: ${tilts[i % tilts.length]}deg`}>
+                <h3 class="m-0 font-display text-[19px] font-extrabold text-fp-purple" set:html={item.title} />
+                <p class="rich-text m-0 mt-1.5 text-[14.5px]/normal text-[#4a3a5e]" set:html={item.content} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <a href={docs("/worker")} class="mt-12 inline-flex min-h-11 items-center gap-2 font-display text-lg font-extrabold text-fp-night underline decoration-3 underline-offset-5">{conveyor.cta} →</a>
+    </div>
+  </section>
+
+  <section class="mx-auto flex max-w-[80rem] flex-wrap-reverse items-center gap-16 px-6 pt-30 pb-10 md:px-8">
+    <div class="relative min-w-0 flex-[1.1_1_480px]">
+      <CodePanel code={config.code} lang="caddyfile" filename="Caddyfile" class="shadow-[10px_10px_0_#b3d133] outline-2 -outline-offset-14 outline-fp-green/60 outline-dashed [&_pre]:text-[15px]/[2.05]" />
+      {config.sticker && <Sticker tone="lime" tilt={5} class="absolute -top-[18px] -right-2.5">{config.sticker}</Sticker>}
+    </div>
+    <div class="min-w-0 flex-[1_1_420px]">
+      <Heading html={config.title} />
+      <p class="rich-text m-0 mt-6 max-w-[30rem] text-[19px]/[1.6] text-ink-muted" set:html={config.content} />
+      <ul class="m-0 mt-7 flex list-none flex-wrap gap-2.5 p-0">
+        {chips.map((chip, i) => <li class="rounded-[10px] border-[2.5px] border-line px-3.5 py-1.5 text-sm font-bold text-heading" style={`rotate: ${tilts[i]}deg`}>{chip} ✓</li>)}
+      </ul>
+      <a href={docs("/config")} class="mt-8 inline-flex min-h-11 items-center gap-2 font-display text-lg font-extrabold text-heading underline decoration-fp-green decoration-3 underline-offset-5">{config.cta ?? t.nav.docs} →</a>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[80rem] px-6 pt-30 pb-10 md:px-8">
+    <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
+      <Heading html={home.features.title} />
+      <img src="/img/lightning.svg" alt="" width="110" height="138" class="fp-flicker w-[110px]" style="rotate: 12deg" aria-hidden="true" />
+    </div>
+    <ul class="m-0 mt-13 grid list-none grid-cols-[repeat(auto-fill,minmax(270px,1fr))] gap-5.5 p-0">
+      {
+        home.features.items.map((item) => (
+          <li class="fp-lift rounded-[22px] border-3 border-line bg-card p-6.5 shadow-hard">
+            <img src={item.icon} alt="" width="72" height="72" loading="lazy" decoding="async" class="size-18 object-contain" />
+            <h3 class="m-0 mt-4 font-display text-[21px]/tight font-extrabold text-heading" set:html={item.title} />
+            <p class="rich-text m-0 mt-2 text-[15px]/[1.55] text-ink-muted" set:html={item.content} />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="bg-lab-night mt-30 border-t-3 border-fp-deep text-[#f4eefb]">
+    <div class="stitches"></div>
+    <div class="mx-auto flex max-w-[80rem] flex-wrap items-center gap-16 px-6 pt-25 pb-28 md:px-8">
+      <div class="relative min-w-0 flex-[1_1_460px]">
+        <div class="rounded-[26px] border-3 border-fp-lilac bg-fp-paper p-6.5 shadow-[10px_10px_0_#b3d133]">
+          <img src="/img/gokenstein.svg" alt="The FrankenPHP elephant and the Go gopher in a laboratory, lightning crackling between them" width="600" height="482" loading="lazy" decoding="async" class="block h-auto w-full" />
+        </div>
+        <Sticker tilt={-4} shadow={false} class="absolute -bottom-5 -left-3">{go.sticker}</Sticker>
+      </div>
+      <div class="min-w-0 flex-[1_1_460px]">
+        <Heading html={go.title} tone="night" />
+        <p class="rich-text m-0 mt-6 max-w-[32rem] text-[19px]/[1.6] text-fp-mist [&_code]:text-white" set:html={go.content} />
+        <CodePanel code={go.code} lang="go" frame="lilac" class="mt-7 [&_pre]:pt-5 [&_pre]:text-[12.5px]/[1.9]" />
+        <a href={docs("/library")} class="mt-6.5 inline-flex min-h-11 items-center gap-2 text-[17px] font-bold text-white underline decoration-fp-green decoration-3 underline-offset-5">{go.cta} →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto flex max-w-[80rem] flex-wrap items-center gap-14 px-6 pt-32 pb-10 md:px-8">
+    <div class="min-w-0 flex-[1.1_1_480px]">
+      <Heading html={home.modern.title} size="lg" tone="swash" />
+      <ul class="m-0 mt-8.5 flex list-none flex-col gap-4 p-0 text-[17px]/[1.55] text-ink">
+        {
+          home.modern.items.map((item) => (
+            <li class="flex gap-4">
+              <span class="bolt mt-1.5" aria-hidden="true"></span>
+              <span class="rich-text" set:html={item} />
+            </li>
+          ))
+        }
+      </ul>
+      <Button href={docs()} variant="purple" class="mt-9.5">{home.modern.cta}</Button>
+    </div>
+    <div class="relative h-[540px] min-w-0 flex-[1_1_420px]" aria-hidden="true">
+      <div class="fp-blob absolute top-[4%] left-[14%] h-[80%] w-[74%] border-3 border-line bg-fp-green"></div>
+      <div class="fp-blob absolute top-[18%] left-[4%] h-[74%] w-[70%] border-3 border-line bg-fp-lilac [animation-delay:-4s] [animation-duration:14s]"></div>
+      <img src="/img/lightning.svg" alt="" width="90" height="113" class="fp-flicker absolute top-0 right-[2%] w-[90px] [animation-duration:2.8s]" style="rotate: 16deg" />
+      <img src="/img/dab.svg" alt="" width="400" height="445" loading="lazy" decoding="async" class="absolute top-1/2 left-1/2 w-[400px] max-w-[92%] -translate-1/2" />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[80rem] px-6 pt-28 md:px-8">
+    <div class="flex flex-wrap items-center gap-10 rounded-[28px] border-3 border-line bg-paper p-[clamp(28px,5vw,56px)] shadow-hard-lg">
+      <img src="/img/franken-heart.svg" alt="The FrankenPHP mascot hugging a big red heart" width="260" height="279" loading="lazy" decoding="async" class="fp-float h-auto w-[260px] max-w-full flex-[0_1_260px] [animation-duration:5.5s]" />
+      <div class="min-w-0 flex-[1_1_420px]">
+        <Heading html={helpCta.title} size="sm" />
+        <p class="rich-text m-0 mt-4.5 max-w-[35rem] text-lg/[1.6] text-ink-muted" set:html={helpCta.content} />
+        <div class="mt-7 flex flex-wrap gap-3.5">
+          <Button href="mailto:contact@les-tilleuls.coop" size="md">{helpCta.button}</Button>
+          <Button href={localizePath("/help", locale)} variant="outline" size="md" shadow="none">{helpCta.secondary}</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</CustomPage>
+
+<script>
+  function initTabs() {
+    for (const root of document.querySelectorAll<HTMLElement>("[data-fp-tabs]")) {
+      const tabs = [...root.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+      const select = (tab: HTMLButtonElement) => {
+        for (const other of tabs) {
+          const selected = other === tab;
+          other.setAttribute("aria-selected", String(selected));
+          other.tabIndex = selected ? 0 : -1;
+          const panel = document.getElementById(other.getAttribute("aria-controls") ?? "");
+          if (panel) panel.hidden = !selected;
+        }
+      };
+      tabs.forEach((tab, i) => {
+        tab.addEventListener("click", () => select(tab));
+        tab.addEventListener("keydown", (event) => {
+          const step = event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
+          if (!step) return;
+          const next = tabs[(i + step + tabs.length) % tabs.length];
+          select(next);
+          next.focus();
+        });
+      });
+    }
+  }
+  document.addEventListener("astro:page-load", initTabs);
+</script>

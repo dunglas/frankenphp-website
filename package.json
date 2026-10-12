@@ -1,21 +1,20 @@
 {
-  "name": "frankenphp-hugo-website",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "frankenphp-website",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Source code of frankenphp.dev, built with Blume",
+  "type": "module",
   "scripts": {
-    "watch": "npx tailwindcss -i ./style/input.css -o ./static/style/output.css --watch=always",
-    "prettify": "prettier ./layouts --write"
+    "fetch-docs": "node scripts/fetch-docs.mjs",
+    "dev": "blume dev",
+    "build": "node scripts/fetch-docs.mjs && blume build && node scripts/postbuild.mjs",
+    "preview": "blume preview",
+    "doctor": "blume doctor"
   },
-  "keywords": [],
-  "author": "",
   "engines": {
-    "node": ">=18"
+    "node": ">=22.12"
   },
-  "devDependencies": {
-    "@tailwindcss/typography": "^0.5.19",
-    "prettier": "^3.8.1",
-    "prettier-plugin-go-template": "^0.0.15",
-    "tailwindcss": "^3.4.19"
+  "dependencies": {
+    "blume": "^2.1.3"
   }
 }

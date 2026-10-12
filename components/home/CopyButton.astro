@@ -1,0 +1,46 @@
+---
+interface Props {
+  text: string;
+  label: string;
+  copied: string;
+  tone?: "light" | "night";
+}
+
+const { text, label, copied, tone = "light" } = Astro.props;
+---
+
+<button
+  type="button"
+  class:list={[
+    "group inline-flex size-10 flex-none cursor-pointer items-center justify-center rounded-[10px] border-0 transition-colors",
+    tone === "light"
+      ? "bg-fp-paper text-fp-purple hover:bg-fp-lilac data-done:bg-fp-green data-done:text-fp-night"
+      : "bg-white/10 text-fp-mist hover:bg-white/20 hover:text-white data-done:text-fp-green",
+  ]}
+  data-fp-copy={text}
+  data-label={label}
+  data-copied-label={copied}
+  aria-label={label}
+  title={label}
+>
+  <svg class="group-data-done:hidden" aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path></svg>
+  <svg class="hidden group-data-done:block" aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"></path></svg>
+</button>
+
+<script>
+  document.addEventListener("click", async (event) => {
+    const button = (event.target as Element | null)?.closest<HTMLButtonElement>("[data-fp-copy]");
+    if (!button) return;
+    try {
+      await navigator.clipboard.writeText(button.dataset.fpCopy ?? "");
+    } catch {
+      return;
+    }
+    button.dataset.done = "";
+    button.setAttribute("aria-label", button.dataset.copiedLabel ?? "");
+    setTimeout(() => {
+      delete button.dataset.done;
+      button.setAttribute("aria-label", button.dataset.label ?? "");
+    }, 1600);
+  });
+</script>

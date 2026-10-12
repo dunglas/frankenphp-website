@@ -1,53 +1,89 @@
-# FrankenPHP Documentation
+# FrankenPHP website
 
-This repository contains the source code powering [frankenphp.dev](https://frankenphp.dev). The site is built using [Hugo](https://gohugo.io/), a static site generator, and styled with [Tailwind CSS](https://tailwindcss.com/).
+This repository contains the source code of [frankenphp.dev](https://frankenphp.dev): the homepage, the help page and the FrankenPHP documentation in every language.
+The site is built with [Blume](https://useblume.dev), a Markdown-first documentation framework on top of Astro.
 
-## Getting Started
+## Getting started
 
-To work on this project and update the Tailwind CSS locally, follow these steps:
+You need [Bun](https://bun.sh).
 
-### 1. Clone the Repository
-
-First, clone this repository to your local machine and init the project:
-
-```bash
+```console
 git clone git@github.com:dunglas/frankenphp-website.git
 cd frankenphp-website
-pnpm install
+bun install
+bun run fetch-docs
+bun run dev
 ```
 
-### 2. Clone the Documentation
+The site is served at http://localhost:4321 with hot reload.
 
-Before building the project, you need to fetch the documentation content. Run the following command to clone the documentation:
+To build the production site and preview it:
 
-```php
-php clone-documentation.php
+```console
+bun run build
+bun run preview
 ```
 
-Please note that you might need to set up a GitHub token with the necessary permissions as a GITHUB_KEY environment variable.
+`bun run doctor` checks the configuration and the content, and `bunx blume validate` checks every internal link.
 
-### 3. Update Tailwind CSS Locally
+## Project structure
 
-To watch and update the Tailwind CSS during development, use the following command:
+| Path                    | What it holds                                                                                          |
+| ----------------------- | ------------------------------------------------------------------------------------------------------ |
+| `content/docs/`         | The English documentation, one Markdown file per page.                                                 |
+| `content/<locale>/docs/`| The translations (`fr`, `es`, `zh`, `ja`, `pt-br`, `ru`, `tr`). Missing pages fall back to English.    |
+| `content/assets/`       | Images used by the documentation.                                                                      |
+| `pages/`                | The homepage and the help page, one file per locale.                                                   |
+| `components/`           | The homepage, help page, footer and translation notice components.                                     |
+| `i18n/<locale>.json`    | Every string of the homepage, help page and footer, per locale.                                        |
+| `public/`               | Static files served as-is (images, icons, manifest).                                                   |
+| `blume.config.ts`       | Site configuration: languages, navigation, theme, search, SEO and agent support.                       |
+| `theme.css`             | The FrankenPHP theme on top of Blume's design tokens.                                                  |
 
-```bash
-pnpm watch
+## Writing documentation
+
+Each page is a Markdown file with a little frontmatter:
+
+```markdown
+---
+title: "Using FrankenPHP workers"
+description: "Run FrankenPHP in worker mode to keep your PHP application bootstrapped between requests."
+sidebar:
+  label: "Worker mode"
+  order: 1
+---
+
+Boot your application once and keep it in memory.
 ```
 
-### 4. Run the project locally
+- Pages are grouped in the sidebar by the parenthesized folder they live in, such as `content/docs/(01-get-started)/`.
+  The parentheses keep the folder out of the URL: `content/docs/(01-get-started)/worker.md` is served at `/docs/worker`.
+- Link to other pages with root-relative paths such as `/docs/config#caddyfile-config`; on a translated page, Blume points the link at the same language automatically.
+- Callouts use this markup, styled by `theme.css` (`note`, `tip`, `important`, `warning` or `caution`):
 
-Once you have cloned the documentation and updated the CSS, you can start the development server using Hugo. Open a new terminal tab or window and run the following command:
+  ```html
+  <div class="fp-callout" data-callout="tip">
+  <p class="fp-callout-title">Tip</p>
 
-```bash
-hugo server --disableFastRender
-```
+  Your **Markdown** here.
 
-This will launch a local server, and you can access the FrankenPHP Documentation site at http://localhost:1313.
+  </div>
+  ```
 
-## Prettier Integration
+## Documentation source
 
-Prettier is configured in this project to help you maintain consistent and well-formatted templates. To format your Hugo templates, use the following command:
+The documentation lives in [php/frankenphp](https://github.com/php/frankenphp/tree/main/docs).
+`bun run fetch-docs` clones it, converts it into `content/` (not committed) and copies `install.sh` and `install.ps1` into `public/`; `bun run build` runs it first.
+Set `FRANKENPHP_REPO=/path/to/frankenphp` to use a local checkout, and `GITHUB_KEY` to clone with a token.
 
-```bash
-pnpm prettify
-```
+## Deployment
+
+`bun run build` writes a fully static site to `dist/`; upload it to any static host.
+
+## SEO and AI agents
+
+The build generates, with no extra step:
+
+- `sitemap.xml`, `robots.txt`, canonical URLs, `hreflang` alternates for every language, Open Graph cards and schema.org structured data,
+- `llms.txt` and `llms-full.txt`, a Markdown version of every page at its URL plus `.md` (for instance `/docs/worker.md`), a JSON API (`/api/docs/pages.json`) and an agent skill at `/skill.md`,
+- the `go-import` meta tag that makes `go get frankenphp.dev/...` resolve to the php/frankenphp repository.

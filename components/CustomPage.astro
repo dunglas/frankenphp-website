@@ -1,0 +1,43 @@
+---
+import PageLayout from "blume/components/layout/PageLayout.astro";
+import data from "blume:data";
+
+import SiteFooter from "./SiteFooter.astro";
+import { localeSwitch, localizePath } from "./i18n";
+
+interface Props {
+  locale: string;
+  path: string;
+  title: string;
+  description: string;
+  transparentHeader?: boolean;
+}
+
+const { locale, path, title, description, transparentHeader = false } = Astro.props;
+const { config } = data;
+const route = localizePath(path, locale);
+---
+
+<PageLayout
+  site={{ title: config.title, description: config.description }}
+  logo={config.logo}
+  favicon={config.favicon}
+  appleIcon={config.appleIcon}
+  banner={config.banner}
+  analytics={config.analytics}
+  navigation={data.navigationByLocale[locale] ?? data.navigation}
+  fontCssVars={data.fontCssVars}
+  themeMode={config.theme.mode}
+  searchEnabled={config.search.enabled}
+  siteUrl={config.site}
+  ogEnabled={config.og.enabled}
+  structuredDataEnabled={config.structuredData}
+  transparentHeader={transparentHeader}
+  locale={locale}
+  ui={data.uiByLocale[locale] ?? data.ui}
+  localeSwitch={localeSwitch(path, locale)}
+  page={{ title, description, route }}
+>
+  <slot />
+  <SiteFooter slot="footer" locale={locale} />
+</PageLayout>

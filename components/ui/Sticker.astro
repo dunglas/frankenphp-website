@@ -1,0 +1,27 @@
+---
+// A tilted label, the way a sticker sits on a laptop lid.
+interface Props {
+  tone?: "white" | "lime" | "night";
+  tilt?: number;
+  shadow?: boolean;
+  class?: string;
+}
+
+const { tone = "white", tilt = -3, shadow = true, class: className } = Astro.props;
+---
+
+<span
+  class:list={[
+    "inline-flex items-center gap-2.5 rounded-[14px] border-3 border-fp-deep px-4 py-2 font-display text-lg font-extrabold",
+    {
+      "bg-white text-fp-purple": tone === "white",
+      "shadow-[5px_5px_0_#b3d133]": tone === "white" && shadow,
+      "bg-fp-green text-fp-night": tone === "lime",
+      "bg-fp-night text-fp-green": tone === "night",
+    },
+    className,
+  ]}
+  style={`rotate: ${tilt}deg`}
+>
+  <slot />
+</span>

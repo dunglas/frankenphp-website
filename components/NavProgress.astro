@@ -1,0 +1,45 @@
+---
+// A slim progress bar for client-router navigations, so a slow page fetch
+// never reads as a blank screen. Mounted from the footer, which every page
+// renders; the bar itself lives on <html>, outside the swapped <body>.
+---
+
+<script is:inline>
+  (() => {
+    if (window.__fpProgress) return;
+    window.__fpProgress = true;
+    const root = document.documentElement;
+    const bar = document.createElement("div");
+    bar.id = "fp-progress";
+    bar.setAttribute("aria-hidden", "true");
+    root.appendChild(bar);
+    let timer;
+    let shown = false;
+    const start = () => {
+      clearTimeout(timer);
+      // Skip the bar for navigations the prefetch cache answers instantly.
+      timer = setTimeout(() => {
+        shown = true;
+        root.setAttribute("data-fp-loading", "");
+        bar.style.transition = "none";
+        bar.style.transform = "scaleX(0)";
+        bar.style.opacity = "1";
+        bar.getBoundingClientRect();
+        bar.style.transition = "transform 8s cubic-bezier(0.1, 0.7, 0.2, 1)";
+        bar.style.transform = "scaleX(0.9)";
+      }, 120);
+    };
+    const done = () => {
+      clearTimeout(timer);
+      root.removeAttribute("data-fp-loading");
+      if (!shown) return;
+      shown = false;
+      bar.style.transition = "transform 0.2s ease, opacity 0.3s ease 0.2s";
+      bar.style.transform = "scaleX(1)";
+      bar.style.opacity = "0";
+    };
+    document.addEventListener("astro:before-preparation", start);
+    document.addEventListener("astro:after-swap", done);
+    document.addEventListener("astro:page-load", done);
+  })();
+</script>

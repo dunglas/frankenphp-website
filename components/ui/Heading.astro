@@ -1,0 +1,30 @@
+---
+interface Props {
+  html: string;
+  as?: "h1" | "h2" | "h3";
+  size?: "sm" | "md" | "lg" | "xl";
+  /** How highlighted words (`<strong class="hl">`) are set for this ground. */
+  tone?: "ink" | "night" | "lime" | "swash";
+  class?: string;
+}
+
+const { html, as: Tag = "h2", size = "md", tone = "ink", class: className } = Astro.props;
+---
+
+<Tag
+  class:list={[
+    "m-0 font-display font-extrabold text-balance",
+    {
+      "text-[clamp(2.25rem,4.4vw,3.625rem)]/none tracking-[-0.03em]": size === "sm",
+      "text-[clamp(2.5rem,5vw,4.25rem)]/[0.98] tracking-[-0.03em]": size === "md",
+      "text-[clamp(3rem,6.4vw,5.75rem)]/[0.92] tracking-[-0.035em]": size === "lg",
+      "text-[clamp(3.375rem,7vw,6.75rem)]/[0.92] tracking-[-0.035em]": size === "xl",
+      "hl-ink text-heading": tone === "ink",
+      "hl-night text-white": tone === "night",
+      "hl-sticker text-fp-night": tone === "lime",
+      "hl-swash text-heading": tone === "swash",
+    },
+    className,
+  ]}
+  set:html={html}
+/>

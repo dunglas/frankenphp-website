@@ -1,0 +1,31 @@
+---
+import { DEFAULT_LOCALE, localeOfRoute, stringsFor, unlocalizedRoute } from "./i18n";
+
+interface Props {
+  route?: string;
+}
+
+const route = Astro.props.route ?? Astro.url.pathname;
+const locale = localeOfRoute(route);
+const notice =
+  locale === DEFAULT_LOCALE
+    ? null
+    : stringsFor(locale).notice.replace(
+        /<strong>(.*?)<\/strong>/,
+        `<a href="${unlocalizedRoute(route)}" hreflang="en">$1</a>`
+      );
+---
+
+{
+  notice && (
+    <aside
+      class="not-prose mb-8 flex items-start gap-3.5 rounded-[18px] border-3 border-line bg-[var(--fp-tip)] px-5 py-4 text-[15px]/relaxed text-ink"
+      data-pagefind-ignore
+    >
+      <svg class="mt-0.5 flex-none text-heading" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6" />
+      </svg>
+      <p class="rich-text m-0 [&_a]:underline" set:html={notice} />
+    </aside>
+  )
+}

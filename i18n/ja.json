@@ -1,0 +1,259 @@
+{
+  "meta": {
+    "title": "FrankenPHP: モダンな PHP アプリサーバー",
+    "description": "FrankenPHP は、PHP アプリ用の新しいアプリサーバーです (Caddy 上に構築) 。また、Go Web サーバーに PHP インタプリタを組み込むためのライブラリでもあります。"
+  },
+  "nav": {
+    "docs": "ドキュメント",
+    "shop": "店",
+    "help": "ヘルプが必要ですか?",
+    "editPage": "このページを編集",
+    "poweredBy": "提供"
+  },
+  "footer": {
+    "owner": "<a href=\"https://api-platform.com\">API Platform</a> の制作者であり、<a href=\"https://symfony.com\">Symfony</a> コアチームメンバーでもある <a href=\"https://dunglas.dev/\">Kévin Dunglas</a> によって提供されています。",
+    "design": "デザイン: <a href=\"https://pushpak1300.me\">Pushpak Chhajed</a>",
+    "sponsor": "スポンサー: <a href=\"https://les-tilleuls.coop/en\">Les-Tilleuls.coop</a>"
+  },
+  "notice": "このページはコミュニティによって翻訳されたもので、最新ではない可能性があります。<strong>参照用のバージョン</strong>をご覧ください。",
+  "home": {
+    "hero": {
+      "title": "Goで書かれた、モダンなPHPアプリサーバー",
+      "cta": "始める"
+    },
+    "gettingStarted": {
+      "overtitle": "すべてを動かすワンコマンド",
+      "title": "<strong class=\"hl\">始めよう</strong>！",
+      "content": "本番環境レベルのPHPサーバーを、たった1つのコマンドで起動！",
+      "dockerTab": "Docker",
+      "staticTab": "システム",
+      "docker": "# public/ ディレクトリを提供\ndocker run -v $PWD:/app/public \\\n  -p 443:443/tcp -p 443:443/udp \\\n  dunglas/frankenphp\n\n# コマンドラインスクリプトを実行\ndocker run -v $PWD:/app \\\n  dunglas/frankenphp php script.php",
+      "standard": "# Linux または macOS に FrankenPHP をインストール\ncurl https://frankenphp.dev/install.sh | sh\n\n# または Windows の場合、PowerShell で\nirm https://frankenphp.dev/install.ps1 | iex\n\n# public/ ディレクトリを提供\nfrankenphp php-server -r public/\n\n# コマンドラインスクリプトを実行\nfrankenphp php-cli script.php"
+    },
+    "modern": {
+      "overtitle": "未来への準備はできていますか？",
+      "title": "<strong class=\"hl\">これまで以上にモダンな</strong> PHP！",
+      "items": [
+        "最新のWebサーバーに公式PHPエグゼキューターを組み込み：<strong><a href=\"https://caddyserver.com\">Caddy</a></strong>",
+        "HTTP/1.1、HTTP/2、そして <strong>HTTP/3</strong> をネイティブサポート",
+        "<strong>HTTPS</strong>証明書の自動生成と更新（Let's Encrypt または ZeroSSL）",
+        "PHPファイルをドキュメントルートにコピーするだけ、それで完了！",
+        "PHPウェブアプリやコマンドラインツール向けに、   <a href=\"/ja/docs/embed\"><strong>スタンドアロン</strong>で自己実行可能かつ依存関係不要のバイナリをビルド</a>",
+        "<strong>OPcache</strong> や <strong>XDebug</strong> を含む人気のPHP拡張をネイティブサポート！"
+      ],
+      "cta": "試してみる"
+    },
+    "technos": {
+      "title": "ネイティブサポート対象",
+      "items": [
+        {
+          "title": "Drupal",
+          "url": "https://github.com/dunglas/frankenphp-drupal",
+          "image": "/img/technos/drupal.png"
+        },
+        {
+          "title": "Sulu",
+          "url": "https://sulu.io/blog/running-sulu-with-frankenphp",
+          "image": "/img/technos/sulu.png"
+        },
+        {
+          "title": "WordPress",
+          "url": "https://github.com/StephenMiracle/frankenwp",
+          "image": "/img/technos/wordpress.png"
+        },
+        {
+          "title": "Laravel",
+          "url": "/ja/docs/laravel",
+          "image": "/img/technos/laravel.png"
+        },
+        {
+          "title": "Symfony",
+          "url": "https://github.com/dunglas/symfony-docker",
+          "image": "/img/technos/symfony.png"
+        },
+        {
+          "title": "API Platform",
+          "url": "https://api-platform.com/docs/distribution/",
+          "image": "/img/technos/api-platform.png"
+        },
+        {
+          "title": "Magento",
+          "url": "https://github.com/ekino/frankenphp-magento2",
+          "image": "/img/technos/magento.png"
+        }
+      ]
+    },
+    "worker": {
+      "overtitle": "あなたのPHPアプリをこれまで以上に高速化！",
+      "title": "ワーカー<strong class=\"hl\">モード</strong>",
+      "items": [
+        {
+          "title": "ワーカースクリプト",
+          "content": "アプリを一度起動すると、<strong>メモリに常駐</strong>します！"
+        },
+        {
+          "title": "ストレートフォワード",
+          "content": "Symfony、API Platform、Laravelでネイティブにサポート…"
+        },
+        {
+          "title": "シンプル",
+          "content": "古き良きスーパーグローバルを使用：<strong>PSR-7は不要</strong>。"
+        },
+        {
+          "title": "高速",
+          "content": "<a href=\"https://github.com/dunglas/frankenphp-demo/tree/main/benchmark\">ベンチマーク</a>によると、  \nAPI PlatformアプリでFPMより<strong>3.5倍高速</strong>。"
+        },
+        {
+          "title": "効率的",
+          "content": "FrankenPHPは<strong>Go</strong>と<strong>C</strong>で書かれています。  \nGoの代表的な機能「ゴルーチン」に依存しています！"
+        },
+        {
+          "title": "オプション",
+          "content": "アプリがワーカーモードに対応していなくても、そのまま提供可能。"
+        },
+        {
+          "title": "簡単デプロイ",
+          "content": "プロセス内で実行：1つのバイナリ、<strong>外部サービス不要</strong>。"
+        },
+        {
+          "title": "ウォッチャー",
+          "content": "コードを変更するたびにワーカーを<strong>自動再起動</strong>。"
+        }
+      ]
+    },
+    "config": {
+      "overtitle": "稲妻のように速い",
+      "title": "設定はとても<strong class=\"hl\">簡単</strong>！",
+      "code": "localhost {\n    # 圧縮を有効化（オプション）\n    encode zstd br gzip\n    # カレントディレクトリ内のPHPファイルを実行し、アセットを配信\n    php_server\n}",
+      "content": "設定はたった3行：本番環境レベルのPHPサーバーを起動するのに必要なのはこれだけです  \n（自動HTTPS、HTTP/3、zstd圧縮など対応）、<a href=\"https://caddyserver.com\">Caddy</a> 搭載。"
+    },
+    "features": {
+      "overtitle": "機能",
+      "title": "FrankenPHP <strong class=\"hl\">概要</strong>",
+      "items": [
+        {
+          "icon": "/img/box.svg",
+          "title": "拡張性",
+          "content": "PHP 8.2+、ほとんどのPHP拡張機能、そしてすべてのCaddyモジュールに対応。"
+        },
+        {
+          "icon": "/img/one.svg",
+          "title": "1つのサービスだけ",
+          "content": "シンプルさを重視して設計：1つのサービス、1つのバイナリ！  \nFrankenPHPはPHP-FPMを必要とせず、Goウェブサーバー向けに特別に作られた独自のSAPIを使用します。"
+        },
+        {
+          "icon": "/img/rocket.svg",
+          "title": "簡単デプロイ",
+          "content": "クラウドネイティブアプリを<a href=\"/ja/docs/docker\">Dockerイメージ</a>として提供。  \nKubernetesやすべての最新クラウドプラットフォームに対応。  \nPHPアプリを<a href=\"/ja/docs/embed\">スタンドアロンの自己実行可能な静的バイナリ</a>としてパッケージ化することも可能です。"
+        },
+        {
+          "icon": "/img/worker.svg",
+          "title": "ワーカーモード",
+          "content": "<a href=\"/ja/docs/worker\">アプリケーションを一度起動</a>してメモリに保持！  \n数ミリ秒でリクエストを処理できるようになります。"
+        },
+        {
+          "icon": "/img/bulb.svg",
+          "title": "103 Early Hints",
+          "content": "<a href=\"/ja/docs/early-hints\">Early Hints</a>はウェブプラットフォームの新機能で、<a href=\"https://blog.cloudflare.com/early-hints/\">ウェブサイトの読み込み時間を30%短縮</a>できます。  \nFrankenPHPはEarly Hintsをサポートする唯一のPHP SAPIです！"
+        },
+        {
+          "icon": "/img/clock.svg",
+          "title": "リアルタイム",
+          "content": "組み込みの<a href=\"https://mercure.rocks\">Mercure</a>ハブ。  \nPHPアプリから接続中のすべてのブラウザにイベントを送信し、JavaScriptイベントとして即座に受信！"
+        },
+        {
+          "icon": "/img/zip.svg",
+          "title": "Brotli、Zstandard、Gzip圧縮",
+          "content": "最新の圧縮フォーマットを標準でサポート。"
+        },
+        {
+          "icon": "/img/log.svg",
+          "title": "構造化ログ",
+          "content": "ログにより明確なフォーマットと詳細を追加。"
+        },
+        {
+          "icon": "/img/metrics.svg",
+          "title": "Prometheusメトリクスとトレーシング",
+          "content": "組み込みの<a href=\"https://caddyserver.com/docs/metrics\">Prometheusサポート</a>！"
+        },
+        {
+          "icon": "/img/http.svg",
+          "title": "HTTP/2 & HTTP/3",
+          "content": "HTTPS、HTTP/2、<strong>HTTP/3</strong>をネイティブサポート。"
+        },
+        {
+          "icon": "/img/https.svg",
+          "title": "HTTPS自動化",
+          "content": "HTTPS証明書の自動生成、更新、失効をサポート。"
+        },
+        {
+          "icon": "/img/reload.svg",
+          "title": "優雅なリロード",
+          "content": "優雅なリロードにより、ダウンタイムゼロでアプリをデプロイ。"
+        }
+      ]
+    }
+  },
+  "help": {
+    "hero": {
+      "title": "<strong class=\"hl\">素晴らしい</strong>ものを一緒に作りましょう！",
+      "overtitle": "お困りですか？",
+      "content": "<a class=\"hl\" href='https://les-tilleuls.coop/en'>Les-Tilleuls.coop</a>（FrankenPHPの編集者）は、アプリをより高速かつ信頼性の高いものにするための幅広いリソースを提供しています。<br /><br />インフラの設計、構築、改善に関するガイダンスをお探しなら、ここが最適です！",
+      "button": "お問い合わせ"
+    },
+    "migration": {
+      "title": "アプリケーションをFrankenPHPに<strong class=\"hl\">移行</strong>",
+      "content": "私たちはお客様のインフラをFrankenPHPへ移行し、その使用方法についてチームをトレーニングします。これによりインフラの安定性が向上し、生産性が高まります。今すぐ移行計画を立て、チームと一緒に実現しましょう！",
+      "button": "始めましょう！"
+    },
+    "hosting": {
+      "title": "FrankenPHPであなたのプロジェクトを<strong class=\"hl\">ホスティング</strong>",
+      "content": "私たちはPHPアプリを本番環境にデプロイ・管理し、<strong>すべて</strong>を担当します：監視、セキュリティ対策、アップグレード、パフォーマンス最適化など。<br /><br />さらに、お客様のニーズに最も適したクラウド技術（Kubernetes、GCP、AWS…）やオンプレミスサーバー上でアプリケーションを管理することも可能です。",
+      "button": "ご連絡ください"
+    },
+    "services": {
+      "title": "幅広い<strong class=\"hl\">PHP</strong>サービス",
+      "content": "FrankenPHPは、API、eコマース、Web、クラウドを専門とするフランスのITサービス企業 <a href='https://les-tilleuls.coop/en'>Les-Tilleuls.coop</a> によって支援されています。<br /><br />私たちは<a href='https://api-platform.com'>API Platform</a>の制作者であり、Symfonyの共同メンテナー、PHP Foundation諮問委員会のメンバー、そして100以上のオープンソースソリューション（Laravel、Kubernetes、PM2、Go…）へのコントリビューターです。",
+      "button": "もっと知る"
+    },
+    "go": {
+      "title": "私たちは<strong class=\"hl\">Go</strong>を愛しています",
+      "content": "私たちはGoにも大きく貢献しています。この言語で書かれたリアルタイムオープンプロトコルの簡易実装 <a class=\"hl\" href='https://mercure.rocks'>Mercure</a> や、クライアント主導型REST APIのための高速で直感的なオープンプロトコル <a class=\"hl\" href='https://vulcain.rocks'>Vulcain</a> を開発しました。"
+    },
+    "further": {
+      "title": "<strong class=\"hl\">Les-Tilleuls.coop</strong>とさらに進む",
+      "subtitle": "Les-Tilleuls.coopは以下のような多様なサービスを通じて、個別サポートを提供できます：",
+      "content": [
+        {
+          "title": "Web開発",
+          "content": "モダンなフレームワークの力を活用して強力なウェブサイトを構築しましょう。（Symfony、Laravel、Vue.js、Next.js…）"
+        },
+        {
+          "title": "トレーニング",
+          "content": "認定開発者によるスキル向上"
+        },
+        {
+          "title": "コンサルティング",
+          "content": "お客様のニーズに合わせた戦略的コンサルティングサービスで自信を持って課題を克服"
+        },
+        {
+          "title": "レスキューミッション",
+          "content": "困難なプロジェクトの立て直しをサポートします"
+        },
+        {
+          "title": "パフォーマンス・セキュリティ監査",
+          "content": "詳細な監査で最高のパフォーマンスとセキュリティを確保"
+        },
+        {
+          "title": "UXとグラフィックデザイン",
+          "content": "デザインの専門知識で魅力的なユーザー体験を創造します"
+        }
+      ]
+    }
+  },
+  "ui": {
+    "copy": "クリップボードにコピー",
+    "copied": "コピーしました！",
+    "language": "言語"
+  }
+}
