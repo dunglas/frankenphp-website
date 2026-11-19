@@ -1,0 +1,13 @@
+title: Così <strong class="text-green-dark">semplice</strong> da configurare!
+overtitle: "Veloce come un fulmine"
+code: |
+    ```caddyfile
+    localhost {
+        # Abilita la compressione (opzionale)
+        encode zstd br gzip
+        # Esegui i file PHP nella directory corrente e servi gli asset
+        php_server
+    }
+    ```
+content: |
+  Tre righe di configurazione: è tutto ciò che serve per avviare un server PHP di livello produttivo (HTTPS automatico, HTTP/3, compressione zstd...), basato su [Caddy](https://caddyserver.com).

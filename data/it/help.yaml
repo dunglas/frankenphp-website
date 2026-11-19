@@ -1,0 +1,42 @@
+hero:
+  title: "Creiamo insieme qualcosa di <strong class='text-green'>straordinario</strong>!"
+  overtitle: "Hai bisogno di aiuto?"
+  content: "<a class='link !text-green-light hover:!text-purple hover:bg-green' href='https://les-tilleuls.coop/en'>Les-Tilleuls.coop</a>, gli autori di FrankenPHP, offrono un'ampia gamma di risorse per aiutarti a rendere la tua app più veloce e affidabile.<br /><br />Se cerchi una guida per definire, costruire e migliorare la tua infrastruttura, sei nel posto giusto!"
+  button: "Contattaci!"
+migration:
+  title: "<strong class='text-green-dark'>Migra</strong> le tue applicazioni a FrankenPHP"
+  content: "Migriamo la tua infrastruttura a FrankenPHP e formiamo i tuoi team al suo utilizzo. Questo migliorerà la stabilità della tua infrastruttura, portando a una maggiore produttività. Definiamo subito un piano di migrazione e lavoriamo fianco a fianco con i tuoi team per la sua realizzazione!"
+  button: "Iniziamo!"
+hosting:
+  title: "<strong class='text-green-dark'>Ospita</strong> i tuoi progetti con FrankenPHP"
+  content: "Distribuiamo e gestiamo le tue app PHP in produzione e ci occupiamo di <strong>tutto</strong>: monitoraggio, sicurezza, aggiornamenti, ottimizzazione delle prestazioni…<br /><br />Inoltre, possiamo gestire le tue applicazioni con le tecnologie cloud più adatte alle tue esigenze (Kubernetes, GCP, AWS…) o sui tuoi server on premise."
+  button: "Mettiti in contatto!"
+services:
+  title: "Un'ampia gamma di servizi <strong class='text-green-dark'>PHP</strong>"
+  content: "FrankenPHP è sponsorizzato da <a class='link' href='https://les-tilleuls.coop/en' target='_blank'>Les-Tilleuls.coop</a>, una società di servizi IT con sede in Francia specializzata in API, e-commerce, web e cloud.<br /><br />Siamo i creatori di <a class='link' href='https://api-platform.com' target='_blank'>API Platform</a>, co-manutentori di Symfony, membri del comitato consultivo della PHP Foundation e contributori di oltre 100 soluzioni open source (Laravel, Kubernetes, PM2, Go…)."
+  button: "Scopri di più"
+go:
+  title: "Amiamo <strong class='text-green'>Go</strong>"
+  content: "Siamo anche importanti contributori di Go. Abbiamo creato <a class='link !text-green-light hover:!text-purple hover:!bg-green' target='_blank' href='https://mercure.rocks'>Mercure</a>, un protocollo aperto e semplificato per il tempo reale con implementazione di riferimento scritta in questo linguaggio, e <a class='link !text-green-light hover:!text-purple hover:!bg-green' target='_blank' href='https://vulcain.rocks'> Vulcain</a>, un protocollo aperto per API REST veloci e idiomatiche guidate dal client."
+further:
+  title: "Andare oltre con <strong class='text-green-dark'>Les-Tilleuls.coop</strong>"
+  subtitle: "Les-Tilleuls.coop può inoltre offrire un supporto personalizzato attraverso diversi servizi:"
+  content:
+    - title: "Sviluppo web"
+      content: |
+        Sprigiona la potenza dei framework moderni per creare siti web performanti. (Symfony, Laravel, Vue.js, Next.js…)
+    - title: "Formazione"
+      content: |
+        Fai crescere le tue competenze con i nostri sviluppatori certificati
+    - title: "Consulenza"
+      content: |
+        Affronta le sfide con sicurezza grazie ai nostri servizi di consulenza strategica su misura per le tue esigenze
+    - title: "Mission rescue"
+      content: |
+        Ti aiutiamo a realizzare siti web ad alta complessità
+    - title: "Audit di prestazioni e sicurezza"
+      content: |
+        Garantisci prestazioni e sicurezza di primo livello con i nostri audit approfonditi
+    - title: "UX e progettazione grafica"
+      content: |
+        Crea esperienze utente coinvolgenti con la nostra competenza nel design.
